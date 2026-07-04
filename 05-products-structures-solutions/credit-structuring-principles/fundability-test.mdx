@@ -1,0 +1,95 @@
+---
+title: "Fundability Test"
+category: "credit-structuring-principles"
+zone: "Internal"
+audience: ["colaborador-interno", "business-partner", "leadership", "ai-agent"]
+primary_user: "colaborador-interno"
+owner: "Estruturação Bloxs"
+last_reviewed: "2026-07-04"
+status: "draft"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+content_classification: "operacional"
+regulatory_perimeter: "ambos"
+regulated_activity_touchpoint: true
+related_solutions: ["middle-market-funding", "receivables-finance", "legal-claims", "special-situations"]
+crm_objects: ["Deal"]
+trigger_events: ["deal_submitted"]
+stage_entry_criteria: "Deal com intake completo"
+stage_exit_criteria: "Resultado de fundabilidade registrado"
+agents: ["deal-intake-agent"]
+risk_level: "medio"
+cultural_principle: ["reputacao-acima-do-deal"]
+decision_standard: "Esse deal é bom economicamente mas ruim reputacionalmente?"
+escalate_if_culture_conflict: true
+icon: "clipboard-check"
+---
+
+<Note>
+  **Status: draft — não recuperável por agente.** Porta de entrada de todo deal. A pergunta não é "qual produto?" — é **"isso é financiável?"**. Só depois de passar aqui vai para a [Selection Matrix](/05-products-structures-solutions/selection-matrix).
+</Note>
+
+## Por que testar antes de estruturar
+
+Escolher instrumento para um deal não-financiável é desperdício e risco. O fundability test separa o que merece estruturação do que precisa de ajuste, do que deve ser recusado. É também um filtro reputacional: nem todo deal financiável deve ser feito.
+
+## As 16 perguntas
+
+| # | Pergunta | O que investiga |
+| --- | --- | --- |
+| 1 | Existe lastro? | Há ativo/direito que sustenta a operação |
+| 2 | Existe fluxo de pagamento? | Há caixa identificável para pagar |
+| 3 | Quem é o devedor/sacado? | Qualidade de quem paga |
+| 4 | Qual a fonte primária de pagamento? | De onde vem o dinheiro primeiro |
+| 5 | Qual a fonte secundária? | Plano B se a primária falhar |
+| 6 | Há histórico? | Track record de performance do lastro |
+| 7 | Há cessão válida? | O direito pode ser transferido licitamente |
+| 8 | Há garantias? | Colateral e reforços de crédito |
+| 9 | Há concentração? | Dependência de poucos devedores/sacados |
+| 10 | Há documentação? | Papel que comprova o lastro |
+| 11 | Há servicer? | Quem administra e cobra |
+| 12 | Há alinhamento econômico? | Skin in the game do originador/cedente |
+| 13 | Há investidor provável? | Existe apetite real no buy-side |
+| 14 | Há risco jurídico impeditivo? | Algo que trave a operação legalmente |
+| 15 | Há risco reputacional? | O deal contamina a casa? |
+| 16 | Há red flags? | Sinais de alerta estruturais |
+
+## Resultado
+
+| Resultado | Quando | Ação |
+| --- | --- | --- |
+| **Financiável agora** | Lastro, fluxo, cessão, docs e apetite presentes | → [Selection Matrix](/05-products-structures-solutions/selection-matrix) |
+| **Financiável com ajustes** | Gaps sanáveis (garantia, concentração, doc) | Definir ajustes e reavaliar |
+| **Não financiável** | Falta lastro/fluxo/cessão válida | Recusar com registro |
+| **Escalar para estruturação** | Complexo mas promissor | Acionar Estruturação |
+| **Escalar para jurídico/compliance** | Risco jurídico ou reputacional relevante | Parar e escalar |
+
+<Warning>
+  **Deal economicamente bom mas reputacionalmente ruim = escalar, não seguir.** Reputação acima do deal. Se as perguntas 14, 15 ou 16 acenderem, pare antes de escolher produto.
+</Warning>
+
+## CRM rules
+
+- Roda no objeto `Deal`, trigger `deal_submitted`.
+- Entry: intake completo. Exit: resultado registrado.
+- Resultado gravaádo em campo estruturado (5 opções acima).
+
+## Exemplo prático
+
+**Recebateis de uma construtora com R**$520MM em ativos, buscando R$**30MM/60 meses:** lastro imobiliário (1), fluxo de vendas (2,4), garantia real com cobertura 2,5x (8), cessão estruturável (7). Resultado: **financiável** → Selection Matrix indica CRI ou estrutura com recompra. Concentração (9) a monitorar.
+
+## Next action
+
+- Financiável → Selection Matrix.
+- Com ajustes → lista de pendências \+ reavaliar.
+- Não financiável / risco → registrar e/ou escalar.
+
+## Red flags
+
+- Lastro que ninguém consegue documentar.
+- Fonte de pagamento única e concentrada, sem plano B.
+- Cessão de duvidosa validade jurídica.
+- Originador sem skin in the game.
+- Pressa do parceiro para "pular" o teste.

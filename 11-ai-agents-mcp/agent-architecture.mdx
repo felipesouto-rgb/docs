@@ -1,0 +1,27 @@
+---
+title: "Agent Architecture"
+category: "ai-agents-mcp"
+zone: "Internal"
+audience: ["colaborador-interno", "leadership", "ai-agent"]
+primary_user: "leadership"
+owner: "Carlos Carneiro"
+last_reviewed: "2026-07-04"
+status: "draft"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+icon: "bot"
+---
+
+<Note>
+  **Status: draft · placeholder.** 6 agentes principais \+ 4 guardrails transversais. Policy layer real (não llms.txt). A desenvolver.
+</Note>
+
+## Os 6 agentes
+
+1. Partner & Account · 2. Deal Intake & Structuring · 3. CRM & Workflow · 4. Buy Side & Distribution · 5. Proposal & Materials · 6. Market & Knowledge.
+
+## Regra dura
+
+Agente recupera só com `agent_retrievable: true` E `status: approved|stable`. Nunca mais permissivo que o usuário que o invoca. Toda saída passa pelos [Guardrails](/11-ai-agents-mcp/guardrails/overview).

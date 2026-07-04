@@ -1,0 +1,80 @@
+---
+title: "Qualificar Parceiro em 5 Minutos"
+category: "sales-console"
+zone: "Internal"
+audience: ["colaborador-interno", "leadership", "ai-agent"]
+primary_user: "colaborador-interno"
+owner: "Felipe Souto"
+last_reviewed: "2026-07-04"
+status: "draft"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+content_classification: "operacional"
+partner_facing: false
+related_icps: ["boutique-ib", "assessoria-b2b", "consultor-cvm", "wealth-regional", "advogado-empresarial", "contador-estrategico", "servicer", "fintech-credito", "originador-independente", "gestora", "banco-medio", "plataforma-digital"]
+crm_objects: ["Account", "Partner-Program-Enrollment"]
+trigger_events: ["lead_created", "meeting_completed"]
+agents: ["partner-account-agent"]
+risk_level: "medio"
+cultural_principle: ["gente-boa", "reputacao-acima-do-deal"]
+decision_standard: "Esse parceiro melhora ou contamina o ecossistema?"
+escalate_if_culture_conflict: true
+icon: "gauge"
+---
+
+<Note>
+  **Status: draft — não recuperável por agente.** Roteiro de qualificação rápida. Objetivo: em 5 minutos, saber se é parceiro A/B/C/D e qual o próximo passo.
+</Note>
+
+## Para que serve
+
+Decidir rápido se vale investir tempo neste parceiro e como enquadrá-lo. Não é due diligence — é triagem. A DD formal vem depois, no onboarding.
+
+## As 10 perguntas (nessa ordem)
+
+1. **ICP** — Qual categoria? (boutique IB, assessoria, consultor CVM, wealth, advogado, contador, servicer, fintech de crédito, originador, gestora, banco médio, plataforma). Ver [Partner Routing Matrix](/03-sell-side-ibaas/partner-routing-matrix).
+2. **Base de relacionamento** — Com quem ele fala? Qualidade e senioridade da rede.
+3. **Acesso a empresas** — Tem tomadores reais precisando de capital?
+4. **Acesso a investidores** — Tem buy-side? (Atenção ao perímetro: acesso ≠ autorização para distribuir.)
+5. **Recorrência** — É deal único ou fluxo contínuo? Recorrência é o que constrói conta.
+6. **Sofisticação** — Entende crédito estruturado ou precisa de educação pesada?
+7. **Postura regulatória** — Respeita o perímetro ou já chegou querendo "distribuir e prometer retorno"? (Sinal cultural forte.)
+8. **Potencial econômico** — Tamanho e frequência dos deals que pode trazer.
+9. **Risco reputacional** — Histórico, forma de operar, alinhamento. Melhora ou contamina o ecossistema?
+10. **Próximo passo** — Qual a ação concreta ao fim da call?
+
+## Score de qualificação
+
+| Score | Perfil | Critério | Ação |
+| --- | --- | --- | --- |
+| **A** | Parceiro estratégico | Recorrência alta \+ rede qualificada \+ alinhamento cultural \+ potencial econômico forte | Priorizar; acionar liderança; onboarding rápido |
+| **B** | Parceiro prioritário | Bom potencial, algum gap (sofisticação ou recorrência) | Onboarding padrão; plano de ativação |
+| **C** | Nutrição | Potencial incerto ou deal único | Nutrir; reavaliar em 60-90 dias |
+| **D** | Não priorizar | Baixo fit, risco reputacional, ou desalinhamento cultural | Não avançar; registrar motivo |
+
+<Warning>
+  **Desalinhamento cultural é critério de rejeição, mesmo com bom potencial econômico.** Parceiro que chega querendo prometer retorno, driblar perímetro ou "vender de qualquer jeito" é D, por mais deal que traga. Reputação acima do deal. Se houver conflito cultural, escalar para liderança.
+</Warning>
+
+## CRM rules
+
+- Registrar como `Account` com `Partner-Program-Enrollment`.
+- Gravar o score A/B/C/D em campo próprio.
+- Trigger: `meeting_completed` → tarefa de next action.
+- D com risco reputacional: registrar motivo estruturado.
+
+## Next action por score
+
+- **A** → [Partner Routing Matrix](/03-sell-side-ibaas/partner-routing-matrix) \+ acionar liderança.
+- **B** → rotear perfil contratual \+ iniciar onboarding.
+- **C** → cadência de nutrição.
+- **D** → encerrar com registro; se risco reputacional, sinalizar compliance.
+
+## Red flags
+
+- Chega querendo distribuir/recomendar/prometer retorno.
+- Rede "grande" mas sem qualidade ou senioridade real.
+- Pressa incompatível com o rito regulatório.
+- Histórico de operação duvidosa.

@@ -1,0 +1,86 @@
+---
+title: "Changelog"
+category: "governance"
+zone: "Internal"
+audience: ["colaborador-interno", "leadership", "compliance", "ai-agent"]
+primary_user: "leadership"
+owner: "Felipe Souto"
+last_reviewed: "2026-07-04"
+status: "internal_review"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+icon: "history"
+---
+
+<Note>
+  **Status: internal\_review.** Histórico de mudanças do Bloxs Capital Markets OS.
+</Note>
+
+## v3.0-mvp — 2026-07-04
+
+### Escopo
+
+Primeira versão operacional do Bloxs Capital Markets OS como base Mintlify agent-first: arquitetura de 14 territórios, templates de frontmatter, Definition of Done, 8 páginas MVP com conteúdo operacional e placeholders draft para o restante da árvore.
+
+### Arquivos criados — páginas MVP (8)
+
+- `01-start-here/bloxs-one-page`
+- `02-regulatory-perimeter/originacao-vs-atividade-regulada`
+- `02-regulatory-perimeter/conduta-por-perfil`
+- `08-sales-console/frases-seguras`
+- `08-sales-console/qualificar-parceiro-em-5-minutos`
+- `03-sell-side-ibaas/partner-routing-matrix`
+- `05-products-structures-solutions/selection-matrix`
+- `05-products-structures-solutions/credit-structuring-principles/fundability-test`
+
+### Arquivos criados — governança (4)
+
+- `13-governance/definition-of-done-do-atomo` (internal\_review)
+- `13-governance/frontmatter-templates` (internal\_review)
+- `13-governance/documentation-standards` (internal\_review)
+- `13-governance/changelog` (internal\_review)
+
+### Estrutura de navegação
+
+- Novo tab **Bloxs OS** com 14 grupos-território (00-constituicao → 13-governance).
+- Subgrupo **Credit Structuring Principles** em 05.
+- Subgrupos previstos (perfis, instruments, vehicles, offering-regimes, solutions, technology-layers, comparisons, guardrails) a popular nas próximas ondas.
+- Estrutura antiga preservada sob tab **Legado · migração** (overview, emissores, investidores, instrumentos, business-partner, api, agentes, compliance) para reconciliação incremental — nenhuma página antiga foi deletada.
+
+### Decisões de arquitetura
+
+- `docs.json` renomeado para "Bloxs Capital Markets OS"; tema Navy (#033873) preservado.
+- 3 zonas operacionais na Fase 1 (Public/Internal/Restricted); 5 zonas \+ segmentação por perfil contratual na Fase 2.
+- Camada 0 (Constituição) como primeiro território, governando os demais.
+- Regra dura para agentes: recuperação só com `agent_retrievable: true` E `status: approved|stable`.
+- Todo conteúdo novo nasce `draft` e `agent_retrievable: false`; governança nasce `internal_review`.
+
+### Segurança
+
+- **Varredura de credenciais no repo: LIMPO.** Busca por api\_key/secret/token/bearer/uazapi/private\_key retornou apenas documentação legítima (placeholders `sua_api_key`, `seu_client_secret`, `meu_segredo_hmac_super_secreto`, JWTs de exemplo truncados). Nenhum segredo real versionado.
+- **`security_issue` ABERTO (prioridade zero):** credencial do MCP (`mcp-cc-...` \+ token) foi exposta em texto em conversa anterior. Não está no repositório, mas deve ser **rotacionada/revogada imediatamente**. Não versionada, não copiada para nenhum arquivo.
+
+### Repo
+
+- Repositório atual: `felipesouto-rgb/docs` (conta pessoal). A documentação é ativo estratégico da Bloxs. **Recomendação: migrar para organização Bloxs.** Não migrado — aguarda autorização explícita.
+
+### Pendências
+
+- Popular placeholders draft dos territórios 00, 03-perfis, 04, 05-subpastas, 06, 07, 09, 10, 11, 12.
+- Escrever as demais páginas das 30 prioritárias.
+- Fase 2: 5 zonas \+ auth por perfil contratual.
+- Reconciliar/migrar ou depreciar páginas do tab Legado.
+
+### Riscos
+
+- Conteúdo regulatório em `draft` não pode ser usado como fonte autorizada até revisão de compliance.
+- Zonas ainda não têm enforcement técnico por perfil (Fase 2).
+
+### Próximos passos
+
+1. Rotacionar credencial MCP exposta.
+2. Revisão de compliance das páginas de perímetro (02) e frases-seguras (08).
+3. Salvar branch e abrir PR.
+4. Decidir migração do repo para org Bloxs.

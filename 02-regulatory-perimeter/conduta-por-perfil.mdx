@@ -1,0 +1,120 @@
+---
+title: "Conduta por Perfil"
+category: "regulatory-perimeter"
+zone: "Internal"
+audience: ["colaborador-interno", "independent-banker", "business-partner", "enterprise-ibaas", "entidade-licenciada", "buy-side", "compliance", "leadership", "ai-agent"]
+primary_user: "colaborador-interno"
+owner: "Compliance Bloxs"
+last_reviewed: "2026-07-04"
+status: "draft"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+content_classification: "regulado"
+regulatory_perimeter: "ambos"
+regulated_activity_touchpoint: true
+external_output_allowed: false
+requires_compliance_approval: true
+recordkeeping_required: true
+audit_log_required: true
+reputation_risk: "alto"
+risk_level: "alto"
+icon: "users-round"
+---
+
+<Warning>
+  **Status: draft — pendente de revisão de compliance.** Esta página define o que cada perfil PODE e NÃO PODE fazer. É a tradução operacional do [perímetro regulatório](/02-regulatory-perimeter/originacao-vs-atividade-regulada).
+</Warning>
+
+## Como ler esta página
+
+Cada perfil tem um **teto de conduta**. O teto do parceiro não-licenciado é baixo por desenho — proteger o parceiro é proteger a Bloxs. Na dúvida, aplicar o teto mais baixo e escalar.
+
+## Independent Banker
+
+Parceiro **não-licenciado** cujo papel é puramente originação.
+
+- **Pode:** originar, indicar, conectar, alimentar pipeline, submeter oportunidade, apoiar com informação de relacionamento.
+- **Não pode:** ofertar, distribuir, recomendar investimento, falar com investidor sobre produto, prometer rentabilidade, prometer liquidez, usar material não aprovado, parecer representante de entidade regulada.
+- **Precisa aprovação:** qualquer material que mencione uma operação específica.
+- **Canais permitidos:** conversa de relacionamento, e-mail de apresentação institucional (sem oferta).
+- **Canais proibidos:** WhatsApp/redes sociais para oferta; qualquer canal para falar de produto com investidor.
+- **Materiais permitidos:** institucional aprovado da Bloxs.
+- **Materiais proibidos:** teaser de oferta, material com rentabilidade, qualquer peça investor-facing.
+- **Escalar para compliance quando:** o tomador virar investidor na conversa; surgir pergunta sobre retorno/liquidez; pedirem material de oferta.
+
+<Warning>
+  O Independent Banker **nunca** deve ser treinado ou instruído a ofertar, distribuir ou recomendar. Conteúdo que o ensine a agir como distribuidor é proibido e não deve existir na base para este perfil.
+</Warning>
+
+## Business Partner
+
+Instrumento-mãe do programa. Permissões **por escopo autorizado**.
+
+- **Pode:** originar; participar da estruturação como apoio técnico; atuar em colocação **quando autorizado**; receber economics por etapa.
+- **Não pode:** exercer atividade regulada fora do que foi autorizado; prometer retorno/liquidez; usar material não aprovado.
+- **Precisa aprovação:** qualquer colocação; qualquer material investor-facing; qualquer comunicação com investidor.
+- **"Autorizado" significa cumulativamente:** autorizado pelo contrato **E** pela entidade executora **E** pela regulação aplicável **E** pelo regime de oferta **E** pelo fluxo interno **E** pelo perfil do destinatário **E** por material aprovado. Falha em qualquer um = não autorizado.
+- **Canais:** conforme autorização específica; nunca WhatsApp/redes para oferta.
+- **Escalar quando:** faltar qualquer camada de "autorizado".
+
+## Enterprise IBaaS
+
+Licença **tecnológica** white-label. A atividade regulada permanece nas entidades Bloxs.
+
+- **Pode:** usar a plataforma sob sua marca; operar o fluxo tecnológico; originar em escala.
+- **Não pode:** exercer atividade regulada em nome próprio; a execução regulada é **sempre** das entidades licenciadas Bloxs.
+- **Economics:** Anuidade R\$95.000 \+ Taxa de Sucesso 1,5% sobre volume transacionado.
+- **Precisa aprovação:** integração, escopo de marca, qualquer material investor-facing.
+- **Escalar quando:** o cliente Enterprise tentar exercer atividade regulada diretamente.
+
+## Colaborador Interno
+
+- **Pode:** conduzir relação comercial, qualificar parceiro, usar o Sales Console, acionar as entidades para a parte regulada.
+- **Não pode:** exercer pessoalmente atividade regulada sem habilitação; prometer retorno/liquidez.
+- **Precisa aprovação:** todo material externo; toda comunicação com investidor sobre produto.
+- **Escalar quando:** a conversa tocar oferta, recomendação, rentabilidade ou investidor.
+
+## Entidade Executora Licenciada
+
+- **Pode:** exercer a atividade regulada dentro da sua licença (securitização, gestão, coordenação).
+- **Não pode:** atuar fora do escopo da própria licença.
+- **Recordkeeping e audit log:** obrigatórios.
+
+## Buy Side
+
+- **Pode:** receber material **aprovado**, manifestar apetite, participar de processo conduzido pela entidade autorizada.
+- **Não pode:** receber oferta de quem não é autorizado; receber material não aprovado.
+- **Canal:** sempre via entidade/pessoa autorizada, com material aprovado.
+
+## Agente de IA
+
+- **Pode:** recuperar apenas conteúdo com `agent_retrievable: true` **E** `status: approved | stable`.
+- **Não pode:** gerar output externo sem aprovação; expor economics restrito; produzir material investor-facing; ensinar conduta regulada a perfil não-licenciado.
+- **Sempre passa por:** Compliance Guardrail \+ Culture Guardrail \+ Output Policy \+ Data Leakage Guardrail antes de qualquer saída.
+
+## Matriz-resumo
+
+| Perfil | Origina | Estrutura | Distribui | Recomenda | Fala c/ investidor s/ produto |
+| --- | :-: | :-: | :-: | :-: | :-: |
+| Independent Banker | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Business Partner | ✅ | apoio | só autorizado | ❌ | só autorizado |
+| Enterprise IBaaS | ✅ | via Bloxs | via Bloxs | ❌ | ❌ |
+| Colaborador Interno | ✅ | aciona entidade | aciona entidade | só habilitado | só aprovado |
+| Entidade Licenciada | ✅ | ✅ | ✅ | conforme licença | ✅ |
+| Buy Side | — | — | — | — | recebe aprovado |
+| Agente de IA | sugere | sugere | ❌ | ❌ | ❌ |
+
+## Next action
+
+- Identificou o perfil? Aplique o teto dele.
+- Vai comunicar com investidor ou falar de produto? Cheque se é "autorizado" nas 7 camadas.
+- Qualquer dúvida → [Originação vs. Atividade Regulada](/02-regulatory-perimeter/originacao-vs-atividade-regulada) → escalar Compliance.
+
+## Red flags
+
+- Independent Banker pedindo material de oferta ou querendo falar com investidor.
+- Qualquer perfil prometendo retorno/liquidez.
+- "Autorizado" assumido sem checar todas as camadas.
+- Material investor-facing circulando sem aprovação.

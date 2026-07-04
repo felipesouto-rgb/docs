@@ -1,0 +1,68 @@
+---
+title: "Documentation Standards"
+category: "governance"
+zone: "Internal"
+audience: ["colaborador-interno", "leadership", "ai-agent"]
+primary_user: "leadership"
+owner: "Felipe Souto"
+last_reviewed: "2026-07-04"
+status: "internal_review"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+icon: "book-open"
+---
+
+<Note>
+  **Status: internal\_review.** Padrão editorial do Bloxs OS. Vale para humano e para agente.
+</Note>
+
+## Tom
+
+Institucional-técnico, direto, opinativo. Voz de arquiteto do mercado que domina a mecânica — não de vendedor. Zero hype.
+
+## Profundidade
+
+Cada átomo resolve **uma** coisa completamente. Melhor 5 átomos afiados que 1 página enciclopédica.
+
+## Como escrever para humano
+
+O leitor lê em call, sob pressão. Primeiro parágrafo já responde a pergunta. Frase curta. Decisão clara. "Faça X."
+
+## Como escrever para agente
+
+Frontmatter estruturado e **verdadeiro** (o agente confia nele). Blocos nomeados e consistentes. `next_action` sempre presente. Zero ambiguidade em campos de permissão.
+
+## Como evitar juridiquês vazio
+
+Toda regra jurídica vem com "o que isso significa na prática" e "o que você faz com isso". Norma sem consequência operacional não entra.
+
+## Como evitar marketing genérico
+
+Nenhuma afirmação sem número, mecanismo ou fonte. "Somos líderes" é proibido; métricas reais como "receita média por conta" e "churn abaixo de 1%" são permitidas.
+
+## Como preservar cultura
+
+Todo átomo de decisão carrega `cultural_principle` e `decision_standard`. Cultura não é capítulo — é campo que aparece onde há escolha.
+
+## Como garantir manutenção
+
+Átomo modular (Nível A obrigatório, resto condicional). `owner` e `last_reviewed` em toda página. Review trimestral. Status explícito. Exigir 15 blocos obrigatórios em toda página geraria dívida de manutenção impossível; por isso o modelo é modular.
+
+## Léxico
+
+- **Permitido:** tese de crédito, waterfall, subordinação, vintage, fundability, perímetro, originação, colocação.
+- **Proibido como muleta:** inovação, disrupção, ecossistema, revolucionário.
+
+## Proibições de conteúdo
+
+- Consultoria poética; motivacional vazio; narrativa institucional longa; excesso de branding.
+- Promessa comercial de retorno/liquidez.
+- Material que ensine Independent Banker a ofertar/distribuir/recomendar.
+- Conteúdo que pareça aprovado para investidor sem aprovação.
+- Output externo sem indicação de aprovação.
+
+## Obrigatórios de conteúdo (átomo crítico)
+
+Decisão clara; matriz quando couber; exemplos permitidos e proibidos; next action; red flags; uso em call; uso por agente; owner e status; perímetro regulatório; regra de CRM quando aplicável.

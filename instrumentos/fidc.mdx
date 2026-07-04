@@ -4,104 +4,165 @@ sidebarTitle: "FIDC"
 description: "Estrutura, cotas e processo de constituição de FIDC na Bloxs: mecânica do fundo, waterfall e subordinação de cotas sênior e subordinada."
 ---
 
-O FIDC (Fundo de Investimento em Direitos Creditórios) é um veículo de crédito estruturado que consolida carteiras de recebíveis e emite cotas com diferentes níveis de prioridade — sênior e subordinada — para investidores institucionais. Na plataforma Bloxs, FIDCs são estruturados e distribuídos sob o arcabouço regulatório da RCVM 175, com a **Bloxs Asset** atuando como gestora de recursos credenciada (RCVM 21). O instrumento é amplamente utilizado para securitização de carteiras de crédito ao consumidor, duplicatas, crédito consignado, recebíveis comerciais e outras classes de ativos financeiros, combinando eficiência na originação com mecanismos robustos de proteção estrutural ao cotista sênior.
-
 <Note>
-  Bloxs Asset atua como gestor de recursos (RCVM 21) nas estruturas FIDC distribuídas pela plataforma.
+  A Bloxs Asset atua como **gestor de recursos** (RCVM 21) nas estruturas FIDC distribuídas pela plataforma, sob o arcabouço da RCVM 175. Este material é técnico e informativo — não constitui recomendação de investimento nem oferta.
 </Note>
 
-## Estrutura do FIDC
+Um FIDC não é um produto — é uma **arquitetura de absorção de risco**. O que o instrumento faz, na essência, é reorganizar o fluxo de caixa de uma carteira de recebíveis em camadas de prioridade, de modo que o risco de inadimplência seja alocado deliberadamente entre quem pode absorvê-lo. Quem entende essa mecânica lê um FIDC não pela remuneração da cota sênior, mas pela distância entre a perda esperada da carteira e o ponto em que essa perda começa a tocar o cotista sênior. Essa distância tem nome: **subordinação**. E é ela que a Bloxs estrutura.
 
-O FIDC é constituído como um condomínio de investidores. Os participantes essenciais da estrutura são:
+## A estrutura em uma frase
+
+O originador cede seus recebíveis ao fundo e recebe o valor presente deles. O fundo, por sua vez, financia essa compra emitindo cotas em duas camadas: a **sênior**, que recebe primeiro e com remuneração definida, e a **subordinada**, que recebe por último e absorve as perdas antes de qualquer outra. O cotista sênior só é atingido depois que a subordinação inteira for consumida.
 
 <CardGroup cols={2}>
-  <Card title="Cedente (Originador)" icon="arrow-right-arrow-left">
-    Empresa ou instituição financeira que cede os direitos creditórios ao fundo mediante contrato de cessão. O cedente recebe o valor presente dos recebíveis cedidos e pode reter a cota subordinada como reforço de crédito à estrutura.
+  <Card title="Cedente / Originador" icon="arrow-right-arrow-left">
+    Cede os direitos creditórios ao fundo e recebe o valor presente. Frequentemente retém a cota subordinada — é o _skin in the game_ que alinha originador e cotista sênior.
   </Card>
-  <Card title="Administrador" icon="building">
-    Instituição responsável pela administração fiduciária do fundo, representação perante cotistas e autoridades regulatórias, elaboração de relatórios e convocação de assembleias.
+
+  <Card title="Bloxs Asset — Gestor" icon="chart-line">
+    Gestor de recursos (RCVM 21). Define política de aquisição, critérios de elegibilidade, monitora inadimplência e faz a gestão ativa da carteira conforme o regulamento.
   </Card>
-  <Card title="Bloxs Asset (Gestor)" icon="chart-line">
-    A Bloxs Asset, credenciada como gestora de recursos pela CVM (RCVM 21), é responsável pela gestão da carteira de direitos creditórios: análise de elegibilidade, monitoramento dos critérios de aquisição, acompanhamento de inadimplência e gestão ativa do portfólio conforme o regulamento do fundo.
+
+  <Card title="Administrador Fiduciário" icon="building">
+    Responde pela administração do fundo, representação perante cotistas e CVM, relatórios e assembleias.
   </Card>
+
   <Card title="Custodiante" icon="vault">
-    Instituição responsável pela guarda e controle dos direitos creditórios cedidos ao fundo, verificação dos critérios de elegibilidade na aquisição e conciliação dos fluxos financeiros.
+    Guarda os direitos creditórios, valida elegibilidade na aquisição e concilia os fluxos financeiros recebidos.
   </Card>
 </CardGroup>
 
-O fundo emite duas classes principais de cotas:
+## As cotas: prioridade é preço
 
-| Classe | Características |
-|---|---|
-| **Cota Sênior** | Prioridade no recebimento de amortizações e rendimentos; remuneração definida (CDI+ ou IPCA+); menor risco relativo na estrutura |
-| **Cota Subordinada (Júnior)** | Absorve as perdas da carteira antes da cota sênior; remuneração residual após o pagamento da cota sênior; função de reforço de crédito |
+| Classe | Posição no fluxo | Remuneração | Risco relativo |
+| --- | --- | --- | --- |
+| **Sênior** | Recebe primeiro | Alvo definido (ex. CDI\+) | Protegida pela subordinação |
+| **Mezanino**_(quando há)_ | Intermediária | Entre sênior e sub | Absorve perda após a sub |
+| **Subordinada (Júnior)** | Recebe por último | Residual | Absorve a primeira perda |
 
-## Waterfall de Cotas
+A cota subordinada não é "a cota ruim" — é o **motor econômico** da estrutura. Ela troca prioridade por convexidade: absorve as primeiras perdas, mas captura todo o excedente da carteira depois que a sênior é paga. Quando o originador retém a subordinada, ele está declarando confiança no próprio crédito.
 
-O waterfall de um FIDC define a ordem de prioridade na alocação dos recursos recebidos dos direitos creditórios (amortizações, juros, multas e recuperações):
+## O waterfall: para onde o dinheiro vai
+
+Todo real que a carteira gera — amortização, juros, multa, recuperação — desce por uma cascata de prioridades. A ordem é o coração da proteção estrutural:
 
 <Steps>
-  <Step title="Despesas e Encargos do Fundo">
-    Pagamento prioritário das taxas de administração, gestão, custódia, auditoria e demais encargos previstos no regulamento do fundo.
+  <Step title="Despesas e encargos do fundo">
+    Taxa de administração, gestão, custódia, auditoria e demais encargos do regulamento. Saem primeiro, sempre.
   </Step>
-  <Step title="Amortização e Rendimento das Cotas Sênior">
-    Os cotistas sêniores recebem amortizações de principal e rendimentos conforme o cronograma estabelecido no regulamento, com prioridade sobre os cotistas subordinados. O índice de subordinação mínimo (razão entre cotas subordinadas e patrimônio total) deve ser mantido conforme as regras do fundo.
+  <Step title="Amortização e rendimento da cota sênior">
+    O cotista sênior recebe principal e remuneração no cronograma do regulamento, com prioridade absoluta sobre as camadas inferiores.
   </Step>
-  <Step title="Recomposição da Reserva de Liquidez">
-    Quando aplicável, recomposição de reservas de liquidez e de caixa previstas no regulamento, antes de qualquer distribuição aos cotistas subordinados.
+  <Step title="Recomposição de reservas">
+    Reserva de liquidez e de caixa recompostas antes de qualquer distribuição às camadas subordinadas — o colchão volta ao patamar exigido.
   </Step>
-  <Step title="Amortização e Rendimento das Cotas Subordinadas">
-    Após o cumprimento integral das obrigações com os cotistas sêniores e as reservas, os recursos remanescentes são alocados às cotas subordinadas como rendimento residual.
+  <Step title="Amortização e rendimento das cotas subordinadas">
+    Só depois de tudo acima, o excedente flui à cota subordinada como rendimento residual.
   </Step>
 </Steps>
 
-O nível de subordinação — percentual do patrimônio líquido representado pelas cotas subordinadas — é o principal mecanismo de proteção estrutural ao cotista sênior. Quanto maior a subordinação, maior o colchão de absorção de perdas antes que a cota sênior seja afetada.
+<Warning>
+  **Gatilhos de amortização acelerada.** Quando um índice de subordinação cai abaixo do mínimo, ou a inadimplência da carteira ultrapassa o limite do regulamento, o waterfall entra em modo de proteção: o fluxo é redirecionado para amortizar a cota sênior antecipadamente, interrompendo distribuições à subordinada. É o mecanismo que converte deterioração de carteira em desalavancagem automática — antes que a perda alcance o cotista sênior.
+</Warning>
 
-## Direitos Creditórios Elegíveis
+## Subordinação e cobertura: os números que importam
 
-Os FIDCs estruturados na plataforma Bloxs podem adquirir as seguintes classes de direitos creditórios, desde que atendam aos critérios de elegibilidade definidos no regulamento do fundo:
+A **subordinação** é o percentual do patrimônio representado pelas cotas subordinadas — o colchão que absorve perda antes da sênior. Um exemplo torna concreto:
 
-| Classe de Ativo | Exemplos |
-|---|---|
-| **Duplicatas** | Recebíveis comerciais originados de vendas a prazo entre empresas; duplicatas mercantis e de serviço |
-| **CCBs (Cédulas de Crédito Bancário)** | Operações de crédito formalizadas por CCB, incluindo crédito corporativo, capital de giro e crédito imobiliário |
-| **Crédito Consignado** | Carteiras de crédito consignado em folha de pagamento (público, privado ou beneficiários do INSS) |
-| **Recebíveis Comerciais** | Boletos, contratos de prestação de serviços, recebíveis de cartão de crédito e outros créditos performados ou a performar |
-| **CRIs e CRAs** | Certificados de recebíveis imobiliários e do agronegócio, quando utilizados como ativo de carteira em FIDC |
-| **Outros Direitos Creditórios** | Precatórios, créditos tributários, recebíveis de saúde, educação e demais categorias previstas no regulamento |
+<CardGroup cols={3}>
+  <Card title="PL total" icon="layer-group">
+    R\$ 100 MM
+  </Card>
 
-Os critérios de elegibilidade — prazo máximo, concentração por devedor, índice de inadimplência máximo permitido, documentação mínima — são estabelecidos no regulamento do fundo e monitorados pela Bloxs Asset em cada aquisição.
+  <Card title="Cota sênior" icon="shield">
+    R\$ 87,5 MM (87,5%)
+  </Card>
 
-## FIDC Aberto vs Fechado
+  <Card title="Cota subordinada" icon="anchor">
+    R\$ 12,5 MM (**subordinação de 12,5%**)
+  </Card>
+</CardGroup>
+
+Nesse desenho, a carteira precisaria perder **mais de 12,5%** do seu valor antes que o cotista sênior sofresse o primeiro centavo de perda. Se a perda esperada da carteira for, digamos, 4%, a estrutura tem um colchão de mais de 3x sobre a perda esperada.
+
+Essa razão — colchão dividido pela perda esperada — é a **cobertura** (_coverage_). É a métrica-mãe da tese de crédito:
+
+| Perda esperada da carteira | Subordinação | Cobertura |
+| --- | --- | --- |
+| 4,0% | 12,5% | ~3,1x |
+| 6,0% | 12,5% | ~2,1x |
+| 8,0% | 12,5% | ~1,6x |
+
+Quanto maior a cobertura, mais a cota sênior se distancia do risco. Quando um investidor institucional avalia um FIDC na plataforma Bloxs, é este número — não o cupom da sênior — que ele olha primeiro.
+
+## Vintage: a carteira conta a verdade no tempo
+
+Nenhuma foto de inadimplência instantânea diz a verdade sobre uma carteira de crédito. A leitura correta é por **safra (vintage)**: agrupar os créditos pelo mês de originação e acompanhar como cada safra performa ao longo de sua maturação. Uma carteira pode parecer saudável no agregado e estar escondendo uma safra recente que se deteriora rápido.
+
+A análise de vintage responde três perguntas que o índice agregado esconde:
+
+- **A inadimplência está estabilizando ou acelerando** em safras sucessivas?
+- **A curva de perda de uma safra madura** confirma a perda esperada usada no dimensionamento da subordinação?
+- **O originador afrouxou a política de crédito** — safras novas performando pior que as antigas?
+
+A Bloxs Asset monitora as safras contra os critérios de elegibilidade a cada aquisição. Uma subordinação de 12,5% só é defensável se a curva de vintage sustentar a perda esperada que a justifica — caso contrário, o colchão é ilusório.
+
+## Aberto vs. fechado
 
 <Tabs>
   <Tab title="FIDC Fechado">
-    **Modalidade predominante em operações estruturadas.**
-
-    No FIDC fechado, não há possibilidade de resgate antecipado das cotas pelos cotistas. O desinvestimento ocorre apenas por meio de amortizações programadas conforme o cronograma do fundo, ou mediante alienação das cotas no mercado secundário (quando disponível). Essa estrutura é mais adequada para carteiras de direitos creditórios de médio e longo prazo, com cronograma de recebimentos previsível, e oferece maior previsibilidade de fluxo de caixa para a gestão da carteira.
+    **Modalidade predominante em operações estruturadas.** Não há resgate antecipado — o desinvestimento ocorre por amortização programada ou venda no secundário. Adequado a carteiras de médio e longo prazo, com fluxo previsível. Oferece maior estabilidade à estrutura de subordinação, porque o passivo não corre.
   </Tab>
   <Tab title="FIDC Aberto">
-    **Utilizado em operações com liquidez de curto prazo.**
-
-    No FIDC aberto, os cotistas podem solicitar o resgate de suas cotas conforme as condições e prazos previstos no regulamento. Essa modalidade é mais comum em FIDCs com carteiras de direitos creditórios de curto prazo (duplicatas rotativas, recebíveis de cartão), onde o ciclo de recebimento é suficientemente rápido para suportar resgates sem comprometer a estrutura de subordinação.
+    **Para carteiras de giro curto.** Cotistas podem resgatar conforme o regulamento. Mais comum em recebíveis de ciclo rápido (duplicatas rotativas, recebíveis de cartão), onde o recebimento é veloz o suficiente para suportar resgates sem romper a subordinação. Exige gestão de liquidez mais rígida.
   </Tab>
 </Tabs>
 
-## Processo na Plataforma Bloxs
+## Direitos creditórios elegíveis
 
-A constituição e distribuição de FIDCs na plataforma Bloxs segue as etapas abaixo:
+| Classe de ativo | Exemplos |
+| --- | --- |
+| **Duplicatas** | Recebíveis comerciais de vendas a prazo entre empresas |
+| **CCB** | Crédito corporativo, capital de giro, crédito imobiliário formalizado por cédula |
+| **Consignado** | Carteiras com desconto em folha (público, privado, INSS) |
+| **Recebíveis comerciais** | Boletos, contratos de serviço, recebíveis de cartão — performados ou a performar |
+| **Outros** | Precatórios, créditos judiciais, recebíveis de saúde e educação, conforme o regulamento |
+
+Prazo máximo, concentração por devedor, inadimplência-limite e documentação mínima são fixados no regulamento e verificados pela Bloxs Asset em cada aquisição.
+
+## O processo na Bloxs
 
 <Steps>
   <Step title="Estruturação">
-    Definição dos parâmetros do fundo: classe de ativos, critérios de elegibilidade, índice de subordinação, remuneração das cotas sênior, política de aquisição e demais condições do regulamento. Consulte [/emissores/estruturacao](/emissores/estruturacao) para o fluxo detalhado.
+    Definição de classe de ativos, critérios de elegibilidade, nível de subordinação, remuneração-alvo da sênior e política de aquisição. Veja o fluxo completo em [Estruturação](/emissores/estruturacao).
   </Step>
-  <Step title="Constituição Regulatória">
-    Elaboração do regulamento do fundo, formulário de informações complementares e demais documentos exigidos pela RCVM 175. Registro do FIDC perante a CVM e aprovação pelo administrador.
+  <Step title="Constituição regulatória">
+    Regulamento, formulário de informações complementares e demais documentos exigidos pela RCVM 175. Registro perante a CVM e aprovação do administrador.
   </Step>
-  <Step title="Distribuição das Cotas">
-    As cotas sênior são distribuídas ao mercado institucional por meio da rede de distribuição da Bloxs, com processo de bookbuilding conduzido pela equipe de distribuição. A Bloxs Asset, como gestora, monitora a captação e a adequação dos investidores ao perfil do fundo.
+  <Step title="Distribuição das cotas">
+    A Mesa de Distribuição conduz o bookbuilding das cotas sênior junto às contas institucionais aderentes ao perfil do fundo — setor, duration, ticket, restrições.
   </Step>
-  <Step title="Operação e Monitoramento">
-    Após a captação inicial, a Bloxs Asset realiza a gestão contínua da carteira: aquisição de novos direitos creditórios, monitoramento de inadimplência, produção de relatórios periódicos e comunicação com cotistas e administrador.
+  <Step title="Gestão e monitoramento">
+    A Bloxs Asset opera a carteira: aquisição dentro dos critérios, monitoramento de vintage e inadimplência, relatórios periódicos e comunicação com cotistas e administrador.
   </Step>
 </Steps>
+
+## Próximos passos
+
+<CardGroup cols={3}>
+  <Card title="Modelo CMaaS" icon="building-columns" href="/overview/modelo-cmaas">
+    O fluxo end-to-end de uma operação na plataforma.
+  </Card>
+
+  <Card title="Para Investidores" icon="chart-line" href="/investidores/avaliacao-de-operacoes">
+    Como avaliar cobertura e subordinação de uma operação no pipeline.
+  </Card>
+
+  <Card title="Compliance CVM" icon="scale-balanced" href="/compliance/cvm-bcb">
+    Obrigações de qualificação e suitability para acessar cotas.
+  </Card>
+</CardGroup>
+
+<Note>
+  **Confidencial · Material Preliminar.** As estruturas, percentuais e exemplos numéricos nesta página são ilustrativos da mecânica do instrumento. Cada operação tem parâmetros próprios definidos em regulamento. Nada aqui constitui oferta, recomendação ou promessa de rentabilidade.
+</Note>

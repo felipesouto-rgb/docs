@@ -1,0 +1,81 @@
+---
+title: "Partner Routing Matrix"
+category: "sell-side-ibaas"
+zone: "Internal"
+audience: ["colaborador-interno", "leadership", "ai-agent"]
+primary_user: "colaborador-interno"
+owner: "Felipe Souto"
+last_reviewed: "2026-07-04"
+status: "draft"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+content_classification: "operacional"
+partner_facing: false
+related_icps: ["boutique-ib", "assessoria-b2b", "consultor-cvm", "wealth-regional", "advogado-empresarial", "contador-estrategico", "servicer", "fintech-credito", "originador-independente", "gestora", "banco-medio", "plataforma-digital"]
+crm_objects: ["Account", "Deal", "Partner-Program-Enrollment"]
+agents: ["partner-account-agent", "deal-intake-agent"]
+risk_level: "medio"
+icon: "route"
+---
+
+<Note>
+  **Status: draft — não recuperável por agente.** Roteia cada ICP para perfil contratual, produto provável, economics e entidade executora. O ICP é uma **lente** — todo parceiro cai em Independent Banker (IB), Business Partner (BP) ou Enterprise IBaaS (ENT).
+</Note>
+
+## Como usar
+
+1. Identifique o ICP.
+2. Leia a linha: perfil provável, o que tem/falta, produto, economics, entidade, risco, próximo passo.
+3. Confirme o perfil contratual com [Conduta por Perfil](/02-regulatory-perimeter/conduta-por-perfil).
+4. Valide a estrutura com a [Selection Matrix](/05-products-structures-solutions/selection-matrix).
+
+## Matriz
+
+| ICP | Perfil provável | O que tem | O que falta | Produto/solução provável | Economics possível | Entidade executora | Risco principal | Próximo passo |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **Boutique IB** | BP | Deals, relação sênior, tese | Trilho digital, veículo, distribuição | FIDC, CRI, debênture · middle-market funding | SetUp \+ Success; Colocação se autorizado | Coordenação / Securitizadora / Asset | Key-man; tentação de canal WhatsApp | Fit-score \+ caso Alpha |
+| **Assessoria B2B** | BP ou IB | Pipeline, contas corporativas | Estrutura regulada, produto | CR · receivables finance | Success \+ override | Securitizadora | Achar que pode distribuir | Mapear pipeline atual |
+| **Consultor CVM** | BP | Conhecimento regulatório | Originação em escala | Estruturação, offering regimes | Apoio Técnico | Conforme mandato | Sobreposição de papel | Definir escopo técnico |
+| **Wealth regional** | BP | Base de investidores, capital | Originação sell-side | Buy-side \+ estruturação | Success \+ participação | Asset / Coordenação | Confundir com distribuição própria | Mapa de apetite |
+| **Advogado empresarial** | IB → BP | Casos, RJ, reestruturação | Monetização financeira | legal-claims, special situations | Indicação \+ override | Securitizadora | Não pode ofertar | Caso legal-claims |
+| **Contador estratégico** | IB | Acesso ao CFO, dados | Produto de capital | CR · supply-chain finance | Indicação \+ override 12m | Securitizadora | Vedações duras de conduta | Lista de clientes-alvo |
+| **Servicer** | BP | Operação, cobrança, dados | Veículo, distribuição | FIDC (como servicer), warehouse | Success \+ fee de serviço | Asset / Securitizadora | Conflito de papel | DD de capacidade |
+| **Fintech de crédito** | BP ou ENT | Originação em volume, tech | Funding estruturado | FIDC, FIDC-multiclasse, warehouse | Success \+ tech fee (ENT) | Asset / Securitizadora | Balance-sheet vs asset-light | Fundability test |
+| **Originador independente** | BP | Lastro, volume regional | Estrutura, compliance | CR, FIDC · ops-supply-chain | Success \+ colocação | Securitizadora / Asset | Cessão válida? Concentração? | Caso Gamma |
+| **Gestora** | BP | Mandato, veículo, capital | Originação diferenciada | Carteira administrada, FIF, club deals | Management \+ participação | Asset | Já regulada | Tese de produto |
+| **Banco médio** | ENT | Balanço, base, licença | Escala tech, agilidade | ENT white-label, tokenização | R\$95k \+ 1,5% volume | Digital \+ entidades | É cliente, não concorrente | Piloto white-label |
+| **Plataforma digital** | ENT | Base de usuários, tech | Trilho regulado de capitais | ENT white-label, digital-assets | R\$95k \+ 1,5% volume | Digital \+ entidades | Integração; perímetro regulado | Escopo de integração |
+
+## Economics de referência (Business Partner)
+
+| Etapa | Faixa |
+| --- | --- |
+| Set Up | até 20% |
+| Success Fee | até 80% |
+| Colocação (autorizado) | 80% |
+| Colocação (repasse por originação) | 20% |
+| Apoio Técnico | até 100% |
+
+<Warning>
+  Economics detalhado por contrato é **Restricted-Economics**. Esta tabela é referência de enquadramento interno — não compartilhar faixas específicas com o parceiro fora do processo contratual, nem entre parceiros.
+</Warning>
+
+## CRM rules
+
+- ICP → campo de segmentação no `Account`.
+- Perfil roteado → `Partner-Program-Enrollment`.
+- Deal gerado → objeto `Deal` ligado à conta.
+
+## Next action
+
+- Perfil = ENT → escopo de integração \+ piloto.
+- Perfil = BP → onboarding \+ primeiro deal via [Fundability Test](/05-products-structures-solutions/credit-structuring-principles/fundability-test).
+- Perfil = IB → onboarding de originação (sem trilha de distribuição).
+
+## Red flags
+
+- Encaixar parceiro num perfil só pela economics, ignorando o perímetro.
+- Wealth/assessoria assumindo que pode distribuir por ter investidores.
+- Advogado/contador tratados como distribuidores.

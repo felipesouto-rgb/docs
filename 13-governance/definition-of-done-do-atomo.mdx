@@ -1,0 +1,65 @@
+---
+title: "Definition of Done do Átomo"
+category: "governance"
+zone: "Internal"
+audience: ["colaborador-interno", "leadership", "compliance", "ai-agent"]
+primary_user: "leadership"
+owner: "Felipe Souto"
+last_reviewed: "2026-07-04"
+status: "internal_review"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+icon: "circle-check-big"
+---
+
+<Note>
+  **Status: internal\_review.** Nenhum átomo vira `stable` sem cumprir os 15 critérios abaixo. Este é o gate de qualidade da base.
+</Note>
+
+## Os 15 critérios
+
+| # | Critério | Aplicação |
+| --- | --- | --- |
+| 1 | Frontmatter completo conforme criticidade | Todo átomo (nível A/B/C/D) |
+| 2 | Owner definido | Todo átomo |
+| 3 | Last reviewed preenchido | Todo átomo |
+| 4 | Status correto | Todo átomo |
+| 5 | Source of truth definido | Todo átomo |
+| 6 | Perímetro regulatório preenchido | Se aplicável |
+| 7 | Conduta por perfil definida | Se aplicável |
+| 8 | Next action claro | Todo átomo crítico |
+| 9 | CRM object/stage indicado | Se operacional |
+| 10 | Agent rules preenchido | Se ligado a agente |
+| 11 | External output policy preenchida | Se aplicável |
+| 12 | Compliance approval | Se `external_output_allowed: true` |
+| 13 | Culture review | Se existir `decision_standard` |
+| 14 | Exemplo prático incluído | Todo átomo crítico |
+| 15 | Red flags incluídas | Se aplicável |
+
+## Regra dura de promoção de status
+
+```text
+draft → internal_review → compliance_review → approved → stable
+```
+
+- **draft:** rascunho; agente não recupera.
+- **internal\_review:** em revisão interna; agente não recupera.
+- **compliance\_review:** em análise de compliance; agente não recupera.
+- **approved:** aprovado; agente **pode** recuperar se `agent_retrievable: true`.
+- **stable:** estável e maduro; agente **pode** recuperar se `agent_retrievable: true`.
+- **deprecated:** obsoleto; agente não recupera.
+
+<Warning>
+  Nada vira `approved` ou `stable` sem revisão humana explícita. Um átomo com `external_output_allowed: true` exige `compliance_approved_by` preenchido. Um átomo com `decision_standard` exige `culture_reviewed_by`.
+</Warning>
+
+## Checklist prático antes de promover
+
+1. Rodei os 15 critérios?
+2. O frontmatter reflete a verdade (agentes confiam nele)?
+3. Tem exemplo permitido e proibido onde faz sentido?
+4. Tem next action e red flags?
+5. Se toca investidor/oferta → passou por compliance?
+6. Se é decisão → passou por culture review?
