@@ -1,0 +1,125 @@
+---
+title: "API Bloxs: visão geral e primeiros passos"
+sidebarTitle: "Visão Geral"
+description: "Visão geral da API REST Bloxs: base URL, versionamento, formatos de requisição e resposta, e como começar a integrar."
+---
+
+A API REST da Bloxs oferece acesso programático às funções centrais da plataforma de Capital Markets as a Service (CMaaS): originação de operações, consulta de pipeline, registro de interesse em deals e gerenciamento de webhooks. Toda comunicação é realizada via HTTPS com payloads em JSON, garantindo segurança e interoperabilidade com qualquer linguagem ou stack tecnológico.
+
+## Base URL
+
+Todas as requisições devem ser direcionadas ao seguinte endereço base:
+
+```
+https://api.bloxs.com.br/v1
+```
+
+<Info>
+  Requisições realizadas via HTTP (sem TLS) serão automaticamente recusadas. Utilize sempre HTTPS.
+</Info>
+
+## Versionamento
+
+O versionamento da API é realizado via **prefixo de caminho na URL** (path versioning). A versão estável atual é `v1`.
+
+| Versão | Status     | URL base                          |
+| ------ | ---------- | --------------------------------- |
+| v1     | Estável ✅  | `https://api.bloxs.com.br/v1`    |
+
+Mudanças que introduzam incompatibilidade retroativa (*breaking changes*) resultarão no incremento de versão (ex.: `/v2`). A Bloxs comunicará descontinuações com antecedência mínima de 90 dias. Adições de novos campos opcionais em respostas existentes **não** são consideradas breaking changes.
+
+## Formatos
+
+| Aspecto            | Convenção                                              |
+| ------------------ | ------------------------------------------------------ |
+| Content-Type       | `application/json`                                     |
+| Encoding           | UTF-8                                                  |
+| Datas e horários   | ISO 8601 — `YYYY-MM-DDTHH:mm:ssZ` (UTC)               |
+| Valores monetários | Inteiros em **centavos de BRL** (ex.: R$ 1.000,00 = `100000`) |
+| Booleanos          | `true` / `false` (JSON nativo)                        |
+
+Sempre inclua o header `Content-Type: application/json` em requisições com corpo (POST, PUT, PATCH).
+
+## Autenticação
+
+A API Bloxs utiliza o fluxo **OAuth2 Client Credentials** para autenticação machine-to-machine. Toda requisição deve incluir um token de acesso válido no header `Authorization`.
+
+Consulte a documentação completa em [Autenticação](/api/autenticacao) para obter detalhes sobre como gerar e renovar tokens, escopos disponíveis e tratamento de erros de autenticação.
+
+## Códigos de Status HTTP
+
+A API utiliza os códigos de status HTTP padrão para indicar o resultado de cada requisição.
+
+| Código | Status                    | Descrição                                           |
+| ------ | ------------------------- | --------------------------------------------------- |
+| `200`  | OK                        | Requisição bem-sucedida                             |
+| `201`  | Created                   | Recurso criado com sucesso                          |
+| `400`  | Bad Request               | Payload inválido ou parâmetro ausente               |
+| `401`  | Unauthorized              | Token ausente ou inválido                           |
+| `403`  | Forbidden                 | Token válido mas sem permissão para o recurso       |
+| `404`  | Not Found                 | Recurso não encontrado                              |
+| `422`  | Unprocessable Entity      | Validação de negócio falhou                         |
+| `429`  | Too Many Requests         | Rate limit excedido                                 |
+| `500`  | Internal Server Error     | Erro interno — contate o suporte Bloxs             |
+
+Respostas de erro retornam um objeto JSON padronizado com os campos `error` (código de erro legível por máquina) e `message` (descrição legível por humano):
+
+```json
+{
+  "error": "validation_failed",
+  "message": "O campo 'volume_brl' é obrigatório e deve ser um inteiro positivo.",
+  "details": [
+    {
+      "field": "volume_brl",
+      "issue": "required"
+    }
+  ]
+}
+```
+
+## Rate Limits
+
+Para garantir a estabilidade da plataforma, a API aplica os seguintes limites por chave de API:
+
+| Janela    | Limite         |
+| --------- | -------------- |
+| Por hora  | 1.000 requisições |
+
+Cada resposta inclui os seguintes headers para monitoramento do consumo:
+
+| Header                  | Descrição                                                   |
+| ----------------------- | ----------------------------------------------------------- |
+| `X-RateLimit-Limit`     | Número máximo de requisições permitidas na janela atual     |
+| `X-RateLimit-Remaining` | Número de requisições restantes na janela atual             |
+| `X-RateLimit-Reset`     | Timestamp Unix (UTC) de quando a janela será reiniciada     |
+
+Quando o limite é excedido, a API retorna `429 Too Many Requests`. Implemente **exponential backoff** com jitter antes de retentar.
+
+<Tip>
+  Utilize os headers `X-RateLimit-Remaining` e `X-RateLimit-Reset` de forma proativa para cadenciar suas requisições e evitar atingir o limite.
+</Tip>
+
+## Exemplo de Requisição
+
+O exemplo abaixo demonstra uma requisição autenticada para listar operações disponíveis:
+
+```bash
+curl -X GET https://api.bloxs.com.br/v1/operacoes \
+  -H "Authorization: Bearer {seu_token}" \
+  -H "Content-Type: application/json"
+```
+
+<Steps>
+  <Step title="Obtenha suas credenciais">
+    Acesse as configurações de desenvolvedor na plataforma Bloxs e gere seu `client_id` e `client_secret`.
+  </Step>
+  <Step title="Solicite um token de acesso">
+    Faça um POST para `/v1/auth/token` com suas credenciais para obter um `access_token`. Veja [Autenticação](/api/autenticacao).
+  </Step>
+  <Step title="Faça sua primeira requisição">
+    Inclua o token no header `Authorization: Bearer {access_token}` em todas as requisições à API.
+  </Step>
+  <Step title="Trate as respostas">
+    Verifique o código de status HTTP e processe o JSON de resposta. Em caso de erro, consulte a tabela de códigos acima.
+  </Step>
+</Steps>

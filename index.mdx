@@ -1,20 +1,49 @@
 ---
-title: "Introduction"
-description: "Welcome to your project"
+title: "Bloxs: Infraestrutura de Mercado de Capitais"
+sidebarTitle: "Início"
+description: "Plataforma CMaaS para originação, estruturação, distribuição e custódia de ativos de crédito estruturado no mercado de capitais brasileiro."
 ---
 
-Write a short description of your product here. What it does, who it's for, and what they can accomplish with it.
+A Bloxs é a infraestrutura digital para operações de crédito estruturado no mercado de capitais brasileiro. A plataforma conecta emissores (sell-side) e investidores institucionais (buy-side) em um fluxo integrado que vai da originação da operação até o takeout — passando por estruturação, pricing e distribuição, sob arcabouço regulatório CVM.
 
-<Tip>
-  Ready to make this your own? Start by editing this page. Update your `docs.json` file to customize your site. Then fill out the [Quickstart](/quickstart) page.
-</Tip>
+<CardGroup cols={2}>
+  <Card title="O que é a Bloxs" icon="building-columns" href="/overview/introducao">
+    Entenda o modelo CMaaS e como a infraestrutura opera os dois lados do mercado.
+  </Card>
+  <Card title="Para Emissores" icon="arrow-up-from-bracket" href="/emissores/como-funciona">
+    Como originar e estruturar uma operação de crédito estruturado na plataforma.
+  </Card>
+  <Card title="Para Investidores" icon="chart-line" href="/investidores/como-funciona">
+    Como acessar o pipeline de deals e avaliar operações disponíveis.
+  </Card>
+  <Card title="Instrumentos" icon="file-contract" href="/instrumentos/cri">
+    CRI, CRA, FIDC, Debêntures, CCB e CR — mecânica e estrutura de cada ativo.
+  </Card>
+  <Card title="API Reference" icon="code" href="/api/overview">
+    Endpoints públicos da plataforma Bloxs para integrações programáticas.
+  </Card>
+  <Card title="Agentes & MCP" icon="robot" href="/agentes/cmd-overview">
+    Como o CMD (Capital Markets DealMatch) e os MCP servers expõem conhecimento.
+  </Card>
+</CardGroup>
 
-<Card title="Quickstart" icon="rocket" href="/quickstart">
-  This card links to the quickstart page in your project.
-</Card>
-<Card title="Components" icon="puzzle-piece" href="https://mintlify.com/docs/components">
-  Add cards, callouts, steps, tabs, and more to design and structure your pages.
-</Card>
-<Card title="Settings" icon="gear" href="https://mintlify.com/docs/organize/settings">
-  Set your site name, branding, and navigation in the `docs.json` file.
-</Card>
+## Fluxo da Plataforma
+
+<Steps>
+  <Step title="Originação">
+    O emissor submete a tese de crédito. Os agentes Intake e Scoring realizam triagem automatizada, avaliando fit regulatório e viabilidade de estruturação.
+  </Step>
+  <Step title="Estruturação">
+    O agente Structurer define o instrumento adequado (CRI, CRA, FIDC, Debênture, CCB ou CR), waterfall de pagamentos, subordinação e covenants, com validação de conformidade RCVM.
+  </Step>
+  <Step title="Pricing & Distribuição">
+    O agente Pricer calcula spread de referência. O Matcher identifica contas-alvo no buy-side (gestoras, wealth managers, family offices). A Mesa de Distribuição Bloxs opera a ponte entre os dois lados.
+  </Step>
+  <Step title="Takeout">
+    Após bookbuilding e alocação, a operação é custodiada pela entidade regulatória correspondente (B-SEC Securitizadora para CRI/CRA, ou veículo FIDC quando aplicável).
+  </Step>
+</Steps>
+
+<Note>
+  A Bloxs opera sob regulação CVM. Todo material de oferta pública segue os requisitos das Resoluções CVM aplicáveis. Nenhuma informação nesta base de conhecimento constitui recomendação de investimento.
+</Note>

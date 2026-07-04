@@ -1,0 +1,84 @@
+---
+title: "MCP Server Bloxs: integração com agentes de IA"
+sidebarTitle: "MCP Server"
+description: "Como conectar agentes de IA externos ao MCP Server Bloxs para consumir e expor conhecimento de mercado de capitais via protocolo MCP."
+---
+
+O MCP Server Bloxs expõe o conhecimento da plataforma e as capacidades dos agentes CMD a agentes de IA externos, possibilitando o consumo programático de inteligência de mercado de capitais — dados de operações, relatórios de scoring, referências regulatórias e recomendações de estruturação. Por meio do protocolo MCP, sistemas de IA de terceiros passam a operar com acesso estruturado às mesmas fontes analíticas utilizadas internamente pela plataforma Bloxs.
+
+## O que é o MCP Server
+
+O Model Context Protocol (MCP) é uma interface padronizada que permite a agentes de IA consumir ferramentas e recursos estruturados de forma consistente, independentemente do modelo de linguagem ou framework subjacente. Ao adotar o MCP como protocolo de integração, a Bloxs garante que as capacidades do CMD sejam acessíveis a qualquer cliente compatível — desde ambientes de desenvolvimento como o Cursor até assistentes institucionais construídos sobre a API da Bloxs.
+
+O MCP Server Bloxs expõe as funcionalidades dos agentes CMD como ferramentas invocáveis (`tools`), permitindo que agentes externos acionem scoring, estruturação, precificação, matching e educação de forma direta e auditável, com autenticação via chave de API.
+
+## Ferramentas Disponíveis
+
+| Ferramenta | Agente CMD | Descrição |
+|---|---|---|
+| `bloxs_dealmatch` | Matcher | Consulta o agente Matcher para identificar contas de investidores institucionais compatíveis com o perfil de uma operação |
+| `bloxs_scoring` | Scoring | Executa o agente Scoring sobre uma tese de crédito submetida, retornando score, classificação e dimensões analíticas |
+| `bloxs_structure` | Structurer | Consulta o agente Structurer para recomendações de instrumento, arquitetura de waterfall e índices de subordinação |
+| `bloxs_price` | Pricer | Obtém estimativa de spread de referência do agente Pricer para uma operação específica |
+| `bloxs_educate` | Educator | Obtém conteúdo explicativo do agente Educator sobre a estrutura de um instrumento ou operação |
+| `bloxs_search_cvm` | — | Pesquisa na base regulatória da CVM via MCP, incluindo normas, registros de emissores e histórico de ofertas |
+| `bloxs_search_anbima` | — | Consulta dados de benchmark e índices de referência da ANBIMA |
+
+## Configuração do MCP Server
+
+Para conectar um cliente MCP compatível ao MCP Server Bloxs, adicione a seguinte configuração ao arquivo de servidores MCP do seu ambiente. O exemplo abaixo é válido para clientes como Claude Desktop e Cursor.
+
+```json mcp_config.json
+{
+  "mcpServers": {
+    "bloxs": {
+      "command": "npx",
+      "args": ["-y", "@bloxs/mcp-server"],
+      "env": {
+        "BLOXS_API_KEY": "sua_api_key",
+        "BLOXS_API_URL": "https://api.bloxs.com.br/v1"
+      }
+    }
+  }
+}
+```
+
+Substitua `sua_api_key` pela chave de API emitida para sua conta Bloxs. A variável `BLOXS_API_URL` aponta para o ambiente de produção; para ambientes de homologação, utilize `https://api-sandbox.bloxs.com.br/v1`.
+
+## Exemplo de Uso
+
+O exemplo a seguir demonstra a invocação da ferramenta `bloxs_scoring` para execução do agente Scoring sobre uma operação FIDC no setor de consumo, com retorno do relatório de scoring estruturado.
+
+```json
+// Chamada da ferramenta
+{
+  "tool": "bloxs_scoring",
+  "input": {
+    "cnpj_emissor": "12.345.678/0001-90",
+    "instrumento": "FIDC",
+    "volume_brl": 2000000000,
+    "setor": "consumo"
+  }
+}
+```
+
+```json
+// Resposta da ferramenta
+{
+  "score": 72,
+  "classificacao": "BB+",
+  "dimensoes": {
+    "capacidade_financeira": 75,
+    "qualidade_colateral": 68,
+    "vintage_setor": 80,
+    "compliance_regulatorio": 70
+  },
+  "recomendacao": "Operação viável para estruturação FIDC fechado com subordinação mínima de 20%."
+}
+```
+
+O campo `recomendacao` é gerado pelo agente Scoring como orientação indicativa para a equipe de estruturação. Todos os valores de score e dimensões são expressos em escala de 0 a 100.
+
+<Tip>
+  O MCP Server Bloxs é compatível com qualquer cliente MCP que siga o protocolo Model Context Protocol.
+</Tip>

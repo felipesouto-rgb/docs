@@ -1,0 +1,64 @@
+---
+title: "Modelo CMaaS: como a Bloxs estrutura operações"
+sidebarTitle: "Modelo CMaaS"
+description: "Entenda o modelo Capital Markets as a Service da Bloxs e o fluxo end-to-end de uma operação de crédito estruturado."
+---
+
+O modelo Capital Markets as a Service (CMaaS) da Bloxs é uma infraestrutura que desacopla a originação de crédito estruturado da necessidade de o originador manter infraestrutura própria de mercado de capitais. Em vez de constituir internamente as capacidades de estruturação regulatória, precificação, distribuição institucional e custódia, o emissor acessa essas funções como serviço — sobre uma plataforma regulada, com agentes automatizados e uma mesa de distribuição operacional. O resultado é a compressão do ciclo de uma operação de dívida estruturada, com redução de fricção operacional e aumento da previsibilidade de takeout.
+
+## Fluxo End-to-End
+
+<Steps>
+  <Step title="Intake & Scoring">
+    O emissor submete a tese de crédito à plataforma — via interface web, API ou WhatXS. O agente **Intake** realiza a triagem inicial: verifica fit regulatório, completude das informações e enquadramento nos instrumentos suportados. Em seguida, o agente **Scoring** executa uma avaliação multidimensional do crédito, considerando capacidade financeira do emissor, qualidade das garantias, vintage do setor e conformidade regulatória. O score resultante orienta as recomendações de estruturação e define a prioridade de análise pela equipe técnica.
+  </Step>
+  <Step title="Estruturação">
+    Com a tese de crédito aprovada para estruturação, o agente **Structurer** recomenda o instrumento mais adequado ao perfil do emissor e ao apetite esperado do buy-side (CRI, CRA, FIDC, Debêntures, CCB ou CR). A equipe de estruturação define a arquitetura financeira da operação: waterfall de pagamentos, divisão de tranches sênior e subordinada, razões de subordinação, covenants operacionais e triggers de amortização acelerada. O agente **Veracity** valida a conformidade regulatória do estrutural perante as resoluções CVM aplicáveis.
+  </Step>
+  <Step title="Pricing">
+    O agente **Pricer** calcula o spread de referência da operação com base em variáveis de mercado, perfil de crédito, duration e comparáveis de mercado. O pricing indicativo é apresentado ao emissor antes do início do bookbuilding, permitindo alinhamento de expectativas e eventuais ajustes de estrutura.
+  </Step>
+  <Step title="Distribuição">
+    A Mesa de Distribuição Bloxs conduz o bookbuilding junto às contas institucionais identificadas pelo agente **Matcher**. O Matcher filtra a base de mais de 472 contas-alvo por critérios de aderência ao perfil da operação: setor, duration, ticket mínimo, restrições regulatórias e exposição setorial já existente nas carteiras. A Mesa executa a cobertura ativa, constrói o livro de ordens e realiza a descoberta de preço final.
+  </Step>
+  <Step title="Takeout & Custódia">
+    Após o fechamento do bookbuilding e a alocação definitiva, a operação é custodiada pela entidade regulatória correspondente dentro do Grupo Bloxs: a **B-SEC Securitizadora** para emissões de CRI e CRA (RCVM 60), o veículo FIDC quando aplicável, ou a estrutura contratual pertinente para Debêntures, CCB e CR. O takeout encerra o ciclo de originação e marca a transferência de titularidade aos investidores alocados.
+  </Step>
+</Steps>
+
+## Pilares Operacionais
+
+**Originação digital**
+Canal estruturado para recebimento e triagem de teses de crédito, com intake automatizado via plataforma, API e WhatXS. Elimina a dependência de processos manuais e garante consistência na captura de informações relevantes para a análise.
+
+**Estruturação regulatória**
+Capacidade técnica e regulatória para desenhar a arquitetura jurídico-financeira de cada operação — instrumento, waterfall, subordinação, covenants e documentação — em conformidade com a regulação CVM vigente. Suportada pelo arcabouço do Grupo Bloxs, que inclui B-SEC Securitizadora (RCVM 60) e Bloxs Asset, gestor de recursos credenciado (RCVM 21).
+
+**Mesa de Distribuição**
+Canal de acesso ao buy-side institucional, com cobertura ativa de mais de 472 contas qualificadas. Opera de forma integrada aos agentes de matching e pricing, garantindo que o processo de bookbuilding seja dirigido por critérios de aderência e não por disponibilidade passiva de demanda.
+
+**Custódia**
+Guarda dos ativos estruturados pelas entidades regulatórias competentes do Grupo Bloxs, com reporte periódico aos investidores e acompanhamento de covenants ao longo da vida da operação.
+
+## Instrumentos Suportados
+
+<CardGroup cols={3}>
+  <Card title="CRI" icon="house" href="/instrumentos/cri">
+    Certificado de Recebíveis Imobiliários. Securitização de créditos do setor imobiliário via B-SEC.
+  </Card>
+  <Card title="CRA" icon="leaf" href="/instrumentos/cra">
+    Certificado de Recebíveis do Agronegócio. Securitização de créditos do setor agrícola via B-SEC.
+  </Card>
+  <Card title="FIDC" icon="layer-group" href="/instrumentos/fidc">
+    Fundo de Investimento em Direitos Creditórios. Estrutura de fundo para cessão e administração de carteiras de recebíveis.
+  </Card>
+  <Card title="Debêntures" icon="file-contract" href="/instrumentos/debentures">
+    Dívida corporativa de médio e longo prazo. Debêntures simples e incentivadas (infraestrutura).
+  </Card>
+  <Card title="CCB" icon="receipt" href="/instrumentos/ccb-cr">
+    Cédula de Crédito Bancário. Instrumento de crédito bancário com cessão para investidores qualificados.
+  </Card>
+  <Card title="CR" icon="file-invoice-dollar" href="/instrumentos/ccb-cr">
+    Certificado de Recebíveis. Instrumento de securitização de créditos em geral, conforme RCVM 60.
+  </Card>
+</CardGroup>

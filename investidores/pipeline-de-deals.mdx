@@ -1,0 +1,81 @@
+---
+title: "Pipeline de deals: operações disponíveis na Bloxs"
+sidebarTitle: "Pipeline"
+description: "Como navegar o pipeline de operações estruturadas na Bloxs, aplicar filtros e receber alertas sobre novos deals."
+---
+
+O pipeline de operações da Bloxs agrega operações de crédito estruturado nas fases de originação, estruturação e distribuição, apresentadas a investidores institucionais qualificados conforme seu perfil de investimento. Cada operação percorre estágios definidos — da indicação inicial até o fechamento da alocação — com diferentes níveis de acesso à informação em cada fase. O pipeline é atualizado continuamente pela equipe de estruturação e distribuição da Bloxs, garantindo que o buy-side tenha visibilidade tempestiva sobre novas oportunidades antes e durante o período de bookbuilding.
+
+## Estrutura do Pipeline
+
+As operações no pipeline da Bloxs são classificadas em três estágios, cada qual com critérios distintos de visibilidade e acesso à documentação:
+
+<CardGroup cols={3}>
+  <Card title="Em Estruturação" icon="hammer">
+    **Informações indicativas.** A operação está em fase de originação e estruturação. Os dados disponíveis são preliminares e sujeitos a alteração. O objetivo é mapear o interesse preliminar do mercado antes do lançamento formal do bookbuilding.
+  </Card>
+  <Card title="Em Distribuição" icon="chart-bar">
+    **Bookbuilding aberto.** A operação está com documentação completa disponível e o período de coleta de ordens está em curso. Investidores qualificados podem registrar manifestações de interesse com volume, tranche e preço indicativo.
+  </Card>
+  <Card title="Alocado" icon="circle-check">
+    **Operação encerrada.** O bookbuilding foi concluído e a alocação foi definida. As informações disponíveis refletem as condições finais da operação, incluindo spread final, cronograma de amortização e distribuição por tranche.
+  </Card>
+</CardGroup>
+
+A segregação por estágio assegura que informações sensíveis da operação — como tese de crédito completa, estrutura do waterfall e spread indicativo — sejam acessíveis apenas durante a fase de distribuição, após a formalização da qualificação do investidor.
+
+## Informações Disponíveis por Operação
+
+O nível de detalhe disponível para cada operação varia conforme o estágio do pipeline:
+
+| Campo | Em Estruturação | Em Distribuição | Alocado |
+|---|:---:|:---:|:---:|
+| Instrumento | ✓ | ✓ | ✓ |
+| Setor | ✓ | ✓ | ✓ |
+| Volume estimado | ✓ | ✓ | — |
+| Prazo estimado | ✓ | ✓ | — |
+| Tese de crédito completa | — | ✓ | ✓ |
+| Estrutura do waterfall | — | ✓ | ✓ |
+| Rating implícito (Score CMD) | — | ✓ | ✓ |
+| Spread indicativo | — | ✓ | — |
+| Documentação da operação (MI, laudo, parecer jurídico) | — | ✓ | ✓ |
+| Condições finais (spread, amortização) | — | — | ✓ |
+| Alocação por tranche | — | — | ✓ |
+
+O acesso às informações de operações em distribuição é condicionado à qualificação prévia do investidor na plataforma, conforme RCVM 30/2023.
+
+## Alertas e Notificações
+
+Investidores podem configurar alertas personalizados para receber notificações automáticas quando uma nova operação que atenda aos seus critérios de interesse entrar no pipeline ou avançar de estágio.
+
+Os critérios de alerta disponíveis incluem:
+
+- **Instrumento**: CRI, CRA, FIDC (sênior/subordinada), debênture simples, debênture incentivada, CCB, CR
+- **Setor**: imobiliário, agronegócio, infraestrutura, crédito ao consumidor, saúde, entre outros
+- **Volume mínimo da operação**: filtro por faixa de tamanho de deal (ex.: acima de R$ 50 MM)
+- **Prazo**: faixa de duração da operação em meses
+
+Os alertas são entregues pelos seguintes canais:
+
+| Canal | Formato | Frequência |
+|---|---|---|
+| Plataforma web | Notificação in-app | Imediata |
+| E-mail | Resumo da operação com link de acesso | Imediata ou consolidada diária |
+| WhatXS | Mensagem direta da equipe de distribuição | Conforme agenda da operação |
+
+<Tip>
+  Configure seu perfil de investimento na plataforma com instrumento, setor, faixa de volume e prazo de preferência. Operações que atendam aos critérios cadastrados serão direcionadas automaticamente ao seu deal flow, reduzindo o volume de alertas irrelevantes.
+</Tip>
+
+## Consulta via API
+
+Investidores com integração via API podem consultar o pipeline de forma programática, incluindo filtros por status, instrumento e setor. Exemplo de requisição:
+
+```bash
+GET /api/v1/operacoes?status=em_distribuicao&instrumento=CRI&setor=imobiliario
+Authorization: Bearer {token}
+```
+
+A resposta retorna um array de objetos com os campos disponíveis para o estágio consultado. Para operações em distribuição, o payload inclui os metadados completos da operação (instrumento, setor, volume, prazo, score CMD e spread indicativo), condicionado ao perfil de acesso do token autenticado.
+
+Para a documentação completa dos endpoints de consulta ao pipeline, acesse [/api/investidores](/api/investidores).

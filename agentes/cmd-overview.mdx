@@ -1,0 +1,79 @@
+---
+title: "CMD: Capital Markets DealMatch — arquitetura de agentes"
+sidebarTitle: "CMD Overview"
+description: "Visão geral do CMD (Capital Markets DealMatch): os 7 agentes de IA orquestrados via LangGraph para operações de crédito estruturado."
+---
+
+O CMD (Capital Markets DealMatch) é a arquitetura de agentes de inteligência artificial que sustenta o processamento automatizado de operações na plataforma Bloxs. Composto por 7 agentes especializados orquestrados via LangGraph, o CMD opera ao longo de todo o ciclo de vida de uma operação — desde a recepção da tese de crédito até a educação de investidores — garantindo rastreabilidade, consistência analítica e aderência regulatória em cada etapa do processo.
+
+## Os 7 Agentes CMD
+
+Cada agente do CMD é responsável por um domínio funcional específico dentro do fluxo de estruturação e distribuição. A especialização por agente assegura profundidade analítica e permite auditoria granular de cada decisão.
+
+<CardGroup cols={2}>
+  <Card title="1. Intake" icon="inbox">
+    Recebe e valida as submissões iniciais de tese de crédito pelos emissores. Realiza verificação preliminar de aderência regulatória e validação de completude dos dados obrigatórios antes de encaminhar a operação para análise aprofundada.
+  </Card>
+  <Card title="2. Scoring" icon="chart-bar">
+    Executa scoring multidimensional de crédito, cobrindo capacidade financeira do emissor, qualidade do colateral, vintage do setor e conformidade regulatória. Produz relatório de scoring estruturado como insumo para os agentes subsequentes.
+  </Card>
+  <Card title="3. Veracity" icon="shield-check">
+    Valida a consistência das informações submetidas e realiza cruzamento de dados com fontes externas — Receita Federal, Serasa e registros da CVM — identificando divergências, inconsistências ou sinais de risco que demandem revisão.
+  </Card>
+  <Card title="4. Structurer" icon="sitemap">
+    Recomenda o instrumento de crédito estruturado mais adequado ao perfil da operação (CRI, CRA, FIDC, Debênture, CCB ou CR), define a arquitetura de waterfall, os índices de subordinação e os covenants aplicáveis.
+  </Card>
+  <Card title="5. Pricer" icon="circle-dollar-sign">
+    Calcula o spread de referência com base no perfil de risco da operação, no benchmark selecionado (CDI ou IPCA), em operações comparáveis e nas condições vigentes de mercado. O resultado orienta a precificação indicativa da operação.
+  </Card>
+  <Card title="6. Matcher" icon="arrows-left-right">
+    Identifica contas de investidores institucionais no banco de dados buy-side da Bloxs com maior aderência ao perfil da operação, cruzando características do deal com as preferências declaradas e o histórico de alocação de cada investidor.
+  </Card>
+  <Card title="7. Educator" icon="book-open">
+    Gera conteúdo explicativo para parceiros e investidores sobre a estrutura da operação, a mecânica do instrumento selecionado e o contexto regulatório aplicável, facilitando o processo de tomada de decisão fundamentada.
+  </Card>
+</CardGroup>
+
+## Orquestração via LangGraph
+
+Os agentes CMD são orquestrados por meio de máquinas de estado LangGraph, o que confere ao sistema capacidade de ramificação condicional, execução paralela e rastreabilidade integral das decisões tomadas em cada etapa.
+
+**Ramificação condicional:** o fluxo entre agentes é determinado pelo resultado de cada etapa. Por exemplo, quando o agente Veracity identifica inconsistências nos dados, o fluxo retorna automaticamente ao agente Intake para revisão e resubmissão, sem necessidade de intervenção manual para reiniciar o processo.
+
+**Execução paralela:** onde não existem dependências sequenciais obrigatórias, os agentes operam em paralelo — reduzindo o tempo total de processamento de uma operação. Scoring e Veracity, por exemplo, podem ser executados simultaneamente após a validação do Intake.
+
+**Trilha de auditoria:** cada transição de estado, decisão de agente e dado consumido são registrados na trilha de auditoria da operação, garantindo rastreabilidade completa para fins de revisão interna, due diligence de investidores e eventuais exigências regulatórias.
+
+## Fontes de Dados Externas
+
+O CMD integra múltiplos servidores MCP para consumo de dados externos em tempo real, assegurando que as análises dos agentes reflitam informações atualizadas de mercado e de registros oficiais.
+
+| Fonte | Dados Consumidos |
+|---|---|
+| **CVM** | Dados regulatórios, registros de emissores, histórico de ofertas públicas |
+| **ANBIMA** | Benchmarks de mercado, índices de referência, dados de precificação |
+| **BCB / SCR** | Bureau de crédito, histórico de endividamento, dados do sistema financeiro |
+| **B3** | Dados de mercado secundário, preços de referência, dados de liquidez |
+| **Receita Federal** | Dados cadastrais de pessoas jurídicas, situação fiscal |
+| **Serasa** | Risco de crédito, protestos, histórico de inadimplência |
+| **HubSpot** | CRM de relações com investidores, histórico de interações, preferências declaradas |
+
+## Acesso ao CMD
+
+Os agentes CMD estão acessíveis por três modalidades, conforme o contexto de uso:
+
+<Steps>
+  <Step title="Plataforma Bloxs (UI)">
+    Durante o fluxo de originação e estruturação na plataforma, os agentes CMD são acionados automaticamente conforme o avanço da operação pelas etapas do pipeline. Nenhuma configuração adicional é necessária para usuários da plataforma.
+  </Step>
+  <Step title="API REST">
+    Para integração programática, cada agente CMD possui um endpoint dedicado sob `/v1/cmd/`, permitindo que desenvolvedores acionem agentes específicos dentro de seus próprios fluxos de trabalho. Consulte a documentação de [Integração](/agentes/integracao) para detalhes.
+  </Step>
+  <Step title="MCP Server">
+    Para agentes de IA externos, o MCP Server Bloxs expõe as capacidades do CMD como ferramentas consumíveis via protocolo Model Context Protocol. Consulte a documentação do [MCP Server](/agentes/mcp-server) para configuração e uso.
+  </Step>
+</Steps>
+
+<Note>
+  Os resultados dos agentes CMD são indicativos e suportam a tomada de decisão humana. A estruturação final e a aprovação de distribuição requerem validação da equipe Bloxs.
+</Note>

@@ -1,0 +1,77 @@
+---
+title: "CCB e CR: instrumentos de crédito bancário na Bloxs"
+sidebarTitle: "CCB e CR"
+description: "Mecânica da Cédula de Crédito Bancário (CCB) e do Certificado de Recebíveis (CR) como instrumentos de crédito estruturado na Bloxs."
+---
+
+A CCB (Cédula de Crédito Bancário) e o CR (Certificado de Recebíveis) são instrumentos de crédito utilizados em operações de financiamento estruturado na plataforma Bloxs. A CCB formaliza operações de crédito com liquidez e eficiência executiva reconhecidas pelo mercado, sendo amplamente utilizada como ativo elegível em estruturas FIDC. O CR, introduzido pelo Marcos das Garantias (Lei 14.711/23), amplia o universo de ativos securitizáveis ao permitir a emissão de certificados de recebíveis sem restrição setorial, complementando a oferta de instrumentos de crédito estruturado disponíveis na plataforma.
+
+<Info>
+  O CR (Certificado de Recebíveis) é um instrumento introduzido pela Lei 14.711/23 (Marco das Garantias), que ampliou o escopo da securitização de recebíveis no Brasil para além dos setores imobiliário e do agronegócio.
+</Info>
+
+## CCB — Cédula de Crédito Bancário
+
+A Cédula de Crédito Bancário foi criada pela Lei 10.931/04 e representa o instrumento padrão de formalização de operações de crédito bancário no Brasil. Suas características essenciais incluem:
+
+- **Emitente**: pessoa física ou jurídica (tomador do crédito)
+- **Credor originário**: instituição financeira ou entidade equiparada autorizada pelo BCB; pode ser cedida a FIDCs e demais veículos de securitização
+- **Objeto**: promessa de pagamento em dinheiro, decorrente de operação de crédito de qualquer modalidade (capital de giro, crédito imobiliário, financiamento de equipamentos, entre outros)
+- **Garantias**: a CCB pode ser emitida com garantia real (alienação fiduciária de imóvel ou bem móvel, hipoteca, penhor) ou fidejussória (fiança, aval), descritas no próprio corpo do título
+- **Executividade**: a CCB constitui título executivo extrajudicial nos termos da Lei 10.931/04 e do Código de Processo Civil, conferindo ao credor acesso imediato à via executiva em caso de inadimplemento
+- **Cessão**: pode ser cedida a terceiros (FIDCs, securitizadoras, fundos de investimento) mediante simples endosso ou instrumento de cessão, sem necessidade de anuência do devedor quando não houver cláusula restritiva
+
+A executividade e a padronização da CCB a tornam o ativo elegível mais comum em estruturas FIDC de crédito corporativo e crédito ao consumidor na plataforma Bloxs.
+
+## CR — Certificado de Recebíveis
+
+O Certificado de Recebíveis é um instrumento de securitização de uso amplo criado pela **Lei 14.711/23 (Marco das Garantias)**. Ao contrário do CRI (lastro imobiliário) e do CRA (lastro agronegócio), o CR pode ser lastreado em qualquer tipo de direito creditório, independentemente do setor de origem, desde que atendidos os requisitos formais da securitização.
+
+Características do CR:
+
+- **Emitente**: companhia securitizadora credenciada (RCVM 60)
+- **Lastro**: qualquer direito creditório com comprovação de existência e validade; não há restrição setorial
+- **Isenção de IR**: não há isenção automática para pessoas físicas equivalente à do CRI e do CRA — o tratamento tributário segue a regra geral de renda fixa, salvo eventual legislação específica superveniente
+- **Estrutura**: utiliza o regime fiduciário para segregação patrimonial do lastro, de forma análoga ao CRI e ao CRA
+- **Aplicações**: financiamento de recebíveis de saúde, educação, energia, saneamento, telecomunicações e demais setores não cobertos pelos instrumentos setoriais existentes
+
+## CCB vs CRI vs CRA vs CR
+
+| Característica | CCB | CRI | CRA | CR |
+|---|---|---|---|---|
+| **Tipo de instrumento** | Título de crédito bancário | Título de securitização | Título de securitização | Título de securitização |
+| **Lastro / Ativo subjacente** | Operação de crédito (qualquer modalidade) | Créditos imobiliários | Créditos do agronegócio | Qualquer direito creditório |
+| **Emitente** | Tomador do crédito (PF ou PJ) | Securitizadora (RCVM 60) | Securitizadora (RCVM 60) | Securitizadora (RCVM 60) |
+| **Isenção de IR (PF)** | Não | Sim (Lei 9.514/97) | Sim (Lei 11.076/04) | Não (regra geral) |
+| **Marco regulatório** | Lei 10.931/04 | Lei 9.514/97 / RCVM 60 | Lei 11.076/04 / RCVM 60 | Lei 14.711/23 / RCVM 60 |
+| **Prazo típico** | 30 dias a 10 anos | 2 a 20 anos | 2 a 10 anos | Variável conforme lastro |
+| **Uso como lastro FIDC** | Sim (ativo elegível comum) | Sim | Sim | Sim |
+
+## Uso em Estruturas FIDC
+
+A CCB é o ativo elegível mais utilizado em estruturas FIDC na plataforma Bloxs, por combinar simplicidade de formalização, executividade extrajudicial e ampla aceitação pelos agentes de custódia e auditoria especializados em fundos de direitos creditórios.
+
+O fluxo típico de uma estrutura FIDC com lastro em CCBs envolve:
+
+<Steps>
+  <Step title="Originação das CCBs">
+    A instituição financeira ou fintech de crédito origina as operações de crédito, formalizadas por CCBs emitidas pelos tomadores. As CCBs são mantidas na carteira do originador até a cessão ao fundo.
+  </Step>
+  <Step title="Cessão ao FIDC">
+    O cedente (originador) cede as CCBs ao FIDC mediante contrato de cessão de créditos. O custodiante do fundo verifica a conformidade de cada CCB com os critérios de elegibilidade estabelecidos no regulamento (prazo, valor, garantias, documentação, ausência de inadimplência).
+  </Step>
+  <Step title="Emissão das Cotas">
+    O FIDC emite cotas sênior — ofertadas a investidores institucionais qualificados — e cotas subordinadas, geralmente retidas pelo cedente como reforço de crédito à estrutura. A Bloxs Asset, como gestora (RCVM 21), monitora a carteira e os índices de subordinação.
+  </Step>
+  <Step title="Gestão e Monitoramento">
+    Ao longo da vida do fundo, a Bloxs Asset acompanha os indicadores de desempenho da carteira de CCBs: inadimplência, prepagamento, concentração por devedor e por setor, e conformidade com os triggers de proteção definidos no regulamento.
+  </Step>
+</Steps>
+
+O CR pode ser utilizado de forma análoga à CCB em estruturas de securitização, com a vantagem de permitir o empacotamento de recebíveis de setores não cobertos pelos instrumentos setoriais tradicionais.
+
+## Processo na Plataforma Bloxs
+
+- **Originação de operações com CCB ou CR**: consulte [/emissores/originacao](/emissores/originacao) para o fluxo de envio de documentação, análise de crédito e aprovação da estrutura
+- **Estruturação de FIDC com lastro em CCBs**: consulte [/instrumentos/fidc](/instrumentos/fidc) para a descrição completa da estrutura, waterfall e processo de constituição do fundo na plataforma Bloxs
+- **Emissão de CR via B-SEC**: para operações de securitização com CR, a B-SEC atua como emitente, nos mesmos moldes do CRI e do CRA, com o regime fiduciário assegurando a segregação patrimonial do lastro

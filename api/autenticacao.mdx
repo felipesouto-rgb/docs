@@ -1,0 +1,162 @@
+---
+title: "Autenticação na API Bloxs com OAuth2"
+sidebarTitle: "Autenticação"
+description: "Como obter e usar tokens de acesso OAuth2 para autenticar requisições à API Bloxs. Inclui exemplos de código e tratamento de erros."
+---
+
+A API Bloxs utiliza o fluxo **OAuth2 Client Credentials** para autenticação machine-to-machine — o modelo indicado para integrações server-side onde não há interação direta de um usuário final. O processo consiste em autenticar com `client_id` e `client_secret` junto ao endpoint de token, receber um `access_token` JWT de curta duração e, em seguida, incluí-lo como `Bearer` no header `Authorization` de todas as requisições subsequentes à API.
+
+## Obtendo Credenciais
+
+As credenciais de acesso (`client_id` e `client_secret`) são geradas nas **configurações de desenvolvedor** da plataforma Bloxs. Cada par de credenciais é associado a um perfil específico, que determina quais recursos e escopos estarão disponíveis:
+
+| Perfil             | Descrição                                                        |
+| ------------------ | ---------------------------------------------------------------- |
+| `emissor`          | Empresas que submetem operações de crédito à plataforma          |
+| `investidor`       | Instituições buy-side que acessam o pipeline e registram interesse |
+| `business_partner` | Parceiros de distribuição e estruturação                         |
+
+<Warning>
+  Nunca exponha o `client_secret` em código cliente (frontend) ou repositórios públicos. Trate-o com o mesmo nível de sigilo de uma senha de produção.
+</Warning>
+
+## Obtendo um Token de Acesso
+
+Para obter um token, faça uma requisição `POST` ao endpoint de autenticação com suas credenciais e os escopos desejados:
+
+```bash
+curl -X POST https://api.bloxs.com.br/v1/auth/token \
+  -H "Content-Type: application/json" \
+  -d '{
+    "grant_type": "client_credentials",
+    "client_id": "seu_client_id",
+    "client_secret": "seu_client_secret",
+    "scope": "operacoes:read operacoes:write"
+  }'
+```
+
+**Campos do corpo da requisição:**
+
+<ParamField body="grant_type" type="string" required>
+  Deve ser `client_credentials` para o fluxo machine-to-machine.
+</ParamField>
+
+<ParamField body="client_id" type="string" required>
+  Identificador da sua aplicação, obtido nas configurações de desenvolvedor da plataforma Bloxs.
+</ParamField>
+
+<ParamField body="client_secret" type="string" required>
+  Segredo da sua aplicação. Mantenha este valor estritamente confidencial.
+</ParamField>
+
+<ParamField body="scope" type="string">
+  Lista de escopos separados por espaço. Se omitido, serão concedidos os escopos padrão associados ao perfil. Consulte [Escopos Disponíveis](#escopos-disponíveis).
+</ParamField>
+
+**Exemplo de resposta bem-sucedida (`200 OK`):**
+
+```json
+{
+  "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "scope": "operacoes:read operacoes:write"
+}
+```
+
+<ResponseField name="access_token" type="string">
+  Token JWT assinado a ser incluído no header `Authorization` de cada requisição.
+</ResponseField>
+
+<ResponseField name="token_type" type="string">
+  Sempre `Bearer`.
+</ResponseField>
+
+<ResponseField name="expires_in" type="integer">
+  Tempo de validade do token em segundos a partir do momento da emissão (padrão: `3600`).
+</ResponseField>
+
+<ResponseField name="scope" type="string">
+  Escopos efetivamente concedidos ao token, que podem ser um subconjunto dos solicitados.
+</ResponseField>
+
+## Usando o Token
+
+Inclua o `access_token` no header `Authorization` de **todas** as requisições autenticadas à API, no formato `Bearer {token}`:
+
+```bash
+curl -X GET https://api.bloxs.com.br/v1/operacoes \
+  -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9..." \
+  -H "Content-Type: application/json"
+```
+
+<Note>
+  O token é sensível a maiúsculas/minúsculas. Certifique-se de que não há espaços extras ou quebras de linha ao construir o valor do header programaticamente.
+</Note>
+
+## Escopos Disponíveis
+
+Os escopos controlam quais endpoints e operações seu token pode acessar. Solicite apenas os escopos necessários para sua integração, seguindo o princípio do menor privilégio.
+
+| Escopo               | Permissão concedida                                |
+| -------------------- | -------------------------------------------------- |
+| `operacoes:read`     | Listar e consultar operações                       |
+| `operacoes:write`    | Submeter e atualizar operações                     |
+| `investidores:read`  | Acessar pipeline de deals e perfil de investidor   |
+| `investidores:write` | Registrar interesse em operações e atualizar perfil |
+| `webhooks:manage`    | Criar, listar e remover webhooks                   |
+
+<Tip>
+  Para integrações somente de consulta (ex.: dashboards, relatórios), utilize apenas escopos `:read` para minimizar o risco em caso de exposição acidental do token.
+</Tip>
+
+## Expiração e Renovação
+
+Os tokens de acesso têm validade de **3600 segundos (1 hora)** a partir do momento da emissão, conforme indicado pelo campo `expires_in` na resposta.
+
+O fluxo Client Credentials **não emite refresh tokens**. Para manter o acesso contínuo, sua aplicação deve solicitar um novo token antes da expiração do atual. A estratégia recomendada é renovar o token com uma margem de segurança (ex.: 5 minutos antes do vencimento), calculada a partir do campo `expires_in`:
+
+```python
+import time
+import requests
+
+token_data = None
+token_expiry = 0
+
+def get_valid_token():
+    global token_data, token_expiry
+    # Renova com margem de 5 minutos (300 segundos)
+    if time.time() >= token_expiry - 300:
+        response = requests.post(
+            "https://api.bloxs.com.br/v1/auth/token",
+            json={
+                "grant_type": "client_credentials",
+                "client_id": "seu_client_id",
+                "client_secret": "seu_client_secret",
+                "scope": "operacoes:read"
+            }
+        )
+        token_data = response.json()
+        token_expiry = time.time() + token_data["expires_in"]
+    return token_data["access_token"]
+```
+
+## Erros de Autenticação
+
+| Código HTTP | Código de erro       | Descrição                                                       |
+| ----------- | -------------------- | --------------------------------------------------------------- |
+| `401`       | `invalid_token`      | Token ausente, malformado ou expirado                           |
+| `401`       | `invalid_client`     | `client_id` ou `client_secret` inválidos                        |
+| `403`       | `insufficient_scope` | Token válido, mas sem o escopo necessário para o recurso acessado |
+
+**Exemplo de resposta de erro de autenticação:**
+
+```json
+{
+  "error": "invalid_token",
+  "message": "O token de acesso expirou. Solicite um novo token via /v1/auth/token.",
+  "error_description": "Token expired at 2025-01-15T15:00:00Z"
+}
+```
+
+Ao receber um `401`, sua aplicação deve automaticamente solicitar um novo token e retentar a requisição original **uma única vez**. Se o erro persistir, registre o incidente e acione o fluxo de tratamento de falha.

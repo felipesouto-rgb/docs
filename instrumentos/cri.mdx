@@ -1,0 +1,77 @@
+---
+title: "CRI: Certificado de Recebíveis Imobiliários na Bloxs"
+sidebarTitle: "CRI"
+description: "Mecânica, estrutura regulatória e processo de emissão de Certificados de Recebíveis Imobiliários (CRI) pela B-SEC Securitizadora."
+---
+
+O CRI (Certificado de Recebíveis Imobiliários) é um título de renda fixa lastreado em créditos imobiliários, emitido exclusivamente por companhias securitizadoras. Na plataforma Bloxs, a emissão de CRI é conduzida pela **B-SEC Securitizadora**, credenciada perante a CVM nos termos da RCVM 60. O instrumento combina a solidez do lastro imobiliário com a flexibilidade das estruturas de securitização, sendo amplamente utilizado no mercado de capitais brasileiro para financiar projetos de incorporação, loteamento, crédito corporativo com garantia real e carteiras de financiamento habitacional.
+
+<Info>
+  CRI é isento de IR para pessoas físicas nos termos da Lei 9.514/97 e legislação aplicável.
+</Info>
+
+## O que é o CRI
+
+O Certificado de Recebíveis Imobiliários é um título de crédito nominativo, de livre negociação, lastreado em créditos imobiliários representados por Cédulas de Crédito Imobiliário (CCI) ou outros direitos creditórios com nexo imobiliário. Foi criado pela Lei 9.514/97, que também instituiu o Sistema Financeiro Imobiliário (SFI).
+
+Características essenciais do instrumento:
+
+- **Emitente**: exclusivamente companhia securitizadora credenciada (RCVM 60)
+- **Lastro**: créditos imobiliários com instituição do regime fiduciário
+- **Isenção de IR**: para pessoas físicas, nos rendimentos e ganhos de capital, conforme Lei 9.514/97
+- **Registro**: obrigatório em sistema de registro autorizado pelo BCB ou CVM (B3/CETIP)
+- **Volume mínimo**: sem limitação legal mínima por emissão; a viabilidade econômica da estruturação define o tamanho mínimo prático da operação
+
+O regime fiduciário, instituído sobre os créditos imobiliários vinculados ao CRI, assegura a separação patrimonial entre o lastro da operação e o patrimônio geral da securitizadora, protegendo os investidores em caso de insolvência da emitente.
+
+## Estrutura Típica
+
+A estrutura de uma emissão de CRI envolve os seguintes participantes e fluxos:
+
+<Steps>
+  <Step title="Cedente">
+    A empresa cedente — incorporadora, loteadora, instituição financeira ou originador de crédito imobiliário — cede os créditos imobiliários (CCI ou contratos de financiamento) à securitizadora mediante instrumento de cessão.
+  </Step>
+  <Step title="B-SEC Securitizadora (Emitente)">
+    A B-SEC adquire os créditos cedidos, institui o regime fiduciário sobre o lastro e emite os CRIs lastreados nesses créditos. Como emitente e securitizadora credenciada sob RCVM 60, a B-SEC é responsável pela estruturação do patrimônio separado e pelo cumprimento das obrigações perante os titulares dos CRIs.
+  </Step>
+  <Step title="Waterfall e Tranches">
+    A operação pode ser estruturada em tranches com diferentes níveis de subordinação: a **tranche sênior** tem prioridade no recebimento dos fluxos de caixa do lastro; a **tranche subordinada (júnior)** absorve perdas iniciais, funcionando como colchão de proteção ao credor preferencial. O waterfall define a ordem de alocação dos recursos recebidos do lastro a cada data de pagamento.
+  </Step>
+  <Step title="Agente Fiduciário e Custodiante">
+    O agente fiduciário representa os interesses dos titulares de CRI, monitora o cumprimento das obrigações da emissão e aciona os mecanismos de proteção previstos no Termo de Securitização em caso de eventos de inadimplência. O custodiante é responsável pela guarda e controle dos créditos vinculados ao patrimônio separado.
+  </Step>
+</Steps>
+
+## Lastro Elegível
+
+Os CRIs emitidos pela B-SEC podem ser lastreados nos seguintes tipos de créditos imobiliários:
+
+| Ativo de Lastro | Descrição |
+|---|---|
+| **CCI (Cédula de Crédito Imobiliário)** | Título representativo de crédito imobiliário; pode ser integral ou fracionária, com ou sem garantia real |
+| **Contratos de Aluguel** | Fluxos de recebíveis oriundos de contratos de locação comercial ou residencial de longo prazo |
+| **Contratos de Compra e Venda de Imóveis** | Recebíveis de unidades vendidas em loteamentos ou incorporações, com ou sem alienação fiduciária das unidades |
+| **Financiamentos Imobiliários** | Carteiras de crédito imobiliário originadas por instituições financeiras ou companhias hipotecárias, com garantia de alienação fiduciária ou hipoteca |
+
+A elegibilidade do lastro é verificada pela B-SEC e pelo custodiante no momento da cessão, com critérios definidos no Termo de Securitização de cada emissão.
+
+## Processo na Plataforma Bloxs
+
+A estruturação e distribuição de CRIs pela plataforma Bloxs segue o fluxo integrado de originação e estruturação:
+
+- **Originação**: o emissor ou cedente inicia o processo pela jornada descrita em [/emissores/originacao](/emissores/originacao), com envio de documentação e avaliação preliminar da tese de crédito pela equipe Bloxs
+- **Estruturação**: a estrutura da operação — waterfall, tranches, garantias, covenants e cronograma de pagamentos — é definida em conjunto pela equipe de estruturação da Bloxs e pela B-SEC, conforme descrito em [/emissores/estruturacao](/emissores/estruturacao)
+- **Emissão**: a B-SEC, como securitizadora credenciada sob RCVM 60, formaliza a emissão do CRI, institui o regime fiduciário e registra os títulos nos sistemas de registro competentes
+- **Distribuição**: os CRIs são ofertados ao mercado institucional por meio do pipeline da Bloxs, com processo de bookbuilding conduzido pela equipe de distribuição
+
+## Investidores Elegíveis
+
+<CardGroup cols={2}>
+  <Card title="Investidores Qualificados e Profissionais" icon="building-columns">
+    Ofertas públicas de CRI com esforços restritos destinam-se a investidores qualificados ou profissionais, conforme definição da RCVM 30/2023. O enquadramento é verificado no processo de qualificação da plataforma.
+  </Card>
+  <Card title="Pessoas Físicas" icon="user">
+    Investidores pessoas físicas podem investir em CRIs em ofertas públicas com registro na CVM, beneficiando-se da isenção de Imposto de Renda sobre rendimentos e ganhos de capital prevista na Lei 9.514/97.
+  </Card>
+</CardGroup>

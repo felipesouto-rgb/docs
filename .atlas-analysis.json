@@ -1,30 +1,11 @@
 {
-  "$schema": "https://mintlify.com/docs.json",
+  "projectType": "saas",
+  "projectName": "Bloxs",
+  "projectDescription": "Plataforma CMaaS (Capital Markets as a Service) para originação, estruturação, distribuição e custódia de ativos de crédito estruturado no mercado de capitais brasileiro.",
   "theme": "maple",
-  "name": "Bloxs",
-  "colors": {
-    "primary": "#ef7025",
-    "light": "#eec9bc",
-    "dark": "#4fa1ab"
-  },
-  "favicon": "/favicon.svg",
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Suporte",
-        "href": "mailto:contato@bloxs.com.br"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Acessar Plataforma",
-      "href": "https://app.bloxs.com.br"
-    }
-  },
+  "primaryColor": "#ef7025",
+  "lightColor": "#eec9bc",
+  "darkColor": "#4fa1ab",
   "navigation": {
     "tabs": [
       {
@@ -108,9 +89,26 @@
       }
     ]
   },
-  "footer": {
-    "socials": {
-      "linkedin": "https://www.linkedin.com/company/bloxs"
-    }
-  }
+  "keyFeatures": [
+    "Originação e estruturação digital de ativos de crédito (CRI, CRA, FIDC, Debêntures, CCB, CR)",
+    "Mesa de Distribuição conectando sell-side e buy-side (472+ contas-alvo institucionais)",
+    "Plataforma IBaaS com fluxo end-to-end: intake → scoring → estruturação → pricing → matching",
+    "Agentes de IA CMD (Capital Markets DealMatch) orquestrados via LangGraph",
+    "MCP servers integrados a CVM, ANBIMA, BCB/SCR, B3, Receita Federal e Serasa",
+    "Canal WhatXS: operações de mercado de capitais via WhatsApp",
+    "Estrutura regulatória completa: RCVM 21, 60, 88, 161, 175",
+    "Programa Bloxs Business Partner com três perfis de parceria"
+  ],
+  "publicApiSurface": [
+    "POST /api/v1/auth/token — autenticação OAuth2",
+    "GET /api/v1/operacoes — listagem de operações disponíveis",
+    "POST /api/v1/operacoes — submissão de nova operação (emissor)",
+    "GET /api/v1/operacoes/{id} — detalhes de operação",
+    "POST /api/v1/operacoes/{id}/interesse — manifestação de interesse (investidor)",
+    "GET /api/v1/investidores/pipeline — pipeline de deals disponíveis",
+    "POST /api/v1/webhooks — registro de endpoint para notificações",
+    "GET /api/v1/instrumentos — catálogo de instrumentos suportados",
+    "MCP Server: bloxs://cmd/dealmatch — consulta ao agente DealMatch",
+    "MCP Server: bloxs://cmd/scoring — scoring de operação"
+  ]
 }

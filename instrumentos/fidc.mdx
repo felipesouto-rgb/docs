@@ -1,0 +1,107 @@
+---
+title: "FIDC: Fundo de Investimento em Direitos Creditórios"
+sidebarTitle: "FIDC"
+description: "Estrutura, cotas e processo de constituição de FIDC na Bloxs: mecânica do fundo, waterfall e subordinação de cotas sênior e subordinada."
+---
+
+O FIDC (Fundo de Investimento em Direitos Creditórios) é um veículo de crédito estruturado que consolida carteiras de recebíveis e emite cotas com diferentes níveis de prioridade — sênior e subordinada — para investidores institucionais. Na plataforma Bloxs, FIDCs são estruturados e distribuídos sob o arcabouço regulatório da RCVM 175, com a **Bloxs Asset** atuando como gestora de recursos credenciada (RCVM 21). O instrumento é amplamente utilizado para securitização de carteiras de crédito ao consumidor, duplicatas, crédito consignado, recebíveis comerciais e outras classes de ativos financeiros, combinando eficiência na originação com mecanismos robustos de proteção estrutural ao cotista sênior.
+
+<Note>
+  Bloxs Asset atua como gestor de recursos (RCVM 21) nas estruturas FIDC distribuídas pela plataforma.
+</Note>
+
+## Estrutura do FIDC
+
+O FIDC é constituído como um condomínio de investidores. Os participantes essenciais da estrutura são:
+
+<CardGroup cols={2}>
+  <Card title="Cedente (Originador)" icon="arrow-right-arrow-left">
+    Empresa ou instituição financeira que cede os direitos creditórios ao fundo mediante contrato de cessão. O cedente recebe o valor presente dos recebíveis cedidos e pode reter a cota subordinada como reforço de crédito à estrutura.
+  </Card>
+  <Card title="Administrador" icon="building">
+    Instituição responsável pela administração fiduciária do fundo, representação perante cotistas e autoridades regulatórias, elaboração de relatórios e convocação de assembleias.
+  </Card>
+  <Card title="Bloxs Asset (Gestor)" icon="chart-line">
+    A Bloxs Asset, credenciada como gestora de recursos pela CVM (RCVM 21), é responsável pela gestão da carteira de direitos creditórios: análise de elegibilidade, monitoramento dos critérios de aquisição, acompanhamento de inadimplência e gestão ativa do portfólio conforme o regulamento do fundo.
+  </Card>
+  <Card title="Custodiante" icon="vault">
+    Instituição responsável pela guarda e controle dos direitos creditórios cedidos ao fundo, verificação dos critérios de elegibilidade na aquisição e conciliação dos fluxos financeiros.
+  </Card>
+</CardGroup>
+
+O fundo emite duas classes principais de cotas:
+
+| Classe | Características |
+|---|---|
+| **Cota Sênior** | Prioridade no recebimento de amortizações e rendimentos; remuneração definida (CDI+ ou IPCA+); menor risco relativo na estrutura |
+| **Cota Subordinada (Júnior)** | Absorve as perdas da carteira antes da cota sênior; remuneração residual após o pagamento da cota sênior; função de reforço de crédito |
+
+## Waterfall de Cotas
+
+O waterfall de um FIDC define a ordem de prioridade na alocação dos recursos recebidos dos direitos creditórios (amortizações, juros, multas e recuperações):
+
+<Steps>
+  <Step title="Despesas e Encargos do Fundo">
+    Pagamento prioritário das taxas de administração, gestão, custódia, auditoria e demais encargos previstos no regulamento do fundo.
+  </Step>
+  <Step title="Amortização e Rendimento das Cotas Sênior">
+    Os cotistas sêniores recebem amortizações de principal e rendimentos conforme o cronograma estabelecido no regulamento, com prioridade sobre os cotistas subordinados. O índice de subordinação mínimo (razão entre cotas subordinadas e patrimônio total) deve ser mantido conforme as regras do fundo.
+  </Step>
+  <Step title="Recomposição da Reserva de Liquidez">
+    Quando aplicável, recomposição de reservas de liquidez e de caixa previstas no regulamento, antes de qualquer distribuição aos cotistas subordinados.
+  </Step>
+  <Step title="Amortização e Rendimento das Cotas Subordinadas">
+    Após o cumprimento integral das obrigações com os cotistas sêniores e as reservas, os recursos remanescentes são alocados às cotas subordinadas como rendimento residual.
+  </Step>
+</Steps>
+
+O nível de subordinação — percentual do patrimônio líquido representado pelas cotas subordinadas — é o principal mecanismo de proteção estrutural ao cotista sênior. Quanto maior a subordinação, maior o colchão de absorção de perdas antes que a cota sênior seja afetada.
+
+## Direitos Creditórios Elegíveis
+
+Os FIDCs estruturados na plataforma Bloxs podem adquirir as seguintes classes de direitos creditórios, desde que atendam aos critérios de elegibilidade definidos no regulamento do fundo:
+
+| Classe de Ativo | Exemplos |
+|---|---|
+| **Duplicatas** | Recebíveis comerciais originados de vendas a prazo entre empresas; duplicatas mercantis e de serviço |
+| **CCBs (Cédulas de Crédito Bancário)** | Operações de crédito formalizadas por CCB, incluindo crédito corporativo, capital de giro e crédito imobiliário |
+| **Crédito Consignado** | Carteiras de crédito consignado em folha de pagamento (público, privado ou beneficiários do INSS) |
+| **Recebíveis Comerciais** | Boletos, contratos de prestação de serviços, recebíveis de cartão de crédito e outros créditos performados ou a performar |
+| **CRIs e CRAs** | Certificados de recebíveis imobiliários e do agronegócio, quando utilizados como ativo de carteira em FIDC |
+| **Outros Direitos Creditórios** | Precatórios, créditos tributários, recebíveis de saúde, educação e demais categorias previstas no regulamento |
+
+Os critérios de elegibilidade — prazo máximo, concentração por devedor, índice de inadimplência máximo permitido, documentação mínima — são estabelecidos no regulamento do fundo e monitorados pela Bloxs Asset em cada aquisição.
+
+## FIDC Aberto vs Fechado
+
+<Tabs>
+  <Tab title="FIDC Fechado">
+    **Modalidade predominante em operações estruturadas.**
+
+    No FIDC fechado, não há possibilidade de resgate antecipado das cotas pelos cotistas. O desinvestimento ocorre apenas por meio de amortizações programadas conforme o cronograma do fundo, ou mediante alienação das cotas no mercado secundário (quando disponível). Essa estrutura é mais adequada para carteiras de direitos creditórios de médio e longo prazo, com cronograma de recebimentos previsível, e oferece maior previsibilidade de fluxo de caixa para a gestão da carteira.
+  </Tab>
+  <Tab title="FIDC Aberto">
+    **Utilizado em operações com liquidez de curto prazo.**
+
+    No FIDC aberto, os cotistas podem solicitar o resgate de suas cotas conforme as condições e prazos previstos no regulamento. Essa modalidade é mais comum em FIDCs com carteiras de direitos creditórios de curto prazo (duplicatas rotativas, recebíveis de cartão), onde o ciclo de recebimento é suficientemente rápido para suportar resgates sem comprometer a estrutura de subordinação.
+  </Tab>
+</Tabs>
+
+## Processo na Plataforma Bloxs
+
+A constituição e distribuição de FIDCs na plataforma Bloxs segue as etapas abaixo:
+
+<Steps>
+  <Step title="Estruturação">
+    Definição dos parâmetros do fundo: classe de ativos, critérios de elegibilidade, índice de subordinação, remuneração das cotas sênior, política de aquisição e demais condições do regulamento. Consulte [/emissores/estruturacao](/emissores/estruturacao) para o fluxo detalhado.
+  </Step>
+  <Step title="Constituição Regulatória">
+    Elaboração do regulamento do fundo, formulário de informações complementares e demais documentos exigidos pela RCVM 175. Registro do FIDC perante a CVM e aprovação pelo administrador.
+  </Step>
+  <Step title="Distribuição das Cotas">
+    As cotas sênior são distribuídas ao mercado institucional por meio do pipeline da Bloxs, com processo de bookbuilding conduzido pela equipe de distribuição. A Bloxs Asset, como gestora, monitora a captação e a adequação dos investidores ao perfil do fundo.
+  </Step>
+  <Step title="Operação e Monitoramento">
+    Após a captação inicial, a Bloxs Asset realiza a gestão contínua da carteira: aquisição de novos direitos creditórios, monitoramento de inadimplência, produção de relatórios periódicos e comunicação com cotistas e administrador.
+  </Step>
+</Steps>

@@ -1,0 +1,79 @@
+---
+title: "Originação de operações na plataforma Bloxs"
+sidebarTitle: "Originação"
+description: "Como submeter uma tese de crédito à Bloxs e o que acontece no processo de intake e scoring automatizado pela IA CMD."
+---
+
+A originação é a etapa inicial do fluxo de uma operação na plataforma Bloxs. Nessa fase, o emissor formaliza sua tese de crédito e os agentes automatizados do sistema CMD (Capital Markets DealMatch) executam a triagem e o scoring que determinam a viabilidade e a trajetória de estruturação da operação. O processo foi desenhado para maximizar a eficiência do intake sem abrir mão do rigor analítico exigido por operações de crédito estruturado no mercado de capitais. Ao término do processo de originação, o emissor recebe um status claro sobre a sua operação e, quando aprovado, inicia a fase de estruturação com a equipe técnica da Bloxs.
+
+## Canais de Submissão
+
+A tese de crédito pode ser submetida por três canais:
+
+- **Plataforma web** — Interface gráfica disponível em [app.bloxs.com.br](https://app.bloxs.com.br). O emissor preenche o formulário estruturado de intake, com campos validados em tempo real e upload de documentos de suporte.
+- **API** — Endpoint programático para originadores e parceiros que operam em alto volume ou necessitam integração direta com seus sistemas internos de originação. Documentação completa disponível em [/api/operacoes](/api/operacoes).
+- **WhatXS** — Canal conversacional via WhatsApp para intake de deals por meio dos agentes CMD. Indicado para submissões iniciais, consultas de elegibilidade e atualização de status de operações em andamento. Solicite o contato à equipe de relacionamento Bloxs.
+
+## Informações da Tese de Crédito
+
+A submissão de uma tese de crédito exige o preenchimento dos seguintes campos e informações:
+
+| Campo | Descrição |
+|---|---|
+| CNPJ do cedente/emissor | Identificação fiscal da empresa emissora ou cedente dos recebíveis |
+| Setor de atuação | Classificação setorial do emissor e da carteira (imobiliário, agronegócio, varejo, saúde etc.) |
+| Volume da operação (R$) | Montante total desejado, em reais, com indicação de estrutura em séries se aplicável |
+| Prazo desejado | Prazo total em meses e perfil de amortização pretendido |
+| Tipo de instrumento preferencial | CRI, CRA, FIDC, Debênture, CCB ou CR |
+| Garantias e colateral | Descrição das garantias disponíveis: imóveis, recebíveis, fiança, aval, alienação fiduciária |
+| Histórico de crédito (últimos 3 exercícios) | Demonstrações financeiras auditadas: DRE, balanço patrimonial e fluxo de caixa |
+| Destinação dos recursos | Finalidade objetiva da captação: capital de giro, expansão, refinanciamento, aquisição de ativos |
+
+A completude dessas informações no momento da submissão impacta diretamente a agilidade do processo de intake e scoring. Submissões incompletas são devolvidas para complementação antes do início do scoring.
+
+## Processo de Intake
+
+O agente **Intake** é a primeira camada de automação do CMD a processar uma tese de crédito submetida. Suas funções incluem:
+
+**Triagem inicial automatizada** — Verificação formal da completude das informações submetidas. Campos ausentes ou inconsistentes são sinalizados para o emissor com indicação de complementação necessária.
+
+**Verificação de fit regulatório** — O Intake avalia se o instrumento preferencial indicado pelo emissor é compatível com o seu perfil, setor, colateral disponível e volume da operação. Quando há descompasso entre o instrumento indicado e as características da operação, o agente sinaliza alternativas para análise pela equipe técnica.
+
+**Scoring inicial** — Uma pontuação preliminar é gerada com base nos dados disponíveis na submissão, sinalizando o nível de complexidade esperado para a etapa de scoring completo.
+
+O Intake opera em tempo real após a submissão. O emissor recebe notificação automática com o resultado da triagem e as eventuais pendências identificadas.
+
+## Scoring Automatizado
+
+O agente **Scoring** executa a avaliação multidimensional da tese de crédito após a conclusão bem-sucedida do intake. O scoring cobre quatro dimensões principais:
+
+**1. Capacidade financeira do emissor**
+Análise dos indicadores financeiros dos últimos três exercícios: crescimento de receita, margens operacionais, nível de alavancagem, cobertura de dívida (DSCR) e liquidez. O histórico de inadimplência e renegociações é ponderado nessa dimensão.
+
+**2. Qualidade das garantias e colateral**
+Avaliação da robustez e liquidez das garantias oferecidas. São considerados: natureza do colateral (imóveis, recebíveis performados vs. a performar, fiança bancária, entre outros), taxa de sobrecolateralização implícita e histórico de execução de garantias similares em operações anteriores do setor.
+
+**3. Vintage setorial**
+O agente analisa o comportamento histórico de operações estruturadas no mesmo setor de atuação do emissor — delinquência média, taxas de perda, volatilidade de fluxo de caixa e sazonalidade. O vintage setorial é um fator de ajuste do score e influencia as recomendações de estrutura (razão de subordinação, covenants mínimos, prazo máximo sugerido).
+
+**4. Conformidade regulatória**
+Verificação de pendências regulatórias, restrições cadastrais, conformidade com as regras de elegibilidade dos instrumentos pretendidos e requisitos de registro perante a CVM.
+
+O score resultante é uma nota indicativa que orienta as recomendações do agente Structurer na etapa seguinte e define a prioridade de análise técnica pela equipe de estruturação. Scores mais elevados podem acelerar o início da estruturação; scores intermediários podem implicar solicitação de informações adicionais ou ajustes na tese.
+
+<Note>
+  O processo de scoring é indicativo e não substitui a análise final da equipe de estruturação Bloxs. O score automatizado serve como insumo para priorização e orientação técnica, não como decisão definitiva sobre a viabilidade da operação.
+</Note>
+
+## Status da Operação
+
+Ao término do processo de intake e scoring, a operação assume um dos seguintes status:
+
+| Status | Descrição |
+|---|---|
+| **Em análise** | Intake concluído; scoring em processamento ou aguardando revisão da equipe técnica. |
+| **Aprovado para estruturação** | Tese de crédito aprovada. Operação encaminhada à equipe de estruturação Bloxs para definição da arquitetura financeira e jurídica. |
+| **Devolvido para complementação** | Informações insuficientes ou inconsistentes identificadas pelo Intake ou Scoring. O emissor deve complementar os dados indicados antes do reprocessamento. |
+| **Reprovado** | Tese de crédito não atende os critérios mínimos de elegibilidade da plataforma. A equipe Bloxs pode fornecer, mediante solicitação, um resumo dos fatores que motivaram a reprovação. |
+
+O emissor pode acompanhar o status da operação em tempo real pela plataforma web ou consultar o agente CMD via WhatXS. Notificações automáticas são enviadas a cada atualização de status.

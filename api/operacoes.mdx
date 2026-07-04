@@ -1,0 +1,289 @@
+---
+title: "Endpoints de Operações — API Bloxs"
+sidebarTitle: "Operações"
+description: "Referência dos endpoints de operações da API Bloxs: listar, consultar, submeter e atualizar operações de crédito estruturado."
+---
+
+Os endpoints `/operacoes` são o núcleo da API Bloxs: permitem que emissores submetam novas operações de crédito estruturado e acompanhem o status de operações existentes ao longo de todo o ciclo de vida — da análise inicial à alocação final. Do lado buy-side, investidores utilizam esses mesmos endpoints para consultar deals disponíveis, visualizar documentação e registrar interesse.
+
+## GET /operacoes
+
+Lista as operações disponíveis na plataforma, com suporte a filtros por status, instrumento, setor e paginação. O conjunto de operações retornado depende do perfil e dos escopos do token utilizado.
+
+**Autenticação:** Bearer token com escopo `operacoes:read` ou `investidores:read`
+
+**Query Parameters:**
+
+<ParamField query="status" type="string">
+  Filtra operações pelo status atual. Valores aceitos: `em_analise` | `aprovado` | `em_estruturacao` | `em_distribuicao` | `alocado`
+</ParamField>
+
+<ParamField query="instrumento" type="string">
+  Filtra pelo instrumento de crédito. Valores aceitos: `CRI` | `CRA` | `FIDC` | `DEBENTURE` | `CCB` | `CR`
+</ParamField>
+
+<ParamField query="setor" type="string">
+  Filtra pelo setor econômico do emissor. Valores aceitos: `imobiliario` | `agronegocio` | `energia` | `infraestrutura` | `consumo` | `outros`
+</ParamField>
+
+<ParamField query="page" type="integer" default="1">
+  Número da página para paginação dos resultados.
+</ParamField>
+
+<ParamField query="per_page" type="integer" default="20">
+  Quantidade de itens por página. Máximo: `100`.
+</ParamField>
+
+**Exemplo de requisição:**
+
+```bash
+curl -X GET "https://api.bloxs.com.br/v1/operacoes?status=em_distribuicao&instrumento=CRI&page=1&per_page=20" \
+  -H "Authorization: Bearer {seu_token}" \
+  -H "Content-Type: application/json"
+```
+
+**Exemplo de resposta (`200 OK`):**
+
+```json
+{
+  "data": [
+    {
+      "id": "op_abc123",
+      "instrumento": "CRI",
+      "setor": "imobiliario",
+      "volume_brl": 5000000000,
+      "prazo_meses": 36,
+      "status": "em_distribuicao",
+      "taxa_indicativa": "CDI + 2.50%",
+      "created_at": "2025-01-15T14:00:00Z"
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "per_page": 20,
+    "total": 42
+  }
+}
+```
+
+<ResponseField name="data" type="array">
+  Array de objetos de operação correspondentes aos filtros aplicados.
+</ResponseField>
+
+<ResponseField name="data[].id" type="string">
+  Identificador único da operação no formato `op_{id}`.
+</ResponseField>
+
+<ResponseField name="data[].instrumento" type="string">
+  Instrumento de crédito estruturado da operação.
+</ResponseField>
+
+<ResponseField name="data[].volume_brl" type="integer">
+  Volume total da operação em centavos de BRL.
+</ResponseField>
+
+<ResponseField name="data[].taxa_indicativa" type="string">
+  Taxa indicativa da operação. Pode ser indexada (ex.: `CDI + 2.50%`) ou prefixada (ex.: `12.50% a.a.`).
+</ResponseField>
+
+<ResponseField name="pagination.total" type="integer">
+  Número total de operações que correspondem aos filtros, independente da página atual.
+</ResponseField>
+
+---
+
+## POST /operacoes
+
+Submete uma nova operação de crédito estruturado à plataforma Bloxs para análise e estruturação. Endpoint exclusivo para perfis do tipo `emissor`.
+
+**Autenticação:** Bearer token com escopo `operacoes:write`
+
+**Corpo da Requisição:**
+
+<ParamField body="instrumento" type="string" required>
+  Instrumento de crédito da operação. Valores aceitos: `CRI` | `CRA` | `FIDC` | `DEBENTURE` | `CCB` | `CR`
+</ParamField>
+
+<ParamField body="volume_brl" type="integer" required>
+  Volume total desejado para a operação, em centavos de BRL. Exemplo: R$ 50.000.000,00 = `5000000000`
+</ParamField>
+
+<ParamField body="prazo_meses" type="integer" required>
+  Prazo total da operação em meses.
+</ParamField>
+
+<ParamField body="setor" type="string" required>
+  Setor econômico do emissor. Valores aceitos: `imobiliario` | `agronegocio` | `energia` | `infraestrutura` | `consumo` | `outros`
+</ParamField>
+
+<ParamField body="cnpj_emissor" type="string" required>
+  CNPJ do emissor da operação, somente dígitos (14 caracteres). Exemplo: `"12345678000195"`
+</ParamField>
+
+<ParamField body="descricao_tese" type="string" required>
+  Descrição da tese de investimento da operação. Texto livre, máximo 5.000 caracteres.
+</ParamField>
+
+<ParamField body="garantias" type="array" required>
+  Lista de garantias associadas à operação. Cada item deve conter `tipo` (string) e `descricao` (string).
+</ParamField>
+
+**Exemplo de requisição:**
+
+```bash
+curl -X POST https://api.bloxs.com.br/v1/operacoes \
+  -H "Authorization: Bearer {seu_token}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "instrumento": "CRI",
+    "volume_brl": 5000000000,
+    "prazo_meses": 36,
+    "setor": "imobiliario",
+    "cnpj_emissor": "12345678000195",
+    "descricao_tese": "CRI lastreado em carteira de recebíveis imobiliários residenciais com LTV médio de 65%.",
+    "garantias": [
+      {
+        "tipo": "alienacao_fiduciaria",
+        "descricao": "Carteira de imóveis residenciais localizados na região metropolitana de São Paulo"
+      }
+    ]
+  }'
+```
+
+**Exemplo de resposta (`201 Created`):**
+
+```json
+{
+  "id": "op_xyz789",
+  "status": "em_analise",
+  "created_at": "2025-01-15T14:30:00Z",
+  "message": "Operação submetida com sucesso. Nossa equipe iniciará a análise em até 2 dias úteis."
+}
+```
+
+<Note>
+  Após a submissão, a operação entra no status `em_analise`. A equipe Bloxs realizará a due diligence inicial e atualizará o status via webhook (se configurado) ou você pode consultar o andamento via `GET /operacoes/{id}`.
+</Note>
+
+---
+
+## GET /operacoes/{id}
+
+Retorna os detalhes completos de uma operação específica, incluindo todos os campos, histórico de status e metadados de estruturação.
+
+**Autenticação:** Bearer token com escopo `operacoes:read` ou `investidores:read`
+
+**Path Parameter:**
+
+<ParamField path="id" type="string" required>
+  Identificador único da operação. Formato: `op_{id}`. Exemplo: `op_abc123`
+</ParamField>
+
+**Exemplo de requisição:**
+
+```bash
+curl -X GET https://api.bloxs.com.br/v1/operacoes/op_abc123 \
+  -H "Authorization: Bearer {seu_token}" \
+  -H "Content-Type: application/json"
+```
+
+**Exemplo de resposta (`200 OK`):**
+
+```json
+{
+  "id": "op_abc123",
+  "instrumento": "CRI",
+  "setor": "imobiliario",
+  "volume_brl": 5000000000,
+  "prazo_meses": 36,
+  "status": "em_distribuicao",
+  "taxa_indicativa": "CDI + 2.50%",
+  "cnpj_emissor": "12345678000195",
+  "descricao_tese": "CRI lastreado em carteira de recebíveis imobiliários residenciais com LTV médio de 65%.",
+  "garantias": [
+    {
+      "tipo": "alienacao_fiduciaria",
+      "descricao": "Carteira de imóveis residenciais localizados na região metropolitana de São Paulo"
+    }
+  ],
+  "historico_status": [
+    { "status": "em_analise", "timestamp": "2025-01-10T09:00:00Z" },
+    { "status": "aprovado", "timestamp": "2025-01-12T16:00:00Z" },
+    { "status": "em_estruturacao", "timestamp": "2025-01-13T10:00:00Z" },
+    { "status": "em_distribuicao", "timestamp": "2025-01-15T14:00:00Z" }
+  ],
+  "created_at": "2025-01-10T09:00:00Z",
+  "updated_at": "2025-01-15T14:00:00Z"
+}
+```
+
+---
+
+## GET /operacoes/{id}/documentos
+
+Lista todos os documentos vinculados a uma operação, como memorandos de informação, laudos de avaliação, relatórios jurídicos e contratos.
+
+**Autenticação:** Bearer token com escopo `operacoes:read` ou `investidores:read`
+
+**Path Parameter:**
+
+<ParamField path="id" type="string" required>
+  Identificador único da operação. Exemplo: `op_abc123`
+</ParamField>
+
+**Exemplo de requisição:**
+
+```bash
+curl -X GET https://api.bloxs.com.br/v1/operacoes/op_abc123/documentos \
+  -H "Authorization: Bearer {seu_token}" \
+  -H "Content-Type: application/json"
+```
+
+**Exemplo de resposta (`200 OK`):**
+
+```json
+{
+  "data": [
+    {
+      "id": "doc_001",
+      "nome": "Memorando de Informações — CRI Imobiliário 2025-01",
+      "tipo": "memorando_informacoes",
+      "url": "https://docs.bloxs.com.br/operacoes/op_abc123/doc_001.pdf",
+      "tamanho_bytes": 2048576,
+      "uploaded_at": "2025-01-13T11:00:00Z"
+    },
+    {
+      "id": "doc_002",
+      "nome": "Laudo de Avaliação — Carteira Imobiliária",
+      "tipo": "laudo_avaliacao",
+      "url": "https://docs.bloxs.com.br/operacoes/op_abc123/doc_002.pdf",
+      "tamanho_bytes": 5120000,
+      "uploaded_at": "2025-01-13T11:30:00Z"
+    }
+  ]
+}
+```
+
+<ResponseField name="data[].id" type="string">
+  Identificador único do documento.
+</ResponseField>
+
+<ResponseField name="data[].nome" type="string">
+  Nome descritivo do documento.
+</ResponseField>
+
+<ResponseField name="data[].tipo" type="string">
+  Categoria do documento. Exemplos: `memorando_informacoes`, `laudo_avaliacao`, `parecer_juridico`, `contrato_emissao`.
+</ResponseField>
+
+<ResponseField name="data[].url" type="string">
+  URL pré-assinada para download do documento. A URL tem validade de **1 hora** a partir da resposta da API.
+</ResponseField>
+
+<ResponseField name="data[].uploaded_at" type="string">
+  Data e hora do upload do documento, em formato ISO 8601 (UTC).
+</ResponseField>
+
+<Warning>
+  As URLs de documentos são pré-assinadas e têm validade de 1 hora. Não armazene essas URLs em cache por períodos prolongados — faça uma nova chamada à API para obter uma URL fresca quando necessário.
+</Warning>

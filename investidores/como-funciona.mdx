@@ -1,0 +1,88 @@
+---
+title: "Como investir pela Bloxs: guia para o buy-side"
+sidebarTitle: "Como Funciona"
+description: "Guia para investidores institucionais: como acessar o pipeline de operações Bloxs, avaliar deals e participar de bookbuildings."
+---
+
+A plataforma Bloxs conecta o segmento buy-side às operações de crédito estruturado originadas, estruturadas e distribuídas por sua infraestrutura de Capital Markets as a Service (CMaaS). Investidores institucionais acessam um pipeline qualificado de instrumentos — CRI, CRA, FIDC, debêntures e CCB/CR — com documentação padronizada, scoring de crédito proprietário e canais de comunicação dedicados, permitindo análise e alocação eficientes dentro dos seus próprios mandatos e políticas de investimento.
+
+## Perfil do Investidor
+
+A Bloxs orienta sua distribuição ao segmento institucional e qualificado do mercado de capitais brasileiro. As categorias de investidores atendidas incluem:
+
+<CardGroup cols={2}>
+  <Card title="Gestoras de Recursos" icon="building-columns">
+    Gestoras credenciadas perante a CVM sob a RCVM 21, com mandatos de crédito privado, crédito estruturado ou multimercado que contemplem ativos de renda fixa.
+  </Card>
+  <Card title="Wealth Managers" icon="briefcase">
+    Plataformas e gestoras de patrimônio que operam carteiras administradas para clientes de alta renda, com enquadramento como investidor qualificado ou profissional.
+  </Card>
+  <Card title="Family Offices" icon="house">
+    Estruturas de gestão patrimonial de famílias com capacidade de análise interna e enquadramento regulatório como investidor qualificado ou profissional conforme RCVM 30/2023.
+  </Card>
+  <Card title="Fundos de Investimento Qualificados" icon="chart-line">
+    Fundos de investimento com regulamento que autorize alocação em crédito estruturado, direitos creditórios e instrumentos de securitização, cujos cotistas sejam investidores qualificados.
+  </Card>
+</CardGroup>
+
+A base ativa da Bloxs conta com mais de **472 contas-alvo** mapeadas no segmento institucional brasileiro, abrangendo gestoras independentes, plataformas de distribuição e estruturas de gestão de patrimônio.
+
+<Note>
+  O acesso ao pipeline requer qualificação prévia conforme RCVM 30/2023 (investidor qualificado ou profissional, conforme aplicável ao instrumento).
+</Note>
+
+## Jornada do Investidor
+
+O processo de acesso e participação em operações na plataforma Bloxs segue etapas sequenciais, desde o credenciamento até a custódia dos ativos alocados.
+
+<Steps>
+  <Step title="Cadastro e Qualificação">
+    O investidor ou gestor responsável submete documentação institucional e declara seu enquadramento regulatório (investidor qualificado ou profissional, conforme RCVM 30/2023). O processo de KYC/KYB é conduzido pela equipe de onboarding da Bloxs, com validação de CNPJ, representantes legais, regulamento do fundo (quando aplicável) e comprovação de patrimônio ou volume sob gestão.
+  </Step>
+  <Step title="Acesso ao Pipeline">
+    Após a qualificação, o investidor acessa o pipeline de operações disponíveis na plataforma, com visibilidade segmentada por estágio da operação (em estruturação, em distribuição ou alocado). O pipeline pode ser consultado via interface web, API ou pelo canal WhatXS.
+  </Step>
+  <Step title="Análise de Operações">
+    Para cada operação em distribuição, a plataforma disponibiliza documentação padronizada: Memorando de Informações (MI), estrutura do waterfall, Relatório de Scoring CMD, demonstrações financeiras do emissor, laudo de avaliação de garantias e parecer jurídico. A análise é conduzida internamente pelo investidor com base em seus próprios critérios e políticas de crédito.
+  </Step>
+  <Step title="Manifestação de Interesse">
+    O investidor registra sua manifestação de interesse na operação indicando o volume pretendido, a tranche-alvo (sênior ou subordinada) e o preço indicativo. Esse registro pode ser realizado via plataforma, via API (`POST /api/v1/operacoes/{id}/interesse`) ou pelo canal WhatXS.
+  </Step>
+  <Step title="Participação no Bookbuilding">
+    Durante o período de bookbuilding, a equipe de distribuição da Bloxs consolida as ordens e comunica o resultado da alocação a cada investidor participante. Ajustes de volume e preço podem ocorrer conforme as condições de demanda da operação.
+  </Step>
+  <Step title="Alocação e Custódia">
+    Concluído o bookbuilding, os ativos são alocados e registrados nas infraestruturas de mercado competentes (B3, CETIP/B3 Balcão). A custódia é realizada pela instituição custodiante designada na estrutura da operação. O investidor recebe confirmação de alocação e acesso às condições finais do deal.
+  </Step>
+</Steps>
+
+## Filtros de Deal
+
+Ao navegar o pipeline de operações, o investidor dispõe de filtros que permitem segmentar as oportunidades conforme seu mandato e política de investimento:
+
+| Filtro | Descrição |
+|---|---|
+| **Instrumento** | CRI, CRA, FIDC (cota sênior ou subordinada), debênture simples, debênture incentivada (Lei 12.431), CCB, CR |
+| **Setor** | Imobiliário, agronegócio, infraestrutura, crédito ao consumidor, saúde, educação, entre outros |
+| **Prazo** | Duração estimada da operação em meses ou anos; filtro por faixas de vencimento |
+| **Rating Implícito** | Score CMD atribuído pela Bloxs; filtro por faixa de risco relativo |
+| **Volume Mínimo** | Valor mínimo de participação por operação, conforme tranche disponível |
+| **Nível de Subordinação** | Percentual de subordinação da tranche sênior; estrutura de proteção ao credor preferencial |
+
+A combinação desses filtros permite ao investidor alinhar o deal flow recebido ao seu perfil de risco, prazo de alocação e restrições de concentração setorial.
+
+## Canais de Acesso
+
+O buy-side pode interagir com a plataforma Bloxs por três canais principais:
+
+<CardGroup cols={3}>
+  <Card title="Plataforma Web" icon="globe">
+    Interface completa para navegação do pipeline, análise de operações, manifestação de interesse e acompanhamento de alocações. Acesso via autenticação segura com MFA.
+  </Card>
+  <Card title="API" icon="code" href="/api/investidores">
+    Integração programática para consulta ao pipeline, recebimento de alertas e envio de manifestações de interesse. Documentação completa disponível em `/api/investidores`.
+  </Card>
+  <Card title="WhatXS" icon="message">
+    Canal de comunicação direta com a equipe de distribuição da Bloxs para qualificação de deals, esclarecimento de dúvidas e acompanhamento de bookbuildings em andamento.
+  </Card>
+</CardGroup>

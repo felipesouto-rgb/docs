@@ -1,0 +1,272 @@
+---
+title: "Endpoints para Investidores — API Bloxs"
+sidebarTitle: "Investidores"
+description: "Referência dos endpoints buy-side da API Bloxs: pipeline de deals, perfil de investidor e manifestação de interesse em operações."
+---
+
+Os endpoints de investidores oferecem às instituições buy-side acesso programático ao pipeline de deals da Bloxs, ao gerenciamento de perfil de investimento e ao registro de manifestações de interesse. Por meio desses recursos, times de gestão e tesouraria podem automatizar a triagem de operações conforme mandato, integrar o pipeline Bloxs a sistemas internos de análise e registrar interesse de forma ágil e auditável.
+
+## GET /investidores/pipeline
+
+Retorna o pipeline de deals disponíveis na plataforma, filtrado automaticamente pelo perfil e mandato do investidor autenticado. Apenas operações em status `em_distribuicao` são exibidas no pipeline.
+
+**Autenticação:** Bearer token com escopo `investidores:read`
+
+**Query Parameters:**
+
+<ParamField query="instrumento" type="string">
+  Filtra pelo instrumento de crédito. Valores aceitos: `CRI` | `CRA` | `FIDC` | `DEBENTURE` | `CCB` | `CR`
+</ParamField>
+
+<ParamField query="setor" type="string">
+  Filtra pelo setor econômico da operação. Valores aceitos: `imobiliario` | `agronegocio` | `energia` | `infraestrutura` | `consumo` | `outros`
+</ParamField>
+
+<ParamField query="volume_min_brl" type="integer">
+  Volume mínimo da operação em centavos de BRL. Exemplo: R$ 10.000.000,00 = `1000000000`
+</ParamField>
+
+<ParamField query="prazo_min_meses" type="integer">
+  Prazo mínimo da operação em meses.
+</ParamField>
+
+<ParamField query="prazo_max_meses" type="integer">
+  Prazo máximo da operação em meses.
+</ParamField>
+
+**Exemplo de requisição:**
+
+```bash
+curl -X GET "https://api.bloxs.com.br/v1/investidores/pipeline?instrumento=CRI&setor=imobiliario&prazo_max_meses=48" \
+  -H "Authorization: Bearer {seu_token}" \
+  -H "Content-Type: application/json"
+```
+
+**Exemplo de resposta (`200 OK`):**
+
+```json
+{
+  "data": [
+    {
+      "operacao_id": "op_abc123",
+      "instrumento": "CRI",
+      "setor": "imobiliario",
+      "volume_brl": 5000000000,
+      "prazo_meses": 36,
+      "taxa_indicativa": "CDI + 2.50%",
+      "data_encerramento_bookbuilding": "2025-01-22T18:00:00Z",
+      "rating": "AAA",
+      "disponivel_brl": 1500000000
+    },
+    {
+      "operacao_id": "op_def456",
+      "instrumento": "CRI",
+      "setor": "imobiliario",
+      "volume_brl": 2000000000,
+      "prazo_meses": 24,
+      "taxa_indicativa": "IPCA + 6.00%",
+      "data_encerramento_bookbuilding": "2025-01-25T18:00:00Z",
+      "rating": "AA+",
+      "disponivel_brl": 2000000000
+    }
+  ],
+  "total": 2
+}
+```
+
+<ResponseField name="data[].operacao_id" type="string">
+  Identificador único da operação. Use este ID para consultar detalhes completos via `GET /operacoes/{id}`.
+</ResponseField>
+
+<ResponseField name="data[].disponivel_brl" type="integer">
+  Volume ainda disponível para alocação em centavos de BRL, considerando manifestações de interesse já recebidas.
+</ResponseField>
+
+<ResponseField name="data[].data_encerramento_bookbuilding" type="string">
+  Data e hora de encerramento do período de bookbuilding, em formato ISO 8601 (UTC).
+</ResponseField>
+
+---
+
+## GET /investidores/perfil
+
+Retorna o perfil de investimento atual e as preferências de deal flow configuradas para o investidor autenticado. Estas preferências são utilizadas pela plataforma para filtrar automaticamente o pipeline e disparar notificações de novos deals relevantes.
+
+**Autenticação:** Bearer token com escopo `investidores:read`
+
+**Exemplo de requisição:**
+
+```bash
+curl -X GET https://api.bloxs.com.br/v1/investidores/perfil \
+  -H "Authorization: Bearer {seu_token}" \
+  -H "Content-Type: application/json"
+```
+
+**Exemplo de resposta (`200 OK`):**
+
+```json
+{
+  "investidor_id": "inv_123",
+  "razao_social": "Gestora Exemplo Investimentos S.A.",
+  "cnpj": "98765432000100",
+  "preferencias": {
+    "instrumentos": ["CRI", "CRA", "FIDC"],
+    "setores": ["imobiliario", "agronegocio"],
+    "ticket_min_brl": 500000000,
+    "ticket_max_brl": 5000000000,
+    "prazo_min_meses": 12,
+    "prazo_max_meses": 60,
+    "rating_minimo": "AA"
+  },
+  "updated_at": "2025-01-10T09:00:00Z"
+}
+```
+
+<ResponseField name="preferencias.ticket_min_brl" type="integer">
+  Ticket mínimo de investimento por operação em centavos de BRL.
+</ResponseField>
+
+<ResponseField name="preferencias.rating_minimo" type="string">
+  Rating mínimo aceito para operações no pipeline. Baseado na escala de agências nacionais (ex.: `AAA`, `AA+`, `AA`, `AA-`, `A+`).
+</ResponseField>
+
+---
+
+## PUT /investidores/perfil
+
+Atualiza o perfil de investimento e as preferências de deal flow do investidor autenticado. Todos os campos de preferências são opcionais — apenas os campos informados serão atualizados.
+
+**Autenticação:** Bearer token com escopo `investidores:write`
+
+**Corpo da Requisição:**
+
+<ParamField body="instrumentos" type="array">
+  Lista de instrumentos de interesse. Valores aceitos: `CRI` | `CRA` | `FIDC` | `DEBENTURE` | `CCB` | `CR`
+</ParamField>
+
+<ParamField body="setores" type="array">
+  Lista de setores econômicos de interesse. Valores aceitos: `imobiliario` | `agronegocio` | `energia` | `infraestrutura` | `consumo` | `outros`
+</ParamField>
+
+<ParamField body="ticket_min_brl" type="integer">
+  Ticket mínimo de investimento por operação em centavos de BRL.
+</ParamField>
+
+<ParamField body="ticket_max_brl" type="integer">
+  Ticket máximo de investimento por operação em centavos de BRL.
+</ParamField>
+
+<ParamField body="prazo_min_meses" type="integer">
+  Prazo mínimo de interesse em meses.
+</ParamField>
+
+<ParamField body="prazo_max_meses" type="integer">
+  Prazo máximo de interesse em meses.
+</ParamField>
+
+<ParamField body="rating_minimo" type="string">
+  Rating mínimo aceito. Exemplo: `AA`
+</ParamField>
+
+**Exemplo de requisição:**
+
+```bash
+curl -X PUT https://api.bloxs.com.br/v1/investidores/perfil \
+  -H "Authorization: Bearer {seu_token}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "instrumentos": ["CRI", "CRA", "FIDC"],
+    "setores": ["imobiliario", "agronegocio", "energia"],
+    "ticket_min_brl": 500000000,
+    "ticket_max_brl": 10000000000,
+    "prazo_min_meses": 12,
+    "prazo_max_meses": 60,
+    "rating_minimo": "AA"
+  }'
+```
+
+**Exemplo de resposta (`200 OK`):**
+
+```json
+{
+  "message": "Perfil atualizado com sucesso.",
+  "updated_at": "2025-01-15T15:00:00Z"
+}
+```
+
+<Tip>
+  Mantenha seu perfil atualizado para garantir que o pipeline filtrado pelo endpoint `GET /investidores/pipeline` reflita com precisão o mandato de investimento vigente e que notificações automáticas sejam disparadas apenas para deals relevantes.
+</Tip>
+
+---
+
+## POST /operacoes/{id}/interesse
+
+Registra formalmente a manifestação de interesse de um investidor em uma operação específica. O registro é encaminhado à Mesa Bloxs para análise e confirmação durante o processo de bookbuilding.
+
+**Autenticação:** Bearer token com escopo `investidores:write`
+
+**Path Parameter:**
+
+<ParamField path="id" type="string" required>
+  Identificador único da operação em que o investidor deseja manifestar interesse. A operação deve estar no status `em_distribuicao`. Exemplo: `op_abc123`
+</ParamField>
+
+**Corpo da Requisição:**
+
+<ParamField body="volume_interesse_brl" type="integer" required>
+  Volume de interesse do investidor em centavos de BRL. Deve estar dentro dos limites de ticket definidos no perfil do investidor.
+</ParamField>
+
+<ParamField body="tranche" type="string" required>
+  Tranche de interesse na estrutura da operação. Valores aceitos: `senior` | `subordinado`
+</ParamField>
+
+<ParamField body="preco_indicativo" type="string">
+  Preço ou taxa indicativa de interesse do investidor. Formato livre — exemplos: `"CDI + 2.25%"`, `"IPCA + 5.50%"`, `"12.00% a.a."`
+</ParamField>
+
+<ParamField body="observacoes" type="string">
+  Observações adicionais sobre a manifestação de interesse, condições específicas ou solicitações à Mesa. Máximo de 1.000 caracteres.
+</ParamField>
+
+**Exemplo de requisição:**
+
+```bash
+curl -X POST https://api.bloxs.com.br/v1/operacoes/op_abc123/interesse \
+  -H "Authorization: Bearer {seu_token}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "volume_interesse_brl": 250000000,
+    "tranche": "senior",
+    "preco_indicativo": "CDI + 2.25%",
+    "observacoes": "Interesse sujeito à aprovação do comitê interno de crédito, com resposta prevista em 24h."
+  }'
+```
+
+**Exemplo de resposta (`201 Created`):**
+
+```json
+{
+  "interesse_id": "int_789xyz",
+  "operacao_id": "op_abc123",
+  "status": "aguardando_confirmacao",
+  "volume_interesse_brl": 250000000,
+  "tranche": "senior",
+  "preco_indicativo": "CDI + 2.25%",
+  "created_at": "2025-01-15T16:00:00Z",
+  "message": "Manifestação de interesse registrada com sucesso. A Mesa Bloxs entrará em contato."
+}
+```
+
+<Note>
+  A manifestação de interesse não constitui compromisso de alocação. A alocação final é definida no processo de bookbuilding conduzido pela Mesa Bloxs, podendo ser parcial ou integralmente atendida conforme a demanda agregada e os critérios de distribuição da operação.
+</Note>
+
+<ResponseField name="interesse_id" type="string">
+  Identificador único da manifestação de interesse. Utilize este ID para acompanhar o status via webhooks.
+</ResponseField>
+
+<ResponseField name="status" type="string">
+  Status inicial da manifestação. Valor padrão: `aguardando_confirmacao`. Atualizado para `confirmado` ou `recusado` pela Mesa Bloxs.
+</ResponseField>

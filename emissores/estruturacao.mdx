@@ -1,0 +1,85 @@
+---
+title: "Estruturação de operações de crédito estruturado"
+sidebarTitle: "Estruturação"
+description: "Como a Bloxs estrutura operações de crédito: instrumento, waterfall, subordinação, covenants e validação regulatória CVM."
+---
+
+Após a conclusão do intake e a aprovação no scoring, a operação avança para a fase de estruturação. É nessa etapa que se define a arquitetura jurídico-financeira da operação: o instrumento adequado ao perfil do emissor e do colateral, o waterfall de pagamentos, as razões de subordinação entre tranches, os covenants operacionais e os gatilhos de proteção ao investidor. A estruturação é conduzida pela equipe técnica da Bloxs com suporte dos agentes **Structurer** e **Veracity** do sistema CMD, garantindo que a operação chegue ao buy-side com um estrutural regulatoriamente válido, financeiramente coerente com a tese de crédito e aderente ao apetite dos investidores institucionais identificados.
+
+## Escolha do Instrumento
+
+O agente **Structurer** recomenda o instrumento mais adequado com base em três variáveis principais: o perfil financeiro e setorial do emissor, o tipo e a qualidade do colateral disponível e o apetite esperado da base de investidores institucionais da Bloxs. A recomendação é validada pela equipe de estruturação antes de ser apresentada ao emissor.
+
+Os instrumentos suportados pela plataforma são:
+
+- [**CRI — Certificado de Recebíveis Imobiliários**](/instrumentos/cri) — Indicado para originadores com carteira de recebíveis imobiliários. Emitido pela B-SEC Securitizadora (RCVM 60). Isento de IR para pessoa física, o que amplia o universo de investidores elegíveis.
+- [**CRA — Certificado de Recebíveis do Agronegócio**](/instrumentos/cra) — Indicado para originadores do setor do agronegócio. Emitido pela B-SEC Securitizadora (RCVM 60). Também isento de IR para pessoa física.
+- [**FIDC — Fundo de Investimento em Direitos Creditórios**](/instrumentos/fidc) — Estrutura de fundo para cessão e administração de carteiras de recebíveis. Adequado para originadores com fluxo contínuo de recebíveis. Permite estruturação multi-série com diferentes níveis de subordinação.
+- [**Debêntures**](/instrumentos/debentures) — Dívida corporativa de médio e longo prazo. Debêntures simples (acesso geral) ou incentivadas (infraestrutura, com isenção fiscal prevista em lei).
+- [**CCB — Cédula de Crédito Bancário**](/instrumentos/ccb-cr) — Instrumento de crédito bancário com estrutura de cessão para investidores qualificados ou distribuição via DTVM.
+- [**CR — Certificado de Recebíveis**](/instrumentos/ccb-cr) — Instrumento de securitização de créditos em geral, conforme RCVM 60. Emitido pela B-SEC Securitizadora. Aplicável a setores não cobertos pelos regimes específicos de CRI e CRA.
+
+A escolha final do instrumento é formalizada em conjunto com o emissor. Quando o instrumento preferencial indicado na submissão diverge da recomendação técnica, a equipe de estruturação apresenta a justificativa e as implicações de cada alternativa antes da decisão.
+
+## Waterfall de Pagamentos
+
+O waterfall de pagamentos define a ordem de prioridade na distribuição dos fluxos de caixa gerados pelo ativo subjacente — seja a carteira de recebíveis securitizada, o portfólio do FIDC ou os pagamentos do emissor da dívida corporativa.
+
+A estrutura típica de um waterfall em operações de crédito estruturado na plataforma Bloxs segue a seguinte ordem de prioridade:
+
+1. **Despesas e encargos da estrutura** — Remuneração do agente fiduciário, custos de custódia, honorários de auditoria e demais despesas operacionais do veículo.
+2. **Amortização e remuneração da tranche sênior** — Pagamento integral do principal e dos juros devidos aos detentores das cotas ou títulos sênior, conforme o cronograma de amortização da operação.
+3. **Amortização e remuneração da tranche mezanino** (quando existente) — Pagamento do principal e da remuneração das cotas mezanino, após liquidação integral das obrigações sênior.
+4. **Remuneração da tranche subordinada/júnior** — Distribuição do excedente de caixa remanescente aos detentores das cotas ou títulos subordinados, após o atendimento de todas as obrigações prioritárias.
+5. **Retorno ao cedente/emissor** (quando aplicável) — Distribuição do resíduo final ao originador, nos casos em que este retém cotas subordinadas na estrutura.
+
+O waterfall é documentado no regulamento ou escritura da operação e constitui cláusula de proteção fundamental para os investidores das tranches sênior. Qualquer alteração no waterfall após a emissão requer aprovação em assembleia de debenturistas ou cotistas, conforme o instrumento.
+
+## Subordinação
+
+A subordinação é o mecanismo central de absorção de perdas em uma operação de crédito estruturado. Ela define qual tranche suporta as perdas primeiro — protegendo os detentores das tranches de maior prioridade.
+
+**Tranche sênior** — Prioridade máxima no waterfall. Menor risco relativo dentro da estrutura. A remuneração é predefinida e o pagamento é prioritário sobre todas as demais tranches. Voltada tipicamente a investidores institucionais com mandato de baixa volatilidade e preservação de capital.
+
+**Tranche mezanino** (quando presente) — Posição intermediária. Absorve perdas após o esgotamento da subordinação júnior, mas antes de comprometer a sênior. Remuneração superior à sênior, refletindo o risco adicional.
+
+**Tranche subordinada/júnior** — Primeira linha de absorção de perdas. O detentor da cota ou título subordinado suporta as inadimplências da carteira antes que qualquer impacto alcance as tranches prioritárias. Em estruturas de FIDC, o próprio cedente frequentemente retém a cota subordinada para demonstrar alinhamento de interesses com o investidor sênior.
+
+As razões de subordinação mínimas são definidas caso a caso pelo agente Structurer, com base no histórico de inadimplência da carteira, no vintage setorial e nos parâmetros regulatórios aplicáveis. Referências indicativas por instrumento:
+
+| Instrumento | Subordinação mínima típica |
+|---|---|
+| FIDC (carteira performada) | 10% a 20% sobre o PL do fundo |
+| FIDC (carteira a performar) | 20% a 35% sobre o PL do fundo |
+| CRI / CRA | Sobrecolateralização de 10% a 30% do valor da emissão |
+| CR | Definida caso a caso conforme perfil do ativo-lastro |
+
+Esses parâmetros são referências operacionais e não representam recomendação ou garantia de performance da estrutura.
+
+## Covenants e Triggers
+
+Os covenants são compromissos operacionais e financeiros assumidos pelo emissor durante a vida da operação. Os triggers são mecanismos automáticos de proteção acionados quando determinados covenants são violados. Abaixo, os covenants mais comuns nas operações estruturadas pela plataforma Bloxs:
+
+- **Índice máximo de inadimplência (IMI)** — Define o percentual máximo de atrasos ou inadimplências na carteira de recebíveis subjacente. O descumprimento desse índice pode acionar a amortização acelerada ou o bloqueio de novas cessões no FIDC.
+- **Nível mínimo de sobrecolateralização** — Garante que o valor dos ativos subjacentes supere o saldo devedor da emissão em um percentual mínimo definido. Queda abaixo desse nível aciona evento de avaliação ou amortização acelerada.
+- **Covenant de caixa** — Exige que o emissor mantenha um nível mínimo de caixa ou reserva de liquidez durante a vigência da operação, mitigando o risco de insuficiência de recursos para o serviço da dívida.
+- **Trigger de amortização acelerada** — Evento que, quando acionado (por violação de covenant, mudança de controle, alteração relevante no perfil do emissor ou deterioração significativa da carteira), obriga a antecipação total ou parcial do principal da operação.
+- **Covenant de alavancagem** — Limita o nível de endividamento total do emissor em relação ao EBITDA ou ao patrimônio líquido durante a vigência da operação.
+- **Covenant de cessão mínima** (aplicável a FIDCs) — Obriga o cedente a manter um volume mínimo mensal de cessão de recebíveis ao fundo, garantindo a continuidade do fluxo de ativos.
+
+Os covenants específicos de cada operação são negociados entre o emissor e a equipe de estruturação Bloxs, com referência às práticas de mercado e ao perfil de risco da carteira.
+
+## Validação Regulatória
+
+Antes de qualquer apresentação ao buy-side, o agente **Veracity** executa a validação regulatória completa da estrutura definida. Essa etapa cobre:
+
+- **Conformidade com a RCVM 60** para operações de CRI, CRA e CR: verificação dos requisitos de lastro, registro, publicidade e deveres do agente fiduciário.
+- **Conformidade com a ICVM 356 e RCVM 175** para FIDCs: verificação dos critérios de cessão, composição mínima de carteira, deveres do gestor e relatórios obrigatórios.
+- **Conformidade com a RCVM 161** para o processo de distribuição: verificação dos requisitos de suitability, material de oferta e restrições a investidores não qualificados.
+- **Verificação de vedações setoriais** para instrumentos com incentivo fiscal (CRI, CRA, Debêntures de Infraestrutura): conformidade com as regras que definem os setores elegíveis ao benefício.
+
+O resultado da validação pelo agente Veracity é apresentado à equipe jurídica e de compliance da Bloxs para revisão final antes da aprovação para distribuição.
+
+<Warning>
+  A estruturação final requer aprovação da equipe jurídica e de compliance Bloxs antes da etapa de distribuição. Nenhuma operação é apresentada ao buy-side sem a conclusão dessa validação. O agente Veracity automatiza a triagem regulatória, mas não substitui o parecer jurídico humano.
+</Warning>

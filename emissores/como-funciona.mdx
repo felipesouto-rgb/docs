@@ -1,0 +1,62 @@
+---
+title: "Como emitir pela Bloxs: guia para o sell-side"
+sidebarTitle: "Como Funciona"
+description: "Guia completo para emissores: como submeter uma operação, interagir com os agentes CMD e acessar a Mesa de Distribuição Bloxs."
+---
+
+A plataforma Bloxs atende emissores e originadores de dívida — o sell-side — que necessitam estruturar e distribuir operações de crédito estruturado no mercado de capitais brasileiro sem precisar manter infraestrutura própria de capital markets. Por meio de um fluxo integrado de originação, estruturação e distribuição, o emissor submete sua tese de crédito e percorre, com suporte técnico e regulatório da Bloxs, todas as etapas até o takeout junto ao buy-side institucional. A plataforma absorve as funções de triagem automatizada, estruturação regulatória, precificação e cobertura de investidores, permitindo que o emissor concentre esforços na sua atividade-fim.
+
+## Quem Pode Emitir
+
+São elegíveis à plataforma Bloxs empresas que buscam financiamento estruturado por meio de instrumentos do mercado de capitais brasileiro, incluindo:
+
+- **Securitização** — Originadores com carteiras de recebíveis imobiliários (CRI via B-SEC) ou do agronegócio (CRA via B-SEC), ou recebíveis em geral (CR conforme RCVM 60).
+- **Fundos de crédito** — Originadores que estruturam cessão de carteiras de recebíveis para FIDCs, com gestão pela Bloxs Asset (RCVM 21) quando aplicável.
+- **Dívida corporativa** — Empresas em busca de financiamento por Debêntures simples ou incentivadas (infraestrutura), com distribuição à base institucional da Bloxs.
+- **Instrumentos bancários** — Originadores que operam com Cédula de Crédito Bancário (CCB) ou Certificado de Recebíveis (CR) e necessitam de canal de distribuição qualificado.
+
+O perfil esperado dos emissores inclui empresas com histórico financeiro auditável, garantias ou colateral identificável e volume de operação compatível com o apetite da base de investidores institucionais da Bloxs. Operações de menor porte podem ser estruturadas sob o regime da RCVM 88 via Bloxs Crowdfunding.
+
+## Jornada do Emissor
+
+<Steps>
+  <Step title="Cadastro e Onboarding">
+    O emissor realiza o cadastro na plataforma Bloxs — via interface web ou mediante contato com a equipe comercial. O onboarding inclui verificação de identidade corporativa (KYC/KYB), aceite dos termos de uso e configuração do perfil de emissão. Parceiros de negócio credenciados (Business Partners) podem conduzir o onboarding de emissores indicados diretamente na plataforma.
+  </Step>
+  <Step title="Submissão da Tese de Crédito">
+    Com o cadastro ativo, o emissor submete a tese de crédito. A submissão pode ser realizada pela interface web, via API ou pelo canal WhatXS. A tese deve conter as informações essenciais para a triagem inicial: CNPJ do emissor, setor de atuação, volume desejado, prazo, instrumento preferencial, garantias disponíveis e destinação dos recursos.
+  </Step>
+  <Step title="Scoring & Triagem Automatizada">
+    O agente **Intake** verifica o fit regulatório e a completude das informações. O agente **Scoring** executa a avaliação multidimensional da tese: capacidade financeira, qualidade das garantias, vintage do setor e conformidade regulatória. O resultado é um score indicativo que orienta a estruturação e define a prioridade de análise técnica. O emissor é notificado sobre o status da tese ao término dessa etapa.
+  </Step>
+  <Step title="Estruturação da Operação">
+    Com a tese aprovada para estruturação, a equipe técnica da Bloxs — apoiada pelo agente **Structurer** — define a arquitetura da operação: instrumento, waterfall de pagamentos, tranches sênior e subordinada, razões de subordinação, covenants e documentação jurídica. O agente **Veracity** valida a conformidade regulatória da estrutura antes de sua apresentação ao buy-side.
+  </Step>
+  <Step title="Precificação e Bookbuilding">
+    O agente **Pricer** calcula o spread de referência. O pricing indicativo é apresentado ao emissor para alinhamento antes do início do bookbuilding. A Mesa de Distribuição Bloxs, apoiada pelo agente **Matcher**, identifica as contas institucionais mais aderentes ao perfil da operação e conduz a cobertura ativa. O bookbuilding registra as intenções de compra e determina o preço final.
+  </Step>
+  <Step title="Distribuição e Takeout">
+    Com o livro de ordens fechado e a alocação definida, a operação é custodiada pela entidade regulatória competente do Grupo Bloxs. O takeout encerra o ciclo de originação. A partir desse ponto, o emissor passa à fase de acompanhamento pós-emissão: reporte de covenants, demonstrativos financeiros periódicos e comunicação com investidores conforme os termos da operação.
+  </Step>
+</Steps>
+
+## O Que Você Precisa Preparar
+
+Para que o processo de intake e scoring transcorra com eficiência, o emissor deve ter disponíveis as seguintes informações e documentos no momento da submissão:
+
+- **Histórico financeiro** — Demonstrações financeiras auditadas dos últimos 3 (três) exercícios fiscais, incluindo DRE, balanço patrimonial e fluxo de caixa.
+- **Garantias disponíveis** — Descrição detalhada das garantias e colaterais oferecidos: imóveis, recebíveis, fiança, aval, alienação fiduciária ou outros instrumentos de mitigação de risco.
+- **Volume desejado** — Montante total da operação em reais (R$), com indicação de eventual estrutura em séries ou tranches.
+- **Prazo da operação** — Prazo total desejado (em meses), com indicação do perfil de amortização pretendido (bullet, amortização periódica ou outra estrutura).
+- **Destinação dos recursos** — Descrição objetiva da finalidade dos recursos captados: capital de giro, expansão, refinanciamento de passivo, aquisição de ativos, entre outros.
+- **Instrumento preferencial** — Indicação do instrumento desejado (CRI, CRA, FIDC, Debênture, CCB ou CR), ainda que sujeito à recomendação final do agente Structurer.
+- **Setor de atuação** — Classificação do setor econômico do emissor e da carteira de recebíveis (quando aplicável), relevante para análise de vintage setorial.
+
+<Tip>
+  O canal **WhatXS** permite que emissores e parceiros submetam teses de crédito diretamente via WhatsApp, interagindo com os agentes CMD de forma conversacional. É a forma mais ágil de iniciar um processo de intake sem acessar a interface web da plataforma. Para ativar o canal, solicite o número de contato à sua equipe de relacionamento Bloxs.
+</Tip>
+
+Para aprofundar cada etapa da jornada, consulte as seções específicas de originação e estruturação:
+
+- [Originação — Intake e Scoring](/emissores/originacao)
+- [Estruturação — Waterfall, Subordinação e Covenants](/emissores/estruturacao)

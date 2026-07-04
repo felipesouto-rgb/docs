@@ -1,0 +1,87 @@
+---
+title: "Integração programática com os agentes CMD Bloxs"
+sidebarTitle: "Integração"
+description: "Como integrar programaticamente com os agentes CMD da Bloxs via API REST para automatizar scoring, estruturação e matching de deals."
+---
+
+Além do MCP Server, os agentes CMD são acessíveis diretamente via API REST da Bloxs, permitindo que desenvolvedores acionem agentes específicos de forma programática dentro de seus próprios fluxos de trabalho. Essa modalidade de acesso é indicada para integrações sistêmicas — como pipelines de originação, sistemas de gestão de carteira ou plataformas parceiras que necessitem incorporar capacidades analíticas do CMD em seus próprios processos operacionais.
+
+## Agentes via API REST
+
+Cada agente CMD possui um endpoint dedicado sob o prefixo `/v1/cmd/` na API Bloxs. As requisições são autenticadas via Bearer token e os jobs são processados de forma assíncrona, com retorno de um identificador de job para consulta posterior. Todos os endpoints aceitam e retornam JSON.
+
+A autenticação segue o padrão da API Bloxs: token Bearer emitido via painel da plataforma ou via endpoint `/v1/auth/token`. Consulte a [documentação de autenticação](/api/autenticacao) para detalhes sobre emissão e renovação de tokens.
+
+## Endpoints CMD
+
+Os principais endpoints dos agentes CMD estão listados abaixo. Todos operam via método `POST` e recebem o identificador da operação como parâmetro central.
+
+| Endpoint | Agente | Descrição |
+|---|---|---|
+| `POST /v1/cmd/scoring` | Scoring | Aciona o agente Scoring para análise de crédito multidimensional de uma operação |
+| `POST /v1/cmd/structure` | Structurer | Aciona o agente Structurer para recomendação de instrumento, waterfall e subordinação |
+| `POST /v1/cmd/price` | Pricer | Aciona o agente Pricer para cálculo de spread de referência |
+| `POST /v1/cmd/match` | Matcher | Aciona o agente Matcher para identificação de investidores institucionais compatíveis |
+
+### Exemplo: POST /v1/cmd/scoring
+
+O exemplo abaixo demonstra o acionamento do agente Scoring para uma operação previamente cadastrada na plataforma, identificada por `operacao_id`.
+
+```bash
+curl -X POST https://api.bloxs.com.br/v1/cmd/scoring \
+  -H "Authorization: Bearer {token}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "operacao_id": "op_abc123"
+  }'
+```
+
+A resposta imediata confirma o recebimento do job e fornece o identificador para acompanhamento assíncrono:
+
+```json
+{
+  "job_id": "job_xyz789",
+  "status": "processing",
+  "estimated_completion_seconds": 30
+}
+```
+
+O campo `estimated_completion_seconds` é uma estimativa baseada na carga atual de processamento e na complexidade da operação. Jobs de scoring tipicamente completam em 20 a 60 segundos.
+
+## Resultado Assíncrono
+
+Os jobs CMD são processados de forma assíncrona. Após o acionamento de um agente, o resultado pode ser obtido por duas modalidades:
+
+<Steps>
+  <Step title="Polling via GET /v1/cmd/jobs/{job_id}">
+    Consulte periodicamente o endpoint de status do job para verificar o progresso. Quando o campo `status` retornar `completed`, o campo `resultado` estará disponível na resposta com o output completo do agente.
+
+    ```bash
+    curl https://api.bloxs.com.br/v1/cmd/jobs/job_xyz789 \
+      -H "Authorization: Bearer {token}"
+    ```
+
+    Os status possíveis são: `queued`, `processing`, `completed` e `failed`. Em caso de `failed`, o campo `erro` descreve a causa da falha.
+  </Step>
+  <Step title="Webhooks (push)">
+    Para evitar polling, configure um endpoint de webhook na plataforma Bloxs para receber notificação automática ao término do job. O payload do webhook inclui o `job_id`, o `status` e o resultado completo do agente.
+
+    Consulte a documentação de [Webhooks](/api/webhooks) para configuração do endpoint e validação de assinatura HMAC.
+  </Step>
+</Steps>
+
+## WhatXS
+
+O WhatXS é o canal de interface com o mercado de capitais da Bloxs via WhatsApp. Internamente, o WhatXS utiliza os agentes CMD para processar solicitações recebidas em linguagem natural, permitindo que parceiros interajam com as capacidades analíticas da plataforma sem necessidade de integração técnica direta.
+
+Por meio do WhatXS, parceiros credenciados podem:
+
+- **Intake de operações:** submeter uma tese de crédito inicial via mensagem de texto ou documentos enviados diretamente pelo WhatsApp, com o agente Intake processando a submissão automaticamente.
+- **Consultas de scoring:** solicitar o status ou resultado de scoring de uma operação em andamento com resposta estruturada no próprio canal.
+- **Matching de investidores:** consultar a lista de investidores institucionais identificados pelo agente Matcher para uma operação específica.
+
+O WhatXS é ativado durante o onboarding de parceiros Business Partner e não requer configuração técnica adicional. O número de contato e as instruções de uso são fornecidos pela equipe Bloxs no momento da credenciamento.
+
+<Info>
+  O acesso à CMD API requer perfil Enterprise IBaaS ou parceiro Independente. Entre em contato com a Bloxs para habilitar o acesso à CMD API para sua conta.
+</Info>

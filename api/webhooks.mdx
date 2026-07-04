@@ -1,0 +1,256 @@
+---
+title: "Webhooks da API Bloxs: eventos em tempo real"
+sidebarTitle: "Webhooks"
+description: "Configure webhooks para receber notificações em tempo real sobre mudanças de status de operações, bookbuilding e alocações na API Bloxs."
+---
+
+Os webhooks da Bloxs permitem que sua aplicação receba notificações **HTTP POST em tempo real** sempre que eventos relevantes ocorrerem na plataforma — como alterações de status em operações, abertura de períodos de distribuição, encerramento de bookbuilding e confirmações de interesse. Em vez de realizar polling periódico à API, você registra uma URL de endpoint em seu servidor e a Bloxs entrega os eventos de forma proativa e auditável.
+
+## Eventos Disponíveis
+
+| Evento                          | Descrição                                              |
+| ------------------------------- | ------------------------------------------------------ |
+| `operacao.status_changed`       | Status de uma operação foi alterado                    |
+| `operacao.distribuicao_aberta`  | Operação entrou na fase de distribuição (bookbuilding aberto) |
+| `operacao.alocada`              | Operação foi alocada com sucesso                       |
+| `interesse.confirmado`          | Manifestação de interesse confirmada pela Mesa Bloxs   |
+| `interesse.recusado`            | Manifestação de interesse recusada pela Mesa Bloxs     |
+| `bookbuilding.encerrado`        | Período de bookbuilding de uma operação foi encerrado  |
+
+---
+
+## POST /webhooks
+
+Registra um novo endpoint de webhook para receber notificações de eventos da plataforma.
+
+**Autenticação:** Bearer token com escopo `webhooks:manage`
+
+**Corpo da Requisição:**
+
+<ParamField body="url" type="string" required>
+  URL HTTPS do endpoint em seu servidor que receberá os payloads de webhook. Deve ser acessível publicamente e retornar `2xx` em até **10 segundos** para confirmar o recebimento.
+</ParamField>
+
+<ParamField body="events" type="array" required>
+  Lista dos tipos de evento para os quais este webhook deve ser disparado. Use `["*"]` para subscrever todos os eventos disponíveis. Exemplo: `["operacao.status_changed", "interesse.confirmado"]`
+</ParamField>
+
+<ParamField body="secret" type="string">
+  Segredo utilizado para gerar a assinatura HMAC-SHA256 incluída no header `X-Bloxs-Signature` de cada requisição. Recomendado para validação da autenticidade dos payloads. Consulte [Validação HMAC](#validação-hmac).
+</ParamField>
+
+**Exemplo de requisição:**
+
+```bash
+curl -X POST https://api.bloxs.com.br/v1/webhooks \
+  -H "Authorization: Bearer {seu_token}" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "url": "https://meuservidor.com.br/webhooks/bloxs",
+    "events": ["operacao.distribuicao_aberta", "interesse.confirmado", "interesse.recusado"],
+    "secret": "meu_segredo_hmac_super_secreto"
+  }'
+```
+
+**Exemplo de resposta (`201 Created`):**
+
+```json
+{
+  "id": "wh_abc789",
+  "url": "https://meuservidor.com.br/webhooks/bloxs",
+  "events": ["operacao.distribuicao_aberta", "interesse.confirmado", "interesse.recusado"],
+  "status": "ativo",
+  "created_at": "2025-01-15T17:00:00Z"
+}
+```
+
+<Note>
+  A Bloxs realizará uma requisição de verificação (`POST`) para a URL registrada no momento do cadastro. Seu endpoint deve responder com status `200 OK` para que o webhook seja ativado.
+</Note>
+
+---
+
+## GET /webhooks
+
+Lista todos os webhooks registrados para a aplicação autenticada.
+
+**Autenticação:** Bearer token com escopo `webhooks:manage`
+
+**Exemplo de requisição:**
+
+```bash
+curl -X GET https://api.bloxs.com.br/v1/webhooks \
+  -H "Authorization: Bearer {seu_token}" \
+  -H "Content-Type: application/json"
+```
+
+**Exemplo de resposta (`200 OK`):**
+
+```json
+{
+  "data": [
+    {
+      "id": "wh_abc789",
+      "url": "https://meuservidor.com.br/webhooks/bloxs",
+      "events": ["operacao.distribuicao_aberta", "interesse.confirmado", "interesse.recusado"],
+      "status": "ativo",
+      "created_at": "2025-01-15T17:00:00Z",
+      "ultimo_disparo": "2025-01-15T18:30:00Z"
+    }
+  ]
+}
+```
+
+<ResponseField name="data[].status" type="string">
+  Status do webhook. Valores possíveis: `ativo` | `inativo` | `falha_persistente`. Um webhook entra em `falha_persistente` após 10 tentativas consecutivas sem resposta `2xx`.
+</ResponseField>
+
+<ResponseField name="data[].ultimo_disparo" type="string">
+  Data e hora do último disparo do webhook, em formato ISO 8601 (UTC).
+</ResponseField>
+
+---
+
+## DELETE /webhooks/{id}
+
+Remove permanentemente um webhook registrado. Após a remoção, nenhum evento adicional será entregue para a URL associada.
+
+**Autenticação:** Bearer token com escopo `webhooks:manage`
+
+**Path Parameter:**
+
+<ParamField path="id" type="string" required>
+  Identificador único do webhook a ser removido. Exemplo: `wh_abc789`
+</ParamField>
+
+**Exemplo de requisição:**
+
+```bash
+curl -X DELETE https://api.bloxs.com.br/v1/webhooks/wh_abc789 \
+  -H "Authorization: Bearer {seu_token}"
+```
+
+**Resposta:** `204 No Content` (sem corpo).
+
+---
+
+## Formato do Payload
+
+Cada evento dispara uma requisição `POST` para o endpoint registrado com o seguinte payload JSON no corpo:
+
+```json
+{
+  "event": "operacao.distribuicao_aberta",
+  "timestamp": "2025-01-15T14:00:00Z",
+  "data": {
+    "operacao_id": "op_abc123",
+    "instrumento": "CRI",
+    "volume_brl": 5000000000,
+    "taxa_indicativa": "CDI + 2.50%",
+    "data_encerramento_bookbuilding": "2025-01-22T18:00:00Z"
+  }
+}
+```
+
+<ResponseField name="event" type="string">
+  Tipo do evento disparado. Consulte a tabela de [Eventos Disponíveis](#eventos-disponíveis).
+</ResponseField>
+
+<ResponseField name="timestamp" type="string">
+  Data e hora em que o evento ocorreu na plataforma Bloxs, em formato ISO 8601 (UTC).
+</ResponseField>
+
+<ResponseField name="data" type="object">
+  Objeto com os dados específicos do evento. O schema do `data` varia conforme o tipo de evento.
+</ResponseField>
+
+**Headers incluídos em cada requisição de webhook:**
+
+| Header                  | Descrição                                                        |
+| ----------------------- | ---------------------------------------------------------------- |
+| `Content-Type`          | `application/json`                                               |
+| `X-Bloxs-Signature`     | Assinatura HMAC-SHA256 do payload (se `secret` foi configurado)  |
+| `X-Bloxs-Event`         | Tipo do evento (ex.: `operacao.distribuicao_aberta`)             |
+| `X-Bloxs-Delivery`      | UUID único de entrega para idempotência e diagnóstico            |
+
+### Política de Reentregas
+
+Caso seu endpoint não responda com `2xx` dentro de 10 segundos, a Bloxs realizará até **10 tentativas** de reentrega com espera exponencial (1s, 2s, 4s, 8s... até 512s). Após 10 falhas consecutivas, o webhook é marcado como `falha_persistente` e as entregas são suspensas.
+
+<Tip>
+  Implemente processamento assíncrono em seu endpoint: receba o payload, armazene-o em uma fila (ex.: Redis, SQS) e retorne `200 OK` imediatamente. Processe o evento em background para evitar timeouts.
+</Tip>
+
+---
+
+## Validação HMAC
+
+Quando um `secret` é configurado no webhook, cada requisição inclui o header `X-Bloxs-Signature` com a assinatura HMAC-SHA256 do corpo da requisição, no formato `sha256=<hex_digest>`. **Sempre valide esta assinatura antes de processar o payload.**
+
+<Warning>
+  Sempre valide a assinatura HMAC antes de processar o payload do webhook. Ignorar esta etapa expõe sua aplicação ao risco de processar eventos forjados por terceiros mal-intencionados.
+</Warning>
+
+**Algoritmo de validação:**
+
+1. Extraia o valor do header `X-Bloxs-Signature` (formato: `sha256=<hex_digest>`).
+2. Calcule o HMAC-SHA256 do **corpo bruto (raw bytes)** da requisição usando o `secret` configurado.
+3. Compare o digest calculado com o valor recebido usando comparação em tempo constante (*constant-time comparison*) para evitar timing attacks.
+
+**Exemplos de implementação:**
+
+```python
+import hmac
+import hashlib
+
+def validar_assinatura_webhook(payload_bytes: bytes, secret: str, signature_header: str) -> bool:
+    """
+    Valida a assinatura HMAC-SHA256 de um payload de webhook Bloxs.
+    
+    :param payload_bytes: Corpo bruto da requisição (request.body em bytes)
+    :param secret: Segredo configurado no webhook
+    :param signature_header: Valor do header X-Bloxs-Signature
+    :return: True se válido, False caso contrário
+    """
+    expected_digest = hmac.new(
+        key=secret.encode("utf-8"),
+        msg=payload_bytes,
+        digestmod=hashlib.sha256
+    ).hexdigest()
+    
+    expected_signature = f"sha256={expected_digest}"
+    
+    # Comparação em tempo constante para prevenir timing attacks
+    return hmac.compare_digest(expected_signature, signature_header)
+```
+
+```javascript
+const crypto = require("crypto");
+
+function validarAssinaturaWebhook(payloadBuffer, secret, signatureHeader) {
+  /**
+   * Valida a assinatura HMAC-SHA256 de um payload de webhook Bloxs.
+   *
+   * @param {Buffer} payloadBuffer - Corpo bruto da requisição (Buffer)
+   * @param {string} secret - Segredo configurado no webhook
+   * @param {string} signatureHeader - Valor do header X-Bloxs-Signature
+   * @returns {boolean} true se válido, false caso contrário
+   */
+  const expectedDigest = crypto
+    .createHmac("sha256", secret)
+    .update(payloadBuffer)
+    .digest("hex");
+
+  const expectedSignature = `sha256=${expectedDigest}`;
+
+  // Comparação em tempo constante para prevenir timing attacks
+  return crypto.timingSafeEqual(
+    Buffer.from(expectedSignature, "utf8"),
+    Buffer.from(signatureHeader, "utf8")
+  );
+}
+```
+
+<Note>
+  Utilize sempre o **corpo bruto (raw bytes)** da requisição para o cálculo do HMAC — não o objeto JSON parseado. Qualquer transformação no payload (reordenação de chaves, formatação) resultará em um digest diferente e a validação falhará.
+</Note>
