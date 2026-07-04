@@ -21,61 +21,119 @@ icon: "route"
 ---
 
 <Note>
-  **Status: draft — não recuperável por agente.** Roteia cada ICP para perfil contratual, produto provável, economics e entidade executora. O ICP é uma **lente** — todo parceiro cai em Independent Banker (IB), Business Partner (BP) ou Enterprise IBaaS (ENT).
+  **Roteia cada ICP para perfil contratual, produto provável, economics e entidade executora.** O ICP é uma **lente** — todo parceiro cai em Independent Banker (IB), Business Partner (BP) ou Enterprise IBaaS (ENT).
 </Note>
 
 ## Como usar
 
-1. Identifique o ICP.
-2. Leia a linha: perfil provável, o que tem/falta, produto, economics, entidade, risco, próximo passo.
-3. Confirme o perfil contratual com [Conduta por Perfil](/02-regulatory-perimeter/conduta-por-perfil).
-4. Valide a estrutura com a [Selection Matrix](/05-products-structures-solutions/selection-matrix).
+<Steps>
+  <Step title="Identifique o ICP">
+    Qual categoria melhor descreve o parceiro.
+  </Step>
+  <Step title="Leia a linha da matriz">
+    Perfil provável, o que tem/falta, produto, economics, entidade, risco, próximo passo.
+  </Step>
+  <Step title="Confirme o perfil contratual">
+    Valide com [Conduta por Perfil](/02-regulatory-perimeter/conduta-por-perfil).
+  </Step>
+  <Step title="Valide a estrutura">
+    Cruze o produto provável com a [Selection Matrix](/05-products-structures-solutions/selection-matrix).
+  </Step>
+</Steps>
 
-## Matriz
+{/* ESPAÇO PARA ANIMAÇÃO IA — 12 ícones de ICP convergindo para 3 caixas de perfil (IB / BP / ENT) (~20s). Inserir aqui. */}
 
-| ICP | Perfil provável | O que tem | O que falta | Produto/solução provável | Economics possível | Entidade executora | Risco principal | Próximo passo |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **Boutique IB** | BP | Deals, relação sênior, tese | Trilho digital, veículo, distribuição | FIDC, CRI, debênture · middle-market funding | SetUp \+ Success; Colocação se autorizado | Coordenação / Securitizadora / Asset | Key-man; tentação de canal WhatsApp | Fit-score \+ caso Alpha |
-| **Assessoria B2B** | BP ou IB | Pipeline, contas corporativas | Estrutura regulada, produto | CR · receivables finance | Success \+ override | Securitizadora | Achar que pode distribuir | Mapear pipeline atual |
-| **Consultor CVM** | BP | Conhecimento regulatório | Originação em escala | Estruturação, offering regimes | Apoio Técnico | Conforme mandato | Sobreposição de papel | Definir escopo técnico |
-| **Wealth regional** | BP | Base de investidores, capital | Originação sell-side | Buy-side \+ estruturação | Success \+ participação | Asset / Coordenação | Confundir com distribuição própria | Mapa de apetite |
-| **Advogado empresarial** | IB → BP | Casos, RJ, reestruturação | Monetização financeira | legal-claims, special situations | Indicação \+ override | Securitizadora | Não pode ofertar | Caso legal-claims |
-| **Contador estratégico** | IB | Acesso ao CFO, dados | Produto de capital | CR · supply-chain finance | Indicação \+ override 12m | Securitizadora | Vedações duras de conduta | Lista de clientes-alvo |
-| **Servicer** | BP | Operação, cobrança, dados | Veículo, distribuição | FIDC (como servicer), warehouse | Success \+ fee de serviço | Asset / Securitizadora | Conflito de papel | DD de capacidade |
-| **Fintech de crédito** | BP ou ENT | Originação em volume, tech | Funding estruturado | FIDC, FIDC-multiclasse, warehouse | Success \+ tech fee (ENT) | Asset / Securitizadora | Balance-sheet vs asset-light | Fundability test |
-| **Originador independente** | BP | Lastro, volume regional | Estrutura, compliance | CR, FIDC · ops-supply-chain | Success \+ colocação | Securitizadora / Asset | Cessão válida? Concentração? | Caso Gamma |
-| **Gestora** | BP | Mandato, veículo, capital | Originação diferenciada | Carteira administrada, FIF, club deals | Management \+ participação | Asset | Já regulada | Tese de produto |
-| **Banco médio** | ENT | Balanço, base, licença | Escala tech, agilidade | ENT white-label, tokenização | R\$95k \+ 1,5% volume | Digital \+ entidades | É cliente, não concorrente | Piloto white-label |
-| **Plataforma digital** | ENT | Base de usuários, tech | Trilho regulado de capitais | ENT white-label, digital-assets | R\$95k \+ 1,5% volume | Digital \+ entidades | Integração; perímetro regulado | Escopo de integração |
+## Matriz completa
+
+|
+|
+
+## Lógica de roteamento por perfil
+
+Por que cada grupo de ICP tende a um perfil:
+
+<CardGroup cols={3}>
+  <Card title="→ Independent Banker" icon="user">
+    ICPs cujo valor é **acesso e indicação**, sem apetite ou capacidade de atuar em estruturação: contador estratégico, advogado (início). Originam, não operam.
+  </Card>
+
+  <Card title="→ Business Partner" icon="briefcase">
+    ICPs que **operam junto**, com recorrência e sofisticação: boutique IB, assessoria, wealth, servicer, originador, gestora. O grosso da rede.
+  </Card>
+
+  <Card title="→ Enterprise IBaaS" icon="building-2">
+    ICPs que querem **operar sob a própria marca em escala**: banco médio, plataforma digital. Precisam do trilho, não da estruturação caso a caso.
+  </Card>
+</CardGroup>
 
 ## Economics de referência (Business Partner)
-
-| Etapa | Faixa |
-| --- | --- |
-| Set Up | até 20% |
-| Success Fee | até 80% |
-| Colocação (autorizado) | 80% |
-| Colocação (repasse por originação) | 20% |
-| Apoio Técnico | até 100% |
 
 <Warning>
   Economics detalhado por contrato é **Restricted-Economics**. Esta tabela é referência de enquadramento interno — não compartilhar faixas específicas com o parceiro fora do processo contratual, nem entre parceiros.
 </Warning>
 
-## CRM rules
+## Sinais de fit e de risco (por família de ICP)
 
-- ICP → campo de segmentação no `Account`.
-- Perfil roteado → `Partner-Program-Enrollment`.
-- Deal gerado → objeto `Deal` ligado à conta.
+<AccordionGroup>
+  <Accordion title="Boutiques e assessorias" icon="thumbs-up">
+    **Fit:** deals recorrentes, relação sênior, entende estrutura. **Risco:** dependência de uma pessoa (key-man); tentação de usar WhatsApp para "adiantar" oferta. Reforçar perímetro cedo.
+  </Accordion>
+
+  <Accordion title="Wealth, gestoras e MFOs" icon="thumbs-up">
+    **Fit:** capital, base de investidores, mandato. **Risco:** confundir "ter investidores" com "poder distribuir". Deixar a linha clara no onboarding.
+  </Accordion>
+
+  <Accordion title="Advogados e contadores" icon="thumbs-up">
+    **Fit:** acesso privilegiado (CFO, casos, RJ). **Risco:** vedações de conduta são duras — começam como IB, evoluem para BP só com escopo bem definido.
+  </Accordion>
+
+  <Accordion title="Bancos médios e plataformas" icon="thumbs-up">
+    **Fit:** escala, base, balanço/tech. **Risco:** querer "emitir direto" e pular a entidade regulada. O modelo Enterprise só funciona com a separação de camadas intacta.
+  </Accordion>
+</AccordionGroup>
+
+## CRM rules
 
 ## Next action
 
-- Perfil = ENT → escopo de integração \+ piloto.
-- Perfil = BP → onboarding \+ primeiro deal via [Fundability Test](/05-products-structures-solutions/credit-structuring-principles/fundability-test).
-- Perfil = IB → onboarding de originação (sem trilha de distribuição).
+<CardGroup cols={3}>
+  <Card title="ENT" icon="building-2">
+    Escopo de integração \+ piloto white-label.
+  </Card>
+
+  <Card title="BP" icon="briefcase" href="/05-products-structures-solutions/credit-structuring-principles/fundability-test">
+    Onboarding \+ primeiro deal via Fundability Test.
+  </Card>
+
+  <Card title="IB" icon="user">
+    Onboarding de originação (sem trilha de distribuição).
+  </Card>
+</CardGroup>
 
 ## Red flags
 
-- Encaixar parceiro num perfil só pela economics, ignorando o perímetro.
-- Wealth/assessoria assumindo que pode distribuir por ter investidores.
-- Advogado/contador tratados como distribuidores.
+<CardGroup cols={2}>
+  <Card title="Encaixar parceiro só pela economics, ignorando perímetro" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Wealth/assessoria assumindo que pode distribuir" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Advogado/contador tratados como distribuidores" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Enterprise querendo pular a entidade regulada" icon="flag" horizontal>
+  </Card>
+</CardGroup>
+
+---
+
+<CardGroup cols={2}>
+  <Card title="Qualificar em 5 min" icon="gauge" href="/08-sales-console/qualificar-parceiro-em-5-minutos">
+    A triagem que precede o roteamento.
+  </Card>
+
+  <Card title="Selection Matrix" icon="grid-3x3" href="/05-products-structures-solutions/selection-matrix">
+    Do produto provável à estrutura definitiva.
+  </Card>
+</CardGroup>
