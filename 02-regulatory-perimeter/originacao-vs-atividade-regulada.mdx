@@ -1,0 +1,116 @@
+---
+title: "Originação vs. Atividade Regulada"
+category: "regulatory-perimeter"
+zone: "Internal"
+audience: ["colaborador-interno", "independent-banker", "business-partner", "enterprise-ibaas", "entidade-licenciada", "compliance", "leadership", "ai-agent"]
+primary_user: "colaborador-interno"
+owner: "Compliance Bloxs"
+last_reviewed: "2026-07-04"
+status: "draft"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+content_classification: "regulado"
+regulatory_perimeter: "ambos"
+regulated_activity_touchpoint: true
+executing_entity: "todas"
+regulatory_refs: ["RCVM-160", "RCVM-161", "RCVM-88", "RCVM-21", "RCVM-175", "RCVM-60"]
+external_output_allowed: false
+requires_compliance_approval: true
+communication_channels_prohibited: ["whatsapp-oferta", "redes-sociais-oferta"]
+recordkeeping_required: true
+audit_log_required: true
+reputation_risk: "alto"
+risk_level: "alto"
+icon: "shield-check"
+---
+
+<Warning>
+  **Página-mãe do perímetro. Status: draft — pendente de revisão de compliance antes de virar fonte autorizada.** A regra abaixo governa toda conduta comercial. Em caso de dúvida, a resposta padrão é **parar e escalar**, nunca improvisar.
+</Warning>
+
+## O princípio-mãe
+
+Existe uma linha que **nunca** pode ser cruzada por quem não é licenciado:
+
+> **Originação** é trazer a oportunidade. **Atividade regulada** é estruturar, distribuir, ofertar e recomendar o valor mobiliário. A primeira o parceiro faz. A segunda **só as entidades executoras licenciadas fazem.**
+
+Confundir as duas é o maior risco regulatório da operação — e o mais fácil de cometer numa conversa informal.
+
+## O que é originação (o parceiro pode)
+
+Originação é a atividade **não-regulada** de identificar e trazer a oportunidade:
+
+- identificar uma empresa com necessidade de capital;
+- apresentar a Bloxs como possível caminho;
+- conectar o tomador à equipe da Bloxs;
+- alimentar o pipeline com informação de relacionamento;
+- submeter a oportunidade para análise.
+
+## O que é atividade regulada (só entidade licenciada pode)
+
+- **Estruturar** o valor mobiliário (definir instrumento, waterfall, subordinação).
+- **Distribuir** / colocar a oferta junto a investidores.
+- **Ofertar** o valor mobiliário.
+- **Recomendar** investimento a quem quer que seja.
+- Falar com investidor **sobre o produto** com intuito de colocação.
+
+## As entidades executoras licenciadas
+
+| Entidade | CNPJ | Função regulada |
+| --- | --- | --- |
+| Bloxs Securitizadora e Tokenizadora S/A | 54.729.707/0001-62 | Emissão de CR/CRI/CRA (securitização) |
+| Bloxs Asset Gestão de Recursos Ltda | 28.038.617/0001-15 | Gestão de recursos (RCVM 21/175) |
+| Bloxs Coordenação Ltda | 41.847.533/0001-90 | Coordenação/distribuição |
+| Bloxs Digital Ltda | 29.131.261/0001-22 | Camada digital/tecnológica |
+
+<Note>
+  A **Bloxs Asset** é **gestor de recursos** (RCVM 21) — nunca descrever como "administrador de carteiras". A autorização **DTVM** está **pendente** junto ao BCB; não afirmar que a Bloxs é DTVM.
+</Note>
+
+## O espectro dos verbos (do permitido ao proibido)
+
+| Verbo | O que significa | Quem pode |
+| --- | --- | --- |
+| **Indicar** | Apontar que existe uma oportunidade | Qualquer perfil |
+| **Originar** | Trazer e formalizar a oportunidade no pipeline | Qualquer perfil |
+| **Conectar** | Aproximar tomador e equipe Bloxs | Qualquer perfil |
+| **Estruturar** | Desenhar o valor mobiliário | Só entidade licenciada |
+| **Distribuir** | Colocar a oferta no mercado | Só entidade licenciada / autorizado |
+| **Recomendar** | Aconselhar o investidor a investir | Só entidade/pessoa habilitada |
+| **Ofertar** | Apresentar o valor mobiliário para subscrição | Só entidade licenciada |
+
+## Riscos de confusão
+
+- Parceiro que "explica o produto ao investidor" está distribuindo sem licença.
+- Parceiro que "garante que rende X" comete promessa de rentabilidade.
+- Colaborador que manda teaser por WhatsApp a investidor pode caracterizar oferta irregular.
+- Originador que "negocia condições da oferta" invade atividade de coordenação.
+
+## Exemplos permitidos
+
+- "Conheço uma construtora que precisa de R\$30MM. Posso conectar com a Bloxs?" ✅
+- "A Bloxs estrutura operações de crédito para empresas do middle-market." ✅
+- "Vou submeter essa oportunidade para a equipe analisar." ✅
+
+## Exemplos proibidos
+
+- "Esse CRI paga CDI\+6% e é seguro, pode investir." ❌ (recomendação \+ promessa)
+- "Te mando o teaser da oferta no WhatsApp para você investir." ❌ (oferta por canal proibido)
+- "Eu distribuo os produtos da Bloxs." ❌ (se não for entidade autorizada)
+- "Garanto liquidez em 12 meses." ❌ (promessa de liquidez)
+
+## Next action em caso de dúvida
+
+1. **Parar.** Não improvisar resposta ao tomador ou investidor.
+2. Consultar [Conduta por Perfil](/02-regulatory-perimeter/conduta-por-perfil).
+3. Se envolver investidor/oferta/rentabilidade/liquidez → **escalar para Compliance** antes de qualquer comunicação.
+4. Registrar a interação (recordkeeping obrigatório).
+
+## Red flags
+
+- Qualquer frase com "rende", "garante", "seguro", "pode investir".
+- Teaser/material indo para investidor por WhatsApp ou rede social.
+- Parceiro não-licenciado se apresentando como distribuidor ou consultor.
+- Discussão de condições de oferta por quem só pode originar.

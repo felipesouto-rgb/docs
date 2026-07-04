@@ -1,0 +1,28 @@
+---
+title: "Guardrails — Overview"
+category: "ai-agents-mcp"
+zone: "Internal"
+audience: ["colaborador-interno", "leadership", "compliance", "ai-agent"]
+primary_user: "leadership"
+owner: "Compliance Bloxs"
+last_reviewed: "2026-07-04"
+status: "draft"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+reputation_risk: "alto"
+cultural_principle: ["reputacao-acima-do-deal", "lei-acima-da-meta"]
+icon: "shield-alert"
+---
+
+<Warning>
+  **Status: draft · placeholder.** Os 4 interceptores transversais rodam **antes de qualquer output** de qualquer agente. Não são agentes — são guardrails. A desenvolver.
+</Warning>
+
+## Os 4 guardrails
+
+1. **Compliance Guardrail** — "pode ou não pode?". Bloqueia atividade regulada indevida, oferta irregular, recomendação, promessa de retorno/liquidez, canal proibido, material não aprovado, violação de perímetro.
+2. **Culture Guardrail** — "mesmo podendo, devemos?". Classifica: `aprovado | atenção | escalar-liderança | escalar-comitê | rejeitar-por-desalinhamento`.
+3. **Output Policy Guardrail** — output filtering, redaction, checa `external_output_allowed` / `requires_approval`.
+4. **Data Leakage Guardrail** — impede economics/dados restritos vazarem para zona inferior; testa prompt injection.

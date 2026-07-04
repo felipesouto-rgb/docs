@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "maple",
-  "name": "Bloxs",
+  "theme": "linden",
+  "name": "Bloxs Capital Markets OS",
   "colors": {
-    "primary": "#ef7025",
-    "light": "#eec9bc",
-    "dark": "#4fa1ab"
+    "primary": "#033873",
+    "light": "#2E61FF",
+    "dark": "#033873"
   },
   "favicon": "/favicon.svg",
   "logo": {
@@ -27,6 +27,183 @@
   },
   "navigation": {
     "tabs": [
+      {
+        "tab": "Bloxs OS",
+        "groups": [
+          {
+            "group": "00 · Constituição",
+            "icon": "landmark",
+            "pages": [
+              "00-constituicao/manifesto-bloxs",
+              "00-constituicao/a-linhagem",
+              "00-constituicao/os-principios",
+              "00-constituicao/reputacao-acima-do-deal"
+            ]
+          },
+          {
+            "group": "01 · Start Here",
+            "icon": "flag",
+            "pages": [
+              "01-start-here/bloxs-one-page"
+            ]
+          },
+          {
+            "group": "02 · Perímetro Regulatório",
+            "icon": "shield-check",
+            "pages": [
+              "02-regulatory-perimeter/originacao-vs-atividade-regulada",
+              "02-regulatory-perimeter/conduta-por-perfil"
+            ]
+          },
+          {
+            "group": "03 · Sell Side IBaaS",
+            "icon": "handshake",
+            "pages": [
+              "03-sell-side-ibaas/partner-routing-matrix",
+              "03-sell-side-ibaas/overview",
+              {
+                "group": "Perfis",
+                "icon": "id-card",
+                "pages": [
+                  "03-sell-side-ibaas/perfis/independent-banker",
+                  "03-sell-side-ibaas/perfis/business-partner",
+                  "03-sell-side-ibaas/perfis/enterprise-ibaas"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "04 · Account OS",
+            "icon": "users",
+            "pages": [
+              "04-account-os/account-lifecycle"
+            ]
+          },
+          {
+            "group": "05 · Products, Structures & Solutions",
+            "icon": "layers",
+            "pages": [
+              "05-products-structures-solutions/selection-matrix",
+              {
+                "group": "Credit Structuring Principles",
+                "icon": "ruler",
+                "pages": [
+                  "05-products-structures-solutions/credit-structuring-principles/fundability-test"
+                ]
+              },
+              {
+                "group": "Instruments",
+                "icon": "file-signature",
+                "pages": [
+                  "05-products-structures-solutions/instruments/overview"
+                ]
+              },
+              {
+                "group": "Vehicles",
+                "icon": "container",
+                "pages": [
+                  "05-products-structures-solutions/vehicles/overview"
+                ]
+              },
+              {
+                "group": "Offering Regimes",
+                "icon": "gavel",
+                "pages": [
+                  "05-products-structures-solutions/offering-regimes/overview"
+                ]
+              },
+              {
+                "group": "Solutions",
+                "icon": "puzzle",
+                "pages": [
+                  "05-products-structures-solutions/solutions/overview"
+                ]
+              },
+              {
+                "group": "Technology Layers",
+                "icon": "cpu",
+                "pages": [
+                  "05-products-structures-solutions/technology-layers/overview"
+                ]
+              },
+              {
+                "group": "Comparisons",
+                "icon": "arrow-left-right",
+                "pages": [
+                  "05-products-structures-solutions/comparisons/overview"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "06 · Dealflow OS",
+            "icon": "git-branch",
+            "pages": [
+              "06-dealflow-os/overview"
+            ]
+          },
+          {
+            "group": "07 · Buy Side OS",
+            "icon": "trending-up",
+            "pages": [
+              "07-buy-side-os/overview"
+            ]
+          },
+          {
+            "group": "08 · Sales Console",
+            "icon": "headset",
+            "pages": [
+              "08-sales-console/frases-seguras",
+              "08-sales-console/qualificar-parceiro-em-5-minutos"
+            ]
+          },
+          {
+            "group": "09 · Growth Strategy",
+            "icon": "rocket",
+            "pages": [
+              "09-growth-strategy/overview"
+            ]
+          },
+          {
+            "group": "10 · RevOps Data Model",
+            "icon": "database",
+            "pages": [
+              "10-revops-data-model/overview"
+            ]
+          },
+          {
+            "group": "11 · AI Agents & MCP",
+            "icon": "bot",
+            "pages": [
+              "11-ai-agents-mcp/agent-architecture",
+              {
+                "group": "Guardrails",
+                "icon": "shield-alert",
+                "pages": [
+                  "11-ai-agents-mcp/guardrails/overview"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "12 · Templates & Enablement",
+            "icon": "file-text",
+            "pages": [
+              "12-templates-enablement/overview"
+            ]
+          },
+          {
+            "group": "13 · Governance",
+            "icon": "scale",
+            "pages": [
+              "13-governance/definition-of-done-do-atomo",
+              "13-governance/frontmatter-templates",
+              "13-governance/documentation-standards",
+              "13-governance/changelog"
+            ]
+          }
+        ]
+      },
       {
         "tab": "Plataforma",
         "groups": [
@@ -112,5 +289,25 @@
     "socials": {
       "linkedin": "https://www.linkedin.com/company/bloxs"
     }
+  },
+  "appearance": {
+    "default": "light"
+  },
+  "background": {
+    "color": {
+      "light": "#FAFAF8",
+      "dark": "#0E1524"
+    }
+  },
+  "fonts": {
+    "heading": {
+      "family": "EB Garamond"
+    },
+    "body": {
+      "family": "Inter"
+    }
+  },
+  "icons": {
+    "library": "lucide"
   }
 }

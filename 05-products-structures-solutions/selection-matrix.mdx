@@ -1,0 +1,96 @@
+---
+title: "Selection Matrix"
+category: "products-structures-solutions"
+zone: "Internal"
+audience: ["colaborador-interno", "business-partner", "leadership", "ai-agent"]
+primary_user: "colaborador-interno"
+owner: "Estruturação Bloxs"
+last_reviewed: "2026-07-04"
+status: "draft"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+content_classification: "operacional"
+regulatory_perimeter: "regulada"
+regulated_activity_touchpoint: true
+executing_entity: "todas"
+related_products: ["ccb", "nota-comercial", "debenture", "cr", "cri", "cra", "fidc", "fif", "fii", "fiagro", "carteira-administrada"]
+related_structures: ["fidc-multiclasse", "warehouse", "club-deals"]
+related_solutions: ["middle-market-funding", "supply-chain-finance", "receivables-finance", "legal-claims", "special-situations", "bridge"]
+agents: ["deal-intake-agent"]
+risk_level: "medio"
+icon: "grid-3x3"
+---
+
+<Note>
+  **Status: draft — não recuperável por agente.** Matriz decisória de estrutura. Regra ontológica: **não misturar** instrumento, veículo, regime de oferta, solução comercial e camada tecnológica. Cada um responde a uma pergunta diferente. Antes de escolher estrutura, passe pelo [Fundability Test](/05-products-structures-solutions/credit-structuring-principles/fundability-test).
+</Note>
+
+## As cinco categorias (não confundir)
+
+| Categoria | Pergunta que responde | Exemplo |
+| --- | --- | --- |
+| **Instrument** | Qual título jurídico-financeiro? | CR, CRI, CRA, debênture, nota comercial, CCB |
+| **Vehicle** | Dentro de qual veículo/fundo? | FIDC, FIF, FII, FIAGRO, carteira administrada |
+| **Offering Regime** | Sob qual regime de oferta? | RCVM 160, 161, 88, private placement |
+| **Solution** | Qual problema comercial resolve? | middle-market funding, supply-chain, legal-claims |
+| **Technology Layer** | Com qual camada tech? | tokenização, securitização programável |
+
+## Matriz decisória por caso de uso
+
+| Caso de uso | Ativo-base | Recorrência | Ticket | Público investidor | Estrutura provável | Alternativas descartadas | Entidade executora | Risco | Documentos mínimos |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Empresa middle-market precisa de capital | Fluxo de caixa / recebateis | Média | R\$20–100MM | Profissional/Qualif. | CR ou debênture | FIDC (se operação única) | Securitizadora/Coordenação | Crédito do emissor | Demonstrativos, lastro, contrato |
+| Carteira pulverizada de recebateis | Direitos creditórios | Alta | R\$30MM\+ | Profissional/Qualif. | FIDC | CR (não escala pulverização) | Asset (gestor RCVM 21) | Concentração, cedente | Regulamento, carteira, cessão |
+| Múltiplas estratégias num veh | Direitos diversos | Alta | R\$50MM\+ | Profissional | FIDC-multiclasse | FIDC simples | Asset | Complexidade | Regulamento multiclasse |
+| Recebateis imobiliário | Crédito imobiliário | Média | R\$15MM\+ | Qualif./Varejo (isento IR) | CRI | CR (perde isenção) | Securitizadora | Lastro imob. | Termo, lastro, laudo |
+| Recebateis do agro | Crédito agro | Média | R\$15MM\+ | Qualif./Varejo (isento IR) | CRA | FIDC agro (sem isenção PF) | Securitizadora | Lastro agro, safra | Termo, lastro agro |
+| Cadeia com sacado forte | Receb. de fornecedores | Alta | Variável | Profissional | Supply-chain finance (FIDC/CR) | — | Securitizadora/Asset | Concentração sacado | Contratos, sacado |
+| Créditos judiciais | Crédito litigioso | Baixa | Variável | Profissional | Legal-claims (CR) | — | Securitizadora | Jurídico, timing | Parecer, trânsito |
+| Distressed / RJ | Situação especial | Baixa | Variável | Profissional | Special situations | — | Múltiplas | Recuperação | DD específica |
+| Ponte para takeout | A definir | Baixa | Variável | Profissional | Bridge → CRI/FIDC | — | Múltiplas | Refinanciamento | Takeout claro |
+
+## Comparações-chave (por que este e não o outro)
+
+### CR vs FIDC
+
+- **CR:** operação mais direta, lastro identificável, emissão via securitizadora. Bom para lastro concentrado/definido.
+- **FIDC:** veículo de carteira, gestão contínua, subordinação entre cotas. Bom para pulverização e recorrência.
+- **Descartar CR quando:** a carteira é pulverizada e recorrente → FIDC escala melhor.
+
+### CRI vs CR
+
+- **CRI:** exige lastro imobiliário; isenção de IR para PF; público mais amplo.
+- **CR:** flexível quanto ao lastro; sem o benefício fiscal imobiliário.
+- **Descartar CRI quando:** o lastro não é imobiliário.
+
+### CRA vs FIDC agro
+
+- **CRA:** isenção de IR para PF, lastro agro; distribuição mais ampla.
+- **FIDC agro:** veículo de carteira sem isenção para PF.
+- **Descartar CRA quando:** não há lastro agro elegível.
+
+### Debênture vs Nota Comercial
+
+- **Debênture:** emissor S.A., prazos médio/longo, covenants robustos.
+- **Nota comercial:** mais simples e rápida, prazos curtos.
+- **Descartar debênture quando:** emissor não é S.A. ou precisa de agilidade/curto prazo.
+
+### Carteira administrada vs Fundo
+
+- **Carteira administrada:** mandato individual, personalização, investidor profissional.
+- **Fundo:** veículo coletivo, cotização, escalável.
+- **Descartar carteira quando:** o objetivo é pulverizar e escalar entre vários investidores.
+
+## Next action
+
+- Fundabilidade confirmada → escolher categoria → validar com Estruturação.
+- Caso ambíguo → escalar para [Dealflow OS](/06-dealflow-os/overview).
+
+## Red flags
+
+- Escolher instrumento antes de confirmar fundabilidade.
+- Tratar regime de oferta como se fosse produto.
+- Forçar CRI/CRA sem lastro elegível só pela isenção fiscal.
+- Prometer público de varejo sem checar regime.

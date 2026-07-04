@@ -1,0 +1,121 @@
+---
+title: "Frontmatter Templates"
+category: "governance"
+zone: "Internal"
+audience: ["colaborador-interno", "leadership", "ai-agent"]
+primary_user: "leadership"
+owner: "Felipe Souto"
+last_reviewed: "2026-07-04"
+status: "internal_review"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+icon: "code"
+---
+
+<Note>
+  **Status: internal\_review.** Templates de frontmatter por tipo de átomo. Copie o bloco do tipo mais próximo e preencha. Nível de obrigatoriedade: A (todo átomo) → B (crítico) → C (operacional) → D (decisão).
+</Note>
+
+## Níveis de obrigatoriedade
+
+- **Nível A** — obrigatório em **todo** átomo.
+- **Nível B** — obrigatório em átomos **críticos** (produto, compliance, perfil, template externo).
+- **Nível C** — obrigatório em átomos **operacionais** (ligados a CRM/pipeline/agente).
+- **Nível D** — obrigatório em átomos de **decisão** (aceitar deal, aprovar parceiro, promover pessoa).
+
+## Template base (Nível A — todo átomo)
+
+```yaml
+title:
+category:
+zone:                 # Public | Internal | Restricted (Fase 1) — 5 zonas na Fase 2
+audience: []
+primary_user:
+owner:
+last_reviewed:
+status:               # draft | internal_review | compliance_review | approved | stable | deprecated
+source_of_truth:      # mintlify | hubspot | drive | comm | committee
+agent_retrievable: false
+retrieval_allowed_status: [approved, stable]
+implementation_phase: # mvp | fase-2
+```
+
+## Template crítico (Nível A \+ B)
+
+```yaml
+content_classification:      # institucional | operacional | economics | regulado
+allowed_user_roles: []
+prohibited_user_roles: []
+regulatory_perimeter:        # originacao | regulada | ambos | n/a
+regulated_activity_touchpoint:
+executing_entity:            # securitizadora | asset | coordenacao | digital | todas | n/a
+regulatory_refs: []
+external_output_allowed:
+requires_human_approval:
+requires_compliance_approval:
+investor_facing:
+issuer_facing:
+partner_facing:
+communication_channels_allowed: []
+communication_channels_prohibited: []
+recordkeeping_required:
+audit_log_required:
+```
+
+## Template operacional (Nível A \+ B \+ C)
+
+```yaml
+related_icps: []
+related_products: []
+related_structures: []
+related_solutions: []
+crm_objects: []
+trigger_events: []
+stage_entry_criteria:
+stage_exit_criteria:
+required_crm_fields: []
+agents: []
+mcps: []
+read_permissions: []
+write_permissions: []
+offering_regime:
+investor_profile_allowed: []
+risk_level:                  # baixo | medio | alto
+```
+
+## Template de decisão (Nível A \+ B \+ C \+ D)
+
+```yaml
+cultural_principle: []
+decision_standard:
+reputation_risk:             # baixo | medio | alto
+partner_trust_impact:        # positivo | neutro | negativo
+long_term_greedy_check:
+ownership_required:
+escalate_if_culture_conflict:
+```
+
+## Campos de aprovação (quando promover)
+
+```yaml
+approved_by:
+compliance_approved_by:
+culture_reviewed_by:
+definition_of_done:          # link/referência ao DoD cumprido
+```
+
+## Regra dura para agentes
+
+```yaml
+# Agente só recupera se AMBOS forem verdade:
+agent_retrievable: true
+status: approved   # ou stable
+```
+
+Conteúdo `draft`, `internal_review` ou `compliance_review` **nunca** é fonte autorizada para output externo.
+
+## Nota sobre zonas (Fase 1 vs Fase 2)
+
+Fase 1 (agora) implementa 3 zonas operacionais: **Public / Internal / Restricted**. A granularidade completa — **Public / Partner-facing / Internal / Restricted-Economics / Restricted-Regulated** — e a segmentação por perfil contratual entram na Fase 2. Ao escrever agora, use as 3 zonas; o campo aceita as 5 quando a Fase 2 chegar.
