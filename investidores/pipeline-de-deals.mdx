@@ -1,7 +1,7 @@
 ---
 title: "Pipeline de deals: operações disponíveis na Bloxs"
 sidebarTitle: "Pipeline"
-description: "Como navegar o pipeline de operações estruturadas na Bloxs, aplicar filtros e receber alertas sobre novos deals."
+description: "Como navegar o pipeline de operações estruturadas na Bloxs: estágios, filtros disponíveis, alertas automáticos e consulta via API."
 ---
 
 O pipeline de operações da Bloxs agrega operações de crédito estruturado nas fases de originação, estruturação e distribuição, apresentadas a investidores institucionais qualificados conforme seu perfil de investimento. Cada operação percorre estágios definidos — da indicação inicial até o fechamento da alocação — com diferentes níveis de acesso à informação em cada fase. O pipeline é atualizado continuamente pela equipe de estruturação e distribuição da Bloxs, garantindo que o buy-side tenha visibilidade tempestiva sobre novas oportunidades antes e durante o período de bookbuilding.
@@ -72,7 +72,7 @@ Os alertas são entregues pelos seguintes canais:
 Investidores com integração via API podem consultar o pipeline de forma programática, incluindo filtros por status, instrumento e setor. Exemplo de requisição:
 
 ```bash
-GET /api/v1/operacoes?status=em_distribuicao&instrumento=CRI&setor=imobiliario
+GET https://api.bloxs.com.br/v1/operacoes?status=em_distribuicao&instrumento=CRI&setor=imobiliario
 Authorization: Bearer {token}
 ```
 

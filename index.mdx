@@ -1,7 +1,7 @@
 ---
-title: "Bloxs: Infraestrutura de Mercado de Capitais"
+title: "Bloxs: Infraestrutura CMaaS para Crédito Estruturado"
 sidebarTitle: "Início"
-description: "Plataforma CMaaS para originação, estruturação, distribuição e custódia de ativos de crédito estruturado no mercado de capitais brasileiro."
+description: "Infraestrutura digital para originação, estruturação, distribuição e custódia de ativos de crédito estruturado no mercado de capitais brasileiro."
 ---
 
 A Bloxs é a infraestrutura digital para operações de crédito estruturado no mercado de capitais brasileiro. A plataforma conecta emissores (sell-side) e investidores institucionais (buy-side) em um fluxo integrado que vai da originação da operação até o takeout — passando por estruturação, pricing e distribuição, sob arcabouço regulatório CVM.
@@ -22,8 +22,8 @@ A Bloxs é a infraestrutura digital para operações de crédito estruturado no 
   <Card title="API Reference" icon="code" href="/api/overview">
     Endpoints públicos da plataforma Bloxs para integrações programáticas.
   </Card>
-  <Card title="Agentes & MCP" icon="robot" href="/agentes/cmd-overview">
-    Como o CMD (Capital Markets DealMatch) e os MCP servers expõem conhecimento.
+  <Card title="Automação & Integrações" icon="robot" href="/agentes/cmd-overview">
+    Como a plataforma Bloxs automatiza triagem, precificação e distribuição de operações.
   </Card>
 </CardGroup>
 
@@ -31,13 +31,13 @@ A Bloxs é a infraestrutura digital para operações de crédito estruturado no 
 
 <Steps>
   <Step title="Originação">
-    O emissor submete a tese de crédito. Os agentes Intake e Scoring realizam triagem automatizada, avaliando fit regulatório e viabilidade de estruturação.
+    O emissor submete a tese de crédito à plataforma. A Bloxs realiza triagem automatizada, avaliando o enquadramento regulatório e a viabilidade de estruturação do crédito submetido.
   </Step>
   <Step title="Estruturação">
-    O agente Structurer define o instrumento adequado (CRI, CRA, FIDC, Debênture, CCB ou CR), waterfall de pagamentos, subordinação e covenants, com validação de conformidade RCVM.
+    A plataforma define o instrumento mais adequado ao perfil do emissor (CRI, CRA, FIDC, Debênture, CCB ou CR), com a arquitetura financeira completa — waterfall de pagamentos, subordinação e covenants — em conformidade com as resoluções CVM aplicáveis.
   </Step>
   <Step title="Pricing & Distribuição">
-    O agente Pricer calcula spread de referência. O Matcher identifica contas-alvo no buy-side (gestoras, wealth managers, family offices). A Mesa de Distribuição Bloxs opera a ponte entre os dois lados.
+    A Bloxs calcula o spread de referência e identifica as contas institucionais com maior aderência ao perfil da operação no buy-side (gestoras, wealth managers, family offices). A Mesa de Distribuição opera a ponte entre os dois lados do mercado.
   </Step>
   <Step title="Takeout">
     Após bookbuilding e alocação, a operação é custodiada pela entidade regulatória correspondente (B-SEC Securitizadora para CRI/CRA, ou veículo FIDC quando aplicável).

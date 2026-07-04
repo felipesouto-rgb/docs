@@ -1,5 +1,5 @@
 ---
-title: "MCP Server Bloxs: integração com agentes de IA"
+title: "MCP Server Bloxs: integração com agentes de IA externos"
 sidebarTitle: "MCP Server"
 description: "Como conectar agentes de IA externos ao MCP Server Bloxs para consumir e expor conhecimento de mercado de capitais via protocolo MCP."
 ---
@@ -16,10 +16,12 @@ O MCP Server Bloxs expõe as funcionalidades dos agentes CMD como ferramentas in
 
 | Ferramenta | Agente CMD | Descrição |
 |---|---|---|
-| `bloxs_dealmatch` | Matcher | Consulta o agente Matcher para identificar contas de investidores institucionais compatíveis com o perfil de uma operação |
+| `bloxs_intake` | Intake | Submete uma tese de crédito ao agente Intake para validação preliminar de completude e aderência regulatória antes da análise aprofundada |
+| `bloxs_verify` | Veracity | Aciona o agente Veracity para cruzamento e validação de consistência das informações de uma operação com fontes externas (Receita Federal, Serasa, CVM) |
 | `bloxs_scoring` | Scoring | Executa o agente Scoring sobre uma tese de crédito submetida, retornando score, classificação e dimensões analíticas |
 | `bloxs_structure` | Structurer | Consulta o agente Structurer para recomendações de instrumento, arquitetura de waterfall e índices de subordinação |
 | `bloxs_price` | Pricer | Obtém estimativa de spread de referência do agente Pricer para uma operação específica |
+| `bloxs_dealmatch` | Matcher | Consulta o agente Matcher para identificar contas de investidores institucionais compatíveis com o perfil de uma operação |
 | `bloxs_educate` | Educator | Obtém conteúdo explicativo do agente Educator sobre a estrutura de um instrumento ou operação |
 | `bloxs_search_cvm` | — | Pesquisa na base regulatória da CVM via MCP, incluindo normas, registros de emissores e histórico de ofertas |
 | `bloxs_search_anbima` | — | Consulta dados de benchmark e índices de referência da ANBIMA |

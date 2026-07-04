@@ -1,7 +1,7 @@
 ---
 title: "Avaliação de operações de crédito estruturado"
 sidebarTitle: "Avaliação"
-description: "Como analisar operações disponíveis no pipeline Bloxs: estrutura, tese de crédito, waterfall e critérios de avaliação."
+description: "Como analisar operações no pipeline Bloxs: documentação padronizada, Scoring CMD, tese de crédito e registro de manifestação de interesse."
 ---
 
 Cada operação de crédito estruturado disponível na plataforma Bloxs é acompanhada de documentação padronizada que permite ao investidor institucional conduzir sua análise de crédito dentro dos próprios frameworks internos. A Bloxs disponibiliza os documentos essenciais da operação — desde o Memorando de Informações até o laudo de avaliação de garantias — em formato consolidado e acessível diretamente na plataforma, sem prejuízo da diligência adicional que cada investidor julgue necessária conforme sua política de crédito.
@@ -89,7 +89,7 @@ Após concluir a análise da operação, o investidor pode registrar sua manifes
     Envie uma requisição `POST` para o endpoint de manifestação de interesse:
 
     ```bash
-    POST /api/v1/operacoes/{id}/interesse
+    POST https://api.bloxs.com.br/v1/operacoes/{id}/interesse
     Authorization: Bearer {token}
     Content-Type: application/json
 

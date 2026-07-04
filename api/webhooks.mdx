@@ -1,7 +1,7 @@
 ---
-title: "Webhooks da API Bloxs: eventos em tempo real"
+title: "Webhooks da API Bloxs: notificações em tempo real"
 sidebarTitle: "Webhooks"
-description: "Configure webhooks para receber notificações em tempo real sobre mudanças de status de operações, bookbuilding e alocações na API Bloxs."
+description: "Configure e gerencie webhooks na API Bloxs para receber notificações em tempo real de mudanças de status, bookbuilding e alocações de operações."
 ---
 
 Os webhooks da Bloxs permitem que sua aplicação receba notificações **HTTP POST em tempo real** sempre que eventos relevantes ocorrerem na plataforma — como alterações de status em operações, abertura de períodos de distribuição, encerramento de bookbuilding e confirmações de interesse. Em vez de realizar polling periódico à API, você registra uma URL de endpoint em seu servidor e a Bloxs entrega os eventos de forma proativa e auditável.
@@ -199,14 +199,16 @@ Quando um `secret` é configurado no webhook, cada requisição inclui o header 
 
 **Exemplos de implementação:**
 
-```python
+<CodeGroup>
+
+```python Python
 import hmac
 import hashlib
 
 def validar_assinatura_webhook(payload_bytes: bytes, secret: str, signature_header: str) -> bool:
     """
     Valida a assinatura HMAC-SHA256 de um payload de webhook Bloxs.
-    
+
     :param payload_bytes: Corpo bruto da requisição (request.body em bytes)
     :param secret: Segredo configurado no webhook
     :param signature_header: Valor do header X-Bloxs-Signature
@@ -217,25 +219,25 @@ def validar_assinatura_webhook(payload_bytes: bytes, secret: str, signature_head
         msg=payload_bytes,
         digestmod=hashlib.sha256
     ).hexdigest()
-    
+
     expected_signature = f"sha256={expected_digest}"
-    
+
     # Comparação em tempo constante para prevenir timing attacks
     return hmac.compare_digest(expected_signature, signature_header)
 ```
 
-```javascript
+```javascript Node.js
 const crypto = require("crypto");
 
+/**
+ * Valida a assinatura HMAC-SHA256 de um payload de webhook Bloxs.
+ *
+ * @param {Buffer} payloadBuffer - Corpo bruto da requisição (Buffer)
+ * @param {string} secret - Segredo configurado no webhook
+ * @param {string} signatureHeader - Valor do header X-Bloxs-Signature
+ * @returns {boolean} true se válido, false caso contrário
+ */
 function validarAssinaturaWebhook(payloadBuffer, secret, signatureHeader) {
-  /**
-   * Valida a assinatura HMAC-SHA256 de um payload de webhook Bloxs.
-   *
-   * @param {Buffer} payloadBuffer - Corpo bruto da requisição (Buffer)
-   * @param {string} secret - Segredo configurado no webhook
-   * @param {string} signatureHeader - Valor do header X-Bloxs-Signature
-   * @returns {boolean} true se válido, false caso contrário
-   */
   const expectedDigest = crypto
     .createHmac("sha256", secret)
     .update(payloadBuffer)
@@ -250,6 +252,8 @@ function validarAssinaturaWebhook(payloadBuffer, secret, signatureHeader) {
   );
 }
 ```
+
+</CodeGroup>
 
 <Note>
   Utilize sempre o **corpo bruto (raw bytes)** da requisição para o cálculo do HMAC — não o objeto JSON parseado. Qualquer transformação no payload (reordenação de chaves, formatação) resultará em um digest diferente e a validação falhará.

@@ -1,7 +1,7 @@
 ---
-title: "Autenticação na API Bloxs com OAuth2"
+title: "Autenticação OAuth2 Client Credentials na API Bloxs"
 sidebarTitle: "Autenticação"
-description: "Como obter e usar tokens de acesso OAuth2 para autenticar requisições à API Bloxs. Inclui exemplos de código e tratamento de erros."
+description: "Como gerar e renovar tokens OAuth2 para autenticar requisições à API Bloxs: escopos disponíveis, expiração e tratamento de erros de autenticação."
 ---
 
 A API Bloxs utiliza o fluxo **OAuth2 Client Credentials** para autenticação machine-to-machine — o modelo indicado para integrações server-side onde não há interação direta de um usuário final. O processo consiste em autenticar com `client_id` e `client_secret` junto ao endpoint de token, receber um `access_token` JWT de curta duração e, em seguida, incluí-lo como `Bearer` no header `Authorization` de todas as requisições subsequentes à API.
