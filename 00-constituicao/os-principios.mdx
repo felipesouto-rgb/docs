@@ -16,13 +16,129 @@ icon: "gem"
 ---
 
 <Note>
-  **Status: draft · placeholder.** Os princípios que governam decisões. A desenvolver.
+  **Camada 0 · Face pública da Constituição.** Princípios não são decoração de parede. São **critérios operacionais** — a régua que decide quando a planilha não decide. Esta página é a base do Culture Guardrail.
 </Note>
 
-## Núcleo
+## A pergunta que organiza tudo
 
-- **Ownership** — agir como dono.
-- **Skin in the game** — alinhamento de incentivo real.
-- **Long-term greedy** — ganho de longo prazo acima do imediato.
-- **Reputação acima do deal** — ver [página dedicada](/00-constituicao/reputacao-acima-do-deal).
-- **Lei acima da meta** — perímetro nunca se dobra à pressão comercial.
+Existem duas perguntas em toda decisão da Bloxs, e elas não são a mesma:
+
+<CardGroup cols={2}>
+  <Card title="Compliance pergunta" icon="scale">
+    **"Pode ou não pode?"** — é a fronteira legal e regulatória. Ver [Perímetro Regulatório](/02-regulatory-perimeter/originacao-vs-atividade-regulada).
+  </Card>
+
+  <Card title="Cultura pergunta" icon="compass">
+    **"Mesmo podendo, devemos?"** — é a fronteira dos princípios. É o que esta página governa.
+  </Card>
+</CardGroup>
+
+Muita coisa é legal e ainda assim errada para a Bloxs. Os princípios existem para pegar exatamente esse espaço.
+
+{/* ESPAÇO PARA ANIMAÇÃO IA — as duas perguntas ("pode?" vs "devemos?") como dois portões em sequência (~15s). Inserir aqui. */}
+
+## Os cinco princípios de decisão
+
+<AccordionGroup>
+  <Accordion title="1 · Ownership — agir como dono" icon="key">
+    **O princípio:** cada pessoa trata o problema do cliente como próprio e o capital da casa como próprio.
+
+    **Na prática:** dono não espera ordem, não terceiriza responsabilidade e não diz "não era comigo". Vê o problema, resolve o problema — ou escala com uma proposta, nunca só com a reclamação.
+
+    **Falha do princípio:** empurrar decisão para cima sem tê-la trabalhado; deixar um deal do parceiro parado porque "não é minha etapa".
+  </Accordion>
+
+  <Accordion title="2 · Skin in the game — alinhamento real de incentivo" icon="handshake">
+    **O princípio:** convence-se com incentivo alinhado, não com discurso. Quem ganha com o acerto tem que doer com o erro.
+
+    **Na prática:** a economics do parceiro é desenhada para premiar o resultado bom e sustentável, não o volume a qualquer custo. Quem estrutura tem pele no risco; quem origina tem pele no resultado.
+
+    **Falha do princípio:** incentivo que premia fechar rápido em vez de fechar certo.
+  </Accordion>
+
+  <Accordion title="3 · Long-term greedy — ganância de longo prazo" icon="chart-line">
+    **O princípio:** preferimos o ganho grande e lento ao ganho pequeno e imediato.
+
+    **Na prática:** uma conta B2B que fica dez anos vale mais do que dez deals que passam. Educar o parceiro, mesmo que atrase um fechamento, constrói a rede que sustenta a casa. **Deals passam. Parcerias de sucesso ficam.**
+
+    **Falha do princípio:** sacrificar a relação de anos para bater a meta do trimestre.
+  </Accordion>
+
+  <Accordion title="4 · Reputação acima do deal" icon="shield">
+    **O princípio:** nenhuma receita justifica contaminar a casa.
+
+    **Na prática:** um deal economicamente excelente, mas com contraparte, origem ou estrutura reputacionalmente suja, é um deal que **não fazemos** — por melhor que seja o número. Ver a página dedicada: [Reputação acima do Deal](/00-constituicao/reputacao-acima-do-deal).
+
+    **Falha do princípio:** racionalizar um parceiro problemático porque "o volume compensa".
+  </Accordion>
+
+  <Accordion title="5 · Lei acima da meta" icon="gavel">
+    **O princípio:** o perímetro regulatório nunca cede à pressão comercial.
+
+    **Na prática:** a meta é consequência de fazer certo, não o contrário. Nenhum número justifica cruzar a linha entre originação e atividade regulada, prometer retorno ou usar canal proibido. Ver [Perímetro Regulatório](/02-regulatory-perimeter/originacao-vs-atividade-regulada).
+
+    **Falha do princípio:** "só dessa vez" para fechar o mês.
+  </Accordion>
+</AccordionGroup>
+
+## Os inegociáveis
+
+Dois princípios têm precedência absoluta sobre todos os outros. Em conflito, eles vencem — sempre.
+
+<CardGroup cols={2}>
+  <Card title="Reputação > Deal" icon="shield-check">
+    Se um deal ameaça a reputação da casa, o deal cai. Sem exceção, sem "mas".
+  </Card>
+
+  <Card title="Lei > Meta" icon="scale">
+    Se bater a meta exige cruzar o perímetro, a meta espera. Sem exceção, sem "mas".
+  </Card>
+</CardGroup>
+
+## Como um princípio vira decisão
+
+Quando uma situação é legal mas culturalmente duvidosa, ela passa pelo **Culture Guardrail** — um teste de oito perguntas que classifica a decisão.
+
+<Steps>
+  <Step title="Passe a situação pelas oito perguntas">
+    Preserva confiança de longo prazo? É boa economicamente mas ruim reputacionalmente? Esse parceiro melhora ou contamina o ambiente? O incentivo gera comportamento correto? A comunicação é agressiva demais para o padrão Bloxs? É defensável no Comitê de Partnership? Estamos educando o parceiro ou empurrando produto? Estamos formando rede de qualidade ou caçando receita?
+  </Step>
+  <Step title="Classifique o resultado">
+    `aprovado` · `atenção` · `escalar para liderança` · `escalar para comitê` · `rejeitar por desalinhamento`.
+  </Step>
+  <Step title="Aja conforme a classificação">
+    Aprovado segue. Atenção segue com ressalva registrada. Escalar para de mexer e sobe. Rejeitar encerra com o motivo documentado.
+  </Step>
+</Steps>
+
+<Info>
+  O detalhamento do Culture Guardrail — as oito perguntas e o fluxo de escalonamento — está em [Reputação acima do Deal](/00-constituicao/reputacao-acima-do-deal) e será operacionalizado como interceptor de agente em [Guardrails](/11-ai-agents-mcp/guardrails/overview).
+</Info>
+
+## O que estes princípios NÃO autorizam
+
+<CardGroup cols={2}>
+  <Card title="Ownership não é atropelar o perímetro" icon="circle-x" horizontal>
+  </Card>
+
+  <Card title="Long-term greedy não é prometer para reter" icon="circle-x" horizontal>
+  </Card>
+
+  <Card title="Skin in the game não é incentivo predatório" icon="circle-x" horizontal>
+  </Card>
+
+  <Card title="Meritocracia não é ambiente sem regra" icon="circle-x" horizontal>
+  </Card>
+</CardGroup>
+
+---
+
+<CardGroup cols={2}>
+  <Card title="Anterior: A Linhagem" icon="git-merge" href="/00-constituicao/a-linhagem">
+    De onde vêm estes princípios.
+  </Card>
+
+  <Card title="Próximo: Reputação acima do Deal" icon="shield" href="/00-constituicao/reputacao-acima-do-deal">
+    O inegociável que define o Culture Guardrail.
+  </Card>
+</CardGroup>
