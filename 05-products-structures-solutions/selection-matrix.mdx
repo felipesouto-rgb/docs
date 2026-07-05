@@ -29,7 +29,7 @@ icon: "grid-3x3"
 
 ## As cinco categorias (não confundir)
 
-O erro mais comum em estruturação é tratar tudo como "produto". São cinco camadas distintas:
+O erro mais comum em estruturação é tratar tudo como "produto". São cinco camadas distintas, cada uma respondendo a uma pergunta: **Instrument** (qual título jurídico-financeiro? CR, CRI, CRA, debênture, nota comercial, CCB), **Vehicle** (dentro de qual veículo/fundo? FIDC, FIF, FII, FIAGRO, carteira administrada), **Offering Regime** (sob qual regime de oferta? RCVM 160, 161, 88, private placement), **Solution** (qual problema comercial resolve? middle-market funding, supply-chain, legal-claims) e **Technology Layer** (com qual camada tech? tokenização, securitização programável).
 
 <Info>
   Uma solução combina camadas: um _middle-market funding_ (solução) pode usar um _CR_ (instrumento) dentro de um _FIDC_ (veículo), sob _RCVM 88_ (regime). Nomear cada camada corretamente é o que permite ao [Deal Intake Agent](/11-ai-agents-mcp/agent-architecture) recomendar sem errar.
@@ -39,8 +39,17 @@ O erro mais comum em estruturação é tratar tudo como "produto". São cinco ca
 
 ## Matriz decisória por caso de uso
 
-|
-|
+| Caso de uso | Ativo-base | Recorrência | Ticket | Público investidor | Estrutura provável | Alternativas descartadas | Entidade executora | Risco | Documentos mínimos |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Empresa middle-market precisa de capital | Fluxo de caixa / recebíveis | Média | R\$20 a 100MM | Profissional/Qualif. | CR ou debênture | FIDC (se operação única) | Securitizadora/Coordenação | Crédito do emissor | Demonstrativos, lastro, contrato |
+| Carteira pulverizada de recebíveis | Direitos creditórios | Alta | R\$30MM\+ | Profissional/Qualif. | FIDC | CR (não escala pulverização) | Asset (gestor RCVM 21) | Concentração, cedente | Regulamento, carteira, cessão |
+| Múltiplas estratégias num veículo | Direitos diversos | Alta | R\$50MM\+ | Profissional | FIDC-multiclasse | FIDC simples | Asset | Complexidade | Regulamento multiclasse |
+| Recebível imobiliário | Crédito imobiliário | Média | R\$15MM\+ | Qualif./Varejo (isento IR) | CRI | CR (perde isenção) | Securitizadora | Lastro imobiliário | Termo, lastro, laudo |
+| Recebível do agro | Crédito agro | Média | R\$15MM\+ | Qualif./Varejo (isento IR) | CRA | FIDC agro (sem isenção PF) | Securitizadora | Lastro agro, safra | Termo, lastro agro |
+| Cadeia com sacado forte | Receb. de fornecedores | Alta | Variável | Profissional | Supply-chain finance (FIDC/CR) | — | Securitizadora/Asset | Concentração sacado | Contratos, sacado |
+| Créditos judiciais | Crédito litigioso | Baixa | Variável | Profissional | Legal-claims (CR) | — | Securitizadora | Jurídico, timing | Parecer, trânsito |
+| Distressed / RJ | Situação especial | Baixa | Variável | Profissional | Special situations | — | Múltiplas | Recuperação | DD específica |
+| Ponte para takeout | A definir | Baixa | Variável | Profissional | Bridge para CRI/FIDC | — | Múltiplas | Refinanciamento | Takeout claro |
 
 ## Comparações-chave — por que este e não o outro
 
@@ -48,7 +57,7 @@ Cada comparação treina o reflexo de justificar o descarte, não só a escolha.
 
 <AccordionGroup>
   <Accordion title="CR vs FIDC" icon="arrow-left-right">
-    **CR:** operação mais direta, lastro identificável, emissão via securitizadora. Bom para lastro concentrado/definido. **FIDC:** veículo de carteira, gestão contínua, subordinação entre cotas. Bom para pulverização e recorrência. **Descartar CR quando:** a carteira é pulverizada e recorrente → FIDC escala melhor.
+    **CR:** operação mais direta, lastro identificável, emissão via securitizadora. Bom para lastro concentrado/definido. **FIDC:** veículo de carteira, gestão contínua, subordinação entre cotas. Bom para pulverização e recorrência. **Descartar CR quando:** a carteira é pulverizada e recorrente, pois o FIDC escala melhor.
   </Accordion>
 
   <Accordion title="CRI vs CR" icon="arrow-left-right">

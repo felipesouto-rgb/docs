@@ -31,21 +31,21 @@ icon: "users-round"
 
 Cada perfil só pode agir até um limite. O que está acima do teto não é "arriscado" — é **proibido para aquele perfil**, ainda que outro perfil possa.
 
-{/* ESPAÇO PARA ANIMAÇÃO IA — barras de altura crescente por perfil (Independent mais baixa → Entidade Licenciada mais alta), com a linha "atividade regulada" marcada. Cada barra para na sua altura (~20s). Inserir aqui. */}
+{/* ESPAÇO PARA ANIMAÇÃO IA — barras de altura crescente por perfil (Independent mais baixa a Entidade Licenciada mais alta), com a linha "atividade regulada" marcada. Cada barra para na sua altura (~20s). Inserir aqui. */}
 
 ## Matriz-resumo
 
 A leitura rápida antes de qualquer call. O detalhe de cada perfil vem nas seções abaixo.
 
-|
-|
-|
-|
-|
-|
-|
-|
-|
+| Perfil | Origina | Estrutura | Distribui | Recomenda | Fala c/ investidor sobre produto |
+| --- | --- | --- | --- | --- | --- |
+| Independent Banker | Sim | Não | Não | Não | Não |
+| Business Partner | Sim | Apoio | Só autorizado | Não | Só autorizado |
+| Enterprise IBaaS | Sim | Via Bloxs | Via Bloxs | Não | Não |
+| Colaborador Interno | Sim | Aciona entidade | Aciona entidade | Só habilitado | Só aprovado |
+| Entidade Licenciada | Sim | Sim | Sim | Conforme licença | Sim |
+| Buy Side | — | — | — | — | Recebe aprovado |
+| Agente de IA | Sugere | Sugere | Não | Não | Não |
 
 ## Independent Banker
 
@@ -157,7 +157,7 @@ Licença **tecnológica** white-label. A atividade regulada permanece nas entida
 </CardGroup>
 
 <Info>
-  Toda saída de agente passa por Compliance Guardrail \+ Culture Guardrail \+ Output Policy \+ Data Leakage Guardrail. Ver [Guardrails](/11-ai-agents-mcp/guardrails/overview).
+  Toda saída de agente passa por Compliance Guardrail, Culture Guardrail, Output Policy e Data Leakage Guardrail. Ver [Guardrails](/11-ai-agents-mcp/guardrails/overview).
 </Info>
 
 ## Casos-limite (os que mais confundem)
@@ -168,7 +168,7 @@ Licença **tecnológica** white-label. A atividade regulada permanece nas entida
   </Accordion>
 
   <Accordion title="Wealth/assessoria que 'já tem os investidores'" icon="users">
-    Ter uma base de investidores **não é** ter autorização para distribuir a eles. Acesso ≠ autorização. A distribuição segue as 7 camadas do Business Partner ou fica com a entidade.
+    Ter uma base de investidores **não é** ter autorização para distribuir a eles. Acesso não é autorização. A distribuição segue as 7 camadas do Business Partner ou fica com a entidade.
   </Accordion>
 
   <Accordion title="Reunião conjunta com tomador e investidor" icon="handshake">
@@ -182,13 +182,13 @@ Licença **tecnológica** white-label. A atividade regulada permanece nas entida
 
 ## Quando escalar para Compliance
 
-|
-|
-|
-|
-|
-|
-|
+| Situação | Ação |
+| --- | --- |
+| O tomador que originei quer investir | Escalar antes de falar de produto com ele |
+| Pergunta sobre retorno, taxa ou liquidez | Escalar; não responder por conta própria |
+| Pedido de teaser ou material de oferta | Escalar; material só pela entidade autorizada |
+| Reunião conjunta tomador \+ investidor | Escalar; a parte de condições é da entidade |
+| Parceiro não-licenciado querendo distribuir | Escalar; aplicar teto do perfil |
 
 ## Red flags
 
