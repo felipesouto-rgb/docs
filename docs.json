@@ -105,6 +105,23 @@
                 ]
               },
               {
+                "group": "Produtos Comerciais",
+                "icon": "package",
+                "pages": [
+                  "05-products-structures-solutions/produtos-comerciais/cr-plataforma",
+                  "05-products-structures-solutions/produtos-comerciais/consultoria-fidc-360",
+                  "05-products-structures-solutions/produtos-comerciais/fundos-on-demand",
+                  "05-products-structures-solutions/produtos-comerciais/ibaas-workspace"
+                ]
+              },
+              {
+                "group": "Serviços",
+                "icon": "handshake",
+                "pages": [
+                  "05-products-structures-solutions/servicos/coordenacao-distribuicao"
+                ]
+              },
+              {
                 "group": "Credit Structuring Principles",
                 "icon": "ruler",
                 "pages": [

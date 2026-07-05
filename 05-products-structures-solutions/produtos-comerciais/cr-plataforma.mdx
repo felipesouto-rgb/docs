@@ -1,0 +1,189 @@
+---
+title: "CR Plataforma"
+sidebarTitle: "CR Plataforma"
+description: "O produto comercial que converte a carteira do originador em programa de captacao recorrente: emissao de CR/CRI/CRA em series replicaveis, com emissora e coordenadora proprias na mesma esteira."
+category: "produtos-comerciais"
+zone: "Internal"
+audience: ["colaborador-interno", "business-partner", "leadership", "compliance", "ai-agent"]
+primary_user: "colaborador-interno"
+owner: "Felipe Souto"
+last_reviewed: "2026-07-04"
+status: "draft"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+content_classification: "comercial"
+regulatory_perimeter: "regulada"
+regulated_activity_touchpoint: true
+executing_entity: ["securitizadora", "coordenacao"]
+regulatory_refs: ["RCVM-60", "RCVM-160", "RCVM-161"]
+related_products: ["cr", "cri", "cra"]
+related_commercial_products: ["cr-plataforma"]
+related_services: ["coordenacao-distribuicao", "emissao-securitizacao"]
+agents: ["deal-intake-agent", "proposal-agent"]
+investor_profile_allowed: ["profissional", "qualificado"]
+risk_level: "medio"
+icon: "package"
+---
+
+<Note>
+  **Produto comercial · Ofertas Públicas.** Nome no catálogo: **CR Plataforma** (`cr-plataforma`). Embrulha os instrumentos [CR](/05-products-structures-solutions/produtos/securitizacao/cr), [CRI](/05-products-structures-solutions/produtos/securitizacao/cri) e [CRA](/05-products-structures-solutions/produtos/securitizacao/cra) num programa. Status `draft`.
+</Note>
+
+## O que é
+
+A **CR Plataforma** é a esteira integrada para emissão de Certificados de Recebíveis (CR, CRI, CRA) em formato de **programa com séries replicáveis**. A emissão corre sob a **Bloxs Securitizadora** (RCVM 60), com patrimônio separado e regime fiduciário por série; a **coordenação da oferta pública** é da **Bloxs Capital Markets** (RCVM 161).
+
+> **A tese em uma frase:** um único mandato converte a carteira do originador em programa de captação recorrente — estrutura uma vez, replica por série, com emissão e coordenação dentro da mesma infraestrutura regulada.
+
+{/* ESPAÇO PARA VÍDEO IA — (~25s) da carteira do originador entrando na esteira e saindo como Série 1, Série 2, Série 3, cada uma mais rápida que a anterior (follow-on). Inserir aqui. */}
+
+## O que resolve
+
+<CardGroup cols={3}>
+  <Card title="Custo de reestruturar" icon="circle-x">
+    Estruturar emissão isolada a cada captação é caro e lento. O programa estrutura uma vez.
+  </Card>
+
+  <Card title="Prestadores desalinhados" icon="circle-x">
+    Depender de emissora e coordenador de terceiros, desalinhados. Aqui os dois são Bloxs.
+  </Card>
+
+  <Card title="Governança solta" icon="circle-x">
+    Falta de reporting e governança padronizados do patrimônio separado.
+  </Card>
+</CardGroup>
+
+## Quando oferecer
+
+<CardGroup cols={2}>
+  <Card title="Oferecer quando" icon="check">
+    Originador com lastro **recorrente** e tese replicável; volume-alvo por série **a partir de R\$ 10M**; carteiras de recebíveis, créditos judiciais, NPL ou fluxos contratuais com documentação rastreável.
+  </Card>
+
+  <Card title="NÃO oferecer quando" icon="x">
+    Operação **única** sem recorrência (avaliar [Assessoria](/05-products-structures-solutions/servicos/assessoria-mercado-capitais)); lastro sem cadeia de cessão verificável; cliente que precisa primeiro de tese e arquitetura (rotear para Assessoria ou FIDC 360).
+  </Card>
+</CardGroup>
+
+## Cliente-alvo
+
+Securitizadoras e originadores de crédito; gestoras de special situations e NPL; empresas com recebíveis performados ou judiciais; fintechs de crédito em escala.
+
+## Qualificação (antes de propor)
+
+<Steps>
+  <Step title="Volume-alvo por série">
+    Abaixo de R\$ 10M a economics não fecha.
+  </Step>
+  <Step title="Lastro documentado">
+    Tem data tape de 12 meses e cadeia de cessão documentada?
+  </Step>
+  <Step title="Recorrência real">
+    Há recorrência ou é captação única? Sem recorrência, considere Assessoria.
+  </Step>
+  <Step title="Aceita exclusividade e tail">
+    Se hesitar na exclusividade e no tail de 18 meses, **escale antes de enviar proposta**.
+  </Step>
+</Steps>
+
+## Diferenciais
+
+<CardGroup cols={2}>
+  <Card title="Séries replicáveis" icon="repeat" horizontal>
+    Estrutura-se uma vez e replica com follow-on reduzido.
+  </Card>
+
+  <Card title="Emissora + coordenadora próprias" icon="landmark" horizontal>
+    RCVM 60 e RCVM 161 na mesma esteira.
+  </Card>
+
+  <Card title="Servicing fiduciário contínuo" icon="refresh-cw" horizontal>
+    Conciliação e reporting do patrimônio separado.
+  </Card>
+
+  <Card title="Whitelabel disponível" icon="layout-template" horizontal>
+    Plataforma como extensão (IBaaS Enterprise).
+  </Card>
+</CardGroup>
+
+## Economics
+
+<Warning>
+  **Zona Restrita — Economics.** Referência interna de enquadramento (base FSA Stocks). Não compartilhar faixas com o cliente fora do processo de proposta, nem entre parceiros. Não recuperável por agente investor-facing.
+</Warning>
+
+<Info>
+  Desconto em Structuring ou no piso de Servicing exige aprovação. **Nunca abrir mão do tail.** Se o cliente pressionar taxa no Term Sheet, trocar por mais subordinação ou reserve account — nunca prometer condição sem validar com a mesa.
+</Info>
+
+## Pré-requisitos
+
+<CardGroup cols={2}>
+  <Card title="Data tape da carteira (mín. 12 meses)" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="Política de concessão e histórico de inadimplência" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="Documentação societária e certidões" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="Cadeia de titularidade e cessão dos créditos" icon="file-text" horizontal>
+  </Card>
+</CardGroup>
+
+## Do aceite ao kick-off
+
+<Steps>
+  <Step title="Data Request em 24h">
+    Assinou? Envie a Data Request em até 24h e agende o kick-off na mesma semana.
+  </Step>
+  <Step title="Ataque os 3 gargalos">
+    Os itens que mais travam diligência: data tape incompleto, cadeia de cessão sem registro, certidões vencidas. Peça esses primeiro.
+  </Step>
+  <Step title="Financeiro no kick-off">
+    Primeira parcela do Structuring vence em 2 dias úteis do aceite — confirme o financeiro no kick-off.
+  </Step>
+</Steps>
+
+## Perceptmetro e conduta
+
+<Warning>
+  A emissão é da **Bloxs Securitizadora** (RCVM 60); a coordenação, da **Bloxs Capital Markets** (RCVM 161). O parceiro **origina**. Nunca prometer colocação garantida nem usar linguagem de garantia de captação em material escrito. Ver [Perceptmetro](/02-regulatory-perimeter/originacao-vs-atividade-regulada).
+</Warning>
+
+## Agent rules
+
+- O proposal-agent pode montar proposta de CR Plataforma **apenas** com os pré-requisitos presentes e status aprovado.
+- Economics é zona restrita: nunca expor fees a agente investor-facing nem a parceiro fora do processo.
+- Nunca prometer captação/colocação garantida.
+
+## Next action
+
+<CardGroup cols={2}>
+  <Card title="Coordenação e Distribuição" icon="share-2" href="/05-products-structures-solutions/servicos/coordenacao-distribuicao">
+    O serviço de colocação que acompanha o programa.
+  </Card>
+
+  <Card title="Família Securitização" icon="file-badge" href="/05-products-structures-solutions/produtos/securitizacao/cr">
+    Os instrumentos (CR/CRI/CRA) que o programa emite.
+  </Card>
+</CardGroup>
+
+## Red flags
+
+<CardGroup cols={2}>
+  <Card title="Propor abaixo de R$ 10M/série" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Abrir mão do tail para fechar" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Prometer taxa/condição sem validar com a mesa" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Vender programa a quem só tem captação única" icon="flag" horizontal>
+  </Card>
+</CardGroup>

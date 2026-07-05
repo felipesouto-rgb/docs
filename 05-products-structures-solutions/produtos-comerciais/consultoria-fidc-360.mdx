@@ -1,0 +1,158 @@
+---
+title: "Consultoria FIDC 360"
+sidebarTitle: "Consultoria FIDC 360"
+description: "Mandato de structural advisory e estruturacao fiduciaria de FIDC, em tres formatos: Pleno (R$50M+), Light (R$10-50M) e Modular (modulos avulsos). Do lastro ao go-live."
+category: "produtos-comerciais"
+zone: "Internal"
+audience: ["colaborador-interno", "business-partner", "leadership", "compliance", "ai-agent"]
+primary_user: "colaborador-interno"
+owner: "Felipe Souto"
+last_reviewed: "2026-07-04"
+status: "draft"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+content_classification: "comercial"
+regulatory_perimeter: "regulada"
+regulated_activity_touchpoint: true
+executing_entity: ["asset", "coordenacao"]
+regulatory_refs: ["RCVM-175", "RCVM-161"]
+related_products: ["fidc", "fidc-multiclasse"]
+related_commercial_products: ["consultoria-fidc-360", "fundos-on-demand"]
+related_services: ["estruturacao", "gestao-recursos", "coordenacao-distribuicao"]
+agents: ["deal-intake-agent", "proposal-agent"]
+investor_profile_allowed: ["profissional", "qualificado"]
+risk_level: "medio"
+icon: "compass"
+---
+
+<Note>
+  **Produto comercial · Customizado.** Nome no catálogo: **Consultoria FIDC 360** (`consultoria-fidc-360`). Estrutura o veículo [FIDC](/05-products-structures-solutions/produtos/fundos/fidc). Status `draft`.
+</Note>
+
+## O que é
+
+Consultoria de estruturação de FIDC sob RCVM 175, em etapas integradas: **diagnóstico e tese de crédito → arquitetura de capital e Term Sheet → estruturação fiduciária com Prestadores Regulados → onboarding operacional com go-live assistido**.
+
+> **A tese em uma frase:** do lastro ao go-live — tese, arquitetura, prestadores e operação assistida em um único mandato, dimensionado ao estágio do originador.
+
+{/* ESPAÇO PARA VÍDEO IA — (~25s) as quatro etapas (tese → term sheet → estruturação → go-live) como uma trilha com quality gates. Inserir aqui. */}
+
+## Os três formatos
+
+<CardGroup cols={3}>
+  <Card title="Pleno" icon="crown">
+    **R\$ 50M\+**, 13\+ semanas. Motor I \+ II \+ **market placement** institucional (a Bloxs capta).
+  </Card>
+
+  <Card title="Light" icon="feather">
+    **R\$ 10–50M**, 8–10 semanas. Estrutura enxuta; **a captação é conduzida pelo próprio cliente**.
+  </Card>
+
+  <Card title="Modular" icon="blocks">
+    Módulos independentes (Advisory, Engenharia de Capital, Estruturação & Coordenação). Porta de entrada.
+  </Card>
+</CardGroup>
+
+## Triagem de formato
+
+<Info>
+  **Pergunta de ouro: quem vai captar?** Se a resposta for a Bloxs → **Pleno**. Se for o próprio cliente → **Light** resolve.
+</Info>
+
+## Quando oferecer o Modular
+
+<Warning>
+  Modular é **porta de entrada, não destino.** Ofereça quando o cliente tem orçamento travado, precisa só de um entregável (ex.: Term Sheet para negociar com administrador que já conhece) ou quer testar a Bloxs antes do mandato cheio. **Não venda Modular para quem precisa do mandato inteiro** — vira escopo fatiado e retrabalho.
+</Warning>
+
+## Cliente-alvo
+
+Fintechs de crédito; factorings em escala; plataformas de originação; gestoras constituindo veículo próprio.
+
+## Economics
+
+<Warning>
+  **Zona Restrita — Economics.** Referência interna de enquadramento. Não compartilhar faixas fora do processo de proposta. Não recuperável por agente investor-facing.
+</Warning>
+
+<Info>
+  Posicione o Setup pelo **meio da faixa** e negocie **com escopo, não com preço**. Success Fee abaixo do padrão exige aprovação.
+</Info>
+
+## Trilha de migração (o que mais fecha Light)
+
+<Info>
+  A **Cláusula 20.5** garante migração do Light ao Pleno com aproveitamento de entregáveis e **crédito proporcional do Setup Fee já pago**. Tradução para o cliente: começar enxuto não custa o recomeço depois. Use o cronograma para ancorar urgência — cada semana de atraso no data request empurra o go-live. **Prazo é indicativo e depende dos Prestadores Regulados; nunca prometer data fechada de CVM ou administrador.**
+</Info>
+
+## Pré-requisitos
+
+<CardGroup cols={2}>
+  <Card title="Data tape de 12 meses da carteira" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="Política de concessão de crédito" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="Demonstrações de 2 exercícios" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="Programa de PLD/FTP e KYC" icon="file-text" horizontal>
+  </Card>
+</CardGroup>
+
+## Diferenciais
+
+<CardGroup cols={2}>
+  <Card title="Três formatos por estágio" icon="layers" horizontal>
+    Com migração Light→Pleno aproveitando crédito do Setup.
+  </Card>
+
+  <Card title="Entregáveis definidos por etapa" icon="check-check" horizontal>
+    Memo de tese, Term Sheet, pacote documental, relatório de validação.
+  </Card>
+
+  <Card title="BOS Light no onboarding" icon="monitor" horizontal>
+    Plataforma operacional incluída.
+  </Card>
+
+  <Card title="Bloxs Asset como gestora opcional" icon="briefcase" horizontal>
+    Em instrumento próprio.
+  </Card>
+</CardGroup>
+
+## Agent rules
+
+- Rotear para FIDC 360 quando houver carteira própria e intenção de constituir FIDC.
+- Triagem de formato pela pergunta "quem capta?".
+- Economics = zona restrita. Prazo sempre indicativo; nunca prometer data de CVM/administrador.
+
+## Next action
+
+<CardGroup cols={2}>
+  <Card title="FIDC (veículo)" icon="layers" href="/05-products-structures-solutions/produtos/fundos/fidc">
+    O que está sendo estruturado.
+  </Card>
+
+  <Card title="Fundos On Demand" icon="repeat" href="/05-products-structures-solutions/produtos-comerciais/fundos-on-demand">
+    A esteira recorrente para depois do 1º veh.
+  </Card>
+</CardGroup>
+
+## Red flags
+
+<CardGroup cols={2}>
+  <Card title="Vender Modular para quem precisa do mandato inteiro" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Prometer data fechada de CVM/administrador" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Qualificar ticket abaixo de R$ 10M" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Negociar por preço em vez de escopo" icon="flag" horizontal>
+  </Card>
+</CardGroup>
