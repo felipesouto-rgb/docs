@@ -1,0 +1,119 @@
+---
+title: "Assessoria Mercado de Capitais"
+sidebarTitle: "Assessoria (CAPEX)"
+description: "O mandato de arquitetura de capital pelo Metodo CAPEX: diagnostico em cinco fases que roteia o cliente ao instrumento certo antes de contratar a execucao. Antes da obra, o projeto."
+category: "servicos"
+zone: "Internal"
+audience: ["colaborador-interno", "business-partner", "leadership", "ai-agent"]
+primary_user: "colaborador-interno"
+owner: "Felipe Souto"
+last_reviewed: "2026-07-04"
+status: "draft"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+content_classification: "comercial"
+regulatory_perimeter: "ambos"
+regulated_activity_touchpoint: false
+related_services: ["assessoria-mercado-capitais"]
+related_commercial_products: ["cr-plataforma", "consultoria-fidc-360", "fundos-on-demand", "coordenacao-distribuicao"]
+agents: ["deal-intake-agent"]
+risk_level: "medio"
+icon: "compass"
+---
+
+<Note>
+  **Serviço · Customizado.** Nome no catálogo: **Mandato Assessoria Mercado de Capitais** (`assessoria-mercado-capitais`). Metodologia proprietária **Método CAPEX** (cinco fases com quality gates). Status `draft`.
+</Note>
+
+## O que é
+
+Assessoria para **definir a arquitetura de capital antes de escolher o instrumento**: diagnóstico da necessidade e do lastro, avaliação de alternativas (CR, FIDC, debênture, CCB, veículo dedicado), desenho da estrutura-alvo com premissas indicativas e plano de execução. O entregável **roteia** o cliente ao mandato de execução adequado.
+
+> **A tese em uma frase:** antes de contratar a obra, o projeto. A assessoria define qual instrumento, qual estrutura e qual sequência — evitando mandatos errados e retrabalho regulatório.
+
+{/* ESPAÇO PARA VÍDEO IA — (~20s) um diagnóstico bifurcando em rotas (CR / FIDC / debênture / veículo) até a recomendação. Inserir aqui. */}
+
+## As cinco perguntas do diagnóstico
+
+<Steps>
+  <Step title="Quanto, para quê e em qual prazo?">
+    A necessidade de capital e o horizonte.
+  </Step>
+  <Step title="Que ativos ou fluxos existem como lastro — e com que documentação?">
+    O que sustenta a operação.
+  </Step>
+  <Step title="Qual o endividamento atual e o que ele restringe?">
+    Covenants, garantias já constituídas.
+  </Step>
+  <Step title="Aceita estrutura com veículo, ou precisa de dívida direta?">
+    FIDC/patrimônio separado vs. dívida direta.
+  </Step>
+  <Step title="Quem decide, e em quanto tempo?">
+    O processo decisório do cliente.
+  </Step>
+</Steps>
+
+## Quando rotear para a assessoria
+
+<CardGroup cols={2}>
+  <Card title="Rotear quando" icon="check">
+    Cliente chega **sem instrumento definido**; lastro híbrido ou não convencional (judicial, agro, imobiliário misto); reorganização societária ou de dívida em curso; cliente comparando rotas e custos.
+  </Card>
+
+  <Card title="NÃO rotear quando" icon="x">
+    O instrumento é **óbvio.** Empurrar assessoria para quem precisa de CR é **queimar margem e tempo** — vá direto ao mandato de execução.
+  </Card>
+</CardGroup>
+
+## Diferenciais
+
+<CardGroup cols={2}>
+  <Card title="Metodologia com quality gates" icon="check-check" horizontal>
+    Cada fase só avança validada.
+  </Card>
+
+  <Card title="Recomendação roteia, não empurra" icon="route" horizontal>
+    Diagnóstico independente do instrumento.
+  </Card>
+
+  <Card title="Conversão em mandato de execução" icon="arrow-right" horizontal>
+    Aproveitando o diagnóstico.
+  </Card>
+
+  <Card title="Inteligência regulatória" icon="scale" horizontal>
+    CVM 60/88/160/161/175.
+  </Card>
+</CardGroup>
+
+## Para onde roteia
+
+<CardGroup cols={2}>
+  <Card title="CR Plataforma" icon="package" href="/05-products-structures-solutions/produtos-comerciais/cr-plataforma">
+    Securitização recorrente.
+  </Card>
+
+  <Card title="Consultoria FIDC 360" icon="compass" href="/05-products-structures-solutions/produtos-comerciais/consultoria-fidc-360">
+    Estruturação de FIDC.
+  </Card>
+</CardGroup>
+
+## Agent rules
+
+- Rotear para assessoria só quando o instrumento não é óbvio.
+- O output é uma **recomendação de rota**, não um produto empurrado.
+- Não é recomendação de investimento a investidor — é advisory de arquitetura de capital ao tomador.
+
+## Red flags
+
+<CardGroup cols={2}>
+  <Card title="Vender assessoria quando o instrumento é óbvio" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Usar o diagnóstico para empurrar produto" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Confundir advisory ao tomador com recomendação ao investidor" icon="flag" horizontal>
+  </Card>
+</CardGroup>

@@ -118,7 +118,12 @@
                 "group": "Serviços",
                 "icon": "handshake",
                 "pages": [
-                  "05-products-structures-solutions/servicos/coordenacao-distribuicao"
+                  "05-products-structures-solutions/servicos/coordenacao-distribuicao",
+                  "05-products-structures-solutions/servicos/emissao-securitizacao",
+                  "05-products-structures-solutions/servicos/estruturacao",
+                  "05-products-structures-solutions/servicos/gestao-recursos",
+                  "05-products-structures-solutions/servicos/assessoria-mercado-capitais",
+                  "05-products-structures-solutions/servicos/business-partners-kit"
                 ]
               },
               {

@@ -1,0 +1,106 @@
+---
+title: "Estruturação"
+sidebarTitle: "Estruturação"
+description: "O servico de desenho da operacao: tese de credito, tranching, subordinacao, waterfall, garantias e diligencia de lastro. O que transforma um lastro em estrutura investivel."
+category: "servicos"
+zone: "Internal"
+audience: ["colaborador-interno", "business-partner", "leadership", "ai-agent"]
+primary_user: "colaborador-interno"
+owner: "Estruturação Bloxs"
+last_reviewed: "2026-07-04"
+status: "draft"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+content_classification: "regulado"
+regulatory_perimeter: "regulada"
+regulated_activity_touchpoint: true
+executing_entity: ["securitizadora", "asset", "coordenacao"]
+related_services: ["estruturacao", "emissao-securitizacao", "coordenacao-distribuicao"]
+related_commercial_products: ["cr-plataforma", "consultoria-fidc-360"]
+agents: ["deal-intake-agent"]
+risk_level: "medio"
+icon: "ruler"
+---
+
+<Note>
+  **Serviço · núcleo técnico.** É o desenho da operação que precede emissão e colocação. Aparece dentro de [CR Plataforma](/05-products-structures-solutions/produtos-comerciais/cr-plataforma) e [Consultoria FIDC 360](/05-products-structures-solutions/produtos-comerciais/consultoria-fidc-360). Status `draft`.
+</Note>
+
+## O que é
+
+O serviço que **transforma um lastro em estrutura investível**: define a tese de crédito, o tranching (sênior/subordinada), a subordinação, o waterfall de pagamento, as garantias e os reforços de crédito, e conduz a diligência do lastro. É onde a engenharia acontece.
+
+{/* ESPAÇO PARA ANIMAÇÃO IA — (~20s) um lastro "bruto" sendo esculpido em camadas (sênior, subordinada), com waterfall e garantias aparecendo. Inserir aqui. */}
+
+## O que abrange
+
+<CardGroup cols={2}>
+  <Card title="Tese de crédito" icon="lightbulb" horizontal>
+    Por que o crédito paga, e sob quais condições.
+  </Card>
+
+  <Card title="Tranching e subordinação" icon="layers" horizontal>
+    Sênior/subordinada; first-loss; skin-in-the-game.
+  </Card>
+
+  <Card title="Waterfall" icon="align-vertical-justify-end" horizontal>
+    Cascata de pagamento e gatilhos.
+  </Card>
+
+  <Card title="Garantias e reforços" icon="shield-check" horizontal>
+    Reais, fiduciárias, reservas, recompra.
+  </Card>
+
+  <Card title="Diligência de lastro" icon="search" horizontal>
+    Validação de elegibilidade, cessão e concentração.
+  </Card>
+
+  <Card title="Modelagem econômico-financeira" icon="calculator" horizontal>
+    Cenários, cobertura, stress.
+  </Card>
+</CardGroup>
+
+## Âncoras de estruturação (referência interna)
+
+<Info>
+  Pontos de partida típicos: **subordinação ~20%** retida pelo originador como first-loss; taxa sênior referenciada em **CDI \+ spread** conforme a classe de lastro (lastro mais arriscado, como NPL, exige spread alto); prazo casado com a **duration do lastro**. Se o cliente pressionar taxa, trocar por **mais subordinação ou reserve account** — nunca prometer condição sem validar com a mesa.
+</Info>
+
+## Perceptmetro
+
+<Warning>
+  Estruturação é atividade regulada, conduzida pelas entidades Bloxs conforme o veículo (securitizadora, asset, coordenação). O parceiro pode **apoiar** a estruturação quando autorizado (Business Partner L2), mas o ato regulado permanece com a entidade.
+</Warning>
+
+## Agent rules
+
+- Estruturação só sobre deal aprovado no [Fundability Test](/05-products-structures-solutions/credit-structuring-principles/fundability-test).
+- Nunca fixar taxa/condição sem validação da mesa.
+- Atribuir o ato regulado à entidade correta conforme o veículo.
+
+## Next action
+
+<CardGroup cols={2}>
+  <Card title="Fundability Test" icon="clipboard-check" href="/05-products-structures-solutions/credit-structuring-principles/fundability-test">
+    O que precede a estruturação.
+  </Card>
+
+  <Card title="Selection Matrix" icon="grid-3x3" href="/05-products-structures-solutions/selection-matrix">
+    Instrumento e veículo a estruturar.
+  </Card>
+</CardGroup>
+
+## Red flags
+
+<CardGroup cols={2}>
+  <Card title="Estruturar deal não aprovado em fundabilidade" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Fixar taxa sem validar com a mesa" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Subordinação insuficiente para a classe de lastro" icon="flag" horizontal>
+  </Card>
+</CardGroup>
