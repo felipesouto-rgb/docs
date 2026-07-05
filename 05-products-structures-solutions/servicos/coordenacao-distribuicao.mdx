@@ -1,0 +1,140 @@
+---
+title: "Coordenação e Distribuição"
+sidebarTitle: "Coordenação & Distribuição"
+description: "O servico regulado de coordenacao de oferta publica (RCVM 161) e colocacao junto ao buyside, pela mesa da Bloxs Capital Markets. Atividade privativa de instituicao autorizada."
+category: "servicos"
+zone: "Internal"
+audience: ["colaborador-interno", "business-partner", "leadership", "compliance", "ai-agent"]
+primary_user: "colaborador-interno"
+owner: "Mesa de Distribuição Bloxs"
+last_reviewed: "2026-07-04"
+status: "draft"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+content_classification: "regulado"
+regulatory_perimeter: "regulada"
+regulated_activity_touchpoint: true
+executing_entity: "coordenacao"
+regulatory_refs: ["RCVM-160", "RCVM-161"]
+related_services: ["coordenacao-distribuicao"]
+related_commercial_products: ["cr-plataforma", "consultoria-fidc-360"]
+agents: ["deal-intake-agent"]
+investor_profile_allowed: ["profissional", "qualificado"]
+risk_level: "alto"
+icon: "share-2"
+---
+
+<Note>
+  **Serviço regulado.** Nome no catálogo: **Coordenação e Distribuição** (`coordenacao-distribuicao`). Executado pela **Bloxs Capital Markets / Coordenação** (CNPJ 41.847.533/0001-90, RCVM 161). Status `draft`.
+</Note>
+
+## O que é
+
+Serviço regulado de **coordenação de ofertas públicas** de valores mobiliários (RCVM 160/161) e de **colocação** junto a investidores, conduzido pela mesa de distribuição da Bloxs. Abrange interlocução com agente fiduciário, escriturador, custodiante e auditor; estratégia de apresentação ao mercado; condução de manifestações de interesse e bookbuilding; e reporting da colocação — com acesso ao buyside institucional mapeado pela Bloxs.
+
+> **A tese em uma frase:** a operação chega ao investidor certo — coordenação regulada e mesa ativa com leitura de demanda do buyside, dentro da mesma infraestrutura que emite e estrutura.
+
+{/* ESPAÇO PARA VÍDEO IA — (~20s) a operação estruturada chegando à mesa, a mesa lendo demanda no radar de teses/Atlas, e a colocação acontecendo. Inserir aqui. */}
+
+## Argumento regulatório
+
+<Warning>
+  Coordenação de oferta pública é **atividade privativa de instituição autorizada.** A Bloxs Capital Markets detém autorização CVM nos termos da **RCVM 161**, e a emissão fiduciária corre sob a Bloxs Securitizadora (RCVM 60). Tradução comercial: o cliente não contrata uma consultoria que terceiriza o ato regulado — **contrata quem assina como coordenador líder.** Apoio na interlocução com investidores não caracteriza distribuição, salvo se expressamente contratada. **Nunca prometer colocação garantida** nem usar linguagem de garantia de captação em material escrito.
+</Warning>
+
+## Quando vender a mesa junto
+
+<Info>
+  Toda proposta de **CR Plataforma** e todo **FIDC 360 Pleno** deve apresentar a mesa como módulo natural de colocação — a leitura de demanda do buyside (Atlas e radar de teses) é o diferencial que justifica o Distribution Fee. **Venda isolada da mesa** (operação estruturada por terceiro) é válida quando a estrutura já está pronta e a documentação é sólida: exija Term Sheet e material informativo antes do mandato, e valide a aderência da tese com a mesa antes de assinar. **Mandato de colocação de papel sem demanda queima a mesa e o relacionamento.**
+</Info>
+
+## Quando oferecer / não oferecer
+
+<CardGroup cols={2}>
+  <Card title="Oferecer quando" icon="check">
+    Emissão estruturada (própria ou de terceiros) buscando coordenador líder; operação Bloxs entrando em colocação; emissor com oferta sob RCVM 160 que demanda esforço ativo de distribuição.
+  </Card>
+
+  <Card title="NÃO oferecer quando" icon="x">
+    Estrutura não está pronta ou documentação é frágil; tese sem aderência validada com a mesa; expectativa de "colocação garantida".
+  </Card>
+</CardGroup>
+
+## Economics
+
+<Warning>
+  **Zona Restrita — Economics.** Referência da mesa. Não compartilhar fora do processo; Distribution Fee é repassado ao parceiro L3 quando a colocação for dele.
+</Warning>
+
+<Info>
+  Fee de coordenação abaixo de 1% ou tail reduzido: **só com aprovação da mesa.**
+</Info>
+
+## Pré-requisitos
+
+<CardGroup cols={2}>
+  <Card title="Documentação da oferta em elaboração ou pronta" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="Term Sheet ou condições indicativas definidas" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="Material informativo (deck, lâmina) disponível" icon="file-text" horizontal>
+  </Card>
+</CardGroup>
+
+## Diferenciais
+
+<CardGroup cols={2}>
+  <Card title="Atividade privativa com autorização própria" icon="shield-check" horizontal>
+    Coordenador líder sob RCVM 161.
+  </Card>
+
+  <Card title="Mesa com buyside mapeado" icon="users" horizontal>
+    Universo institucional (Atlas \+ radar de teses).
+  </Card>
+
+  <Card title="Contratável junto ou separado" icon="split" horizontal>
+    Coordenação e distribuição em conjunto ou isoladas.
+  </Card>
+
+  <Card title="Integração nativa com a emissão Bloxs" icon="link" horizontal>
+    Mesma esteira que emite e estrutura.
+  </Card>
+</CardGroup>
+
+## Agent rules
+
+- Sempre atribuir a coordenação à Bloxs Capital Markets (RCVM 161).
+- Nunca prometer colocação/captação garantida em material.
+- Economics = zona restrita; Distribution Fee ao L3 quando a colocação for dele.
+
+## Next action
+
+<CardGroup cols={2}>
+  <Card title="CR Plataforma" icon="package" href="/05-products-structures-solutions/produtos-comerciais/cr-plataforma">
+    O programa que a mesa coloca.
+  </Card>
+
+  <Card title="Business Partners Kit" icon="users-round" href="/05-products-structures-solutions/servicos/business-partners-kit">
+    O L3 que recebe o Distribution Fee.
+  </Card>
+</CardGroup>
+
+## Red flags
+
+<CardGroup cols={2}>
+  <Card title="Prometer colocação/captação garantida" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Aceitar mandato de papel sem demanda" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Fee abaixo de 1% ou tail reduzido sem aprovação" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Tratar coordenação como atividade não-regulada" icon="flag" horizontal>
+  </Card>
+</CardGroup>

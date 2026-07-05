@@ -28,68 +28,120 @@ icon: "clipboard-check"
 ---
 
 <Note>
-  **Status: draft — não recuperável por agente.** Porta de entrada de todo deal. A pergunta não é "qual produto?" — é **"isso é financiável?"**. Só depois de passar aqui vai para a [Selection Matrix](/05-products-structures-solutions/selection-matrix).
+  **Porta de entrada de todo deal.** A pergunta não é "qual produto?" — é **"isso é financiável?"**. Só depois de passar aqui o deal vai para a [Selection Matrix](/05-products-structures-solutions/selection-matrix).
 </Note>
 
 ## Por que testar antes de estruturar
 
-Escolher instrumento para um deal não-financiável é desperdício e risco. O fundability test separa o que merece estruturação do que precisa de ajuste, do que deve ser recusado. É também um filtro reputacional: nem todo deal financiável deve ser feito.
+Escolher instrumento para um deal não-financiável é desperdício e risco. O fundability test separa o que merece estruturação do que precisa de ajuste, do que deve ser recusado. É também um filtro reputacional: **nem todo deal financiável deve ser feito.**
+
+{/* ESPAÇO PARA ANIMAÇÃO IA — um deal entrando por um funil de 16 crivos e saindo classificado em uma das 5 faixas (~20s). Inserir aqui. */}
 
 ## As 16 perguntas
 
-| # | Pergunta | O que investiga |
-| --- | --- | --- |
-| 1 | Existe lastro? | Há ativo/direito que sustenta a operação |
-| 2 | Existe fluxo de pagamento? | Há caixa identificável para pagar |
-| 3 | Quem é o devedor/sacado? | Qualidade de quem paga |
-| 4 | Qual a fonte primária de pagamento? | De onde vem o dinheiro primeiro |
-| 5 | Qual a fonte secundária? | Plano B se a primária falhar |
-| 6 | Há histórico? | Track record de performance do lastro |
-| 7 | Há cessão válida? | O direito pode ser transferido licitamente |
-| 8 | Há garantias? | Colateral e reforços de crédito |
-| 9 | Há concentração? | Dependência de poucos devedores/sacados |
-| 10 | Há documentação? | Papel que comprova o lastro |
-| 11 | Há servicer? | Quem administra e cobra |
-| 12 | Há alinhamento econômico? | Skin in the game do originador/cedente |
-| 13 | Há investidor provável? | Existe apetite real no buy-side |
-| 14 | Há risco jurídico impeditivo? | Algo que trave a operação legalmente |
-| 15 | Há risco reputacional? | O deal contamina a casa? |
-| 16 | Há red flags? | Sinais de alerta estruturais |
+Organizadas em quatro blocos. Um "não" nos blocos 1–2 costuma ser eliminatório; um "sim" nos blocos 3–4 costuma ser gatilho de escalonamento.
+
+<AccordionGroup>
+  <Accordion title="Bloco 1 — Existe o quê pagar? (lastro e fluxo)" icon="banknote">
+    1. Existe lastro?   2. Existe fluxo de pagamento?   3. Quem é o devedor/sacado?   4. Qual a fonte primária de pagamento?   5. Qual a fonte secundária?
+
+    Sem lastro e sem fluxo, não há operação. Fonte secundária ausente é sinal amarelo forte.
+  </Accordion>
+
+  <Accordion title="Bloco 2 — Dá para transferir e sustentar? (estrutura)" icon="link">
+    6. Há histórico?   7. Há cessão válida?   8. Há garantias?   9. Há concentração?   10. Há documentação?   11. Há servicer?
+
+    Cessão inválida é eliminatória. Concentração alta e ausência de servicer são ajustáveis, mas pesam.
+  </Accordion>
+
+  <Accordion title="Bloco 3 — Faz sentido econômico? (alinhamento e demanda)" icon="scale">
+    12. Há alinhamento econômico (skin in the game do originador)?   13. Há investidor provável (apetite real no buy side)?
+
+    Originador sem skin in the game e ausência de apetite são sinais de que o deal não fecha, mesmo sendo "montável".
+  </Accordion>
+
+  <Accordion title="Bloco 4 — A casa deve fazer? (risco)" icon="shield-alert">
+    14. Há risco jurídico impeditivo?   15. Há risco reputacional?   16. Há red flags estruturais?
+
+    Qualquer "sim" aqui move o deal para escalonamento, independentemente de quão bom seja o número.
+  </Accordion>
+</AccordionGroup>
 
 ## Resultado
 
-| Resultado | Quando | Ação |
-| --- | --- | --- |
-| **Financiável agora** | Lastro, fluxo, cessão, docs e apetite presentes | → [Selection Matrix](/05-products-structures-solutions/selection-matrix) |
-| **Financiável com ajustes** | Gaps sanáveis (garantia, concentração, doc) | Definir ajustes e reavaliar |
-| **Não financiável** | Falta lastro/fluxo/cessão válida | Recusar com registro |
-| **Escalar para estruturação** | Complexo mas promissor | Acionar Estruturação |
-| **Escalar para jurídico/compliance** | Risco jurídico ou reputacional relevante | Parar e escalar |
-
 <Warning>
-  **Deal economicamente bom mas reputacionalmente ruim = escalar, não seguir.** Reputação acima do deal. Se as perguntas 14, 15 ou 16 acenderem, pare antes de escolher produto.
+  **Deal economicamente bom mas reputacionalmente ruim = escalar, não seguir.** Reputação acima do deal. Se as perguntas 14, 15 ou 16 acenderem, pare antes de escolher produto. Ver [Reputação acima do Deal](/00-constituicao/reputacao-acima-do-deal).
 </Warning>
+
+## Exemplos aplicados
+
+<AccordionGroup>
+  <Accordion title="Construtora capitalizada — R$30MM / 60 meses → Financiável" icon="circle-check">
+    Incorporadora com R$520MM em ativos em realização busca R$30MM em 60 meses. **Lastro** imobiliário (1); **fluxo** de vendas dá fonte primária e secundária (2, 4, 5); **garantia** real com cobertura de 2,5x (8); **cessão** estruturável (7). Concentração (9) a monitorar.
+
+    **Resultado:** financiável → Selection Matrix indica CRI ou estrutura de compra-com-recompra. É o padrão de um deal que atravessa limpo.
+  </Accordion>
+
+  <Accordion title="Créditos judiciais (honorários) → Escalar para jurídico" icon="arrow-up">
+    Carteira de créditos litigiosos (ex.: honorários sucumbenciais). Lastro existe, mas o **risco jurídico e o timing** (perguntas 14, 6) dominam a análise. Fonte de pagamento depende de trânsito e execução.
+
+    **Resultado:** escalar para jurídico/compliance antes de qualquer estrutura. Financiável, mas não sem parecer.
+  </Accordion>
+
+  <Accordion title="Originador sem skin in the game → Financiável com ajustes" icon="triangle-alert">
+    Volume regional real, lastro razoável, mas o originador não retém subordinação e resiste a alinhar incentivo (pergunta 12).
+
+    **Resultado:** financiável com ajustes — estruturar subordinação/retenção que dê skin in the game antes de avançar.
+  </Accordion>
+
+  <Accordion title="Lastro que ninguém documenta → Não financiável" icon="circle-x">
+    Promessa de "recebíveis" que não se materializa em documento, cessão ou contrato (perguntas 1, 7, 10).
+
+    **Resultado:** não financiável. Recusar com registro. Não é sobre o número — é sobre não existir operação.
+  </Accordion>
+</AccordionGroup>
 
 ## CRM rules
 
-- Roda no objeto `Deal`, trigger `deal_submitted`.
-- Entry: intake completo. Exit: resultado registrado.
-- Resultado gravaádo em campo estruturado (5 opções acima).
-
-## Exemplo prático
-
-**Recebateis de uma construtora com R**$520MM em ativos, buscando R$**30MM/60 meses:** lastro imobiliário (1), fluxo de vendas (2,4), garantia real com cobertura 2,5x (8), cessão estruturável (7). Resultado: **financiável** → Selection Matrix indica CRI ou estrutura com recompra. Concentração (9) a monitorar.
-
 ## Next action
 
-- Financiável → Selection Matrix.
-- Com ajustes → lista de pendências \+ reavaliar.
-- Não financiável / risco → registrar e/ou escalar.
+<CardGroup cols={2}>
+  <Card title="Financiável → Selection Matrix" icon="grid-3x3" href="/05-products-structures-solutions/selection-matrix">
+    Escolher instrumento, veículo e regime.
+  </Card>
+
+  <Card title="Com ajustes / risco → escalar" icon="arrow-up" href="/06-dealflow-os/overview">
+    Lista de pendências ou escalonamento pelo Dealflow OS.
+  </Card>
+</CardGroup>
 
 ## Red flags
 
-- Lastro que ninguém consegue documentar.
-- Fonte de pagamento única e concentrada, sem plano B.
-- Cessão de duvidosa validade jurídica.
-- Originador sem skin in the game.
-- Pressa do parceiro para "pular" o teste.
+<CardGroup cols={2}>
+  <Card title="Lastro que ninguém consegue documentar" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Fonte de pagamento única e concentrada, sem plano B" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Cessão de validade jurídica duvidosa" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Originador sem skin in the game" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Pressa do parceiro para 'pular' o teste" icon="flag" horizontal>
+  </Card>
+</CardGroup>
+
+---
+
+<CardGroup cols={2}>
+  <Card title="Selection Matrix" icon="grid-3x3" href="/05-products-structures-solutions/selection-matrix">
+    O próximo passo depois do "financiável".
+  </Card>
+
+  <Card title="Reputação acima do Deal" icon="shield" href="/00-constituicao/reputacao-acima-do-deal">
+    Por que nem todo deal financiável deve ser feito.
+  </Card>
+</CardGroup>

@@ -1,0 +1,111 @@
+---
+title: "FIP — Fundo de Investimento em Participações"
+sidebarTitle: "FIP"
+description: "Veículo de participação societária (equity), não de dívida. Quando a tese é entrar no capital da empresa, não financiar seu recebível. Gestão pela Bloxs Asset sob RCVM 175."
+category: "produtos-fundos"
+zone: "Internal"
+audience: ["colaborador-interno", "business-partner", "leadership", "ai-agent"]
+primary_user: "colaborador-interno"
+owner: "Bloxs Asset"
+last_reviewed: "2026-07-04"
+status: "draft"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+content_classification: "regulado"
+regulatory_perimeter: "regulada"
+regulated_activity_touchpoint: true
+executing_entity: "asset"
+regulatory_refs: ["RCVM-175", "RCVM-30"]
+related_products: ["fip"]
+agents: ["deal-intake-agent"]
+investor_profile_allowed: ["profissional", "qualificado"]
+risk_level: "medio"
+icon: "trending-up"
+---
+
+<Note>
+  **Produto · Família Fundos.** Gestão pela Bloxs Asset (gestor de recursos, RCVM 175). Status `draft`.
+</Note>
+
+## Conceito
+
+O **Fundo de Investimento em Participações (FIP)** é um veículo de **participação societária** — _equity_, não dívida. Enquanto o FIDC compra **direitos creditórios** (o recebível), o FIP entra no **capital** da empresa (a participação). A diferença define tudo: retorno via valorização e saída, não via fluxo de crédito.
+
+<Info>
+  **A pergunta que separa FIP de FIDC:** o retorno vem de _ser dono_ de parte da empresa (FIP) ou de _financiar um fluxo_ dela (FIDC)? Equity → FIP. Dívida/recebível → FIDC.
+</Info>
+
+## Quando usar / não usar
+
+<CardGroup cols={2}>
+  <Card title="Usar quando" icon="check">
+    A tese é participação no capital; há estratégia de valorização e saída (M&A, follow-on, abertura); horizonte mais longo.
+  </Card>
+
+  <Card title="Não usar quando" icon="x">
+    O que existe é recebível/dívida → **FIDC**. Precisa de fluxo de crédito previsível, não de upside de equity.
+  </Card>
+</CardGroup>
+
+## Entidade executora e público
+
+<Warning>
+  Gestão pela **Bloxs Asset** (RCVM 175). Administração/custódia por prestador regulado independente. Público típico: investidores profissionais/qualificados (RCVM 30). Confirmar enquadramento caso a caso.
+</Warning>
+
+## Mecânica (resumo)
+
+<Steps>
+  <Step title="Tese de participação">
+    Definição das empresas-alvo e da estratégia de criação de valor.
+  </Step>
+  <Step title="Constituição e chamadas">
+    FIP constituído sob RCVM 175; capital chamado conforme investimentos.
+  </Step>
+  <Step title="Gestão ativa">
+    Participação e, conforme a tese, influência na gestão/governança das investidas.
+  </Step>
+  <Step title="Desinvestimento">
+    Saída planejada (venda estratégica, follow-on, mercado) — origem do retorno.
+  </Step>
+</Steps>
+
+## Comparação rápida
+
+| Contra | Escolha FIP quando | Escolha o outro quando |
+| --- | --- | --- |
+| **FIDC** | Tese é equity/participação | Tese é dívida/recebível |
+| **Debênture** | Quer participação societária | Quer dívida corporativa direta |
+
+## Agent rules
+
+- Sugerir FIP apenas quando a tese for de participação societária.
+- Nunca confundir com FIDC (dívida). Gestão sempre Bloxs Asset (RCVM 175).
+- Retorno de equity é incerto por natureza — nunca prometer.
+
+## Next action
+
+<Card title="Assessoria Mercado de Capitais" icon="compass" href="/05-products-structures-solutions/produtos-comerciais/assessoria-mercado-capitais">
+  Quando a tese ainda não está clara entre equity e dívida, o diagnóstico roteia.
+</Card>
+
+## Red flags
+
+<CardGroup cols={2}>
+  <Card title="Tratar FIP como se fosse crédito/dívida" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Prometer retorno de equity" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Saída (exit) não planejada" icon="flag" horizontal>
+  </Card>
+</CardGroup>
+
+---
+
+<Card title="FIDC" icon="layers" href="/05-products-structures-solutions/produtos/fundos/fidc">
+  O veículo de dívida/recebível — o outro lado da escolha.
+</Card>

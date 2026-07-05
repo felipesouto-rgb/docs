@@ -1,0 +1,103 @@
+---
+title: "Gestão de Recursos"
+sidebarTitle: "Gestão de Recursos"
+description: "A gestao profissional de recursos pela Bloxs Asset (RCVM 175/21): politica de investimento, allocation engine e monitoramento de carteira. Gestor de recursos, nunca administrador de carteiras."
+category: "servicos"
+zone: "Internal"
+audience: ["colaborador-interno", "business-partner", "leadership", "compliance", "ai-agent"]
+primary_user: "colaborador-interno"
+owner: "Bloxs Asset"
+last_reviewed: "2026-07-04"
+status: "draft"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+content_classification: "regulado"
+regulatory_perimeter: "regulada"
+regulated_activity_touchpoint: true
+executing_entity: "asset"
+regulatory_refs: ["RCVM-175", "RCVM-21"]
+related_products: ["fidc", "fidc-multiclasse", "fip", "fii", "fiagro"]
+related_services: ["gestao-recursos"]
+related_commercial_products: ["consultoria-fidc-360", "fundos-on-demand"]
+agents: ["deal-intake-agent"]
+risk_level: "alto"
+icon: "briefcase"
+---
+
+<Note>
+  **Serviço regulado.** Executado pela **Bloxs Asset Gestão de Recursos Ltda** (CNPJ 28.038.617/0001-15) como **gestor de recursos** (RCVM 175/21). Status `draft`.
+</Note>
+
+## O que é
+
+A **gestão profissional de recursos** dos veículos de fundos: política de investimento, _allocation engine_, seleção e validação de ativos, e monitoramento contínuo da carteira. É o serviço que faz o [FIDC](/05-products-structures-solutions/produtos/fundos/fidc) e demais veículos operarem no dia a dia.
+
+<Warning>
+  **A Bloxs Asset é gestor de recursos — nunca "administrador de carteiras".** A **administração** e a **custódia** dos fundos são de **prestador regulado independente** (ex.: uma CTVM). Confundir os papéis é erro regulatório. A autorização DTVM permanece **pendente** no BCB — não afirmar que a Bloxs é DTVM.
+</Warning>
+
+## O que abrange
+
+<CardGroup cols={2}>
+  <Card title="Política de investimento" icon="target" horizontal>
+    Critérios de elegibilidade, limites, concentração.
+  </Card>
+
+  <Card title="Allocation engine" icon="cpu" horizontal>
+    Seleção e alocação disciplinada de ativos.
+  </Card>
+
+  <Card title="Validação de lastro e garantias" icon="check-check" horizontal>
+    Governança independente; originação não decide alocação.
+  </Card>
+
+  <Card title="Monitoramento de carteira" icon="activity" horizontal>
+    Gatilhos, covenants, vintage, reporting.
+  </Card>
+</CardGroup>
+
+## Governança
+
+<Info>
+  Princípio estrutural: **originação não decide investimento.** A gestão opera com comitê independente, critérios de elegibilidade e vetos automáticos (filtro de yield trap). A subordinada Bloxs como first-loss é skin-in-the-game real.
+</Info>
+
+## Como se contrata
+
+A gestão é contratada em **instrumento próprio**, tipicamente junto de [Consultoria FIDC 360](/05-products-structures-solutions/produtos-comerciais/consultoria-fidc-360) (Management Fee opcional) ou [Fundos On Demand](/05-products-structures-solutions/produtos-comerciais/fundos-on-demand). Economics no produto correspondente (zona restrita): referência de 1,0–1,5% a.a. sobre PL com piso.
+
+## Agent rules
+
+- Sempre "gestor de recursos" (RCVM 175/21), nunca "administrador de carteiras".
+- Adm/custódia é prestador terceiro. Não afirmar DTVM (pendente BCB).
+- Originação não decide alocação. Retornos indicativos.
+
+## Next action
+
+<CardGroup cols={2}>
+  <Card title="FIDC" icon="layers" href="/05-products-structures-solutions/produtos/fundos/fidc">
+    O veículo gerido.
+  </Card>
+
+  <Card title="Fundos On Demand" icon="repeat" href="/05-products-structures-solutions/produtos-comerciais/fundos-on-demand">
+    A esteira que inclui gestão contínua.
+  </Card>
+</CardGroup>
+
+## Red flags
+
+<CardGroup cols={2}>
+  <Card title="Chamar a Bloxs Asset de 'administradora de carteiras'" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Afirmar que a Bloxs é DTVM" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Originação querendo decidir alocação" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Prometer retorno de gestão" icon="flag" horizontal>
+  </Card>
+</CardGroup>

@@ -1,0 +1,122 @@
+---
+title: "Business Partners (Kit Parceiros)"
+sidebarTitle: "Business Partners Kit"
+description: "O programa de parceria em tres niveis — L1 Advisory, L2 Estruturacao, L3 Distribuicao — com remuneracao por nivel de atuacao. O parceiro monetiza a rede com a infraestrutura regulada da Bloxs por tras."
+category: "servicos"
+zone: "Internal"
+audience: ["colaborador-interno", "business-partner", "leadership", "compliance", "ai-agent"]
+primary_user: "colaborador-interno"
+owner: "Felipe Souto"
+last_reviewed: "2026-07-04"
+status: "draft"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+content_classification: "comercial"
+regulatory_perimeter: "ambos"
+regulated_activity_touchpoint: true
+related_services: ["business-partners-kit", "coordenacao-distribuicao"]
+related_commercial_products: ["cr-plataforma"]
+agents: ["partner-account-agent"]
+risk_level: "alto"
+cultural_principle: ["reputacao-acima-do-deal"]
+icon: "users-round"
+---
+
+<Note>
+  **Serviço · Parcerias.** Nome no catálogo: **Business Partners (Kit Parceiros)** (`business-partners-kit`). Formaliza a atuação comercial de parceiros. Conecta-se aos perfis contratuais da [Constituição / Sell Side](/03-sell-side-ibaas/perfis/business-partner). Status `draft`.
+</Note>
+
+## O que é
+
+Programa que formaliza a atuação de parceiros comerciais na originação e distribuição de operações Bloxs, em **três níveis**. Adesão por ficha modular vinculada ao relacionamento Bloxs, com **ativação a partir do primeiro deal submetido** e **sem exclusividade de origem**.
+
+> **A tese em uma frase:** o parceiro mantém o cliente e o relacionamento; a Bloxs entra com a infraestrutura regulada — emissora, coordenadora, esteira e plataforma.
+
+{/* ESPAÇO PARA VÍDEO IA — (~20s) três trilhas (L1 indica, L2 estrutura junto, L3 distribui) convergindo numa operação Bloxs. Inserir aqui. */}
+
+## Os três níveis
+
+<CardGroup cols={3}>
+  <Card title="L1 Advisory" icon="user">
+    Indicação qualificada e assessoria ao cliente. Ganha na **conversão**, não na indicação.
+  </Card>
+
+  <Card title="L2 Estruturação" icon="ruler">
+    Atuação técnica conjunta. Remuneração **coberta pela própria operação** (sem custo adicional ao parceiro).
+  </Card>
+
+  <Card title="L3 Distribuição" icon="share-2">
+    Colocação junto a investidores. Recebe a **integralidade do distribution fee**.
+  </Card>
+</CardGroup>
+
+## Remuneração por nível
+
+<Warning>
+  **Zona Restrita — Economics.** Referência interna. Não compartilhar faixas entre parceiros nem fora do processo de adesão.
+</Warning>
+
+## Objecção: "por que não ir direto na securitizadora?"
+
+<Info>
+  Resposta em três camadas: **(1)** a Bloxs não é só emissora — é emissora \+ coordenadora \+ esteira \+ plataforma, e o parceiro acessa o conjunto com um único instrumento; **(2)** o relacionamento é blindado: a titularidade do cliente é do parceiro, formalizada na ficha de adesão; **(3)** no L3, o repasse é a **integralidade** do distribution fee — estrutura que nenhum coordenador de mercado oferece a agente externo.
+</Info>
+
+## Perceptmetro (crítico)
+
+<Warning>
+  Os níveis **não dispensam o perceptmetro regulatório.** L3 (distribuição) só se exerce **quando autorizado**, pelas 7 camadas de "autorizado" do Business Partner. Ter uma rede não é ter autorização para distribuir. Ver [Conduta por Perfil](/02-regulatory-perimeter/conduta-por-perfil) e [Business Partner](/03-sell-side-ibaas/perfis/business-partner).
+</Warning>
+
+## Cliente-alvo
+
+Assessorias e consultorias de investimento; boutiques de M&A e advisory; agentes autônomos e mesas independentes; contadores e advogados com base empresarial.
+
+## Pré-requisitos
+
+<CardGroup cols={2}>
+  <Card title="Ficha de adesão assinada" icon="file-signature" horizontal>
+  </Card>
+
+  <Card title="Deal ou pipeline apresentado" icon="briefcase" horizontal>
+  </Card>
+
+  <Card title="KYC do parceiro concluído" icon="shield-check" horizontal>
+  </Card>
+</CardGroup>
+
+## Agent rules
+
+- Ativação no primeiro deal; sem exclusividade de origem.
+- L3 só exerce distribuição quando autorizado (7 camadas). Economics = zona restrita.
+- Desalinhamento cultural é critério de rejeição, mesmo com bom potencial.
+
+## Next action
+
+<CardGroup cols={2}>
+  <Card title="Qualificar em 5 min" icon="gauge" href="/08-sales-console/qualificar-parceiro-em-5-minutos">
+    Triagem antes da adesão.
+  </Card>
+
+  <Card title="Business Partner (perfil)" icon="briefcase" href="/03-sell-side-ibaas/perfis/business-partner">
+    O perfil contratual por trás dos níveis.
+  </Card>
+</CardGroup>
+
+## Red flags
+
+<CardGroup cols={2}>
+  <Card title="L3 distribuindo sem autorização (7 camadas)" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Prometer distribution fee sem checar perceptmetro" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Parceiro desalinhado culturalmente com bom potencial" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Compartilhar faixas de remuneração entre parceiros" icon="flag" horizontal>
+  </Card>
+</CardGroup>

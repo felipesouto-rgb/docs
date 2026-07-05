@@ -24,97 +24,196 @@ icon: "users-round"
 ---
 
 <Warning>
-  **Status: draft — pendente de revisão de compliance.** Esta página define o que cada perfil PODE e NÃO PODE fazer. É a tradução operacional do [perímetro regulatório](/02-regulatory-perimeter/originacao-vs-atividade-regulada).
+  **Tradução operacional do [perímetro](/02-regulatory-perimeter/originacao-vs-atividade-regulada).** Cada perfil tem um **teto de conduta**. O teto do parceiro não-licenciado é baixo por desenho — proteger o parceiro é proteger a Bloxs. Na dúvida, aplique o teto mais baixo e escale.
 </Warning>
 
-## Como ler esta página
+## O conceito de teto de conduta
 
-Cada perfil tem um **teto de conduta**. O teto do parceiro não-licenciado é baixo por desenho — proteger o parceiro é proteger a Bloxs. Na dúvida, aplicar o teto mais baixo e escalar.
+Cada perfil só pode agir até um limite. O que está acima do teto não é "arriscado" — é **proibido para aquele perfil**, ainda que outro perfil possa.
+
+{/* ESPAÇO PARA ANIMAÇÃO IA — barras de altura crescente por perfil (Independent mais baixa a Entidade Licenciada mais alta), com a linha "atividade regulada" marcada. Cada barra para na sua altura (~20s). Inserir aqui. */}
+
+## Matriz-resumo
+
+A leitura rápida antes de qualquer call. O detalhe de cada perfil vem nas seções abaixo.
+
+| Perfil | Origina | Estrutura | Distribui | Recomenda | Fala c/ investidor sobre produto |
+| --- | --- | --- | --- | --- | --- |
+| Independent Banker | Sim | Não | Não | Não | Não |
+| Business Partner | Sim | Apoio | Só autorizado | Não | Só autorizado |
+| Enterprise IBaaS | Sim | Via Bloxs | Via Bloxs | Não | Não |
+| Colaborador Interno | Sim | Aciona entidade | Aciona entidade | Só habilitado | Só aprovado |
+| Entidade Licenciada | Sim | Sim | Sim | Conforme licença | Sim |
+| Buy Side | — | — | — | — | Recebe aprovado |
+| Agente de IA | Sugere | Sugere | Não | Não | Não |
 
 ## Independent Banker
 
-Parceiro **não-licenciado** cujo papel é puramente originação.
+Parceiro **não-licenciado**. Papel puramente de originação.
 
-- **Pode:** originar, indicar, conectar, alimentar pipeline, submeter oportunidade, apoiar com informação de relacionamento.
-- **Não pode:** ofertar, distribuir, recomendar investimento, falar com investidor sobre produto, prometer rentabilidade, prometer liquidez, usar material não aprovado, parecer representante de entidade regulada.
+<CardGroup cols={2}>
+  <Card title="Pode" icon="circle-check">
+    Originar, indicar, conectar, alimentar pipeline, submeter oportunidade, apoiar com informação de relacionamento.
+  </Card>
+
+  <Card title="Não pode" icon="circle-x">
+    Ofertar, distribuir, recomendar, falar com investidor sobre produto, prometer retorno/liquidez, usar material não aprovado, parecer representante de entidade regulada.
+  </Card>
+</CardGroup>
+
 - **Precisa aprovação:** qualquer material que mencione uma operação específica.
-- **Canais permitidos:** conversa de relacionamento, e-mail de apresentação institucional (sem oferta).
-- **Canais proibidos:** WhatsApp/redes sociais para oferta; qualquer canal para falar de produto com investidor.
-- **Materiais permitidos:** institucional aprovado da Bloxs.
-- **Materiais proibidos:** teaser de oferta, material com rentabilidade, qualquer peça investor-facing.
-- **Escalar para compliance quando:** o tomador virar investidor na conversa; surgir pergunta sobre retorno/liquidez; pedirem material de oferta.
+- **Canais permitidos:** conversa de relacionamento, e-mail institucional (sem oferta).
+- **Canais proibidos:** WhatsApp/redes para oferta; qualquer canal para falar de produto com investidor.
+- **Escalar quando:** o tomador virar investidor na conversa; surgir pergunta de retorno/liquidez; pedirem material de oferta.
 
 <Warning>
-  O Independent Banker **nunca** deve ser treinado ou instruído a ofertar, distribuir ou recomendar. Conteúdo que o ensine a agir como distribuidor é proibido e não deve existir na base para este perfil.
+  O Independent Banker **nunca** é treinado ou instruído a ofertar, distribuir ou recomendar. Conteúdo que o ensine a agir como distribuidor é proibido e não deve existir na base para este perfil. Detalhe completo em [Independent Banker](/03-sell-side-ibaas/perfis/independent-banker).
 </Warning>
 
 ## Business Partner
 
-Instrumento-mãe do programa. Permissões **por escopo autorizado**.
+Instrumento-mãe. Permissões **por escopo autorizado**.
 
-- **Pode:** originar; participar da estruturação como apoio técnico; atuar em colocação **quando autorizado**; receber economics por etapa.
-- **Não pode:** exercer atividade regulada fora do que foi autorizado; prometer retorno/liquidez; usar material não aprovado.
-- **Precisa aprovação:** qualquer colocação; qualquer material investor-facing; qualquer comunicação com investidor.
-- **"Autorizado" significa cumulativamente:** autorizado pelo contrato **E** pela entidade executora **E** pela regulação aplicável **E** pelo regime de oferta **E** pelo fluxo interno **E** pelo perfil do destinatário **E** por material aprovado. Falha em qualquer um = não autorizado.
-- **Canais:** conforme autorização específica; nunca WhatsApp/redes para oferta.
-- **Escalar quando:** faltar qualquer camada de "autorizado".
+<CardGroup cols={2}>
+  <Card title="Pode" icon="circle-check">
+    Originar; apoiar a estruturação; atuar em colocação **quando autorizado**; receber economics por etapa.
+  </Card>
+
+  <Card title="Não pode" icon="circle-x">
+    Exercer atividade regulada fora do autorizado; prometer retorno/liquidez; usar material não aprovado.
+  </Card>
+</CardGroup>
+
+<Info>
+  **"Autorizado" é cumulativo em 7 camadas:** contrato **E** entidade executora **E** regulação aplicável **E** regime de oferta **E** fluxo interno **E** perfil do destinatário **E** material aprovado. Falha em qualquer uma = não autorizado. Detalhe em [Business Partner](/03-sell-side-ibaas/perfis/business-partner).
+</Info>
 
 ## Enterprise IBaaS
 
 Licença **tecnológica** white-label. A atividade regulada permanece nas entidades Bloxs.
 
-- **Pode:** usar a plataforma sob sua marca; operar o fluxo tecnológico; originar em escala.
-- **Não pode:** exercer atividade regulada em nome próprio; a execução regulada é **sempre** das entidades licenciadas Bloxs.
-- **Economics:** Anuidade R\$95.000 \+ Taxa de Sucesso 1,5% sobre volume transacionado.
+<CardGroup cols={2}>
+  <Card title="Pode" icon="circle-check">
+    Usar a plataforma sob a própria marca; operar o fluxo tecnológico; originar em escala.
+  </Card>
+
+  <Card title="Não pode" icon="circle-x">
+    Exercer atividade regulada em nome próprio; a execução regulada é **sempre** das entidades Bloxs.
+  </Card>
+</CardGroup>
+
 - **Precisa aprovação:** integração, escopo de marca, qualquer material investor-facing.
-- **Escalar quando:** o cliente Enterprise tentar exercer atividade regulada diretamente.
+- **Escalar quando:** o cliente Enterprise tentar exercer atividade regulada diretamente. Detalhe em [Enterprise IBaaS](/03-sell-side-ibaas/perfis/enterprise-ibaas).
 
 ## Colaborador Interno
 
-- **Pode:** conduzir relação comercial, qualificar parceiro, usar o Sales Console, acionar as entidades para a parte regulada.
-- **Não pode:** exercer pessoalmente atividade regulada sem habilitação; prometer retorno/liquidez.
+<CardGroup cols={2}>
+  <Card title="Pode" icon="circle-check">
+    Conduzir relação comercial, qualificar parceiro, usar o Sales Console, acionar as entidades para a parte regulada.
+  </Card>
+
+  <Card title="Não pode" icon="circle-x">
+    Exercer pessoalmente atividade regulada sem habilitação; prometer retorno/liquidez.
+  </Card>
+</CardGroup>
+
 - **Precisa aprovação:** todo material externo; toda comunicação com investidor sobre produto.
 - **Escalar quando:** a conversa tocar oferta, recomendação, rentabilidade ou investidor.
 
 ## Entidade Executora Licenciada
 
-- **Pode:** exercer a atividade regulada dentro da sua licença (securitização, gestão, coordenação).
-- **Não pode:** atuar fora do escopo da própria licença.
-- **Recordkeeping e audit log:** obrigatórios.
+<CardGroup cols={2}>
+  <Card title="Pode" icon="circle-check">
+    Exercer a atividade regulada dentro da própria licença (securitização, gestão, coordenação).
+  </Card>
+
+  <Card title="Não pode" icon="circle-x">
+    Atuar fora do escopo da própria licença. Recordkeeping e audit log obrigatórios.
+  </Card>
+</CardGroup>
 
 ## Buy Side
 
-- **Pode:** receber material **aprovado**, manifestar apetite, participar de processo conduzido pela entidade autorizada.
-- **Não pode:** receber oferta de quem não é autorizado; receber material não aprovado.
-- **Canal:** sempre via entidade/pessoa autorizada, com material aprovado.
+<CardGroup cols={2}>
+  <Card title="Pode" icon="circle-check">
+    Receber material **aprovado**, manifestar apetite, participar de processo conduzido pela entidade autorizada.
+  </Card>
+
+  <Card title="Não pode" icon="circle-x">
+    Receber oferta de quem não é autorizado; receber material não aprovado.
+  </Card>
+</CardGroup>
 
 ## Agente de IA
 
-- **Pode:** recuperar apenas conteúdo com `agent_retrievable: true` **E** `status: approved | stable`.
-- **Não pode:** gerar output externo sem aprovação; expor economics restrito; produzir material investor-facing; ensinar conduta regulada a perfil não-licenciado.
-- **Sempre passa por:** Compliance Guardrail \+ Culture Guardrail \+ Output Policy \+ Data Leakage Guardrail antes de qualquer saída.
+<CardGroup cols={2}>
+  <Card title="Pode" icon="circle-check">
+    Recuperar apenas conteúdo com `agent_retrievable: true` **E** `status: approved | stable`.
+  </Card>
 
-## Matriz-resumo
+  <Card title="Não pode" icon="circle-x">
+    Gerar output externo sem aprovação; expor economics restrito; produzir material investor-facing; ensinar conduta regulada a perfil não-licenciado.
+  </Card>
+</CardGroup>
 
-| Perfil | Origina | Estrutura | Distribui | Recomenda | Fala c/ investidor s/ produto |
-| --- | :-: | :-: | :-: | :-: | :-: |
-| Independent Banker | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Business Partner | ✅ | apoio | só autorizado | ❌ | só autorizado |
-| Enterprise IBaaS | ✅ | via Bloxs | via Bloxs | ❌ | ❌ |
-| Colaborador Interno | ✅ | aciona entidade | aciona entidade | só habilitado | só aprovado |
-| Entidade Licenciada | ✅ | ✅ | ✅ | conforme licença | ✅ |
-| Buy Side | — | — | — | — | recebe aprovado |
-| Agente de IA | sugere | sugere | ❌ | ❌ | ❌ |
+<Info>
+  Toda saída de agente passa por Compliance Guardrail, Culture Guardrail, Output Policy e Data Leakage Guardrail. Ver [Guardrails](/11-ai-agents-mcp/guardrails/overview).
+</Info>
 
-## Next action
+## Casos-limite (os que mais confundem)
 
-- Identificou o perfil? Aplique o teto dele.
-- Vai comunicar com investidor ou falar de produto? Cheque se é "autorizado" nas 7 camadas.
-- Qualquer dúvida → [Originação vs. Atividade Regulada](/02-regulatory-perimeter/originacao-vs-atividade-regulada) → escalar Compliance.
+<AccordionGroup>
+  <Accordion title="O tomador que originei virou investidor" icon="user-cog">
+    Você originou um tomador, e agora ele diz que também quer investir em operações. **Muda o perímetro.** Como investidor, ele só é abordado sobre produto por quem é autorizado, com material aprovado. Não é porque você o trouxe que você pode ofertar a ele.
+  </Accordion>
+
+  <Accordion title="Wealth/assessoria que 'já tem os investidores'" icon="users">
+    Ter uma base de investidores **não é** ter autorização para distribuir a eles. Acesso não é autorização. A distribuição segue as 7 camadas do Business Partner ou fica com a entidade.
+  </Accordion>
+
+  <Accordion title="Reunião conjunta com tomador e investidor" icon="handshake">
+    Numa mesa com os dois lados, o momento em que se fala de condições, retorno ou colocação é atividade regulada. Se você não é autorizado, esse momento não é seu — é da entidade.
+  </Accordion>
+
+  <Accordion title="'Só estou passando o material que a Bloxs fez'" icon="file-warning">
+    Encaminhar material de oferta a investidor, mesmo material oficial, por canal ou pessoa não autorizada, pode caracterizar distribuição irregular. O material aprovado não autoriza o portador.
+  </Accordion>
+</AccordionGroup>
+
+## Quando escalar para Compliance
+
+| Situação | Ação |
+| --- | --- |
+| O tomador que originei quer investir | Escalar antes de falar de produto com ele |
+| Pergunta sobre retorno, taxa ou liquidez | Escalar; não responder por conta própria |
+| Pedido de teaser ou material de oferta | Escalar; material só pela entidade autorizada |
+| Reunião conjunta tomador \+ investidor | Escalar; a parte de condições é da entidade |
+| Parceiro não-licenciado querendo distribuir | Escalar; aplicar teto do perfil |
 
 ## Red flags
 
-- Independent Banker pedindo material de oferta ou querendo falar com investidor.
-- Qualquer perfil prometendo retorno/liquidez.
-- "Autorizado" assumido sem checar todas as camadas.
-- Material investor-facing circulando sem aprovação.
+<CardGroup cols={2}>
+  <Card title="Independent Banker pedindo material de oferta" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Qualquer perfil prometendo retorno/liquidez" icon="flag" horizontal>
+  </Card>
+
+  <Card title="'Autorizado' assumido sem checar as camadas" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Material investor-facing sem aprovação" icon="flag" horizontal>
+  </Card>
+</CardGroup>
+
+---
+
+<CardGroup cols={2}>
+  <Card title="Perímetro Regulatório" icon="shield-check" href="/02-regulatory-perimeter/originacao-vs-atividade-regulada">
+    A linha entre originação e atividade regulada.
+  </Card>
+
+  <Card title="Frases Seguras" icon="message-square-warning" href="/08-sales-console/frases-seguras">
+    A conduta traduzida em o-que-dizer, por situação.
+  </Card>
+</CardGroup>

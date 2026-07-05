@@ -85,6 +85,48 @@
             "pages": [
               "05-products-structures-solutions/selection-matrix",
               {
+                "group": "Produtos · Securitização",
+                "icon": "file-badge",
+                "pages": [
+                  "05-products-structures-solutions/produtos/securitizacao/cr",
+                  "05-products-structures-solutions/produtos/securitizacao/cri",
+                  "05-products-structures-solutions/produtos/securitizacao/cra"
+                ]
+              },
+              {
+                "group": "Produtos · Fundos",
+                "icon": "container",
+                "pages": [
+                  "05-products-structures-solutions/produtos/fundos/fidc",
+                  "05-products-structures-solutions/produtos/fundos/fidc-multiclasse",
+                  "05-products-structures-solutions/produtos/fundos/fip",
+                  "05-products-structures-solutions/produtos/fundos/fii",
+                  "05-products-structures-solutions/produtos/fundos/fiagro"
+                ]
+              },
+              {
+                "group": "Produtos Comerciais",
+                "icon": "package",
+                "pages": [
+                  "05-products-structures-solutions/produtos-comerciais/cr-plataforma",
+                  "05-products-structures-solutions/produtos-comerciais/consultoria-fidc-360",
+                  "05-products-structures-solutions/produtos-comerciais/fundos-on-demand",
+                  "05-products-structures-solutions/produtos-comerciais/ibaas-workspace"
+                ]
+              },
+              {
+                "group": "Serviços",
+                "icon": "handshake",
+                "pages": [
+                  "05-products-structures-solutions/servicos/coordenacao-distribuicao",
+                  "05-products-structures-solutions/servicos/emissao-securitizacao",
+                  "05-products-structures-solutions/servicos/estruturacao",
+                  "05-products-structures-solutions/servicos/gestao-recursos",
+                  "05-products-structures-solutions/servicos/assessoria-mercado-capitais",
+                  "05-products-structures-solutions/servicos/business-partners-kit"
+                ]
+              },
+              {
                 "group": "Credit Structuring Principles",
                 "icon": "ruler",
                 "pages": [

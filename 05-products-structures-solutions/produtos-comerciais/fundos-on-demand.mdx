@@ -1,0 +1,113 @@
+---
+title: "Fundos On Demand"
+sidebarTitle: "Fundos On Demand"
+description: "A esteira recorrente de operacao de fundos: o equivalente, em fundos, ao programa de CR. Para o egresso do FIDC 360 que precisa de 2a serie, 2a classe ou proximo veiculo."
+category: "produtos-comerciais"
+zone: "Internal"
+audience: ["colaborador-interno", "business-partner", "leadership", "ai-agent"]
+primary_user: "colaborador-interno"
+owner: "Felipe Souto"
+last_reviewed: "2026-07-04"
+status: "draft"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+content_classification: "comercial"
+regulatory_perimeter: "regulada"
+regulated_activity_touchpoint: true
+executing_entity: "asset"
+regulatory_refs: ["RCVM-175", "RCVM-21"]
+related_products: ["fidc", "fidc-multiclasse"]
+related_commercial_products: ["consultoria-fidc-360", "fundos-on-demand"]
+related_services: ["gestao-recursos", "estruturacao"]
+agents: ["deal-intake-agent"]
+investor_profile_allowed: ["profissional", "qualificado"]
+risk_level: "medio"
+icon: "repeat"
+---
+
+<Note>
+  **Produto comercial · Fundos.** Nome no catálogo: **Fundos On Demand** (`fundos-on-demand`). É a esteira recorrente sobre o veículo [FIDC](/05-products-structures-solutions/produtos/fundos/fidc). Status `draft`.
+</Note>
+
+## O que é
+
+Infraestrutura contínua para constituir e operar veículos de fundos (FIDC e correlatos, RCVM 175) em **regime de esteira**: arquitetura padronizada, interlocução com Prestadores Regulados, governança documental, fluxos de cessão e conciliação no BOS, e gestão pela **Bloxs Asset** quando contratada em instrumento próprio.
+
+> **A tese em uma frase:** transforma a constituição de fundos de projeto artesanal em linha de produção — cada novo veículo ou série entra numa esteira com arquitetura, prestadores e operação já padronizados.
+
+{/* ESPAÇO PARA VÍDEO IA — (~20s) uma linha de produção onde cada "peça" é um novo veh/série saindo mais rápido. Inserir aqui. */}
+
+## Caso de uso âncora
+
+<Info>
+  O cliente-tipo é o **egresso do FIDC 360**: estruturou o primeiro veículo no mandato consultivo e agora precisa de **segunda série, segunda classe ou segundo fundo**. A conversa muda de "como estruturar" para "quanto custa e em quanto tempo sai o próximo" — e a resposta da esteira é **previsibilidade**. Segundo perfil: gestora ou consultoria que estrutura para terceiros e quer terceirizar a execução mantendo a marca.
+</Info>
+
+## Quando oferecer
+
+<CardGroup cols={2}>
+  <Card title="Oferecer quando" icon="check">
+    Pipeline recorrente de veículos, séries ou classes; originador egresso do FIDC 360 migrando para operação contínua; gestora/consultoria que estrutura para terceiros e busca infraestrutura de execução.
+  </Card>
+
+  <Card title="NÃO oferecer quando" icon="x">
+    Primeiro veh ainda não estruturado — começar pelo [FIDC 360](/05-products-structures-solutions/produtos-comerciais/consultoria-fidc-360). Sem recorrência real, a esteira não se justifica.
+  </Card>
+</CardGroup>
+
+## Objerção comum: "já tenho administrador e gestor"
+
+<Info>
+  A esteira **não substitui** Prestadores Regulados — ela **orquestra**. Administrador, custodiante e auditor seguem sendo do cliente (ou indicados pela Bloxs, à escolha dele). O que a esteira entrega é a camada que falta **entre** eles: arquitetura padronizada, documentação por veículo, controle de cessão e conciliação no BOS, e um responsável único pelo prazo. Quem já tem prestadores ganha mais, não menos.
+</Info>
+
+## Economics
+
+<Warning>
+  **Zona Restrita — Economics.** Lógica de pricing por veículo com **desconto de recorrência** sobre a régua do FIDC 360. Não compartilhar fora do processo de proposta.
+</Warning>
+
+## Pré-requisitos
+
+<CardGroup cols={2}>
+  <Card title="Veículo ou tese aprovada (própria ou via FIDC 360)" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="Carteira e política de crédito documentadas" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="Prestadores Regulados definidos ou a indicar" icon="file-text" horizontal>
+  </Card>
+</CardGroup>
+
+## Agent rules
+
+- Oferecer On Demand a quem já tem 1º veh e pipeline recorrente.
+- Gestão sempre pela Bloxs Asset (RCVM 175), quando contratada. Economics = zona restrita.
+
+## Next action
+
+<CardGroup cols={2}>
+  <Card title="Consultoria FIDC 360" icon="compass" href="/05-products-structures-solutions/produtos-comerciais/consultoria-fidc-360">
+    Onde nasce o primeiro veh.
+  </Card>
+
+  <Card title="Gestão de Recursos" icon="briefcase" href="/05-products-structures-solutions/servicos/gestao-recursos">
+    A gestão contínua pela Bloxs Asset.
+  </Card>
+</CardGroup>
+
+## Red flags
+
+<CardGroup cols={2}>
+  <Card title="Oferecer esteira antes de existir 1º veh" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Vender como substituto de prestadores" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Assumir recorrência que não existe" icon="flag" horizontal>
+  </Card>
+</CardGroup>

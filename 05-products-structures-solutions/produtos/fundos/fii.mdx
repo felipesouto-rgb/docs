@@ -1,0 +1,88 @@
+---
+title: "FII — Fundo de Investimento Imobiliário"
+sidebarTitle: "FII"
+description: "Veículo para ativos e rendimentos imobiliários, com isenção de IR sobre rendimentos para PF conforme requisitos. Quando o imóvel/renda imobiliária é o ativo, não só o recebível."
+category: "produtos-fundos"
+zone: "Internal"
+audience: ["colaborador-interno", "business-partner", "leadership", "ai-agent"]
+primary_user: "colaborador-interno"
+owner: "Bloxs Asset"
+last_reviewed: "2026-07-04"
+status: "draft"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+content_classification: "regulado"
+regulatory_perimeter: "regulada"
+regulated_activity_touchpoint: true
+executing_entity: "asset"
+regulatory_refs: ["RCVM-175", "RCVM-160"]
+related_products: ["fii"]
+agents: ["deal-intake-agent"]
+investor_profile_allowed: ["profissional", "qualificado", "varejo"]
+risk_level: "medio"
+icon: "building-2"
+---
+
+<Note>
+  **Produto · Família Fundos.** Gestão pela Bloxs Asset (RCVM 175). Requisitos de isenção e público **pendentes de confirmação de compliance**. Status `draft`.
+</Note>
+
+## Conceito
+
+O **Fundo de Investimento Imobiliário (FII)** é o veículo para **ativos e rendimentos imobiliários** — imóveis, renda de locação, e também papel imobiliário. Pode oferecer **isenção de IR sobre os rendimentos distribuídos** ao investidor pessoa física, conforme requisitos legais (número mínimo de cotistas, negociação em bolsa, entre outros — confirmar com compliance).
+
+<Info>
+  **FII × CRI × FIDC imobiliário:** o **CRI** é um título (securitização); o **FIDC** compra direitos creditórios imobiliários; o **FII** detEm o **ativo/renda imobiliária** ou papel imobiliário como fundo. A escolha depende de o ativo ser o imóvel/renda (FII) ou o recebível (CRI/FIDC).
+</Info>
+
+## Quando usar / não usar
+
+<CardGroup cols={2}>
+  <Card title="Usar quando" icon="check">
+    O ativo é imóvel ou renda imobiliária; quer distribuir rendimentos com possível isenção PF; busca público amplo via bolsa.
+  </Card>
+
+  <Card title="Não usar quando" icon="x">
+    O ativo é um recebível imobiliário isolado → **CRI**; ou carteira de direitos creditórios → **FIDC**.
+  </Card>
+</CardGroup>
+
+## Entidade executora e público
+
+<Warning>
+  Gestão pela **Bloxs Asset** (RCVM 175); adm/custódia por prestador independente. Conforme a estrutura e o regime de oferta (RCVM 160), o público pode incluir **varejo**. Requisitos de isenção de IR devem ser confirmados com compliance — não afirmar isenção sem checagem.
+</Warning>
+
+## Comparação rápida
+
+| Contra | Escolha FII quando | Escolha o outro quando |
+| --- | --- | --- |
+| **CRI** | O ativo é o imóvel/renda | O ativo é o recebível imobiliário |
+| **FIDC** | Ativo/renda imobiliária direta | Carteira de direitos creditórios |
+
+## Agent rules
+
+- Sugerir FII quando o ativo for imóvel/renda imobiliária.
+- Não afirmar isenção de IR sem confirmação de requisitos (compliance).
+- Gestão sempre Bloxs Asset (RCVM 175); retornos indicativos.
+
+## Red flags
+
+<CardGroup cols={2}>
+  <Card title="Afirmar isenção de IR sem checar requisitos" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Confundir FII (ativo) com CRI (título)" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Prometer rendimento/distribuição" icon="flag" horizontal>
+  </Card>
+</CardGroup>
+
+---
+
+<Card title="CRI" icon="building" href="/05-products-structures-solutions/produtos/securitizacao/cri">
+  O título imobiliário — quando o ativo é o recebível.
+</Card>

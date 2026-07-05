@@ -25,56 +25,129 @@ icon: "gauge"
 ---
 
 <Note>
-  **Status: draft — não recuperável por agente.** Roteiro de qualificação rápida. Objetivo: em 5 minutos, saber se é parceiro A/B/C/D e qual o próximo passo.
+  **Roteiro de qualificação rápida.** Objetivo: em 5 minutos, saber se é parceiro A/B/C/D e qual o próximo passo. Não é due diligence — é triagem. A DD formal vem depois, no onboarding.
 </Note>
 
 ## Para que serve
 
-Decidir rápido se vale investir tempo neste parceiro e como enquadrá-lo. Não é due diligence — é triagem. A DD formal vem depois, no onboarding.
+Decidir rápido se vale investir tempo e como enquadrar. O output é um score e um next action — nada além. Sem score ao fim da conversa, a call não cumpriu o objetivo.
+
+{/* ESPAÇO PARA ANIMAÇÃO IA — um "medidor" (gauge) preenchendo de D a A conforme as respostas entram (~15s). Inserir aqui. */}
 
 ## As 10 perguntas (nessa ordem)
 
-1. **ICP** — Qual categoria? (boutique IB, assessoria, consultor CVM, wealth, advogado, contador, servicer, fintech de crédito, originador, gestora, banco médio, plataforma). Ver [Partner Routing Matrix](/03-sell-side-ibaas/partner-routing-matrix).
-2. **Base de relacionamento** — Com quem ele fala? Qualidade e senioridade da rede.
-3. **Acesso a empresas** — Tem tomadores reais precisando de capital?
-4. **Acesso a investidores** — Tem buy-side? (Atenção ao perímetro: acesso ≠ autorização para distribuir.)
-5. **Recorrência** — É deal único ou fluxo contínuo? Recorrência é o que constrói conta.
-6. **Sofisticação** — Entende crédito estruturado ou precisa de educação pesada?
-7. **Postura regulatória** — Respeita o perímetro ou já chegou querendo "distribuir e prometer retorno"? (Sinal cultural forte.)
-8. **Potencial econômico** — Tamanho e frequência dos deals que pode trazer.
-9. **Risco reputacional** — Histórico, forma de operar, alinhamento. Melhora ou contamina o ecossistema?
-10. **Próximo passo** — Qual a ação concreta ao fim da call?
+<Steps>
+  <Step title="ICP — qual categoria?">
+    Boutique IB, assessoria, consultor CVM, wealth, advogado, contador, servicer, fintech de crédito, originador, gestora, banco médio, plataforma. Roteia pelo [Partner Routing Matrix](/03-sell-side-ibaas/partner-routing-matrix).
+  </Step>
+  <Step title="Base de relacionamento">
+    Com quem ele fala? Qualidade e senioridade da rede, não só o tamanho.
+  </Step>
+  <Step title="Acesso a empresas">
+    Tem tomadores reais precisando de capital, agora?
+  </Step>
+  <Step title="Acesso a investidores">
+    Tem buy side? **Atenção ao perímetro:** acesso não é autorização para distribuir.
+  </Step>
+  <Step title="Recorrência">
+    Deal único ou fluxo contínuo? Recorrência é o que constrói conta.
+  </Step>
+  <Step title="Sofisticação">
+    Entende crédito estruturado ou precisa de educação pesada?
+  </Step>
+  <Step title="Postura regulatória">
+    Respeita o perímetro, ou já chegou querendo "distribuir e prometer retorno"? Sinal cultural forte.
+  </Step>
+  <Step title="Potencial econômico">
+    Tamanho e frequência dos deals que pode trazer.
+  </Step>
+  <Step title="Risco reputacional">
+    Histórico, forma de operar, alinhamento. Melhora ou contamina a rede?
+  </Step>
+  <Step title="Próximo passo">
+    Qual a ação concreta ao fim da call?
+  </Step>
+</Steps>
 
 ## Score de qualificação
 
 | Score | Perfil | Critério | Ação |
 | --- | --- | --- | --- |
-| **A** | Parceiro estratégico | Recorrência alta \+ rede qualificada \+ alinhamento cultural \+ potencial econômico forte | Priorizar; acionar liderança; onboarding rápido |
-| **B** | Parceiro prioritário | Bom potencial, algum gap (sofisticação ou recorrência) | Onboarding padrão; plano de ativação |
-| **C** | Nutrição | Potencial incerto ou deal único | Nutrir; reavaliar em 60-90 dias |
-| **D** | Não priorizar | Baixo fit, risco reputacional, ou desalinhamento cultural | Não avançar; registrar motivo |
+| A | Parceiro estratégico | Recorrência alta \+ rede qualificada \+ alinhamento cultural \+ potencial econômico forte | Priorizar; acionar liderança; onboarding rápido |
+| B | Parceiro prioritário | Bom potencial, algum gap (sofisticação ou recorrência) | Onboarding padrão; plano de ativação |
+| C | Nutrição | Potencial incerto ou deal único | Nutrir; reavaliar em 60 a 90 dias |
+| D | Não priorizar | Baixo fit, risco reputacional, ou desalinhamento cultural | Não avançar; registrar motivo |
 
 <Warning>
-  **Desalinhamento cultural é critério de rejeição, mesmo com bom potencial econômico.** Parceiro que chega querendo prometer retorno, driblar perímetro ou "vender de qualquer jeito" é D, por mais deal que traga. Reputação acima do deal. Se houver conflito cultural, escalar para liderança.
+  **Desalinhamento cultural é critério de rejeição, mesmo com bom potencial econômico.** Parceiro que chega querendo prometer retorno, driblar perímetro ou "vender de qualquer jeito" é D, por mais deal que traga. Reputação acima do deal. Havendo conflito cultural, escalar para liderança. Ver [Reputação acima do Deal](/00-constituicao/reputacao-acima-do-deal).
 </Warning>
 
-## CRM rules
+## Exemplos aplicados (por ICP)
 
-- Registrar como `Account` com `Partner-Program-Enrollment`.
-- Gravar o score A/B/C/D em campo próprio.
-- Trigger: `meeting_completed` → tarefa de next action.
-- D com risco reputacional: registrar motivo estruturado.
+Como as 10 perguntas se comportam em casos reais de perfil:
+
+<AccordionGroup>
+  <Accordion title="Boutique de M&A com deals recorrentes = A" icon="star">
+    Rede sênior, tomadores reais, 2 ou mais deals por mês, entende estrutura, respeita perímetro. Perfil de conta que pode virar case Alpha (time-to-market de 45 para 18 dias). Score **A**: liderança e onboarding rápido, roteia para Business Partner.
+  </Accordion>
+
+  <Accordion title="Multi-family office querendo estruturar = B/A" icon="star-half">
+    Base de investidores forte, quer originar sell-side pela primeira vez. Gap: sofisticação em originação. Perfil do case Beta (5 para 25 deals/ano, churn 0%). Score **B** com trilha para A: onboarding e mapa de apetite.
+  </Accordion>
+
+  <Accordion title="Originador independente de crédito = B" icon="star-half">
+    Volume regional real, lastro, mas falta estrutura e compliance. Perfil do case Gamma (R\$120M / 45 ops, TTM reduzido em 75%). Score **B**: fundability test no primeiro deal, roteia para Business Partner.
+  </Accordion>
+
+  <Accordion title="Parceiro que chega prometendo retorno = D" icon="circle-x">
+    Rede grande, potencial econômico atraente — mas na call já fala em "garantir rentabilidade" e resiste ao perímetro. Score **D** por desalinhamento cultural, independentemente do potencial. Registrar motivo e sinalizar.
+  </Accordion>
+</AccordionGroup>
 
 ## Next action por score
 
-- **A** → [Partner Routing Matrix](/03-sell-side-ibaas/partner-routing-matrix) \+ acionar liderança.
-- **B** → rotear perfil contratual \+ iniciar onboarding.
-- **C** → cadência de nutrição.
-- **D** → encerrar com registro; se risco reputacional, sinalizar compliance.
+<CardGroup cols={2}>
+  <Card title="A: priorizar" icon="star" href="/03-sell-side-ibaas/partner-routing-matrix">
+    Routing matrix e acionar liderança.
+  </Card>
+
+  <Card title="B: onboarding" icon="user-plus" href="/03-sell-side-ibaas/partner-routing-matrix">
+    Rotear perfil contratual e iniciar onboarding.
+  </Card>
+
+  <Card title="C: nutrição" icon="sprout" horizontal>
+    Cadência de nutrição; reavaliar em 60 a 90 dias.
+  </Card>
+
+  <Card title="D: encerrar" icon="circle-x" horizontal>
+    Encerrar com registro; se risco reputacional, sinalizar compliance.
+  </Card>
+</CardGroup>
 
 ## Red flags
 
-- Chega querendo distribuir/recomendar/prometer retorno.
-- Rede "grande" mas sem qualidade ou senioridade real.
-- Pressa incompatível com o rito regulatório.
-- Histórico de operação duvidosa.
+<CardGroup cols={2}>
+  <Card title="Chega querendo distribuir/recomendar/prometer" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Rede 'grande' sem qualidade ou senioridade real" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Pressa incompatível com o rito regulatório" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Histórico de operação duvidosa" icon="flag" horizontal>
+  </Card>
+</CardGroup>
+
+---
+
+<CardGroup cols={2}>
+  <Card title="Partner Routing Matrix" icon="route" href="/03-sell-side-ibaas/partner-routing-matrix">
+    Do ICP ao perfil contratual, economics e entidade.
+  </Card>
+
+  <Card title="Frases Seguras" icon="message-square-warning" href="/08-sales-console/frases-seguras">
+    O que dizer durante a própria call de qualificação.
+  </Card>
+</CardGroup>

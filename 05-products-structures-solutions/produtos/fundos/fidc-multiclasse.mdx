@@ -1,0 +1,128 @@
+---
+title: "FIDC Multiclasse"
+sidebarTitle: "FIDC Multiclasse"
+description: "A arquitetura de várias classes segregadas num só FIDC: cada classe é uma caixa dedicada, com lastro e risco isolados. A infraestrutura de fundos escalável da Bloxs."
+category: "produtos-fundos"
+zone: "Internal"
+audience: ["colaborador-interno", "business-partner", "leadership", "ai-agent"]
+primary_user: "colaborador-interno"
+owner: "Bloxs Asset"
+last_reviewed: "2026-07-04"
+status: "draft"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+content_classification: "regulado"
+regulatory_perimeter: "regulada"
+regulated_activity_touchpoint: true
+executing_entity: "asset"
+regulatory_refs: ["RCVM-175", "RCVM-30"]
+related_products: ["fidc"]
+related_structures: ["fidc-multiclasse"]
+agents: ["deal-intake-agent"]
+investor_profile_allowed: ["profissional", "qualificado"]
+risk_level: "medio"
+icon: "container"
+---
+
+<Note>
+  **Estrutura · Família Fundos.** Variação arquitetural do [FIDC](/05-products-structures-solutions/produtos/fundos/fidc), gerida pela Bloxs Asset (RCVM 175). Status `draft`.
+</Note>
+
+## Conceito
+
+O **FIDC multiclasse** é um FIDC desenhado como **infraestrutura**, não como fundo único. Cada **classe** é uma **caixa dedicada**, com lastro, risco e retorno-alvo próprios, segregados das demais — **sem contaminação entre verticais**. É a forma de escalar: abrir uma vertical (imobiliário, agro, corporativo, infra, special sits) sem constituir um veh novo a cada tese.
+
+{/* ESPAÇO PARA ANIMAÇÃO IA — um FIDC-"prédio" com várias caixas empilhadas, cada uma acendendo com um lastro diferente, paredes isolando o risco entre elas (~25s). Inserir aqui. */}
+
+## Por que multiclasse
+
+<CardGroup cols={2}>
+  <Card title="Segregação de risco" icon="shield">
+    Cada classe é uma caixa: o risco de uma vertical não contamina a outra.
+  </Card>
+
+  <Card title="Escala sem reconstruir" icon="trending-up">
+    Nova tese = nova classe, não novo fundo do zero.
+  </Card>
+
+  <Card title="Uma infraestrutura, várias caixas" icon="container">
+    Prestadores, governança e trilho compartilhados; lastro e cotas dedicados.
+  </Card>
+
+  <Card title="Roadmap de verticais" icon="map">
+    Abre pela classe de maior densidade de oportunidade; as demais entram por fase.
+  </Card>
+</CardGroup>
+
+## Referência real (parâmetros indicativos)
+
+Exemplo de FIDC multiclasse real da Bloxs, para ensinar a estrutura:
+
+<Info>
+  Retornos-alvo e hurdles são **indicativos**, baseados em premissas, e não constituem promessa de rentabilidade. Dado de zona interna para fins de estruturação.
+</Info>
+
+## Roadmap de verticais (exemplo)
+
+<Steps>
+  <Step title="Classe Imobiliária (abre)">
+    Crédito estruturado imobiliário: ponte, loteamento, renda, home equity.
+  </Step>
+  <Step title="Classe Agro (roadmap)">
+    CRA, CPR e duplicatas com cessão fiduciária e governança de safra.
+  </Step>
+  <Step title="Classe Corporativo & Recebateis (roadmap)">
+    Risco sacado, duplicatas, alta rotação.
+  </Step>
+  <Step title="Classe Infraestrutura (roadmap)">
+    Debêntures incentivadas e PPAs com step-in e contas vinculadas.
+  </Step>
+  <Step title="Classe Special Sits / Legal (roadmap)">
+    Legal claims e workouts com payoff convexo e parecer jurídico.
+  </Step>
+</Steps>
+
+## Quando usar / não usar
+
+<CardGroup cols={2}>
+  <Card title="Usar quando" icon="check">
+    Há (ou haverá) múltiplas teses/verticais; quer escalar sem reconstruir; segregação de risco entre estratégias é valiosa.
+  </Card>
+
+  <Card title="Não usar quando" icon="x">
+    Tese única sem perspectiva de novas classes — um FIDC simples basta e custa menos.
+  </Card>
+</CardGroup>
+
+## Agent rules
+
+- Sugerir multiclasse quando houver pipeline de múltiplas teses/verticais.
+- Sempre gestão pela Bloxs Asset (RCVM 175); retornos indicativos.
+- Economics detalhado = zona restrita.
+
+## Next action
+
+<CardGroup cols={2}>
+  <Card title="FIDC (base)" icon="layers" href="/05-products-structures-solutions/produtos/fundos/fidc">
+    O veículo-base e a mecânica de cotas.
+  </Card>
+
+  <Card title="Consultoria FIDC 360" icon="compass" href="/05-products-structures-solutions/produtos-comerciais/consultoria-fidc-360">
+    O mandato que estrutura o veh.
+  </Card>
+</CardGroup>
+
+## Red flags
+
+<CardGroup cols={2}>
+  <Card title="Multiclasse para tese única (custo sem retorno)" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Prometer que a segregação elimina risco" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Retorno-alvo apresentado como garantido" icon="flag" horizontal>
+  </Card>
+</CardGroup>
