@@ -1,0 +1,240 @@
+---
+title: "FIDC — Fundo de Investimento em Direitos Creditórios"
+sidebarTitle: "FIDC"
+description: "O veículo de carteira central da Bloxs: cotas sênior/subordinada, gestão pela Bloxs Asset sob RCVM 175, para carteiras pulverizadas e recorrentes. O produto-âncora da família Fundos."
+category: "produtos-fundos"
+zone: "Internal"
+audience: ["colaborador-interno", "business-partner", "leadership", "ai-agent"]
+primary_user: "colaborador-interno"
+owner: "Bloxs Asset"
+last_reviewed: "2026-07-04"
+status: "draft"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+content_classification: "regulado"
+regulatory_perimeter: "regulada"
+regulated_activity_touchpoint: true
+executing_entity: "asset"
+regulatory_refs: ["RCVM-175", "RCVM-21", "RCVM-160", "RCVM-30"]
+related_products: ["fidc"]
+related_structures: ["fidc-multiclasse", "warehouse"]
+related_solutions: ["middle-market-funding", "receivables-finance", "special-situations", "supply-chain-finance"]
+related_commercial_products: ["consultoria-fidc-360", "fundos-on-demand"]
+agents: ["deal-intake-agent"]
+investor_profile_allowed: ["profissional", "qualificado"]
+risk_level: "medio"
+icon: "layers"
+---
+
+<Note>
+  **Produto · Família Fundos — átomo-âncora.** Gestão pela **Bloxs Asset Gestão de Recursos Ltda** (CNPJ 28.038.617/0001-15) como **gestor de recursos** sob RCVM 175 — nunca "administrador de carteiras". Administração e custódia são de prestador regulado independente. Status `draft` — parâmetros pendentes de confirmação de compliance.
+</Note>
+
+## Conceito
+
+O **Fundo de Investimento em Direitos Creditórios (FIDC)** é o **veículo de carteira** central da Bloxs. Diferente da securitização (CR/CRI/CRA), que emite um título sobre um lastro, o FIDC é um **fundo** que adquire e gere uma **carteira** de direitos creditórios, com **cotas** de diferentes senioridades e gestão contínua. É o instrumento para pulverização, recorrência e construção de carteira sob orçamento de risco.
+
+<Info>
+  **Instrumento ≠ veículo.** CR/CRI/CRA são **instrumentos** de securitização (títulos). O FIDC é um **veículo** (fundo). Um FIDC pode, inclusive, ter CR/CRI/CRA na carteira. Não são concorrentes diretos — resolvem problemas diferentes. Ver [Selection Matrix](/05-products-structures-solutions/selection-matrix).
+</Info>
+
+{/* ESPAÇO PARA ANIMAÇÃO IA — uma "caixa" (o fundo) recebendo vários recebateis pulverizados, e emitindo cotas em camadas (sênior no topo, subordinada na base) com o dinheiro fluindo pela cascata (~30s). Navy #033873. Inserir aqui. */}
+
+## Quando usar
+
+<CardGroup cols={2}>
+  <Card title="Carteira pulverizada" icon="check">
+    Muitos devedores/recebíveis, onde a granularidade dilui risco idiossincrático.
+  </Card>
+
+  <Card title="Recorrência e escala" icon="check">
+    Originador com fluxo contínuo de cessão, não operação única.
+  </Card>
+
+  <Card title="Estrutura de subordinação" icon="check">
+    Quando faz sentido cotas sênior (investidor) e subordinada (first-loss do originador).
+  </Card>
+
+  <Card title="Gestão ativa de carteira" icon="check">
+    Revolvência, reinvestimento, monitoramento contínuo, allocation engine.
+  </Card>
+</CardGroup>
+
+## Quando NÃO usar
+
+<CardGroup cols={2}>
+  <Card title="Lastro único e concentrado" icon="x">
+    Operação pontual com um lastro definido → **CR** é mais direto.
+  </Card>
+
+  <Card title="Lastro imobiliário/agro querendo isenção PF" icon="x">
+    Se o objetivo é isenção de IR para PF → **CRI/CRA**.
+  </Card>
+
+  <Card title="Volume abaixo do piso de eficiência" icon="x">
+    O custo de estruturação e prestadores exige tamanho mínimo. Abaixo disso, reavaliar.
+  </Card>
+
+  <Card title="Sem carteira nem política de crédito documentada" icon="x">
+    Sem data tape e política de concessão, não há FIDC — rotear para [Assessoria](/05-products-structures-solutions/servicos/assessoria-capex) ou FIDC 360.
+  </Card>
+</CardGroup>
+
+## Entidade executora e perceptmetro
+
+<Warning>
+  A **gestão** do FIDC é atividade regulada exercida pela **Bloxs Asset** (gestor de recursos, RCVM 175). **Administração e custódia** são de **prestador regulado independente** (ex.: uma CTVM), não da Bloxs. A **coordenação da oferta** de cotas é da Bloxs Capital Markets (RCVM 161). O parceiro **origina**; ele não gere, não administra e não distribui cotas sem autorização.
+</Warning>
+
+### As cinco autorizações CVM que sustentam o FIDC Bloxs
+
+## Público investidor
+
+Cotas de FIDC são destinadas a **investidores profissionais** e, conforme a estrutura, **qualificados** (RCVM 30). Condomínio fechado típico é **sem resgate** — produto não adequado a quem precisa de liquidez. Confirmar público e regime de oferta (RCVM 160) caso a caso.
+
+## Mecânica
+
+<Steps>
+  <Step title="Constituição do veículo">
+    FIDC constituído sob RCVM 175, com regulamento, política de investimento e prestadores (adm, custódia, auditoria, jurídico, servicing).
+  </Step>
+  <Step title="Estrutura de cotas">
+    Cotas **sênior** (investidor) e **subordinada** (first-loss, tipicamente retida pelo originador ou pela Bloxs), definindo a subordinação.
+  </Step>
+  <Step title="Cessão de direitos creditórios">
+    O originador cede a carteira ao fundo, respeitando critérios de elegibilidade e concentração.
+  </Step>
+  <Step title="Chamadas de capital">
+    Em modelo _committed capital_, chamadas conforme originação validada — disciplina de alocação sobre velocidade.
+  </Step>
+  <Step title="Waterfall e monitoramento">
+    Cascata de pagamento (despesas → sênior → subordinada), com gatilhos, reservas e governança independente de comitê.
+  </Step>
+</Steps>
+
+## Estruturas de FIDC na Bloxs
+
+<AccordionGroup>
+  <Accordion title="FIDC multiestratégia (crédito estruturado high yield)" icon="layers">
+    Veículo de crédito estruturado _high yield_ asset-backed, focado em middle market, combinando originação proprietária, garantias reais e securitização. Parâmetros de referência de uma emissão real: volume da emissão R\$ 100 MM em 2 tranches, retorno-alvo líquido indicativo CDI \+ 8% a.a., hurdle CDI \+ 5%, performance fee 30% acima do hurdle, gestão \+ adm. 0,75% a.a., prazo 6 anos, capital call 12 meses, público profissional. Subordinada Bloxs em _first-loss_ — skin-in-the-game real.
+  </Accordion>
+
+  <Accordion title="FIDC multiclasse (uma plataforma, várias caixas)" icon="container">
+    FIDC desenhado como **infraestrutura multiclasse**: cada classe é uma caixa dedicada, com lastro e risco segregados, sem contaminação entre verticais (imobiliário, agro, corporativo, infra, special sits). Referência real: veh-alvo R$ 200 MM, abrindo pela Classe Imobiliária (1ª janela R$ 50 MM), retorno-alvo indicativo IPCA \+ 16% a.a., hurdle IPCA \+ 14,5%, alocação em 24 meses. Detalhe em [FIDC Multiclasse](/05-products-structures-solutions/produtos/fundos/fidc-multiclasse).
+  </Accordion>
+
+  <Accordion title="Warehouse / posição âncora" icon="anchor">
+    O fundo entra como **first-money-in** com **first-lien** sobre o colateral, estrutura as proteções asset-backed e sindicaliza o restante ao buy-side sob termos definidos pela Bloxs. Compra "fricções estruturáveis com lastro, controle, colateral e governança", não spread cego.
+  </Accordion>
+</AccordionGroup>
+
+## Exemplos de lastro (carteira real)
+
+O FIDC comporta lastros de natureza variada, cada um com sua estrutura de proteção. Exemplos anonimizados de uma carteira real, lidos como um comitê de crédito os leria:
+
+<Info>
+  Dados de operações e pipeline são **zona interna**, anonimizados, `investor_facing:false`. Ensinam a mecânica de construção de carteira — não são material de divulgação.
+</Info>
+
+## Governança: originação não decide investimento
+
+<Warning>
+  Princípio estrutural da Bloxs: **originação não decide investimento**. Comitê independente, critérios de elegibilidade e vetos automáticos (filtro de _yield trap_) ficam entre o deal originado e a alocação. O funil real é industrial: de 100% do pipeline bruto, ~3% chega à alocação.
+</Warning>
+
+## Documentos mínimos
+
+<CardGroup cols={2}>
+  <Card title="Regulamento do fundo" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="Data tape da carteira (mín. 12 meses)" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="Política de concessão de crédito" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="Contratos de cessão e critérios de elegibilidade" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="PLD/FTP e KYC" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="Demonstrações financeiras (2 exercícios)" icon="file-text" horizontal>
+  </Card>
+</CardGroup>
+
+## Comparação rápida
+
+| Contra | Escolha FIDC quando | Escolha o outro quando |
+| --- | --- | --- |
+| **CR** | Carteira pulverizada e recorrente | Lastro único, concentrado, operação pontual |
+| **CRI/CRA** | Veículo de carteira, gestão contínua | Objetivo é isenção IR PF com lastro imob/agro |
+| **FIP** | Lastro é direito creditório (dívida) | Lastro é participação societária (equity) |
+| **FII** | Direitos creditórios diversos | Ativos/rendimentos imobiliários diretos |
+
+## Do produto ao mandato comercial
+
+O FIDC como veículo se traduz em dois **produtos comerciais** da Bloxs:
+
+<CardGroup cols={2}>
+  <Card title="Consultoria FIDC 360" icon="compass" href="/05-products-structures-solutions/produtos-comerciais/consultoria-fidc-360">
+    Mandato de estruturação do FIDC (Pleno / Light / Modular): da tese ao go-live.
+  </Card>
+
+  <Card title="Fundos On Demand" icon="repeat" href="/05-products-structures-solutions/produtos-comerciais/fundos-on-demand">
+    Esteira recorrente para 2ª série, 2ª classe ou próximo veh.
+  </Card>
+</CardGroup>
+
+## Agent rules
+
+- Sugerir FIDC quando o lastro for pulverizado/recorrente e houver data tape \+ política de crédito.
+- Sempre atribuir gestão à **Bloxs Asset (gestor de recursos, RCVM 175)** — nunca "administrador de carteiras"; adm/custódia é prestador terceiro.
+- Nunca afirmar retorno; retorno-alvo é sempre indicativo e vive no material oficial.
+- Economics detalhado (fees) é zona restrita — não expor sem processo.
+
+## Next action
+
+<CardGroup cols={2}>
+  <Card title="Fundability Test" icon="clipboard-check" href="/05-products-structures-solutions/credit-structuring-principles/fundability-test">
+    Confirmar carteira, cessão e financiabilidade.
+  </Card>
+
+  <Card title="Consultoria FIDC 360" icon="compass" href="/05-products-structures-solutions/produtos-comerciais/consultoria-fidc-360">
+    O mandato comercial que estrutura o FIDC.
+  </Card>
+</CardGroup>
+
+## Red flags
+
+<CardGroup cols={2}>
+  <Card title="Chamar a Bloxs Asset de 'administradora de carteiras'" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Prometer retorno-alvo como garantido" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Carteira sem data tape ou política de crédito" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Originação querendo decidir alocação" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Forçar FIDC abaixo do piso de eficiência de custo" icon="flag" horizontal>
+  </Card>
+</CardGroup>
+
+---
+
+<CardGroup cols={2}>
+  <Card title="FIDC Multiclasse" icon="container" href="/05-products-structures-solutions/produtos/fundos/fidc-multiclasse">
+    A arquitetura de várias classes num só veículo.
+  </Card>
+
+  <Card title="Família Securitização" icon="file-badge" href="/05-products-structures-solutions/produtos/securitizacao/cr">
+    CR/CRI/CRA — os instrumentos que podem compor a carteira.
+  </Card>
+</CardGroup>

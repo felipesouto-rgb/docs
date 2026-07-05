@@ -94,6 +94,17 @@
                 ]
               },
               {
+                "group": "Produtos · Fundos",
+                "icon": "container",
+                "pages": [
+                  "05-products-structures-solutions/produtos/fundos/fidc",
+                  "05-products-structures-solutions/produtos/fundos/fidc-multiclasse",
+                  "05-products-structures-solutions/produtos/fundos/fip",
+                  "05-products-structures-solutions/produtos/fundos/fii",
+                  "05-products-structures-solutions/produtos/fundos/fiagro"
+                ]
+              },
+              {
                 "group": "Credit Structuring Principles",
                 "icon": "ruler",
                 "pages": [
