@@ -1,0 +1,197 @@
+---
+title: "CRI — Certificado de Recebíveis Imobiliários"
+sidebarTitle: "CRI"
+description: "Securitização de lastro imobiliário pela Bloxs Securitizadora, com isenção de IR para pessoa física e público mais amplo. Quando usar, quando não, e casos Bloxs."
+category: "produtos-securitizacao"
+zone: "Internal"
+audience: ["colaborador-interno", "business-partner", "leadership", "ai-agent"]
+primary_user: "colaborador-interno"
+owner: "Estruturação Bloxs"
+last_reviewed: "2026-07-04"
+status: "draft"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+content_classification: "regulado"
+regulatory_perimeter: "regulada"
+regulated_activity_touchpoint: true
+executing_entity: "securitizadora"
+regulatory_refs: ["RCVM-60", "RCVM-88"]
+related_products: ["cri"]
+related_solutions: ["middle-market-funding", "bridge", "special-situations"]
+agents: ["deal-intake-agent"]
+investor_profile_allowed: ["profissional", "qualificado", "varejo"]
+risk_level: "medio"
+icon: "building"
+---
+
+<Note>
+  **Produto · Família Securitização.** Emissão pela **Bloxs Securitizadora e Tokenizadora S/A** (CNPJ 54.729.707/0001-62). Status `draft` — parâmetros de isenção e público pendentes de confirmação de compliance.
+</Note>
+
+## Conceito
+
+O **Certificado de Recebíveis Imobiliários (CRI)** é a securitização de lastro **imobiliário**. É o mesmo motor do CR, mas com dois diferenciais decisivos que vêm da natureza imobiliária do lastro: **isenção de imposto de renda para o investidor pessoa física** e, por consequência, **acesso a um público mais amplo**.
+
+{/* ESPAÇO PARA ANIMAÇÃO IA — lastro imobiliário (imóvel/contrato) → securitizadora → CRI → investidor PF com selo "isento de IR" (~20s). Inserir aqui. */}
+
+## Quando usar
+
+<CardGroup cols={2}>
+  <Card title="Lastro imobiliário" icon="check">
+    Créditos com origem imobiliária: vendas, aluguéis, financiamentos, recebíveis de incorporação.
+  </Card>
+
+  <Card title="Quer alcançar PF isenta de IR" icon="check">
+    A isenção torna o CRI mais atrativo ao investidor pessoa física.
+  </Card>
+
+  <Card title="Público mais amplo" icon="check">
+    Permite alcance maior que o CR, conforme o regime de oferta.
+  </Card>
+
+  <Card title="Takeout de ponte imobiliária" icon="check">
+    Frequentemente é o instrumento de saída de uma operação-ponte.
+  </Card>
+</CardGroup>
+
+## Quando NÃO usar
+
+<CardGroup cols={2}>
+  <Card title="Lastro não-imobiliário" icon="x">
+    Se o lastro não é imobiliário, forçar CRI perde a isenção e pode não ser elegível. Use **CR**.
+  </Card>
+
+  <Card title="Lastro do agro" icon="x">
+    Use **CRA** (mesma lógica de isenção, para o agro).
+  </Card>
+
+  <Card title="Carteira pulverizada recorrente" icon="x">
+    Considere **FIDC**.
+  </Card>
+
+  <Card title="Só pela isenção, sem lastro elegível" icon="x">
+    Nunca forçar enquadramento imobiliário inexistente só para captar a isenção — red flag regulatório.
+  </Card>
+</CardGroup>
+
+## Entidade executora e perceptmetro
+
+<Warning>
+  Emissão de CRI é **atividade regulada exclusiva da Bloxs Securitizadora**. O parceiro origina o lastro imobiliário; a securitizadora emite. A elegíbilidade imobiliária do lastro é requisito — não se "enquadra" um lastro não-imobiliário como CRI.
+</Warning>
+
+## Público investidor
+
+Profissional, qualificado e, conforme o regime de oferta, **varejo** — a amplitude é justamente uma das vantagens do CRI. A isenção de IR para PF é o atrativo central. Confirmar o regime aplicável (RCVM 88 / demais) caso a caso.
+
+## Mecânica
+
+<Steps>
+  <Step title="Lastro imobiliário">
+    Créditos imobiliários identificados, com laudo/comprovação de origem imobiliária.
+  </Step>
+  <Step title="Cessão à securitizadora">
+    Os créditos são cedidos e vinculados à emissão.
+  </Step>
+  <Step title="Estrutura e garantias">
+    Waterfall, subordinação e garantias (frequentemente alienação fiduciária de imóvel/cotas).
+  </Step>
+  <Step title="Emissão e colocação">
+    CRI emitido pela securitizadora e distribuído pela coordenadora.
+  </Step>
+  <Step title="Monitoramento">
+    Servicer e acompanhamento de gatilhos.
+  </Step>
+</Steps>
+
+## Casos Bloxs
+
+<AccordionGroup>
+  <Accordion title="CRI-programa para fintech de aluguel popular" icon="circle-check">
+    Programa de CRI (1ª série) para uma fintech de moradia popular, com lastro em recebíveis de aluguel. Estrutura com indexador CDI\+, métricas de inadimplência e recuperação monitoradas no data room. Exemplo de CRI habilitando um originador imobiliário não-tradicional a acessar mercado de capitais.
+  </Accordion>
+
+  <Accordion title="CRI como takeout de operação-ponte" icon="circle-check">
+    Em special situations imobiliário (ex.: desenvolvimento residencial), o CRI aparece como **instrumento de saída** (takeout) de uma nota/ponte, uma vez estabilizado o fluxo. Mostra o CRI no fim da cadeia de uma estrutura mais complexa.
+  </Accordion>
+
+  <Accordion title="CRI de recebíveis de incorporação com garantia real" icon="circle-check">
+    Operação para incorporadora capitalizada, com garantia real e cobertura superior a 2x. Exemplo de CRI sustentando funding de médio prazo com lastro e garantia robustos.
+  </Accordion>
+</AccordionGroup>
+
+<Info>
+  Métricas de operações específicas são **zona interna** — ensinam a mecânica, não são material de divulgação.
+</Info>
+
+## Documentos mínimos
+
+<CardGroup cols={2}>
+  <Card title="Termo de securitização" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="Comprovação de lastro imobiliário" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="Laudo / documentação do imóvel" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="Estrutura de garantia (ex.: alienação fiduciária)" icon="file-text" horizontal>
+  </Card>
+</CardGroup>
+
+## Comparação rápida
+
+| Contra | Escolha CRI quando | Escolha o outro quando |
+| --- | --- | --- |
+| **CR** | Lastro imobiliário (ganha isenção \+ público) | Lastro não-imobiliário |
+| **CRA** | Lastro imobiliário | Lastro do agro |
+| **FIDC** | Estrutura de securitização imobiliária direta | Carteira pulverizada recorrente |
+
+## Agent rules
+
+- Sugerir CRI **apenas** quando o lastro for comprovadamente imobiliário.
+- Nunca sugerir "enquadrar como CRI para ganhar isenção" sem lastro elegível.
+- Nunca afirmar retorno; sempre indicar emissão pela Bloxs Securitizadora.
+
+## Next action
+
+<CardGroup cols={2}>
+  <Card title="Fundability Test" icon="clipboard-check" href="/05-products-structures-solutions/credit-structuring-principles/fundability-test">
+    Confirmar lastro e financiabilidade.
+  </Card>
+
+  <Card title="Selection Matrix" icon="grid-3x3" href="/05-products-structures-solutions/selection-matrix">
+    Validar CRI contra CR e FIDC.
+  </Card>
+</CardGroup>
+
+## Red flags
+
+<CardGroup cols={2}>
+  <Card title="Enquadrar lastro não-imobiliário como CRI" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Vender a isenção como 'retorno garantido'" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Lastro imobiliário sem comprovação/laudo" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Prometer liquidez do CRI" icon="flag" horizontal>
+  </Card>
+</CardGroup>
+
+---
+
+<CardGroup cols={2}>
+  <Card title="CR" icon="file-badge" href="/05-products-structures-solutions/produtos/securitizacao/cr">
+    A versão versátil, para lastro não-imobiliário.
+  </Card>
+
+  <Card title="CRA" icon="wheat" href="/05-products-structures-solutions/produtos/securitizacao/cra">
+    A versão do agronegócio.
+  </Card>
+</CardGroup>

@@ -85,6 +85,15 @@
             "pages": [
               "05-products-structures-solutions/selection-matrix",
               {
+                "group": "Produtos · Securitização",
+                "icon": "file-badge",
+                "pages": [
+                  "05-products-structures-solutions/produtos/securitizacao/cr",
+                  "05-products-structures-solutions/produtos/securitizacao/cri",
+                  "05-products-structures-solutions/produtos/securitizacao/cra"
+                ]
+              },
+              {
                 "group": "Credit Structuring Principles",
                 "icon": "ruler",
                 "pages": [

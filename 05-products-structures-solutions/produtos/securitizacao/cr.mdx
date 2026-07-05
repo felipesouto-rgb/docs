@@ -1,0 +1,201 @@
+---
+title: "CR — Certificado de Recebíveis"
+sidebarTitle: "CR"
+description: "O instrumento de securitização mais versátil da Bloxs: lastro flexível, emissão pela Bloxs Securitizadora, para investidor profissional/qualificado. Quando usar, quando não, e casos reais."
+category: "produtos-securitizacao"
+zone: "Internal"
+audience: ["colaborador-interno", "business-partner", "leadership", "ai-agent"]
+primary_user: "colaborador-interno"
+owner: "Estruturação Bloxs"
+last_reviewed: "2026-07-04"
+status: "draft"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+content_classification: "regulado"
+regulatory_perimeter: "regulada"
+regulated_activity_touchpoint: true
+executing_entity: "securitizadora"
+regulatory_refs: ["RCVM-60", "RCVM-88"]
+related_products: ["cr"]
+related_solutions: ["middle-market-funding", "receivables-finance", "legal-claims", "supply-chain-finance"]
+agents: ["deal-intake-agent"]
+investor_profile_allowed: ["profissional", "qualificado"]
+risk_level: "medio"
+icon: "file-badge"
+---
+
+<Note>
+  **Produto · Família Securitização.** Emissão pela **Bloxs Securitizadora e Tokenizadora S/A** (CNPJ 54.729.707/0001-62). Status `draft` — parâmetros regulatórios pendentes de confirmação de compliance antes de virar fonte autorizada.
+</Note>
+
+## Conceito
+
+O **Certificado de Recebíveis (CR)** é o título de securitização mais **versátil** da Bloxs. Transforma um fluxo de recebíveis — de praticamente qualquer natureza — em um valor mobiliário negociável, emitido pela securitizadora e lastreado nesses recebíveis. É o instrumento de escolha quando o lastro não é imobiliário (CRI) nem do agro (CRA), mas ainda assim precisa de uma estrutura de securitização eficiente.
+
+{/* ESPAÇO PARA ANIMAÇÃO IA — fluxo do CR: recebateis → securitizadora → CR emitido → investidor, com o dinheiro percorrendo o caminho inverso (~20s). Navy #033873. Inserir aqui. */}
+
+## Quando usar
+
+<CardGroup cols={2}>
+  <Card title="Lastro não-imobiliário e não-agro" icon="check">
+    Recebíveis comerciais, de serviços, créditos diversos que não se encaixam em CRI/CRA.
+  </Card>
+
+  <Card title="Lastro identificável e cedivel" icon="check">
+    Existe direito creditório claro, com cessão válida possível.
+  </Card>
+
+  <Card title="Operação estruturada sob medida" icon="check">
+    Precisa de waterfall, subordinação ou garantias desenhadas caso a caso.
+  </Card>
+
+  <Card title="Público profissional/qualificado" icon="check">
+    Distribuição dirigida, não varejo pulverizado.
+  </Card>
+</CardGroup>
+
+## Quando NÃO usar
+
+<CardGroup cols={2}>
+  <Card title="Lastro imobiliário" icon="x">
+    Use **CRI** — traz isenção de IR para PF e público mais amplo.
+  </Card>
+
+  <Card title="Lastro do agronegócio" icon="x">
+    Use **CRA** — mesma lógica de isenção e público.
+  </Card>
+
+  <Card title="Carteira pulverizada e recorrente" icon="x">
+    Considere **FIDC** — veh de carteira escala melhor a pulverização.
+  </Card>
+
+  <Card title="Dívida corporativa direta de S.A." icon="x">
+    Considere **debênture** ou **nota comercial**.
+  </Card>
+</CardGroup>
+
+## Entidade executora e perceptmetro
+
+<Warning>
+  A emissão de CR é **atividade regulada**, executada **exclusivamente pela Bloxs Securitizadora**. O parceiro **origina**; a securitizadora **emite**. Nenhum parceiro emite CR em nome próprio. Ver [Originação vs. Atividade Regulada](/02-regulatory-perimeter/originacao-vs-atividade-regulada).
+</Warning>
+
+## Público investidor
+
+Investidor **profissional** e **qualificado**, conforme o regime de oferta aplicável (verificar RCVM 88 / demais). Não é produto de varejo pulverizado.
+
+## Mecânica
+
+<Steps>
+  <Step title="Lastro">
+    Recebíveis são identificados, validados e cedidos à securitizadora.
+  </Step>
+  <Step title="Estrutura">
+    Define-se waterfall, subordinação (sênior/subordinada) e garantias/reforços de crédito.
+  </Step>
+  <Step title="Emissão">
+    A securitizadora emite o CR lastreado nos recebíveis.
+  </Step>
+  <Step title="Colocação">
+    Distribuído a investidores profissionais/qualificados pela entidade coordenadora.
+  </Step>
+  <Step title="Monitoramento">
+    Servicer administra o fluxo; gatilhos de amortização antecipada e covenants são acompanhados.
+  </Step>
+</Steps>
+
+## Casos Bloxs
+
+O CR é o instrumento por trás de várias das operações mais representativas da casa.
+
+<AccordionGroup>
+  <Accordion title="CR de recebíveis de mobilidade elétrica" icon="circle-check">
+    Frota elétrica para logística last-mile: estrutura de CR **sênior \+ subordinada**, prazo de 48 meses, indexador CDI\+, com métricas de cobertura de serviço da dívida (DSCR) monitoradas. Mostra o CR sustentando ativo real com fluxo contratado.
+  </Accordion>
+
+  <Accordion title="CR de créditos judiciais (legal-claims)" icon="circle-check">
+    Programa de CR para securitização de créditos litigiosos, em séries, com originador atuando como consultor técnico. Exemplo de CR levando um lastro não-tradicional (honorários/créditos judiciais) a mercado — sempre com o filtro de risco jurídico do [Fundability Test](/05-products-structures-solutions/credit-structuring-principles/fundability-test).
+  </Accordion>
+
+  <Accordion title="CR com waterfall multi-bucket" icon="circle-check">
+    Estrutura de CR com tranche sênior (CDI\+, ~80%) e subordinada residual (~20%), com curva de vintage por bucket e cascata de pagamento detalhada. Exemplo de CR usado como estrutura de crédito sob medida para comitê.
+  </Accordion>
+</AccordionGroup>
+
+<Info>
+  Métricas específicas de cada operação são **zona interna** e não circulam em material investor-facing sem aprovação. Aqui servem para ensinar a mecânica, não para divulgação.
+</Info>
+
+## Documentos mínimos
+
+<CardGroup cols={2}>
+  <Card title="Termo de securitização" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="Comprovação e cessão do lastro" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="Contratos-base dos recebíveis" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="Estrutura de garantias / reforços" icon="file-text" horizontal>
+  </Card>
+</CardGroup>
+
+## Comparação rápida
+
+| Contra | Escolha CR quando | Escolha o outro quando |
+| --- | --- | --- |
+| **CRI** | Lastro não é imobiliário | Lastro imobiliário (isenção IR PF) |
+| **CRA** | Lastro não é agro | Lastro do agro (isenção IR PF) |
+| **FIDC** | Lastro concentrado/definido, operação pontual | Carteira pulverizada e recorrente |
+
+Detalhe em [Selection Matrix](/05-products-structures-solutions/selection-matrix).
+
+## Agent rules
+
+- O Deal Intake Agent pode **sugerir** CR quando o lastro não é imobiliário/agro e há cessão válida.
+- Nunca afirma condições de retorno; nunca gera material investor-facing sem aprovação.
+- Sempre indica que a emissão é da Bloxs Securitizadora.
+
+## Next action
+
+<CardGroup cols={2}>
+  <Card title="Fundability Test" icon="clipboard-check" href="/05-products-structures-solutions/credit-structuring-principles/fundability-test">
+    Confirmar financiabilidade antes de fixar o CR.
+  </Card>
+
+  <Card title="Selection Matrix" icon="grid-3x3" href="/05-products-structures-solutions/selection-matrix">
+    Validar CR contra as alternativas.
+  </Card>
+</CardGroup>
+
+## Red flags
+
+<CardGroup cols={2}>
+  <Card title="Lastro sem cessão válida" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Forçar CR onde CRI/CRA traria isenção" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Concentração excessiva num único devedor" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Prometer retorno do CR ao investidor" icon="flag" horizontal>
+  </Card>
+</CardGroup>
+
+---
+
+<CardGroup cols={2}>
+  <Card title="CRI" icon="building" href="/05-products-structures-solutions/produtos/securitizacao/cri">
+    A versão imobiliária, com isenção de IR.
+  </Card>
+
+  <Card title="CRA" icon="wheat" href="/05-products-structures-solutions/produtos/securitizacao/cra">
+    A versão do agronegócio.
+  </Card>
+</CardGroup>

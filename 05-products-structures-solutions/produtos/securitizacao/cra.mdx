@@ -1,0 +1,189 @@
+---
+title: "CRA — Certificado de Recebíveis do Agronegócio"
+sidebarTitle: "CRA"
+description: "Securitização de lastro do agronegócio pela Bloxs Securitizadora, com isenção de IR para pessoa física. Quando usar, quando não, e casos Bloxs."
+category: "produtos-securitizacao"
+zone: "Internal"
+audience: ["colaborador-interno", "business-partner", "leadership", "ai-agent"]
+primary_user: "colaborador-interno"
+owner: "Estruturação Bloxs"
+last_reviewed: "2026-07-04"
+status: "draft"
+source_of_truth: "mintlify"
+agent_retrievable: false
+retrieval_allowed_status: ["approved", "stable"]
+implementation_phase: "mvp"
+content_classification: "regulado"
+regulatory_perimeter: "regulada"
+regulated_activity_touchpoint: true
+executing_entity: "securitizadora"
+regulatory_refs: ["RCVM-60", "RCVM-88"]
+related_products: ["cra"]
+related_solutions: ["middle-market-funding", "supply-chain-finance", "receivables-finance"]
+agents: ["deal-intake-agent"]
+investor_profile_allowed: ["profissional", "qualificado", "varejo"]
+risk_level: "medio"
+icon: "wheat"
+---
+
+<Note>
+  **Produto · Família Securitização.** Emissão pela **Bloxs Securitizadora e Tokenizadora S/A** (CNPJ 54.729.707/0001-62). Status `draft` — elegíbilidade do lastro agro e regime pendentes de confirmação de compliance.
+</Note>
+
+## Conceito
+
+O **Certificado de Recebíveis do Agronegócio (CRA)** é a securitização de lastro do **agronegócio**. Como o CRI, herda do CR o motor de securitização e ganha a **isenção de IR para pessoa física** — aqui vinculada à origem no agro. É o instrumento para levar crédito do agronegócio ao mercado de capitais com eficiência fiscal e público amplo.
+
+{/* ESPAÇO PARA ANIMAÇÃO IA — lastro agro (safra/contrato de fornecimento) → securitizadora → CRA → investidor PF isento (~20s). Inserir aqui. */}
+
+## Quando usar
+
+<CardGroup cols={2}>
+  <Card title="Lastro do agronegócio" icon="check">
+    Créditos com origem no agro: fornecimento, insumos, produção, trading agrícola.
+  </Card>
+
+  <Card title="Quer alcançar PF isenta de IR" icon="check">
+    A isenção é atrativo central para o investidor pessoa física.
+  </Card>
+
+  <Card title="Cadeia agro com sacado forte" icon="check">
+    Supply-chain finance do agro com âncora de crédito sólida.
+  </Card>
+
+  <Card title="Público amplo" icon="check">
+    Conforme o regime, alcance maior que o CR.
+  </Card>
+</CardGroup>
+
+## Quando NÃO usar
+
+<CardGroup cols={2}>
+  <Card title="Lastro não-agro" icon="x">
+    Use **CR** (genérico) ou **CRI** (imobiliário).
+  </Card>
+
+  <Card title="Sem elegíbilidade agro comprovada" icon="x">
+    Nunca forçar enquadramento no agro só pela isenção.
+  </Card>
+
+  <Card title="Carteira pulverizada recorrente" icon="x">
+    Considere **FIDC** (inclusive FIDC agro / FIAGRO conforme o caso).
+  </Card>
+
+  <Card title="Risco de safra/preço dominante e não mitigado" icon="x">
+    Reavaliar estrutura antes de emitir.
+  </Card>
+</CardGroup>
+
+## Entidade executora e perceptmetro
+
+<Warning>
+  Emissão de CRA é **atividade regulada exclusiva da Bloxs Securitizadora**. O parceiro origina o lastro agro; a securitizadora emite. A elegíbilidade do lastro no agronegócio é requisito de emissão.
+</Warning>
+
+## Público investidor
+
+Profissional, qualificado e, conforme o regime, **varejo**. A isenção de IR para PF é o principal atrativo. Confirmar regime aplicável caso a caso.
+
+## Mecânica
+
+<Steps>
+  <Step title="Lastro agro">
+    Créditos do agronegócio identificados e comprovados quanto à origem.
+  </Step>
+  <Step title="Cessão">
+    Créditos cedidos à securitizadora.
+  </Step>
+  <Step title="Estrutura">
+    Waterfall, subordinação, garantias e mitigadores de risco agro (safra, preço, clima).
+  </Step>
+  <Step title="Emissão e colocação">
+    CRA emitido e distribuído pela coordenadora.
+  </Step>
+  <Step title="Monitoramento">
+    Servicer e acompanhamento de gatilhos e concentração.
+  </Step>
+</Steps>
+
+## Caso Bloxs
+
+<AccordionGroup>
+  <Accordion title="CRA de cadeia do agronegócio" icon="circle-check">
+    Programa de CRA para lastro do agro em escala relevante, estruturado para levar crédito de uma cadeia agroindustrial ao mercado de capitais com eficiência fiscal. Exemplo de CRA sustentando funding de originador/trading do agro, com atenção a concentração de sacado e mitigadores de risco de safra.
+  </Accordion>
+</AccordionGroup>
+
+<Info>
+  Métricas e nomes de operações são **zona interna** — mecânica, não divulgação.
+</Info>
+
+## Documentos mínimos
+
+<CardGroup cols={2}>
+  <Card title="Termo de securitização" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="Comprovação de lastro agro" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="Contratos de fornecimento / produção" icon="file-text" horizontal>
+  </Card>
+
+  <Card title="Mitigadores de risco (safra, preço)" icon="file-text" horizontal>
+  </Card>
+</CardGroup>
+
+## Comparação rápida
+
+| Contra | Escolha CRA quando | Escolha o outro quando |
+| --- | --- | --- |
+| **CR** | Lastro do agro (ganha isenção) | Lastro genérico não-agro |
+| **CRI** | Lastro do agro | Lastro imobiliário |
+| **FIDC agro / FIAGRO** | Securitização direta com isenção PF | Veh de carteira / gestão contínua |
+
+## Agent rules
+
+- Sugerir CRA **apenas** com lastro agro elegível comprovado.
+- Nunca forçar enquadramento agro pela isenção.
+- Nunca afirmar retorno; sempre indicar emissão pela Bloxs Securitizadora.
+
+## Next action
+
+<CardGroup cols={2}>
+  <Card title="Fundability Test" icon="clipboard-check" href="/05-products-structures-solutions/credit-structuring-principles/fundability-test">
+    Confirmar lastro agro e financiabilidade.
+  </Card>
+
+  <Card title="Selection Matrix" icon="grid-3x3" href="/05-products-structures-solutions/selection-matrix">
+    Validar CRA contra CR e FIDC agro.
+  </Card>
+</CardGroup>
+
+## Red flags
+
+<CardGroup cols={2}>
+  <Card title="Enquadrar lastro não-agro como CRA" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Ignorar risco de safra/preço/clima" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Concentração de sacado não mitigada" icon="flag" horizontal>
+  </Card>
+
+  <Card title="Prometer retorno/isenção como garantia" icon="flag" horizontal>
+  </Card>
+</CardGroup>
+
+---
+
+<CardGroup cols={2}>
+  <Card title="CR" icon="file-badge" href="/05-products-structures-solutions/produtos/securitizacao/cr">
+    A versão versátil, para lastro genérico.
+  </Card>
+
+  <Card title="CRI" icon="building" href="/05-products-structures-solutions/produtos/securitizacao/cri">
+    A versão imobiliária.
+  </Card>
+</CardGroup>
