@@ -137,7 +137,60 @@
         ]
       },
       {
-        "tab": "Como Vendemos"
+        "tab": "Como Vendemos",
+        "groups": [
+          {
+            "group": "Visão Geral",
+            "icon": "handshake",
+            "pages": [
+              "como-vendemos/index"
+            ]
+          },
+          {
+            "group": "Originar & Rotear",
+            "icon": "route",
+            "pages": [
+              "como-vendemos/icp-e-segmentacao",
+              "como-vendemos/partner-routing-matrix",
+              "como-vendemos/qualificacao"
+            ]
+          },
+          {
+            "group": "Descobrir & Diagnosticar",
+            "icon": "stethoscope",
+            "pages": [
+              "como-vendemos/discovery-call",
+              "como-vendemos/diagnostico",
+              "como-vendemos/apresentar-ibaas"
+            ]
+          },
+          {
+            "group": "Converter & Fechar",
+            "icon": "circle-check-big",
+            "pages": [
+              "como-vendemos/objecoes",
+              "como-vendemos/proposta",
+              "como-vendemos/precificacao",
+              "como-vendemos/handoff",
+              "como-vendemos/follow-up",
+              "como-vendemos/registro-plataforma",
+              "como-vendemos/frases-seguras"
+            ]
+          },
+          {
+            "group": "Catálogo Comercial",
+            "icon": "book-open",
+            "pages": [
+              "como-vendemos/catalogo/index",
+              "como-vendemos/catalogo/cr-plataforma",
+              "como-vendemos/catalogo/consultoria-fidc-360",
+              "como-vendemos/catalogo/fundos-on-demand",
+              "como-vendemos/catalogo/ibaas-workspace",
+              "como-vendemos/catalogo/coordenacao-distribuicao",
+              "como-vendemos/catalogo/business-partners-kit"
+            ]
+          }
+        ]
       },
       {
         "tab": "Como Cuidamos das Contas"
