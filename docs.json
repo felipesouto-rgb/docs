@@ -193,7 +193,54 @@
         ]
       },
       {
-        "tab": "Como Cuidamos das Contas"
+        "tab": "Como Cuidamos das Contas",
+        "groups": [
+          {
+            "group": "A Conta como Ativo",
+            "icon": "gem",
+            "pages": [
+              "contas/index",
+              "contas/account-lifecycle",
+              "contas/pos-closing-para-account"
+            ]
+          },
+          {
+            "group": "Ativar & Cuidar",
+            "icon": "heart-handshake",
+            "pages": [
+              "contas/onboarding",
+              "contas/health-score",
+              "contas/mapa-relacionamento",
+              "contas/qbr"
+            ]
+          },
+          {
+            "group": "Expandir & Reter",
+            "icon": "trending-up",
+            "pages": [
+              "contas/plano-de-expansao",
+              "contas/playbook-reativacao",
+              "contas/red-flags-encerramento"
+            ]
+          },
+          {
+            "group": "Por Tipo de Conta",
+            "icon": "users",
+            "pages": [
+              "contas/contas-sell-side",
+              "contas/contas-buy-side",
+              "contas/contas-enterprise"
+            ]
+          },
+          {
+            "group": "Registro & Medição",
+            "icon": "chart-bar",
+            "pages": [
+              "contas/registro-conta",
+              "contas/kpis-account"
+            ]
+          }
+        ]
       },
       {
         "tab": "Como Fazemos um Deal"
