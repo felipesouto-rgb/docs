@@ -322,13 +322,46 @@
         ]
       },
       {
-        "tab": "Como a Máquina Gira"
+        "tab": "Como a Máquina Gira",
+        "groups": [
+          {
+            "group": "RevOps & Dados",
+            "icon": "gears",
+            "pages": [
+              "maquina/revops",
+              "maquina/data-model",
+              "maquina/hubspot"
+            ]
+          }
+        ]
       },
       {
-        "tab": "Como Aprender Aqui"
+        "tab": "Como Aprender Aqui",
+        "groups": [
+          {
+            "group": "Onboarding & Trilhas",
+            "icon": "graduation-cap",
+            "pages": [
+              "aprender/onboarding",
+              "aprender/trilhas-por-funcao",
+              "aprender/certificacoes"
+            ]
+          }
+        ]
       },
       {
-        "tab": "Nossos Copilotos de IA"
+        "tab": "Nossos Copilotos de IA",
+        "groups": [
+          {
+            "group": "IA no Playbook",
+            "icon": "robot",
+            "pages": [
+              "copilotos/os-copilotos",
+              "copilotos/contrato-de-metadados",
+              "copilotos/guardrails-de-recuperacao"
+            ]
+          }
+        ]
       },
       {
         "tab": "Regras da Casa"
