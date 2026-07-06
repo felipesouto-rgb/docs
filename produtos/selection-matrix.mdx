@@ -1,0 +1,86 @@
+---
+title: "Selection Matrix — Qual estrutura usar"
+sidebarTitle: "Selection Matrix"
+description: "A matriz de decisão: do caso de uso à estrutura definitiva. Quando usar, quando não usar, e por que descartar as alternativas."
+icon: "table"
+zone: "Interna"
+domain: "produtos"
+copilot: ["deal-structuring", "capital-markets-advisor"]
+status: "stable"
+enables: "Escolher instrumento, veículo e regime para um deal já aprovado no Fundability Test — e justificar o descarte das alternativas."
+agent_retrievable: true
+---
+
+<Info>
+  **Ao terminar esta página, você consegue:** pegar um deal financiável e apontar a estrutura provável, sabendo justificar por que ela e não as outras.
+</Info>
+
+## O que é isso
+
+A matriz de decisão de estrutura. Só se usa **depois** do [Fundability Test](/produtos/fundability-test). Regra ontológica: não misture instrumento, veículo, regime de oferta, solução comercial e camada tecnológica — cada um responde a uma pergunta diferente.
+
+## Matriz por caso de uso
+
+| Caso de uso | Ativo-base | Recorrência | Estrutura provável | Alternativa descartada | Entidade |
+| --- | --- | --- | --- | --- | --- |
+| Empresa middle-market precisa de capital | Fluxo/recebíveis | Média | [CR](/produtos/cr) ou [debênture](/produtos/debenture) | FIDC (se operação única) | Securitizadora / Coordenação |
+| Carteira pulverizada de recebíveis | Direitos creditórios | Alta | [FIDC](/produtos/fidc) | CR (não escala pulverização) | Asset |
+| Múltiplas estratégias num veículo | Direitos diversos | Alta | [FIDC multiclasse](/produtos/fidc-multiclasse) | FIDC simples | Asset |
+| Recebível imobiliário | Crédito imobiliário | Média | [CRI](/produtos/cri) | CR (perde isenção) | Securitizadora |
+| Recebível do agro | Crédito agro | Média | [CRA](/produtos/cra) | FIDC agro (sem isenção PF) | Securitizadora |
+| Participação no capital | Equity | — | [FIP](/produtos/fip) | FIDC (é dívida) | Asset |
+| Imóvel/renda imobiliária | Ativo imobiliário | — | [FII](/produtos/fii) | CRI (é o recebível) | Asset |
+| Dívida direta de S.A. | Obrigação da companhia | — | [Debênture](/produtos/debenture) | Nota comercial (curto prazo) | Coordenação |
+
+## Comparações-chave — por que este e não o outro
+
+Cada comparação treina o reflexo de **justificar o descarte**, não só a escolha.
+
+<AccordionGroup>
+  <Accordion title="CR vs FIDC">
+    **CR:** operação direta, lastro identificável, emissão via securitizadora — bom para lastro concentrado/definido. **FIDC:** veículo de carteira, gestão contínua, subordinação entre cotas — bom para pulverização e recorrência. Descartar CR quando a carteira é pulverizada e recorrente.
+  </Accordion>
+
+  <Accordion title="CRI vs CR">
+    **CRI:** exige lastro imobiliário; isenção de IR para PF; público mais amplo. **CR:** flexível quanto ao lastro; sem o benefício fiscal. Descartar CRI quando o lastro não é imobiliário.
+  </Accordion>
+
+  <Accordion title="CRA vs FIDC agro">
+    **CRA:** isenção de IR para PF, lastro agro, distribuição ampla. **FIDC agro/FIAGRO:** veículo de carteira, sem isenção para PF. Descartar CRA quando não há lastro agro elegível.
+  </Accordion>
+
+  <Accordion title="Debênture vs Nota Comercial">
+    **Debênture:** emissor S.A., prazos médio/longo, covenants robustos. **Nota comercial:** mais simples e rápida, prazos curtos. Descartar debênture quando o emissor não é S.A. ou precisa de agilidade.
+  </Accordion>
+
+  <Accordion title="FIP vs FIDC">
+    **FIP:** entra no capital (equity), retorno via valorização e saída. **FIDC:** financia o recebível (dívida), retorno via fluxo. Descartar FIP quando o que existe é dívida/recebível.
+  </Accordion>
+</AccordionGroup>
+
+## Como um deal atravessa a matriz
+
+<Steps>
+</Steps>
+
+## Regras da casa aqui
+
+<Warning>
+  Tratar regime de oferta como se fosse produto é erro. Nunca forçar CRI/CRA sem lastro elegível pela isenção. Nunca prometer público de varejo sem checar o regime. Ver [O Perímetro](/produtos/perimetro/originacao-vs-atividade-regulada).
+</Warning>
+
+## Para onde ir agora
+
+<CardGroup cols={2}>
+  <Card title="Fundability Test" icon="filter" href="/produtos/fundability-test">
+  </Card>
+
+  <Card title="Como Fazemos um Deal" icon="diagram-project" href="/deal/intake">
+  </Card>
+
+  <Card title="Como Vendemos" icon="handshake" href="/como-vendemos/index">
+  </Card>
+
+  <Card title="O Perímetro" icon="scale-balanced" href="/produtos/perimetro/originacao-vs-atividade-regulada">
+  </Card>
+</CardGroup>

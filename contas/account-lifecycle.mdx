@@ -1,0 +1,62 @@
+---
+title: "Lifecycle da Conta"
+sidebarTitle: "Lifecycle"
+description: "Os estágios de vida de uma conta — de aberta a recorrente — e o que muda o objetivo em cada fase."
+icon: "arrows-spin"
+zone: "Interna"
+domain: "contas"
+copilot: ["partner-success"]
+status: "stable"
+enables: "Situar uma conta em seu estágio de vida e saber qual é o objetivo, o sinal de avanço e o risco de cada fase."
+agent_retrievable: true
+---
+
+<Info>
+  **Ao terminar esta página, você consegue:** dizer em que estágio uma conta está e qual é o trabalho certo para movê-la ao próximo — ou protegê-la.
+</Info>
+
+## O que é isso
+
+A conta tem estágios de vida, como o deal tem estágios de execução. Saber o estágio define o objetivo: ativar não é expandir, expandir não é reter. Confundir os dois desperdiça esforço.
+
+## Os estágios
+
+```mermaid
+flowchart LR
+  L[Land<br/>1º deal] --> A[Activate<br/>onboarding]
+  A --> H[Healthy<br/>operando]
+  H --> E[Expand<br/>+ deals/instrumentos]
+  E --> R[Recurring<br/>originador recorrente]
+  H -.risco.-> P[Protect/Pause]
+  R -.risco.-> P
+```
+
+| Estágio | Objetivo | Sinal de avanço | Risco principal |
+| --- | --- | --- | --- |
+| Land | Fechar o 1º deal | Deal liquidado | CAC alto sem 2º deal |
+| Activate | Onboarding completo | Parceiro operando sozinho | Onboarding arrastado |
+| Healthy | Manter a relação viva | Health Score verde | Silêncio, uso caindo |
+| Expand | \+ deals, \+ instrumentos | 2ª operação originada | Estagnar no 1º deal |
+| Recurring | Originador recorrente | Fluxo previsível | Dependência de 1 champion |
+
+## Como fazer
+
+<Steps>
+</Steps>
+
+## Como gera receita ou reduz risco
+
+Cada avanço de estágio aumenta deals-por-conta e instrumentos-por-conta — a métrica que faz a margem aparecer. Estagnação e churn são a perda a evitar.
+
+## Para onde ir agora
+
+<CardGroup cols={2}>
+  <Card title="Onboarding de Parceiro" icon="door-open" href="/contas/onboarding">
+  </Card>
+
+  <Card title="Health Score" icon="heart-pulse" href="/contas/health-score">
+  </Card>
+
+  <Card title="Plano de Expansão" icon="arrow-trend-up" href="/contas/plano-de-expansao">
+  </Card>
+</CardGroup>

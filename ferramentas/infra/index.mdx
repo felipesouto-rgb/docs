@@ -1,0 +1,56 @@
+---
+title: "Infraestrutura Operacional"
+sidebarTitle: "Visão Geral"
+description: "O stack que a Bloxs usa para operar — não é nosso produto, é nossa infraestrutura. Qual ferramenta para quê, e a fonte oficial de cada dado."
+icon: "plug"
+zone: "Interna"
+domain: "ferramentas"
+copilot: ["partner-success"]
+status: "stable"
+enables: "Saber qual ferramenta de infraestrutura usar para cada trabalho, quem é o owner e qual é a fonte oficial de verdade de cada dado."
+owner: "Operações / RevOps"
+last_reviewed: "2026-07-05"
+agent_retrievable: true
+---
+
+<Info>
+  **Ao terminar esta página, você consegue:** escolher a ferramenta de infraestrutura certa para cada tarefa e saber onde vive a verdade oficial de cada tipo de dado.
+</Info>
+
+## O que é isso
+
+O stack operacional que a Bloxs **usa** — diferente do [Workspace](/ferramentas/workspace/index), que a Bloxs **é**. Estas ferramentas poderiam ser trocadas sem mudar o que a Bloxs é. Documentamos só as relevantes para operar.
+
+## Qual ferramenta para quê
+
+| Ferramenta | Papel | Fonte oficial de |
+| --- | --- | --- |
+| [HubSpot](/ferramentas/infra/hubspot) | CRM/marketing interno | Funil comercial da Bloxs |
+| [WhatsApp](/ferramentas/infra/whatsapp) | Canal de relação | Conversas com parceiro |
+| [Google Workspace](/ferramentas/infra/google-workspace) | Produtividade/arquivos | Documentos internos |
+| [ClickUp](/ferramentas/infra/clickup) | Gestão de trabalho | Tarefas e projetos internos |
+| [Supabase](/ferramentas/infra/dados-e-bi) | Base de dados | Dados de aplicação |
+| [Looker Studio](/ferramentas/infra/dados-e-bi) | BI/dashboards | Visualização de dados |
+| [Mintlify](/ferramentas/infra/mintlify) | Este Playbook | Conhecimento operacional |
+| [GitHub](/ferramentas/infra/dev-e-automacao) | Código/versionamento | Código e docs.json |
+| [Make / n8n](/ferramentas/infra/dev-e-automacao) | Automação | Integrações entre sistemas |
+| [Ferramentas de IA](/ferramentas/infra/ia-e-dados) | Copilotos/IA | — |
+
+## Regra de fonte única de dado
+
+<Warning>
+  Cada tipo de dado tem **uma** fonte oficial. Deal e conta: a verdade é o [Workspace](/ferramentas/workspace/index). Funil comercial da Bloxs: HubSpot. Conhecimento operacional: este Playbook. Quando duas ferramentas mostram o mesmo dado, uma é a fonte e a outra é espelho — nunca duas verdades.
+</Warning>
+
+## Para onde ir agora
+
+<CardGroup cols={2}>
+  <Card title="HubSpot" icon="hubspot" href="/ferramentas/infra/hubspot">
+  </Card>
+
+  <Card title="Bloxs Workspace" icon="display" href="/ferramentas/workspace/index">
+  </Card>
+
+  <Card title="Como a Máquina Gira" icon="gears" href="/maquina/revops">
+  </Card>
+</CardGroup>

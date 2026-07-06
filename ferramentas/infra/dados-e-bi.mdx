@@ -1,0 +1,58 @@
+---
+title: "Dados e BI"
+sidebarTitle: "Dados & BI"
+description: "Supabase e Looker Studio — a base de dados e a camada de visualização que sustentam a leitura da operação."
+icon: "database"
+zone: "Interna"
+domain: "ferramentas"
+copilot: ["partner-success"]
+status: "review"
+enables: "Saber onde os dados de aplicação vivem (Supabase) e onde a operação é visualizada (Looker), sem tratá-los como fonte de decisão isolada."
+owner: "Dados / Tecnologia"
+last_reviewed: "2026-07-05"
+agent_retrievable: false
+---
+
+<Info>
+  **Ao terminar esta página, você consegue:** saber onde o dado de aplicação vive e onde a operação é visualizada — e que visualização não é decisão.
+</Info>
+
+## Supabase
+
+- **O que é?** Base de dados de aplicação.
+- **Para que usamos?** Armazenar dados que sustentam aplicações e integrações.
+- **Quem usa?** Tecnologia/Dados.
+- **Quando usar?** Como camada de dados de sistemas.
+- **Quando NÃO usar?** Como fonte de verdade de deal para o usuário final — a interface é o [Workspace](/ferramentas/workspace/index).
+- **Fonte oficial de?** Dados de aplicação.
+- **Owner?** Tecnologia / Dados.
+
+## Looker Studio
+
+- **O que é?** Ferramenta de BI e dashboards.
+- **Para que usamos?** Visualizar métricas da operação — ver [Como a Máquina Gira](/maquina/revops).
+- **Quem usa?** RevOps, liderança.
+- **Quando usar?** Para ler tendências e KPIs.
+- **Quando NÃO usar?** Como registro operacional — dashboard lê dado, não é o dado.
+- **Fonte oficial de?** Visualização; a verdade está na origem do dado.
+- **Owner?** RevOps / Dados.
+
+<Warning>
+  PENDENTE DE VALIDAÇÃO OPERACIONAL — o modelo de dados e as fontes que alimentam os dashboards devem ser confirmados por Dados/Tecnologia. Ver [Data Model](/maquina/data-model).
+</Warning>
+
+## Regras da casa aqui
+
+<Warning>
+  Dashboard não é fonte de verdade — é leitura de uma fonte. KPI sensível/economics segue zona restrita. Ver [KPIs de Account](/contas/kpis-account).
+</Warning>
+
+## Para onde ir agora
+
+<CardGroup cols={2}>
+  <Card title="Data Model" icon="diagram-project" href="/maquina/data-model">
+  </Card>
+
+  <Card title="Como a Máquina Gira" icon="gears" href="/maquina/revops">
+  </Card>
+</CardGroup>

@@ -1,0 +1,49 @@
+---
+title: "Ferramentas de IA e Dados"
+sidebarTitle: "IA & Provedores"
+description: "As ferramentas de IA e provedores de dados que apoiam a operação — distintas dos copilotos que vivem no Workspace."
+icon: "robot"
+zone: "Interna"
+domain: "ferramentas"
+copilot: ["product"]
+status: "review"
+enables: "Distinguir as ferramentas de IA de infraestrutura dos copilotos do produto, e saber o papel de cada provedor de dados."
+owner: "Tecnologia / Dados"
+last_reviewed: "2026-07-05"
+agent_retrievable: false
+---
+
+<Info>
+  **Ao terminar esta página, você consegue:** separar as ferramentas de IA de infraestrutura dos copilotos do Workspace, e entender o papel dos provedores de dados.
+</Info>
+
+## Ficha
+
+- **O que é?** Ferramentas de IA (modelos, orquestração) e provedores de dados externos.
+- **Para que usamos?** Sustentar os copilotos, enriquecer dados, apoiar análise.
+- **Quem usa?** Tecnologia/Dados; o resultado chega ao usuário via [copilotos](/copilotos/os-copilotos).
+- **Quando usar?** Como camada técnica por trás da IA da operação.
+- **Quando NÃO usar?** Como se fossem os copilotos do produto — os copilotos vivem no [Workspace](/ferramentas/workspace/capacidades) e leem este Playbook.
+- **Como se integra ao Workspace?** Via [MCP/RAG](/ferramentas/workspace/developer-tech) — o RAG lê o Playbook.
+- **Fonte oficial de?** Nenhuma — são camada de processamento, não de verdade.
+- **Owner?** Tecnologia / Dados.
+
+<Warning>
+  PENDENTE DE VALIDAÇÃO OPERACIONAL — o inventário de ferramentas de IA e provedores de dados em uso deve ser confirmado por Tecnologia.
+</Warning>
+
+## Regras da casa aqui
+
+<Warning>
+  IA que responde sobre a Bloxs só usa fonte `agent_retrievable: true`. Provedor de dados externo não vira verdade sem validação. Ver [Guardrails de Recuperação](/copilotos/guardrails-de-recuperacao).
+</Warning>
+
+## Para onde ir agora
+
+<CardGroup cols={2}>
+  <Card title="Nossos Copilotos de IA" icon="robot" href="/copilotos/os-copilotos">
+  </Card>
+
+  <Card title="Camada Developer / Tech" icon="code" href="/ferramentas/workspace/developer-tech">
+  </Card>
+</CardGroup>

@@ -1,0 +1,73 @@
+---
+title: "Camada Developer / Tech do Workspace"
+sidebarTitle: "Developer / Tech"
+description: "Como API, MCP, Webhooks e segurança sustentam a operação — explicado pela ótica de negócio, não de desenvolvedor."
+icon: "code"
+zone: "Interna"
+domain: "ferramentas"
+copilot: ["product"]
+status: "review"
+enables: "Entender como as capacidades técnicas do Workspace (API, MCP, webhooks, IA/RAG) sustentam a operação da Bloxs e dos parceiros."
+owner: "Tecnologia"
+last_reviewed: "2026-07-05"
+agent_retrievable: false
+---
+
+<Info>
+  **Ao terminar esta página, você consegue:** explicar como a camada técnica do Workspace sustenta a operação — sem precisar ser desenvolvedor.
+</Info>
+
+## O que é isso
+
+A camada técnica do Workspace existe para **suportar a operação**, não para ser documentação de desenvolvedor. Aqui explicamos o que cada capacidade técnica habilita no negócio.
+
+<Warning>
+  PENDENTE DE VALIDAÇÃO OPERACIONAL — endpoints, contratos de API e escopos de integração precisam ser confirmados com Tecnologia. Esta página é operacional, não referência de API.
+</Warning>
+
+## O que cada capacidade habilita
+
+<AccordionGroup>
+  <Accordion title="API — a integração">
+    Permite que o Workspace troque dados com sistemas do parceiro e da Bloxs. Habilita operar em escala sem trabalho manual.
+  </Accordion>
+
+  <Accordion title="MCP — o acesso da IA">
+    Permite que agentes de IA acessem capacidades do Workspace de forma estruturada. É a ponte entre os [copilotos](/copilotos/os-copilotos) e a plataforma.
+  </Accordion>
+
+  <Accordion title="Webhooks & Eventos — o tempo real">
+    Permitem que uma ação no Workspace dispare processos em outros sistemas (ex.: atualizar [HubSpot](/ferramentas/infra/hubspot) quando um deal muda de estágio).
+  </Accordion>
+
+  <Accordion title="Autenticação & Segurança — a confiança">
+    Garantem que só quem deve acessa o que deve. Base do controle de perímetro no sistema.
+  </Accordion>
+
+  <Accordion title="IA & RAG — o conhecimento aplicado">
+    O RAG lê o Playbook como base de conhecimento. É por isso que os metadados (`agent_retrievable`, `enables`) importam: eles definem o que a IA pode recuperar e responder.
+  </Accordion>
+
+  <Accordion title="Ambientes & Integrações">
+    Separação entre teste e produção, e conexões com o stack de [infraestrutura](/ferramentas/infra/index).
+  </Accordion>
+</AccordionGroup>
+
+## Regras da casa aqui
+
+<Warning>
+  Acesso técnico não expande perímetro: uma API que expõe uma capacidade regulada não autoriza o parceiro a exercê-la sem habilitação. Dados sensíveis seguem as regras de segurança e [recordkeeping](/regras/recordkeeping).
+</Warning>
+
+## Para onde ir agora
+
+<CardGroup cols={2}>
+  <Card title="Nossos Copilotos de IA" icon="robot" href="/copilotos/os-copilotos">
+  </Card>
+
+  <Card title="Infraestrutura" icon="plug" href="/ferramentas/infra/index">
+  </Card>
+
+  <Card title="Como a Máquina Gira" icon="gears" href="/maquina/data-model">
+  </Card>
+</CardGroup>
