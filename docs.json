@@ -13,8 +13,7 @@
   },
   "logo": {
     "light": "/images/BLOXS_LOGOTIPO_LIGHT.svg",
-    "dark": "/images/BLOXS_LOGOTIPO_DARK.svg",
-    "href": "https://site.bloxs.com.br/pt-BR"
+    "dark": "/images/BLOXS_LOGOTIPO_DARK.svg"
   },
   "navbar": {
     "links": [
