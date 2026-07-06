@@ -32,7 +32,7 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Comece Aqui",
+        "tab": "Início",
         "groups": [
           {
             "group": "Comece Aqui",
@@ -43,10 +43,11 @@
               "comece-aqui/por-onde-comecar"
             ]
           }
-        ]
+        ],
+        "icon": "flag"
       },
       {
-        "tab": "Quem Somos & Como Ganhamos",
+        "tab": "A Bloxs",
         "groups": [
           {
             "group": "A Casa",
@@ -79,10 +80,11 @@
               "quem-somos/ecossistema/enterprise"
             ]
           }
-        ]
+        ],
+        "icon": "building-columns"
       },
       {
-        "tab": "Nossos Produtos",
+        "tab": "Produtos",
         "groups": [
           {
             "group": "Visão Geral",
@@ -138,10 +140,11 @@
               "produtos/perimetro/entidades-executoras"
             ]
           }
-        ]
+        ],
+        "icon": "box"
       },
       {
-        "tab": "Como Vendemos",
+        "tab": "Vendas",
         "groups": [
           {
             "group": "Visão Geral",
@@ -194,10 +197,11 @@
               "como-vendemos/catalogo/business-partners-kit"
             ]
           }
-        ]
+        ],
+        "icon": "handshake"
       },
       {
-        "tab": "Como Cuidamos das Contas",
+        "tab": "Contas",
         "groups": [
           {
             "group": "A Conta como Ativo",
@@ -244,10 +248,11 @@
               "contas/kpis-account"
             ]
           }
-        ]
+        ],
+        "icon": "user-tie"
       },
       {
-        "tab": "Como Fazemos um Deal",
+        "tab": "Deals",
         "groups": [
           {
             "group": "A Jornada",
@@ -282,10 +287,11 @@
               "deal/pos-closing"
             ]
           }
-        ]
+        ],
+        "icon": "file-signature"
       },
       {
-        "tab": "Nossas Ferramentas",
+        "tab": "Ferramentas",
         "groups": [
           {
             "group": "Visão Geral",
@@ -323,10 +329,11 @@
               "ferramentas/infra/ia-e-dados"
             ]
           }
-        ]
+        ],
+        "icon": "screwdriver-wrench"
       },
       {
-        "tab": "Como a Máquina Gira",
+        "tab": "Operação",
         "groups": [
           {
             "group": "RevOps & Dados",
@@ -337,10 +344,11 @@
               "maquina/hubspot"
             ]
           }
-        ]
+        ],
+        "icon": "gears"
       },
       {
-        "tab": "Como Aprender Aqui",
+        "tab": "Aprender",
         "groups": [
           {
             "group": "Onboarding & Trilhas",
@@ -351,10 +359,11 @@
               "aprender/certificacoes"
             ]
           }
-        ]
+        ],
+        "icon": "graduation-cap"
       },
       {
-        "tab": "Nossos Copilotos de IA",
+        "tab": "Copilotos",
         "groups": [
           {
             "group": "IA no Playbook",
@@ -365,10 +374,11 @@
               "copilotos/guardrails-de-recuperacao"
             ]
           }
-        ]
+        ],
+        "icon": "robot"
       },
       {
-        "tab": "Regras da Casa",
+        "tab": "Regras",
         "groups": [
           {
             "group": "Os Fundamentos",
@@ -418,7 +428,8 @@
               "regras/checklist-conduta"
             ]
           }
-        ]
+        ],
+        "icon": "scale-balanced"
       }
     ]
   },
