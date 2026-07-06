@@ -364,7 +364,57 @@
         ]
       },
       {
-        "tab": "Regras da Casa"
+        "tab": "Regras da Casa",
+        "groups": [
+          {
+            "group": "Os Fundamentos",
+            "icon": "scale-balanced",
+            "pages": [
+              "regras/index",
+              "regras/guardrails",
+              "regras/perimetro-regulatorio"
+            ]
+          },
+          {
+            "group": "O Perímetro na Prática",
+            "icon": "shield-halved",
+            "pages": [
+              "regras/originacao-vs-regulada",
+              "regras/distribuicao-e-oferta",
+              "regras/suitability",
+              "regras/promessas-proibidas"
+            ]
+          },
+          {
+            "group": "Comunicação",
+            "icon": "comments",
+            "pages": [
+              "regras/comunicacao-parceiros",
+              "regras/comunicacao-buy-side",
+              "regras/comunicacao-enterprise",
+              "regras/materiais-comerciais"
+            ]
+          },
+          {
+            "group": "Integridade & Dados",
+            "icon": "lock",
+            "pages": [
+              "regras/conflitos-de-interesse",
+              "regras/uso-de-ia",
+              "regras/dados-e-lgpd",
+              "regras/recordkeeping"
+            ]
+          },
+          {
+            "group": "Quando Parar",
+            "icon": "hand",
+            "pages": [
+              "regras/escalonamento",
+              "regras/red-flags",
+              "regras/checklist-conduta"
+            ]
+          }
+        ]
       }
     ]
   },
