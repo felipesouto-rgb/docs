@@ -281,7 +281,35 @@
         ]
       },
       {
-        "tab": "Nossas Ferramentas"
+        "tab": "Nossas Ferramentas",
+        "groups": [
+          {
+            "group": "Visão Geral",
+            "icon": "toolbox",
+            "pages": [
+              "ferramentas/index"
+            ]
+          },
+          {
+            "group": "Bloxs Workspace",
+            "icon": "grid-2",
+            "pages": [
+              "ferramentas/workspace/index",
+              "ferramentas/workspace/cadastro-parceiro",
+              "ferramentas/workspace/administracao",
+              "ferramentas/workspace/capacidades",
+              "ferramentas/workspace/enterprise-capabilities",
+              "ferramentas/workspace/add-ons",
+              "ferramentas/workspace/arquitetura-modular",
+              "ferramentas/workspace/developer-tech"
+            ]
+          },
+          {
+            "group": "Infraestrutura",
+            "icon": "server",
+            "pages": []
+          }
+        ]
       },
       {
         "tab": "Como a Máquina Gira"

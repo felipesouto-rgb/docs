@@ -1,0 +1,108 @@
+---
+title: "Capacidades Core do Workspace"
+sidebarTitle: "Capacidades (Core)"
+description: "As capacidades Core na ordem em que a jornada as revela — cada uma respondendo que problema resolve, quem usa e o que habilita."
+icon: "grip"
+zone: "Interna"
+domain: "ferramentas"
+copilot: ["product", "partner-success"]
+status: "review"
+enables: "Entender cada capacidade Core pela ótica de negócio — que problema resolve e quando aparece na jornada — em vez de decorar uma lista de módulos."
+owner: "Produto"
+last_reviewed: "2026-07-05"
+agent_retrievable: false
+---
+
+<Info>
+  **Ao terminar esta página, você consegue:** para cada capacidade Core, dizer que problema ela resolve, quem usa, em que momento da jornada aparece e o que ela habilita ou depende.
+</Info>
+
+## O que é isso
+
+As capacidades Core que todo parceiro recebe — apresentadas **na ordem em que a jornada as revela**, não como catálogo. Cada uma responde as cinco perguntas que definem uma capacidade de plataforma (não uma funcionalidade de software).
+
+<Warning>
+  PENDENTE DE VALIDAÇÃO OPERACIONAL — o comportamento detalhado de cada capacidade deve ser confirmado com Produto. Esta página descreve a função de negócio, não o passo-a-passo de tela.
+</Warning>
+
+## As capacidades, na ordem da jornada
+
+<AccordionGroup>
+  <Accordion title="CRM & Contas — passo 9 e 12: originar e atender">
+    - **Que problema resolve?** Dar ao parceiro um lugar único onde a relação (tomadores e investidores) vira registro operável, não memória.
+    - **Quem usa?** Comercial e contas do parceiro.
+    - **Quando aparece?** Ao originar o primeiro deal (passo 9) e ao atender investidores (passo 12).
+    - **Camada?** Core.
+    - **Habilita / depende?** Habilita Deals e Pipeline; depende do Workspace criado e configurado. Suporta [Como Cuidamos das Contas](/contas/index).
+  </Accordion>
+
+  <Accordion title="Deals — passo 9: transformar oportunidade em operação">
+    - **Que problema resolve?** Levar uma oportunidade pelos estágios de uma operação de mercado de capitais sem perder controle nem etapa.
+    - **Quem usa?** Parceiro (origina) e Bloxs (estrutura/coordena).
+    - **Quando aparece?** Ao originar o primeiro deal (passo 9).
+    - **Camada?** Core.
+    - **Habilita / depende?** Depende de CRM/Contas; habilita Pipeline e Distribuição. Espelha [Como Fazemos um Deal](/deal/index).
+  </Accordion>
+
+  <Accordion title="Pipeline — passo 10: enxergar o que está acontecendo">
+    - **Que problema resolve?** Dar visão do estado real de cada deal — onde está, o que falta, o que trava.
+    - **Quem usa?** Parceiro e Bloxs.
+    - **Quando aparece?** Ao acompanhar os deals (passo 10).
+    - **Camada?** Core.
+    - **Habilita / depende?** Depende de Deals; alimenta decisão e priorização. Reflete os estágios de [Como Fazemos um Deal](/deal/index).
+  </Accordion>
+
+  <Accordion title="Documentos & Data Room — passo 11: sustentar a operação com evidência">
+    - **Que problema resolve?** Organizar e compartilhar a documentação da operação com segurança e controle de acesso.
+    - **Quem usa?** Parceiro, Bloxs, investidores (no Data Room).
+    - **Quando aparece?** Ao distribuir uma operação (passo 11).
+    - **Camada?** Core.
+    - **Habilita / depende?** Depende do Deal estruturado; habilita a Distribuição. Suporta a [Documentação do Deal](/deal/documentacao). Não confundir com [Google Workspace](/ferramentas/infra/google-workspace).
+  </Accordion>
+
+  <Accordion title="Deal Match — passo 11: conectar oferta e apetite">
+    - **Que problema resolve?** Fazer a oportunidade do Sell Side encontrar o apetite do Buy Side.
+    - **Quem usa?** Parceiro (oferta) e Bloxs (coordenação).
+    - **Quando aparece?** Ao distribuir (passo 11).
+    - **Camada?** Core.
+    - **Habilita / depende?** Depende de Documentos/Data Room; conecta [Distribuição](/deal/coordenacao-colocacao) à demanda das [Contas Buy Side](/contas/contas-buy-side).
+  </Accordion>
+
+  <Accordion title="IA (base) — transversal: assistir a operação">
+    - **Que problema resolve?** Responder dúvidas e assistir decisões dentro do fluxo, lendo o Playbook como base.
+    - **Quem usa?** Todos, dentro do Workspace.
+    - **Quando aparece?** Em toda a jornada, sob demanda.
+    - **Camada?** Core (base); AI Premium é [Add-on](/ferramentas/workspace/add-ons).
+    - **Habilita / depende?** Depende de conteúdo `agent_retrievable`; habilita respostas confiáveis. Ver [Copilotos](/copilotos/os-copilotos).
+  </Accordion>
+
+  <Accordion title="Academy — passo 8: aprender a operar">
+    - **Que problema resolve?** Reduzir o tempo até o parceiro operar com autonomia.
+    - **Quem usa?** Parceiro em onboarding e equipe nova.
+    - **Quando aparece?** No onboarding (passo 8) e continuamente.
+    - **Camada?** Core.
+    - **Habilita / depende?** Habilita a ativação da conta. Conecta a [Como Aprender Aqui](/aprender/onboarding).
+  </Accordion>
+</AccordionGroup>
+
+## Regras da casa aqui
+
+<Warning>
+  Uma capacidade estar disponível não autoriza atividade regulada por conta própria. Emissão, coordenação e gestão seguem nas entidades Bloxs. Ver [O Perímetro](/produtos/perimetro/originacao-vs-atividade-regulada).
+</Warning>
+
+## Para onde ir agora
+
+<CardGroup cols={2}>
+  <Card title="Configuração & Administração" icon="users-gear" href="/ferramentas/workspace/administracao">
+  </Card>
+
+  <Card title="Enterprise Capabilities" icon="building" href="/ferramentas/workspace/enterprise-capabilities">
+  </Card>
+
+  <Card title="Como Fazemos um Deal" icon="diagram-project" href="/deal/index">
+  </Card>
+
+  <Card title="Como Cuidamos das Contas" icon="user-check" href="/contas/index">
+  </Card>
+</CardGroup>
