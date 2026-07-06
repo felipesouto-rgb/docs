@@ -1,16 +1,20 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "linden",
-  "name": "Bloxs Capital Markets OS",
+  "name": "Bloxs Capital Markets - Playbook",
   "colors": {
     "primary": "#033873",
     "light": "#2E61FF",
     "dark": "#033873"
   },
-  "favicon": "/favicon.svg",
+  "favicon": {
+    "light": "/images/BLOXS_AVATAR3.png",
+    "dark": "/images/BLOXS_AVATAR3.png"
+  },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/images/BLOXS_LOGOTIPO_LIGHT.svg",
+    "dark": "/images/BLOXS_LOGOTIPO_DARK.svg",
+    "href": "https://site.bloxs.com.br/pt-BR"
   },
   "navbar": {
     "links": [
