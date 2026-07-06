@@ -307,7 +307,17 @@
           {
             "group": "Infraestrutura",
             "icon": "server",
-            "pages": []
+            "pages": [
+              "ferramentas/infra/index",
+              "ferramentas/infra/hubspot",
+              "ferramentas/infra/whatsapp",
+              "ferramentas/infra/google-workspace",
+              "ferramentas/infra/clickup",
+              "ferramentas/infra/mintlify",
+              "ferramentas/infra/dados-e-bi",
+              "ferramentas/infra/dev-e-automacao",
+              "ferramentas/infra/ia-e-dados"
+            ]
           }
         ]
       },

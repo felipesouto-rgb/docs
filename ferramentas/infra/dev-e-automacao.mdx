@@ -1,0 +1,58 @@
+---
+title: "Desenvolvimento e Automação"
+sidebarTitle: "Dev & Automação"
+description: "GitHub, Make e n8n — versionamento de código e automação de integrações entre sistemas."
+icon: "code-branch"
+zone: "Interna"
+domain: "ferramentas"
+copilot: ["partner-success"]
+status: "review"
+enables: "Saber onde o código e o docs.json são versionados (GitHub) e como as integrações entre sistemas são automatizadas (Make/n8n)."
+owner: "Tecnologia"
+last_reviewed: "2026-07-05"
+agent_retrievable: false
+---
+
+<Info>
+  **Ao terminar esta página, você consegue:** saber onde vive o versionamento e como as automações conectam os sistemas da Bloxs.
+</Info>
+
+## GitHub
+
+- **O que é?** Versionamento de código e conteúdo.
+- **Para que usamos?** Código dos sistemas e o `docs.json`/MDX deste Playbook.
+- **Quem usa?** Tecnologia; edição do Playbook por Operações/RevOps.
+- **Quando usar?** Versionar código e conteúdo.
+- **Quando NÃO usar?** Como base de conhecimento para o usuário final — isso é o Playbook publicado.
+- **Fonte oficial de?** Código e histórico de versões (changelog).
+- **Owner?** Tecnologia.
+
+## Make / n8n
+
+- **O que é?** Ferramentas de automação de fluxos.
+- **Para que usamos?** Conectar sistemas — ex.: Workspace → [HubSpot](/ferramentas/infra/hubspot), disparos por evento.
+- **Quem usa?** RevOps/Tecnologia.
+- **Quando usar?** Automatizar integração entre sistemas.
+- **Quando NÃO usar?** Como lógica de negócio crítica sem governança — automação frágil vira risco.
+- **Fonte oficial de?** Nenhuma — move dado entre fontes.
+- **Owner?** RevOps / Tecnologia.
+
+<Warning>
+  PENDENTE DE VALIDAÇÃO OPERACIONAL — o inventário de automações ativas e seus donos deve ser confirmado por Tecnologia/RevOps.
+</Warning>
+
+## Regras da casa aqui
+
+<Warning>
+  Automação que move dado sensível segue as regras de segurança e [recordkeeping](/regras/recordkeeping). Automação não cria verdade — respeita a fonte única de cada dado.
+</Warning>
+
+## Para onde ir agora
+
+<CardGroup cols={2}>
+  <Card title="Camada Developer / Tech" icon="code" href="/ferramentas/workspace/developer-tech">
+  </Card>
+
+  <Card title="Como a Máquina Gira" icon="gears" href="/maquina/revops">
+  </Card>
+</CardGroup>
