@@ -32,386 +32,392 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Início",
-        "groups": [
+        "tab": "Bloxs Playbook",
+        "icon": "book-open",
+        "anchors": [
           {
-            "group": "Comece Aqui",
+            "anchor": "Início",
             "icon": "flag",
-            "pages": [
-              "comece-aqui/index",
-              "comece-aqui/como-navegar",
-              "comece-aqui/por-onde-comecar"
-            ]
-          }
-        ],
-        "icon": "flag"
-      },
-      {
-        "tab": "A Bloxs",
-        "groups": [
-          {
-            "group": "Sobre ",
-            "icon": "landmark",
-            "pages": [
-              "quem-somos/o-que-e-a-bloxs",
-              "quem-somos/manifesto",
-              "quem-somos/a-linhagem",
-              "quem-somos/os-principios",
-              "quem-somos/reputacao-acima-do-deal"
+            "groups": [
+              {
+                "group": "Comece Aqui",
+                "icon": "flag",
+                "pages": [
+                  "comece-aqui/index",
+                  "comece-aqui/como-navegar",
+                  "comece-aqui/por-onde-comecar"
+                ]
+              }
             ]
           },
           {
-            "group": "O Negócio",
-            "icon": "briefcase",
-            "pages": [
-              "quem-somos/o-que-e-ibaas",
-              "quem-somos/como-ganhamos-dinheiro",
-              "quem-somos/o-flywheel",
-              "quem-somos/vantagem-competitiva"
+            "anchor": "A Bloxs",
+            "icon": "building-columns",
+            "groups": [
+              {
+                "group": "A Casa",
+                "icon": "landmark",
+                "pages": [
+                  "quem-somos/o-que-e-a-bloxs",
+                  "quem-somos/manifesto",
+                  "quem-somos/a-linhagem",
+                  "quem-somos/os-principios",
+                  "quem-somos/reputacao-acima-do-deal"
+                ]
+              },
+              {
+                "group": "O Negócio",
+                "icon": "briefcase",
+                "pages": [
+                  "quem-somos/o-que-e-ibaas",
+                  "quem-somos/como-ganhamos-dinheiro",
+                  "quem-somos/o-flywheel",
+                  "quem-somos/vantagem-competitiva"
+                ]
+              },
+              {
+                "group": "O Ecossistema",
+                "icon": "globe",
+                "pages": [
+                  "quem-somos/ecossistema/visao-geral",
+                  "quem-somos/ecossistema/sell-side",
+                  "quem-somos/ecossistema/buy-side",
+                  "quem-somos/ecossistema/enterprise"
+                ]
+              }
             ]
           },
           {
-            "group": "O Ecossistema",
-            "icon": "globe",
-            "pages": [
-              "quem-somos/ecossistema/visao-geral",
-              "quem-somos/ecossistema/sell-side",
-              "quem-somos/ecossistema/buy-side",
-              "quem-somos/ecossistema/enterprise"
-            ]
-          }
-        ],
-        "icon": "building-columns"
-      },
-      {
-        "tab": "Produtos",
-        "groups": [
-          {
-            "group": "Visão Geral",
-            "icon": "layers",
-            "pages": [
-              "produtos/index"
+            "anchor": "Produtos",
+            "icon": "box",
+            "groups": [
+              {
+                "group": "Visão Geral",
+                "icon": "layers",
+                "pages": [
+                  "produtos/index"
+                ]
+              },
+              {
+                "group": "Antes de Estruturar",
+                "icon": "clipboard-check",
+                "pages": [
+                  "produtos/fundability-test",
+                  "produtos/selection-matrix"
+                ]
+              },
+              {
+                "group": "Securitização",
+                "icon": "file-signature",
+                "pages": [
+                  "produtos/cr",
+                  "produtos/cri",
+                  "produtos/cra"
+                ]
+              },
+              {
+                "group": "Fundos",
+                "icon": "container",
+                "pages": [
+                  "produtos/fidc",
+                  "produtos/fidc-multiclasse",
+                  "produtos/fip",
+                  "produtos/fii",
+                  "produtos/fiagro",
+                  "produtos/fif"
+                ]
+              },
+              {
+                "group": "Dívida Corporativa & Digital",
+                "icon": "file-text",
+                "pages": [
+                  "produtos/debenture",
+                  "produtos/nota-comercial",
+                  "produtos/digital-assets"
+                ]
+              },
+              {
+                "group": "O Perímetro",
+                "icon": "shield-check",
+                "pages": [
+                  "produtos/perimetro/originacao-vs-atividade-regulada",
+                  "produtos/perimetro/conduta-por-perfil",
+                  "produtos/perimetro/entidades-executoras"
+                ]
+              }
             ]
           },
           {
-            "group": "Antes de Estruturar",
-            "icon": "clipboard-check",
-            "pages": [
-              "produtos/fundability-test",
-              "produtos/selection-matrix"
-            ]
-          },
-          {
-            "group": "Securitização",
-            "icon": "file-signature",
-            "pages": [
-              "produtos/cr",
-              "produtos/cri",
-              "produtos/cra"
-            ]
-          },
-          {
-            "group": "Fundos",
-            "icon": "container",
-            "pages": [
-              "produtos/fidc",
-              "produtos/fidc-multiclasse",
-              "produtos/fip",
-              "produtos/fii",
-              "produtos/fiagro",
-              "produtos/fif"
-            ]
-          },
-          {
-            "group": "Dívida Corporativa & Digital",
-            "icon": "file-text",
-            "pages": [
-              "produtos/debenture",
-              "produtos/nota-comercial",
-              "produtos/digital-assets"
-            ]
-          },
-          {
-            "group": "O Perímetro",
-            "icon": "shield-check",
-            "pages": [
-              "produtos/perimetro/originacao-vs-atividade-regulada",
-              "produtos/perimetro/conduta-por-perfil",
-              "produtos/perimetro/entidades-executoras"
-            ]
-          }
-        ],
-        "icon": "box"
-      },
-      {
-        "tab": "Vendas",
-        "groups": [
-          {
-            "group": "Visão Geral",
+            "anchor": "Vendas",
             "icon": "handshake",
-            "pages": [
-              "como-vendemos/index"
+            "groups": [
+              {
+                "group": "Visão Geral",
+                "icon": "handshake",
+                "pages": [
+                  "como-vendemos/index"
+                ]
+              },
+              {
+                "group": "Originar & Rotear",
+                "icon": "route",
+                "pages": [
+                  "como-vendemos/icp-e-segmentacao",
+                  "como-vendemos/partner-routing-matrix",
+                  "como-vendemos/qualificacao"
+                ]
+              },
+              {
+                "group": "Descobrir & Diagnosticar",
+                "icon": "stethoscope",
+                "pages": [
+                  "como-vendemos/discovery-call",
+                  "como-vendemos/diagnostico",
+                  "como-vendemos/apresentar-ibaas"
+                ]
+              },
+              {
+                "group": "Converter & Fechar",
+                "icon": "circle-check-big",
+                "pages": [
+                  "como-vendemos/objecoes",
+                  "como-vendemos/proposta",
+                  "como-vendemos/precificacao",
+                  "como-vendemos/handoff",
+                  "como-vendemos/follow-up",
+                  "como-vendemos/registro-plataforma",
+                  "como-vendemos/frases-seguras"
+                ]
+              },
+              {
+                "group": "Catálogo Comercial",
+                "icon": "book-open",
+                "pages": [
+                  "como-vendemos/catalogo/index",
+                  "como-vendemos/catalogo/cr-plataforma",
+                  "como-vendemos/catalogo/consultoria-fidc-360",
+                  "como-vendemos/catalogo/fundos-on-demand",
+                  "como-vendemos/catalogo/ibaas-workspace",
+                  "como-vendemos/catalogo/coordenacao-distribuicao",
+                  "como-vendemos/catalogo/business-partners-kit"
+                ]
+              }
             ]
           },
           {
-            "group": "Originar & Rotear",
-            "icon": "route",
-            "pages": [
-              "como-vendemos/icp-e-segmentacao",
-              "como-vendemos/partner-routing-matrix",
-              "como-vendemos/qualificacao"
+            "anchor": "Contas",
+            "icon": "user-tie",
+            "groups": [
+              {
+                "group": "A Conta como Ativo",
+                "icon": "gem",
+                "pages": [
+                  "contas/index",
+                  "contas/account-lifecycle",
+                  "contas/pos-closing-para-account"
+                ]
+              },
+              {
+                "group": "Ativar & Cuidar",
+                "icon": "heart-handshake",
+                "pages": [
+                  "contas/onboarding",
+                  "contas/health-score",
+                  "contas/mapa-relacionamento",
+                  "contas/qbr"
+                ]
+              },
+              {
+                "group": "Expandir & Reter",
+                "icon": "trending-up",
+                "pages": [
+                  "contas/plano-de-expansao",
+                  "contas/playbook-reativacao",
+                  "contas/red-flags-encerramento"
+                ]
+              },
+              {
+                "group": "Por Tipo de Conta",
+                "icon": "users",
+                "pages": [
+                  "contas/contas-sell-side",
+                  "contas/contas-buy-side",
+                  "contas/contas-enterprise"
+                ]
+              },
+              {
+                "group": "Registro & Medição",
+                "icon": "chart-bar",
+                "pages": [
+                  "contas/registro-conta",
+                  "contas/kpis-account"
+                ]
+              }
             ]
           },
           {
-            "group": "Descobrir & Diagnosticar",
-            "icon": "stethoscope",
-            "pages": [
-              "como-vendemos/discovery-call",
-              "como-vendemos/diagnostico",
-              "como-vendemos/apresentar-ibaas"
+            "anchor": "Deals",
+            "icon": "file-signature",
+            "groups": [
+              {
+                "group": "A Jornada",
+                "icon": "route",
+                "pages": [
+                  "deal/index"
+                ]
+              },
+              {
+                "group": "Originar & Mandatar",
+                "icon": "file-import",
+                "pages": [
+                  "deal/intake"
+                ]
+              },
+              {
+                "group": "Estruturar",
+                "icon": "drafting-compass",
+                "pages": [
+                  "deal/estruturacao",
+                  "deal/modelagem",
+                  "deal/comites",
+                  "deal/documentacao"
+                ]
+              },
+              {
+                "group": "Colocar & Fechar",
+                "icon": "flag-checkered",
+                "pages": [
+                  "deal/coordenacao-colocacao",
+                  "deal/liquidacao",
+                  "deal/pos-closing"
+                ]
+              }
             ]
           },
           {
-            "group": "Converter & Fechar",
-            "icon": "circle-check-big",
-            "pages": [
-              "como-vendemos/objecoes",
-              "como-vendemos/proposta",
-              "como-vendemos/precificacao",
-              "como-vendemos/handoff",
-              "como-vendemos/follow-up",
-              "como-vendemos/registro-plataforma",
-              "como-vendemos/frases-seguras"
+            "anchor": "Plataforma",
+            "icon": "layer-group",
+            "groups": [
+              {
+                "group": "Visão Geral",
+                "icon": "toolbox",
+                "pages": [
+                  "ferramentas/index"
+                ]
+              },
+              {
+                "group": "Bloxs Workspace",
+                "icon": "grid-2",
+                "pages": [
+                  "ferramentas/workspace/index",
+                  "ferramentas/workspace/cadastro-parceiro",
+                  "ferramentas/workspace/administracao",
+                  "ferramentas/workspace/capacidades",
+                  "ferramentas/workspace/enterprise-capabilities",
+                  "ferramentas/workspace/add-ons",
+                  "ferramentas/workspace/arquitetura-modular",
+                  "ferramentas/workspace/developer-tech"
+                ]
+              },
+              {
+                "group": "Infraestrutura",
+                "icon": "server",
+                "pages": [
+                  "ferramentas/infra/index",
+                  "ferramentas/infra/hubspot",
+                  "ferramentas/infra/whatsapp",
+                  "ferramentas/infra/google-workspace",
+                  "ferramentas/infra/clickup",
+                  "ferramentas/infra/mintlify",
+                  "ferramentas/infra/dados-e-bi",
+                  "ferramentas/infra/dev-e-automacao",
+                  "ferramentas/infra/ia-e-dados"
+                ]
+              },
+              {
+                "group": "RevOps & Dados",
+                "icon": "gears",
+                "pages": [
+                  "maquina/revops",
+                  "maquina/data-model",
+                  "maquina/hubspot"
+                ]
+              },
+              {
+                "group": "IA no Playbook",
+                "icon": "robot",
+                "pages": [
+                  "copilotos/os-copilotos",
+                  "copilotos/contrato-de-metadados",
+                  "copilotos/guardrails-de-recuperacao"
+                ]
+              }
             ]
           },
           {
-            "group": "Catálogo Comercial",
-            "icon": "book-open",
-            "pages": [
-              "como-vendemos/catalogo/index",
-              "como-vendemos/catalogo/cr-plataforma",
-              "como-vendemos/catalogo/consultoria-fidc-360",
-              "como-vendemos/catalogo/fundos-on-demand",
-              "como-vendemos/catalogo/ibaas-workspace",
-              "como-vendemos/catalogo/coordenacao-distribuicao",
-              "como-vendemos/catalogo/business-partners-kit"
-            ]
-          }
-        ],
-        "icon": "handshake"
-      },
-      {
-        "tab": "Contas",
-        "groups": [
-          {
-            "group": "A Conta como Ativo",
-            "icon": "gem",
-            "pages": [
-              "contas/index",
-              "contas/account-lifecycle",
-              "contas/pos-closing-para-account"
-            ]
-          },
-          {
-            "group": "Ativar & Cuidar",
-            "icon": "heart-handshake",
-            "pages": [
-              "contas/onboarding",
-              "contas/health-score",
-              "contas/mapa-relacionamento",
-              "contas/qbr"
-            ]
-          },
-          {
-            "group": "Expandir & Reter",
-            "icon": "trending-up",
-            "pages": [
-              "contas/plano-de-expansao",
-              "contas/playbook-reativacao",
-              "contas/red-flags-encerramento"
-            ]
-          },
-          {
-            "group": "Por Tipo de Conta",
-            "icon": "users",
-            "pages": [
-              "contas/contas-sell-side",
-              "contas/contas-buy-side",
-              "contas/contas-enterprise"
-            ]
-          },
-          {
-            "group": "Registro & Medição",
-            "icon": "chart-bar",
-            "pages": [
-              "contas/registro-conta",
-              "contas/kpis-account"
-            ]
-          }
-        ],
-        "icon": "user-tie"
-      },
-      {
-        "tab": "Deals",
-        "groups": [
-          {
-            "group": "A Jornada",
-            "icon": "route",
-            "pages": [
-              "deal/index"
-            ]
-          },
-          {
-            "group": "Originar & Mandatar",
-            "icon": "file-import",
-            "pages": [
-              "deal/intake"
-            ]
-          },
-          {
-            "group": "Estruturar",
-            "icon": "drafting-compass",
-            "pages": [
-              "deal/estruturacao",
-              "deal/modelagem",
-              "deal/comites",
-              "deal/documentacao"
-            ]
-          },
-          {
-            "group": "Colocar & Fechar",
-            "icon": "flag-checkered",
-            "pages": [
-              "deal/coordenacao-colocacao",
-              "deal/liquidacao",
-              "deal/pos-closing"
-            ]
-          }
-        ],
-        "icon": "file-signature"
-      },
-      {
-        "tab": "Plataforma",
-        "groups": [
-          {
-            "group": "Visão Geral",
-            "icon": "toolbox",
-            "pages": [
-              "ferramentas/index"
-            ]
-          },
-          {
-            "group": "Bloxs Workspace",
-            "icon": "grid-2",
-            "pages": [
-              "ferramentas/workspace/index",
-              "ferramentas/workspace/cadastro-parceiro",
-              "ferramentas/workspace/administracao",
-              "ferramentas/workspace/capacidades",
-              "ferramentas/workspace/enterprise-capabilities",
-              "ferramentas/workspace/add-ons",
-              "ferramentas/workspace/arquitetura-modular",
-              "ferramentas/workspace/developer-tech"
-            ]
-          },
-          {
-            "group": "Infraestrutura",
-            "icon": "server",
-            "pages": [
-              "ferramentas/infra/index",
-              "ferramentas/infra/hubspot",
-              "ferramentas/infra/whatsapp",
-              "ferramentas/infra/google-workspace",
-              "ferramentas/infra/clickup",
-              "ferramentas/infra/mintlify",
-              "ferramentas/infra/dados-e-bi",
-              "ferramentas/infra/dev-e-automacao",
-              "ferramentas/infra/ia-e-dados"
-            ]
-          },
-          {
-            "group": "RevOps & Dados",
-            "icon": "gears",
-            "pages": [
-              "maquina/revops",
-              "maquina/data-model",
-              "maquina/hubspot"
-            ]
-          },
-          {
-            "group": "IA no Playbook",
-            "icon": "robot",
-            "pages": [
-              "copilotos/os-copilotos",
-              "copilotos/contrato-de-metadados",
-              "copilotos/guardrails-de-recuperacao"
-            ]
-          }
-        ],
-        "icon": "layer-group"
-      },
-      {
-        "tab": "Governança",
-        "groups": [
-          {
-            "group": "Os Fundamentos",
+            "anchor": "Governança",
             "icon": "scale-balanced",
-            "pages": [
-              "regras/index",
-              "regras/guardrails",
-              "regras/perimetro-regulatorio"
-            ]
-          },
-          {
-            "group": "O Perímetro na Prática",
-            "icon": "shield-halved",
-            "pages": [
-              "regras/originacao-vs-regulada",
-              "regras/distribuicao-e-oferta",
-              "regras/suitability",
-              "regras/promessas-proibidas"
-            ]
-          },
-          {
-            "group": "Comunicação",
-            "icon": "comments",
-            "pages": [
-              "regras/comunicacao-parceiros",
-              "regras/comunicacao-buy-side",
-              "regras/comunicacao-enterprise",
-              "regras/materiais-comerciais"
-            ]
-          },
-          {
-            "group": "Integridade & Dados",
-            "icon": "lock",
-            "pages": [
-              "regras/conflitos-de-interesse",
-              "regras/uso-de-ia",
-              "regras/dados-e-lgpd",
-              "regras/recordkeeping"
-            ]
-          },
-          {
-            "group": "Quando Parar",
-            "icon": "hand",
-            "pages": [
-              "regras/escalonamento",
-              "regras/red-flags",
-              "regras/checklist-conduta"
-            ]
-          },
-          {
-            "group": "Onboarding & Trilhas",
-            "icon": "graduation-cap",
-            "pages": [
-              "aprender/onboarding",
-              "aprender/trilhas-por-funcao",
-              "aprender/certificacoes"
+            "groups": [
+              {
+                "group": "Os Fundamentos",
+                "icon": "scale-balanced",
+                "pages": [
+                  "regras/index",
+                  "regras/guardrails",
+                  "regras/perimetro-regulatorio"
+                ]
+              },
+              {
+                "group": "O Perímetro na Prática",
+                "icon": "shield-halved",
+                "pages": [
+                  "regras/originacao-vs-regulada",
+                  "regras/distribuicao-e-oferta",
+                  "regras/suitability",
+                  "regras/promessas-proibidas"
+                ]
+              },
+              {
+                "group": "Comunicação",
+                "icon": "comments",
+                "pages": [
+                  "regras/comunicacao-parceiros",
+                  "regras/comunicacao-buy-side",
+                  "regras/comunicacao-enterprise",
+                  "regras/materiais-comerciais"
+                ]
+              },
+              {
+                "group": "Integridade & Dados",
+                "icon": "lock",
+                "pages": [
+                  "regras/conflitos-de-interesse",
+                  "regras/uso-de-ia",
+                  "regras/dados-e-lgpd",
+                  "regras/recordkeeping"
+                ]
+              },
+              {
+                "group": "Quando Parar",
+                "icon": "hand",
+                "pages": [
+                  "regras/escalonamento",
+                  "regras/red-flags",
+                  "regras/checklist-conduta"
+                ]
+              },
+              {
+                "group": "Onboarding & Trilhas",
+                "icon": "graduation-cap",
+                "pages": [
+                  "aprender/onboarding",
+                  "aprender/trilhas-por-funcao",
+                  "aprender/certificacoes"
+                ]
+              }
             ]
           }
-        ],
-        "icon": "scale-balanced"
+        ]
       }
     ]
   },
