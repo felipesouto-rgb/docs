@@ -243,7 +243,42 @@
         ]
       },
       {
-        "tab": "Como Fazemos um Deal"
+        "tab": "Como Fazemos um Deal",
+        "groups": [
+          {
+            "group": "A Jornada",
+            "icon": "route",
+            "pages": [
+              "deal/index"
+            ]
+          },
+          {
+            "group": "Originar & Mandatar",
+            "icon": "file-import",
+            "pages": [
+              "deal/intake"
+            ]
+          },
+          {
+            "group": "Estruturar",
+            "icon": "drafting-compass",
+            "pages": [
+              "deal/estruturacao",
+              "deal/modelagem",
+              "deal/comites",
+              "deal/documentacao"
+            ]
+          },
+          {
+            "group": "Colocar & Fechar",
+            "icon": "flag-checkered",
+            "pages": [
+              "deal/coordenacao-colocacao",
+              "deal/liquidacao",
+              "deal/pos-closing"
+            ]
+          }
+        ]
       },
       {
         "tab": "Nossas Ferramentas"
