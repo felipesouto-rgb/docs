@@ -1,38 +1,21 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "linden",
-  "name": "Bloxs Capital Markets OS",
+  "theme": "mint",
+  "name": "Bloxs Playbook",
   "colors": {
     "primary": "#033873",
     "light": "#2E61FF",
     "dark": "#033873"
   },
-  "favicon": "/favicon.svg",
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Suporte",
-        "href": "mailto:contato@bloxs.com.br"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Acessar Plataforma",
-      "href": "https://app.bloxs.com.br"
-    }
-  },
+  "favicon": "/favicon.png",
   "navigation": {
-    "tabs": [
+    "anchors": [
       {
-        "tab": "Comece Aqui",
+        "anchor": "Início",
+        "icon": "flag",
         "groups": [
           {
             "group": "Comece Aqui",
-            "icon": "flag",
             "pages": [
               "comece-aqui/index",
               "comece-aqui/como-navegar",
@@ -42,11 +25,11 @@
         ]
       },
       {
-        "tab": "Quem Somos & Como Ganhamos",
+        "anchor": "A Bloxs",
+        "icon": "building-columns",
         "groups": [
           {
             "group": "A Casa",
-            "icon": "landmark",
             "pages": [
               "quem-somos/o-que-e-a-bloxs",
               "quem-somos/manifesto",
@@ -57,7 +40,6 @@
           },
           {
             "group": "O Negócio",
-            "icon": "briefcase",
             "pages": [
               "quem-somos/o-que-e-ibaas",
               "quem-somos/como-ganhamos-dinheiro",
@@ -67,7 +49,6 @@
           },
           {
             "group": "O Ecossistema",
-            "icon": "globe",
             "pages": [
               "quem-somos/ecossistema/visao-geral",
               "quem-somos/ecossistema/sell-side",
@@ -78,18 +59,11 @@
         ]
       },
       {
-        "tab": "Nossos Produtos",
+        "anchor": "Produtos",
+        "icon": "box",
         "groups": [
           {
-            "group": "Visão Geral",
-            "icon": "layers",
-            "pages": [
-              "produtos/index"
-            ]
-          },
-          {
             "group": "Antes de Estruturar",
-            "icon": "clipboard-check",
             "pages": [
               "produtos/fundability-test",
               "produtos/selection-matrix"
@@ -97,7 +71,6 @@
           },
           {
             "group": "Securitização",
-            "icon": "file-signature",
             "pages": [
               "produtos/cr",
               "produtos/cri",
@@ -106,28 +79,16 @@
           },
           {
             "group": "Fundos",
-            "icon": "container",
             "pages": [
               "produtos/fidc",
               "produtos/fidc-multiclasse",
               "produtos/fip",
               "produtos/fii",
-              "produtos/fiagro",
-              "produtos/fif"
-            ]
-          },
-          {
-            "group": "Dívida Corporativa & Digital",
-            "icon": "file-text",
-            "pages": [
-              "produtos/debenture",
-              "produtos/nota-comercial",
-              "produtos/digital-assets"
+              "produtos/fiagro"
             ]
           },
           {
             "group": "O Perímetro",
-            "icon": "shield-check",
             "pages": [
               "produtos/perimetro/originacao-vs-atividade-regulada",
               "produtos/perimetro/conduta-por-perfil",
@@ -137,18 +98,17 @@
         ]
       },
       {
-        "tab": "Como Vendemos",
+        "anchor": "Vendas",
+        "icon": "handshake",
         "groups": [
           {
             "group": "Visão Geral",
-            "icon": "handshake",
             "pages": [
               "como-vendemos/index"
             ]
           },
           {
             "group": "Originar & Rotear",
-            "icon": "route",
             "pages": [
               "como-vendemos/icp-e-segmentacao",
               "como-vendemos/partner-routing-matrix",
@@ -157,7 +117,6 @@
           },
           {
             "group": "Descobrir & Diagnosticar",
-            "icon": "stethoscope",
             "pages": [
               "como-vendemos/discovery-call",
               "como-vendemos/diagnostico",
@@ -166,7 +125,6 @@
           },
           {
             "group": "Converter & Fechar",
-            "icon": "circle-check-big",
             "pages": [
               "como-vendemos/objecoes",
               "como-vendemos/proposta",
@@ -179,7 +137,6 @@
           },
           {
             "group": "Catálogo Comercial",
-            "icon": "book-open",
             "pages": [
               "como-vendemos/catalogo/index",
               "como-vendemos/catalogo/cr-plataforma",
@@ -193,11 +150,11 @@
         ]
       },
       {
-        "tab": "Como Cuidamos das Contas",
+        "anchor": "Contas",
+        "icon": "user-tie",
         "groups": [
           {
             "group": "A Conta como Ativo",
-            "icon": "gem",
             "pages": [
               "contas/index",
               "contas/account-lifecycle",
@@ -206,7 +163,6 @@
           },
           {
             "group": "Ativar & Cuidar",
-            "icon": "heart-handshake",
             "pages": [
               "contas/onboarding",
               "contas/health-score",
@@ -216,7 +172,6 @@
           },
           {
             "group": "Expandir & Reter",
-            "icon": "trending-up",
             "pages": [
               "contas/plano-de-expansao",
               "contas/playbook-reativacao",
@@ -225,7 +180,6 @@
           },
           {
             "group": "Por Tipo de Conta",
-            "icon": "users",
             "pages": [
               "contas/contas-sell-side",
               "contas/contas-buy-side",
@@ -234,7 +188,6 @@
           },
           {
             "group": "Registro & Medição",
-            "icon": "chart-bar",
             "pages": [
               "contas/registro-conta",
               "contas/kpis-account"
@@ -243,25 +196,23 @@
         ]
       },
       {
-        "tab": "Como Fazemos um Deal",
+        "anchor": "Deals",
+        "icon": "file-signature",
         "groups": [
           {
             "group": "A Jornada",
-            "icon": "route",
             "pages": [
               "deal/index"
             ]
           },
           {
             "group": "Originar & Mandatar",
-            "icon": "file-import",
             "pages": [
               "deal/intake"
             ]
           },
           {
             "group": "Estruturar",
-            "icon": "drafting-compass",
             "pages": [
               "deal/estruturacao",
               "deal/modelagem",
@@ -271,7 +222,6 @@
           },
           {
             "group": "Colocar & Fechar",
-            "icon": "flag-checkered",
             "pages": [
               "deal/coordenacao-colocacao",
               "deal/liquidacao",
@@ -281,18 +231,17 @@
         ]
       },
       {
-        "tab": "Nossas Ferramentas",
+        "anchor": "Ferramentas",
+        "icon": "screwdriver-wrench",
         "groups": [
           {
             "group": "Visão Geral",
-            "icon": "toolbox",
             "pages": [
               "ferramentas/index"
             ]
           },
           {
             "group": "Bloxs Workspace",
-            "icon": "grid-2",
             "pages": [
               "ferramentas/workspace/index",
               "ferramentas/workspace/cadastro-parceiro",
@@ -306,7 +255,6 @@
           },
           {
             "group": "Infraestrutura",
-            "icon": "server",
             "pages": [
               "ferramentas/infra/index",
               "ferramentas/infra/hubspot",
@@ -322,11 +270,11 @@
         ]
       },
       {
-        "tab": "Como a Máquina Gira",
+        "anchor": "Operação",
+        "icon": "gears",
         "groups": [
           {
             "group": "RevOps & Dados",
-            "icon": "gears",
             "pages": [
               "maquina/revops",
               "maquina/data-model",
@@ -336,11 +284,11 @@
         ]
       },
       {
-        "tab": "Como Aprender Aqui",
+        "anchor": "Aprender",
+        "icon": "graduation-cap",
         "groups": [
           {
             "group": "Onboarding & Trilhas",
-            "icon": "graduation-cap",
             "pages": [
               "aprender/onboarding",
               "aprender/trilhas-por-funcao",
@@ -350,11 +298,11 @@
         ]
       },
       {
-        "tab": "Nossos Copilotos de IA",
+        "anchor": "Copilotos",
+        "icon": "robot",
         "groups": [
           {
             "group": "IA no Playbook",
-            "icon": "robot",
             "pages": [
               "copilotos/os-copilotos",
               "copilotos/contrato-de-metadados",
@@ -364,11 +312,11 @@
         ]
       },
       {
-        "tab": "Regras da Casa",
+        "anchor": "Regras",
+        "icon": "scale-balanced",
         "groups": [
           {
             "group": "Os Fundamentos",
-            "icon": "scale-balanced",
             "pages": [
               "regras/index",
               "regras/guardrails",
@@ -377,7 +325,6 @@
           },
           {
             "group": "O Perímetro na Prática",
-            "icon": "shield-halved",
             "pages": [
               "regras/originacao-vs-regulada",
               "regras/distribuicao-e-oferta",
@@ -387,7 +334,6 @@
           },
           {
             "group": "Comunicação",
-            "icon": "comments",
             "pages": [
               "regras/comunicacao-parceiros",
               "regras/comunicacao-buy-side",
@@ -397,7 +343,6 @@
           },
           {
             "group": "Integridade & Dados",
-            "icon": "lock",
             "pages": [
               "regras/conflitos-de-interesse",
               "regras/uso-de-ia",
@@ -407,7 +352,6 @@
           },
           {
             "group": "Quando Parar",
-            "icon": "hand",
             "pages": [
               "regras/escalonamento",
               "regras/red-flags",
@@ -417,30 +361,5 @@
         ]
       }
     ]
-  },
-  "footer": {
-    "socials": {
-      "linkedin": "https://www.linkedin.com/company/bloxs"
-    }
-  },
-  "appearance": {
-    "default": "light"
-  },
-  "background": {
-    "color": {
-      "light": "#FAFAF8",
-      "dark": "#0E1524"
-    }
-  },
-  "fonts": {
-    "heading": {
-      "family": "EB Garamond"
-    },
-    "body": {
-      "family": "Inter"
-    }
-  },
-  "icons": {
-    "library": "lucide"
   }
 }
