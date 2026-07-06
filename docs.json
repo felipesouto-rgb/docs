@@ -78,7 +78,63 @@
         ]
       },
       {
-        "tab": "Nossos Produtos"
+        "tab": "Nossos Produtos",
+        "groups": [
+          {
+            "group": "Visão Geral",
+            "icon": "layers",
+            "pages": [
+              "produtos/index"
+            ]
+          },
+          {
+            "group": "Antes de Estruturar",
+            "icon": "clipboard-check",
+            "pages": [
+              "produtos/fundability-test",
+              "produtos/selection-matrix"
+            ]
+          },
+          {
+            "group": "Securitização",
+            "icon": "file-signature",
+            "pages": [
+              "produtos/cr",
+              "produtos/cri",
+              "produtos/cra"
+            ]
+          },
+          {
+            "group": "Fundos",
+            "icon": "container",
+            "pages": [
+              "produtos/fidc",
+              "produtos/fidc-multiclasse",
+              "produtos/fip",
+              "produtos/fii",
+              "produtos/fiagro",
+              "produtos/fif"
+            ]
+          },
+          {
+            "group": "Dívida Corporativa & Digital",
+            "icon": "file-text",
+            "pages": [
+              "produtos/debenture",
+              "produtos/nota-comercial",
+              "produtos/digital-assets"
+            ]
+          },
+          {
+            "group": "O Perímetro",
+            "icon": "shield-check",
+            "pages": [
+              "produtos/perimetro/originacao-vs-atividade-regulada",
+              "produtos/perimetro/conduta-por-perfil",
+              "produtos/perimetro/entidades-executoras"
+            ]
+          }
+        ]
       },
       {
         "tab": "Como Vendemos"
