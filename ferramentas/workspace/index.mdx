@@ -65,6 +65,36 @@ flowchart TD
   Repare: os módulos (CRM, Pipeline, Data Room) não são o ponto de partida — eles **aparecem quando a jornada precisa deles**. O parceiro não "aprende o CRM"; ele origina um deal, e o CRM é o que torna isso possível.
 </Info>
 
+## O que o Workspace precisa ensinar
+
+O Workspace não deve ser apresentado como lista de telas. Ele é o manual vivo de operação do IBaaS em software. Cada capacidade precisa responder a seis perguntas:
+
+| Pergunta | Função |
+| --- | --- |
+| Qual problema operacional resolve? | Define por que a capacidade existe |
+| Quem usa? | Separa parceiro, Bloxs, Enterprise, mesa, operações e devs |
+| Em qual momento da jornada aparece? | Evita feature solta sem contexto |
+| Qual dado vira fonte de verdade? | Define registro, auditoria e automação |
+| Qual decisão habilita? | Mostra valor prático da capacidade |
+| Qual risco reduz? | Conecta produto a governança |
+
+<Info>
+  A plataforma só é IBaaS se reduzir fricção operacional **e** preservar perímetro regulatório. Feature que gera escala mas enfraquece governança não é capacidade institucional.
+</Info>
+
+## Fonte de verdade e trilha operacional
+
+A jornada do Workspace deve deixar claro onde cada verdade vive:
+
+| Objeto | Fonte de verdade esperada | Uso |
+| --- | --- | --- |
+| Parceiro | Workspace / cadastro de conta | Homologação, permissões e contrato |
+| Conta B2B | Account OS / CRM operacional | Recorrência, expansão, relacionamento e health score |
+| Deal | Pipeline / Deal OS | Estágio, dono, decisão pendente e histórico |
+| Documento | Data Room / repositório controlado | Evidência, versão e aprovação |
+| Investidor | Módulo buy side, quando aplicável | Suitability, relacionamento e distribuição autorizada |
+| Evento | Logs, webhooks e automações | Auditoria, notificações e integrações |
+
 ## A plataforma é modular
 
 A jornada revela três camadas de capacidade. Documentadas em detalhe em:
