@@ -145,25 +145,19 @@
             "icon": "handshake",
             "groups": [
               {
-                "group": "Operação B2B",
+                "group": "Visão Geral",
                 "icon": "handshake",
                 "pages": [
                   "como-vendemos/index"
                 ]
               },
               {
-                "group": "Originar & Rotear",
+                "group": "Originar & Qualificar",
                 "icon": "route",
                 "pages": [
                   "como-vendemos/icp-e-segmentacao",
                   "como-vendemos/partner-routing-matrix",
-                  "como-vendemos/qualificacao"
-                ]
-              },
-              {
-                "group": "Descobrir & Diagnosticar",
-                "icon": "stethoscope",
-                "pages": [
+                  "como-vendemos/qualificacao",
                   "como-vendemos/discovery-call",
                   "como-vendemos/diagnostico",
                   "como-vendemos/apresentar-ibaas"
@@ -211,20 +205,14 @@
                   "contas/onboarding",
                   "contas/health-score",
                   "contas/mapa-relacionamento",
-                  "contas/qbr"
-                ]
-              },
-              {
-                "group": "Expandir & Reter",
-                "icon": "trending-up",
-                "pages": [
+                  "contas/qbr",
                   "contas/plano-de-expansao",
                   "contas/playbook-reativacao",
                   "contas/red-flags-encerramento"
                 ]
               },
               {
-                "group": "Por Tipo de Conta",
+                "group": "Contas & Medição",
                 "icon": "users",
                 "pages": [
                   "contas/contas-sell-side",
