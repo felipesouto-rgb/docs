@@ -35,8 +35,8 @@
         "icon": "book-open",
         "anchors": [
           {
-            "anchor": "Início",
-            "icon": "flag",
+            "anchor": "Institucional",
+            "icon": "building-columns",
             "groups": [
               {
                 "group": "Comece Aqui",
@@ -46,15 +46,9 @@
                   "comece-aqui/como-navegar",
                   "comece-aqui/por-onde-comecar"
                 ]
-              }
-            ]
-          },
-          {
-            "anchor": "A Bloxs",
-            "icon": "building-columns",
-            "groups": [
+              },
               {
-                "group": "A Casa",
+                "group": "Quem Somos",
                 "icon": "landmark",
                 "pages": [
                   "quem-somos/o-que-e-a-bloxs",
@@ -65,7 +59,7 @@
                 ]
               },
               {
-                "group": "O Negócio",
+                "group": "Tese & Modelo",
                 "icon": "briefcase",
                 "pages": [
                   "quem-somos/o-que-e-ibaas",
@@ -87,7 +81,7 @@
             ]
           },
           {
-            "anchor": "Produtos",
+            "anchor": "Estruturas",
             "icon": "box",
             "groups": [
               {
@@ -147,11 +141,11 @@
             ]
           },
           {
-            "anchor": "Vendas",
+            "anchor": "Operação",
             "icon": "handshake",
             "groups": [
               {
-                "group": "Visão Geral",
+                "group": "Operação B2B",
                 "icon": "handshake",
                 "pages": [
                   "como-vendemos/index"
@@ -200,15 +194,9 @@
                   "como-vendemos/catalogo/coordenacao-distribuicao",
                   "como-vendemos/catalogo/business-partners-kit"
                 ]
-              }
-            ]
-          },
-          {
-            "anchor": "Contas",
-            "icon": "user-tie",
-            "groups": [
+              },
               {
-                "group": "A Conta como Ativo",
+                "group": "Gestão de Contas",
                 "icon": "gem",
                 "pages": [
                   "contas/index",
@@ -259,7 +247,7 @@
             "icon": "file-signature",
             "groups": [
               {
-                "group": "A Jornada",
+                "group": "Jornada de Deals",
                 "icon": "route",
                 "pages": [
                   "deal/index"
@@ -294,11 +282,49 @@
             ]
           },
           {
+            "anchor": "Devs",
+            "groups": [
+              {
+                "group": "Infraestrutura",
+                "icon": "server",
+                "pages": [
+                  "ferramentas/infra/index",
+                  "ferramentas/infra/hubspot",
+                  "ferramentas/infra/whatsapp",
+                  "ferramentas/infra/google-workspace",
+                  "ferramentas/infra/clickup",
+                  "ferramentas/infra/mintlify",
+                  "ferramentas/infra/dados-e-bi",
+                  "ferramentas/infra/dev-e-automacao",
+                  "ferramentas/infra/ia-e-dados"
+                ]
+              },
+              {
+                "group": "IA no Playbook",
+                "icon": "robot",
+                "pages": [
+                  "copilotos/os-copilotos",
+                  "copilotos/contrato-de-metadados",
+                  "copilotos/guardrails-de-recuperacao"
+                ]
+              },
+              {
+                "group": "RevOps & Dados",
+                "icon": "gears",
+                "pages": [
+                  "maquina/revops",
+                  "maquina/data-model",
+                  "maquina/hubspot"
+                ]
+              }
+            ]
+          },
+          {
             "anchor": "Plataforma",
             "icon": "layer-group",
             "groups": [
               {
-                "group": "Visão Geral",
+                "group": "Plataforma IBaaS",
                 "icon": "toolbox",
                 "pages": [
                   "ferramentas/index"
@@ -317,39 +343,6 @@
                   "ferramentas/workspace/arquitetura-modular",
                   "ferramentas/workspace/developer-tech"
                 ]
-              },
-              {
-                "group": "Infraestrutura",
-                "icon": "server",
-                "pages": [
-                  "ferramentas/infra/index",
-                  "ferramentas/infra/hubspot",
-                  "ferramentas/infra/whatsapp",
-                  "ferramentas/infra/google-workspace",
-                  "ferramentas/infra/clickup",
-                  "ferramentas/infra/mintlify",
-                  "ferramentas/infra/dados-e-bi",
-                  "ferramentas/infra/dev-e-automacao",
-                  "ferramentas/infra/ia-e-dados"
-                ]
-              },
-              {
-                "group": "RevOps & Dados",
-                "icon": "gears",
-                "pages": [
-                  "maquina/revops",
-                  "maquina/data-model",
-                  "maquina/hubspot"
-                ]
-              },
-              {
-                "group": "IA no Playbook",
-                "icon": "robot",
-                "pages": [
-                  "copilotos/os-copilotos",
-                  "copilotos/contrato-de-metadados",
-                  "copilotos/guardrails-de-recuperacao"
-                ]
               }
             ]
           },
@@ -358,7 +351,7 @@
             "icon": "scale-balanced",
             "groups": [
               {
-                "group": "Os Fundamentos",
+                "group": "Fundamentos Regulatórios",
                 "icon": "scale-balanced",
                 "pages": [
                   "regras/index",
