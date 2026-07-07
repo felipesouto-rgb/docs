@@ -199,7 +199,7 @@
                 ]
               },
               {
-                "group": "Ativar & Cuidar",
+                "group": "Ciclo da Conta",
                 "icon": "heart-handshake",
                 "pages": [
                   "contas/onboarding",
@@ -224,8 +224,7 @@
                 "group": "Registro & Medição",
                 "icon": "chart-bar",
                 "pages": [
-                  "contas/registro-conta",
-                  "contas/kpis-account"
+                  "contas/registro-conta"
                 ]
               }
             ]
