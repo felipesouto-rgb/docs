@@ -217,13 +217,7 @@
                 "pages": [
                   "contas/contas-sell-side",
                   "contas/contas-buy-side",
-                  "contas/contas-enterprise"
-                ]
-              },
-              {
-                "group": "Registro & Medição",
-                "icon": "chart-bar",
-                "pages": [
+                  "contas/contas-enterprise",
                   "contas/registro-conta"
                 ]
               }
