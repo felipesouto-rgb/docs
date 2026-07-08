@@ -269,6 +269,7 @@
                 "group": "Infraestrutura",
                 "icon": "server",
                 "pages": [
+                  "devs/overview",
                   "ferramentas/infra/index",
                   "ferramentas/infra/hubspot",
                   "ferramentas/infra/whatsapp",
