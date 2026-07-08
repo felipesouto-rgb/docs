@@ -14,33 +14,121 @@ agent_retrievable: false
 ---
 
 <Info>
-  **Ao terminar esta página, você consegue:** identificar quando o FIF é o veículo adequado e quando um fundo específico (FIDC/FIP/FII) serve melhor.
+  **Ao terminar esta página, você consegue:** identificar quando o FIF é o veículo adequado, entender sua natureza residual/geral e reconhecer quando FIDC/FIP/FII são melhores.
 </Info>
 
-## O que é isso
-
-O **FIF — Fundo de Investimento Financeiro** é a categoria geral de fundos sob a **RCVM 175**. É o veículo quando a tese não se encaixa nas classes especializadas — não é uma carteira de direitos creditórios (FIDC), não é participação societária (FIP) nem ativo imobiliário (FII).
-
 <Warning>
-  Página em rascunho — parâmetros de enquadramento pendentes de confirmação de compliance antes de virar fonte autorizada para agentes.
+  Página em consolidação. Parâmetros de enquadramento pendentes de confirmação de Compliance antes de virar fonte autorizada para copilotos.
 </Warning>
 
-## Quando você usa
+## Em uma frase
 
-## Quando você NÃO usa
+O **FIF** é a categoria **geral** de fundos sob a RCVM 175 — o veículo quando a tese não se encaixa nas classes especializadas (FIDC para direitos creditórios, FIP para participações, FII para imobiliário).
 
-## Regras da casa aqui
+## Por que existe na Bloxs
+
+Nem toda tese de fundo cabe nas categorias especializadas. Fundos multimercado, renda fixa livre, ações e outras estratégias precisam de veículo. O FIF é o container regulatório para essas estratégias sob a RCVM 175, com gestão pela Bloxs Asset.
+
+## Como a Bloxs enxerga
+
+- **FIF é veículo residual, não default.** Só se aplica quando as classes especializadas não cabem.
+- **A classe define regras de investimento.** Renda fixa, ações, multimercado, cambial — cada uma com regime.
+- **Público e regime seguem RCVM 175.** Sem exceções.
+
+## Quando usar
+
+- Tese **não é** direito creditório (FIDC), participação (FIP) ou imobiliário puro (FII).
+- Estratégia se enquadra numa classe do FIF (renda fixa, ações, multimercado, cambial).
+- Público-alvo compatível com o regime da classe.
+
+## Quando NÃO usar
+
+- Tese é **carteira de direitos creditórios** → FIDC.
+- Tese é **participação societária** → FIP.
+- Tese é **imóvel/renda imobiliária** → FII.
+- Tese é **agro multi-ativo** → FIAGRO.
+
+## Como funciona na prática
+
+<Steps>
+  <Step title="Confirmar que não cabe em classe especializada">
+    Estruturação valida por eliminação — FIDC/FIP/FII/FIAGRO não servem.
+  </Step>
+  <Step title="Definir classe do FIF">
+    Renda fixa, ações, multimercado, cambial — conforme estratégia.
+  </Step>
+  <Step title="Estruturação">
+    Bloxs Asset desenha regulamento, política de investimento, política de risco.
+  </Step>
+  <Step title="Distribuição">
+    Bloxs Capital Markets coordena a oferta de cotas conforme regime.
+  </Step>
+  <Step title="Vida do fundo">
+    Gestão, marcação, distribuição, reporting.
+  </Step>
+</Steps>
+
+## Comparações-chave
+
+| Contra | Escolha FIF quando | Escolha o outro quando |
+| --- | --- | --- |
+| **FIDC** | Estratégia não é direito creditório | Carteira de direitos creditórios |
+| **FIP** | Estratégia não é participação | Tese de equity |
+| **FII** | Estratégia não é imobiliária | Ativo imobiliário |
+| **FIAGRO** | Estratégia não é do agro | Tese do agro |
+
+## Critérios de decisão
+
+- **Avança** quando: classes especializadas descartadas, classe do FIF definida, gestão preparada.
+- **Ajusta** quando: estratégia poderia caber em classe especializada com pequena reformulação.
+- **Escala** quando: fundo multi-estratégia, feeders, master-feeder.
+- **Recusa** quando: FIF sendo pedido como "atalho" para evitar classe correta.
+
+## Papéis e responsabilidades
+
+| Etapa | Faz | Decide | Aprova |
+| --- | --- | --- | --- |
+| Enquadramento | Estruturação \+ Jurídico | Comitê de Estruturação | Compliance |
+| Gestão | Bloxs Asset | Bloxs Asset | Comitês do fundo |
+| Distribuição | Bloxs Capital Markets | Coordenação | Compliance |
+
+## Riscos e red flags
 
 <Warning>
-  Gestão pela Bloxs Asset (RCVM 175); administração/custódia por prestador independente. Retornos indicativos. Não afirmar enquadramento sem confirmação de compliance.
+  - FIF como default sem descartar classes especializadas.
+  - Classe do FIF incompatível com a estratégia.
+  - Público não elegível para o regime.
+  - Marcação sem metodologia clara.
+  - Promessa de retorno.
 </Warning>
 
-## Para onde ir agora
+## Linguagem segura
+
+✅ "A estratégia não cabe em FIDC/FIP/FII/FIAGRO — FIF é o veículo." ✅ "A classe do FIF é X, com política de investimento correspondente." ✅ "Retornos são indicativos, sujeitos ao regime da classe." ❌ "FIF é mais flexível, então serve para qualquer coisa." ❌ "Rende sempre acima do CDI."
+
+## Registro obrigatório
+
+- Justificativa de descarte das classes especializadas.
+- Classe do FIF e política de investimento.
+- Aprovações internas.
+- Reporting periódico.
+
+## Continue por aqui
 
 <CardGroup cols={2}>
-  <Card title="Selection Matrix" icon="table" href="/produtos/selection-matrix">
+  <Card title="FIDC" href="/produtos/fidc">
+    O veículo para direitos creditórios.
   </Card>
 
-  <Card title="FIDC" icon="box" href="/produtos/fidc">
+  <Card title="FIP" href="/produtos/fip">
+    O veículo para participação societária.
+  </Card>
+
+  <Card title="FII" href="/produtos/fii">
+    O veículo para imóveis/renda imobiliária.
+  </Card>
+
+  <Card title="Selection Matrix" href="/produtos/selection-matrix">
+    A decisão de estrutura que sustenta o FIF.
   </Card>
 </CardGroup>

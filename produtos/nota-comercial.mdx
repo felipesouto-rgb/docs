@@ -13,36 +13,121 @@ agent_retrievable: false
 ---
 
 <Info>
-  **Ao terminar esta página, você consegue:** decidir se a nota comercial é o caminho para um funding rápido e distingui-la da debênture e da securitização.
+  **Ao terminar esta página, você consegue:** decidir se a nota comercial é o caminho para funding rápido, distingui-la de debênture e securitização e reconhecer o que não cabe nela.
 </Info>
 
-## O que é isso
-
-A **nota comercial** é um título de **dívida corporativa direta**, mais simples e rápida que a debênture, adequada a **prazos curtos**. É o instrumento quando a empresa precisa de funding ágil e não exige a estrutura de covenants de uma debênture longa.
-
 <Warning>
-  Página em rascunho — parâmetros pendentes de confirmação de compliance antes de virar fonte autorizada para agentes.
+  Página em consolidação. Parâmetros pendentes de confirmação de Compliance antes de virar fonte autorizada para copilotos.
 </Warning>
 
-## Quando você usa
+## Em uma frase
 
-## Quando você NÃO usa
+A **Nota Comercial** é **dívida corporativa direta** enxuta para **prazos curtos** — funding ágil sem a estrutura pesada de covenants de uma debênture longa.
 
-## Regras da casa aqui
+## Por que existe na Bloxs
+
+Companhias precisam de dinheiro rápido — capital de giro, ponte, sazonalidade. Estruturar debênture longa para isso é overkill; empréstimo bancário é caro. A nota comercial resolve: instrumento regulado, prazo curto, estrutura simples.
+
+## Como a Bloxs enxerga
+
+- **É dívida da companhia, prazo curto.** Diferença com debênture é prazo e estrutura, não natureza.
+- **Simplicidade é feature, não bug.** Covenants leves; docs mais enxutos; oferta mais rápida.
+- **Público segue o regime.** RCVM 160 aplicável.
+- **Risco de refinanciamento pesa.** Rolagem faz parte do desenho.
+
+## Quando usar
+
+- Necessidade de **funding curto** (giro, ponte, sazonalidade).
+- Estrutura simples atende — sem covenants pesados.
+- Emissor tem **capacidade de pagamento no prazo**.
+- Público institucional/qualificado ou público via RCVM 160.
+
+## Quando NÃO usar
+
+- Precisa de **prazo médio/longo com covenants** → Debênture.
+- Existe **recebível como lastro** → CR/CRI/CRA.
+- Tese é **participação** → FIP.
+- Emissor com **risco alto de refinanciamento** sem plano.
+
+## Como funciona na prática
+
+<Steps>
+  <Step title="Elegibilidade">
+    Confirmar emissor e enquadramento na RCVM 160.
+  </Step>
+  <Step title="Estruturação">
+    Prazo, remuneração, garantias se aplicável.
+  </Step>
+  <Step title="Documentação enxuta">
+    Termo de emissão, KYB, laudos essenciais.
+  </Step>
+  <Step title="Coordenação">
+    Bloxs Capital Markets coordena dentro do regime aplicável.
+  </Step>
+  <Step title="Emissão e vencimento">
+    Emissão, integralização, pagamento no vencimento; se rolagem, novo processo.
+  </Step>
+</Steps>
+
+## Comparações-chave
+
+| Contra | Escolha Nota Comercial quando | Escolha o outro quando |
+| --- | --- | --- |
+| **Debênture** | Prazo curto, estrutura simples | Prazo médio/longo, covenants robustos |
+| **CR** | Sem recebível a securitizar | Existe recebível como lastro |
+| **CRI/CRA** | Sem lastro imobiliário/agro elegível | Existe lastro elegível |
+
+## Critérios de decisão
+
+- **Avança** quando: prazo curto, emissor com capacidade de pagamento, estrutura simples atende.
+- **Ajusta** quando: prazo pede covenants — reconsiderar debênture; risco de refinanciamento — reforçar garantias.
+- **Escala** quando: programa de notas com séries recorrentes.
+- **Recusa** quando: emissor sem capacidade no prazo, tentativa de rolagem indefinida como estratégia.
+
+## Papéis e responsabilidades
+
+| Etapa | Faz | Decide | Aprova |
+| --- | --- | --- | --- |
+| Elegibilidade | Jurídico \+ Estruturação | Jurídico | Compliance |
+| Estruturação | Bloxs Capital Markets | Coordenação | Compliance |
+| Coordenação | Bloxs Capital Markets | Coordenação | Compliance |
+
+## Riscos e red flags
 
 <Warning>
-  A colocação é atividade regulada, conduzida pela entidade coordenadora. Nunca prometer retorno. Ver [O Perímetro](/produtos/perimetro/originacao-vs-atividade-regulada).
+  - Prometer retorno ou colocação — proibido.
+  - Estrutura simples usada para esconder risco.
+  - Rolagem indefinida sem plano — passivo escondido.
+  - Emissor com fluxo insuficiente para o vencimento.
+  - Documentação enxuta demais — falta due diligence mínima.
 </Warning>
 
-## Para onde ir agora
+## Linguagem segura
+
+✅ "É dívida corporativa curta, estrutura simples." ✅ "A coordenação é da Bloxs Capital Markets sob RCVM 160." ✅ "A remuneração-alvo é indicativa." ❌ "Rende X% garantido no vencimento." ❌ "Rolagem é certa."
+
+## Registro obrigatório
+
+- Termo de emissão, KYB, laudos no Data Room.
+- Aprovações internas.
+- Reporting até vencimento.
+
+## Continue por aqui
 
 <CardGroup cols={2}>
-  <Card title="Debênture" icon="money-bill-trend-up" href="/produtos/debenture">
+  <Card title="Debênture" href="/produtos/debenture">
+    Para prazo médio/longo com covenants.
   </Card>
 
-  <Card title="Selection Matrix" icon="table" href="/produtos/selection-matrix">
+  <Card title="CR" href="/produtos/cr">
+    Quando existe recebível a securitizar.
   </Card>
 
-  <Card title="Como Fazemos um Deal" icon="diagram-project" href="/deal/intake">
+  <Card title="Selection Matrix" href="/produtos/selection-matrix">
+    A decisão de estrutura que sustenta a nota comercial.
+  </Card>
+
+  <Card title="Entidades Executoras" href="/produtos/perimetro/entidades-executoras">
+    Bloxs Capital Markets como coordenadora.
   </Card>
 </CardGroup>

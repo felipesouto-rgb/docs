@@ -14,38 +14,134 @@ agent_retrievable: true
 ---
 
 <Info>
-  **Ao terminar esta página, você consegue:** decidir entre um FIDC simples e um multiclasse conforme o pipeline de teses do cliente.
+  **Ao terminar esta página, você consegue:** decidir se um multiclasse faz sentido, definir critérios para abrir novas classes, entender o que a segregação isola (e o que não isola) e reconhecer quando um FIDC simples basta.
 </Info>
 
-## O que é isso
+## Em uma frase
 
-O **FIDC multiclasse** é um FIDC desenhado como **infraestrutura**, não como fundo único. Cada **classe** é uma caixa dedicada, com lastro, risco e retorno-alvo próprios, segregados das demais — sem contaminação entre verticais (imobiliário, agro, corporativo, infra, special sits). É a forma de escalar: abrir uma vertical sem constituir um veículo novo a cada tese.
+O **FIDC Multiclasse** é um FIDC desenhado como **infraestrutura**: cada **classe** funciona como uma caixa segregada com lastro, risco e retorno próprios, permitindo abrir novas teses sem constituir um veículo novo a cada uma.
 
-## Quando você usa
+## Por que existe na Bloxs
 
-## Quando você NÃO usa
+Cedentes e gestores maduros geralmente têm **pipeline de várias teses** — imobiliário, agro, corporativo, infra, special sits. Constituir um FIDC novo a cada tese multiplica custo, prazo e complexidade regulatória. O multiclasse resolve isso: uma estrutura, múltiplas classes.
 
-<Warning>
-  Tese única sem perspectiva de novas classes → um [FIDC simples](/produtos/fidc) basta e custa menos
-</Warning>
+## Como a Bloxs enxerga
 
-## Como fazer
+- **Multiclasse é infraestrutura, não atalho.** Só faz sentido quando há pipeline real de teses distintas.
+- **Segregação isola risco de crédito e resultado, não isola risco reputacional.** Se uma classe entra em problema, o veículo inteiro é lido pelo mercado.
+- **Cada classe tem regulamento próprio.** Política de crédito, retorno-alvo, subordinação — todos por classe.
+
+## Quando usar
+
+- Cedente/gestor com **pipeline confirmado** de 2\+ teses distintas.
+- Necessidade de **abrir teses rapidamente** sem constituir veículo novo.
+- Volumes por classe que justificam a complexidade adicional.
+- Governança madura para gerir múltiplas políticas simultâneas.
+
+## Quando NÃO usar
+
+- **Tese única** consolidada → FIDC simples basta e custa menos.
+- Pipeline **hipotético** de novas classes → esperar validação.
+- Governança **imatura** para operar múltiplas políticas.
+- Necessidade de **separação reputacional** total → veículos independentes.
+
+## Como funciona na prática
 
 <Steps>
+  <Step title="Confirmar pipeline">
+    Estruturação valida que há 2\+ teses reais, com originação, política e volume próprios.
+  </Step>
+  <Step title="Desenhar arquitetura multiclasse">
+    Regulamento-mãe \+ regulamentos por classe; regras de abertura de novas classes; regras de segregação.
+  </Step>
+  <Step title="Estruturar primeira classe">
+    Política de crédito, cotas, subordinação, retorno-alvo — específicos da classe.
+  </Step>
+  <Step title="Definir governança">
+    Comitê do fundo \+ comitês por classe; matriz de decisão; alçadas.
+  </Step>
+  <Step title="Prestadores">
+    Bloxs Asset como gestora; administrador e custodiante que operem multiclasse; auditor.
+  </Step>
+  <Step title="Distribuição">
+    Coordenação por classe, dentro do regime aplicável a cada uma.
+  </Step>
+  <Step title="Abertura de classes subsequentes">
+    Cada nova classe passa pelo processo: proposta → regulamento da classe → aprovações → coordenação.
+  </Step>
 </Steps>
 
-## Regras da casa aqui
+## O que a segregação isola (e o que não isola)
+
+| Isola | Não isola |
+| --- | --- |
+| Risco de crédito da carteira de cada classe | Risco reputacional do veículo como um todo |
+| Resultado financeiro de cada classe | Risco operacional da gestora/administrador |
+| Cotistas de cada classe | Percepção de mercado sobre o cedente/gestor |
+| Política de investimento por classe | Governança do fundo (é única) |
+
+## Comparações-chave
+
+| Contra | Escolha Multiclasse quando | Escolha o outro quando |
+| --- | --- | --- |
+| **FIDC simples** | Pipeline confirmado de 2\+ teses | Tese única consolidada |
+| **Vários FIDCs independentes** | Ganho de escala e velocidade compensam risco reputacional compartilhado | Necessidade de separação reputacional total |
+| **FIAGRO/FII/FIP** | Tese principal cabe em direitos creditórios | Tese é agro multi-ativo / imóvel / equity |
+
+## Critérios de decisão
+
+- **Avança** quando: pipeline confirmado, governança madura, volumes por classe justificam.
+- **Ajusta** quando: pipeline existe mas ainda incerto — abrir com 1 classe e crescer.
+- **Escala** quando: pipeline envolve teses de naturezas muito distintas — avaliar veículos separados.
+- **Recusa** quando: multiclasse pedido "por conveniência" sem pipeline real.
+
+## Papéis e responsabilidades
+
+| Etapa | Faz | Decide | Aprova |
+| --- | --- | --- | --- |
+| Arquitetura multiclasse | Bloxs Asset \+ Estruturação | Comitê de Estruturação | Compliance |
+| Abertura de nova classe | Bloxs Asset | Comitê do Fundo | Compliance |
+| Política de crédito por classe | Bloxs Asset \+ cedente | Comitê de Crédito | — |
+| Distribuição por classe | Bloxs Capital Markets | Coordenação | Compliance |
+
+## Riscos e red flags
 
 <Warning>
-  Nunca prometer que a segregação elimina risco. Retorno-alvo é indicativo, nunca garantido. Gestão sempre pela Bloxs Asset (RCVM 175).
+  - Prometer que segregação elimina risco reputacional — não elimina.
+  - Abrir classe sem política de crédito específica.
+  - Multiclasse "por conveniência" sem pipeline real.
+  - Governança única sobrecarregada por muitas classes.
+  - Cedente esperando que classe nova "reset" reputação do veículo.
 </Warning>
 
-## Para onde ir agora
+## Linguagem segura
+
+✅ "Cada classe é uma caixa segregada de risco de crédito e resultado." ✅ "A segregação isola crédito, não reputação." ✅ "A gestão é da Bloxs Asset; abertura de nova classe segue processo." ❌ "Se uma classe der problema, as outras estão totalmente protegidas." ❌ "Multiclasse é um FIDC simples com mais opções."
+
+## Registro obrigatório
+
+- Regulamento-mãe e regulamentos por classe.
+- Política de crédito por classe.
+- Governança e alçadas.
+- Aprovações de abertura de cada classe.
+- Reporting por classe e consolidado.
+
+## Continue por aqui
 
 <CardGroup cols={2}>
-  <Card title="FIDC — o veículo-base" icon="box" href="/produtos/fidc">
+  <Card title="FIDC — o veículo-base" href="/produtos/fidc">
+    O ponto de partida — mesma mecânica sem múltiplas classes.
   </Card>
 
-  <Card title="Selection Matrix" icon="table" href="/produtos/selection-matrix">
+  <Card title="Selection Matrix" href="/produtos/selection-matrix">
+    A decisão que sustenta a escolha por multiclasse.
+  </Card>
+
+  <Card title="Consultoria FIDC 360" href="/como-vendemos/catalogo/consultoria-fidc-360">
+    A solução comercial que envolve FIDC e multiclasse.
+  </Card>
+
+  <Card title="Entidades Executoras" href="/produtos/perimetro/entidades-executoras">
+    Bloxs Asset como gestora do FIDC Multiclasse.
   </Card>
 </CardGroup>

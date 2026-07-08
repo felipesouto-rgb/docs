@@ -13,43 +13,128 @@ agent_retrievable: false
 ---
 
 <Info>
-  **Ao terminar esta página, você consegue:** decidir se a debênture é o caminho para um emissor S.A. e distingui-la de nota comercial e de securitização.
+  **Ao terminar esta página, você consegue:** decidir se a debênture é o caminho, entender covenants e garantias típicas e distingui-la de nota comercial e securitização.
 </Info>
 
-## O que é isso
-
-A **debênture** é um título de **dívida corporativa direta** emitido por sociedade anônima. Diferente da securitização (que empacota recebíveis), a debênture é obrigação da própria companhia, tipicamente para prazos médio/longo, com covenants e garantias negociados.
-
 <Warning>
-  Página em rascunho — parâmetros pendentes de confirmação de compliance antes de virar fonte autorizada para agentes.
+  Página em consolidação. Parâmetros específicos pendentes de confirmação de Compliance antes de virar fonte autorizada para copilotos.
 </Warning>
 
-## Quando você usa
+## Em uma frase
 
-## Quando você NÃO usa
+A **Debênture** é **dívida corporativa direta** de sociedade anônima — obrigação da própria companhia, prazos médio/longo, covenants e garantias negociados individualmente.
 
-## Comparação rápida
+## Por que existe na Bloxs
 
-| Contra | Escolha debênture quando | Escolha o outro quando |
+Nem toda dívida cabe em securitização. Quando a companhia é S.A. e o funding pede prazo mais longo, com covenants estruturados e sem lastro específico a empacotar, a debênture é o instrumento. Sem ela, sobra empréstimo bancário caro ou nada.
+
+## Como a Bloxs enxerga
+
+- **É dívida da companhia, não sobre recebível.** Diferença ontológica com CR/CRI/CRA.
+- **Covenants são o desenho.** Endividamento máximo, cobertura, cross-default, restrições — cada linha é discussão.
+- **Prazo médio/longo é a natureza.** Curto prazo pede nota comercial.
+- **Regime de oferta define público e velocidade.** RCVM 160 estrutura tudo.
+
+## Quando usar
+
+- Emissor é **S.A.** (regulação permite).
+- Necessidade de **prazo médio/longo** (não curto).
+- **Covenants** fazem sentido para o perfil da companhia.
+- Não há **lastro específico** para securitizar (senão CR).
+- Público institucional/qualificado ou público via RCVM 160.
+
+## Quando NÃO usar
+
+- Emissor **não é S.A.** → outros instrumentos.
+- Precisa de **prazo curto e simples** → Nota Comercial.
+- Existe **recebível como lastro** que caberia em securitização → CR/CRI/CRA.
+- Tese é **participação** e não dívida → FIP.
+
+## Como funciona na prática
+
+<Steps>
+  <Step title="Elegibilidade do emissor">
+    Confirmar que é S.A. e enquadramento na RCVM 160.
+  </Step>
+  <Step title="Estruturação">
+    Bloxs Capital Markets desenha série, remuneração, prazo, garantias, covenants.
+  </Step>
+  <Step title="Covenants">
+    Financeiros (dívida líquida/EBITDA, cobertura), operacionais, restritivos.
+  </Step>
+  <Step title="Documentação">
+    Escritura de emissão, prospecto, laudo, KYB do emissor, agente fiduciário.
+  </Step>
+  <Step title="Coordenação e distribuição">
+    Bloxs Capital Markets coordena dentro do regime aplicável.
+  </Step>
+  <Step title="Emissão e vida do título">
+    Emissão, integralização, monitoramento de covenants, reporting até o vencimento.
+  </Step>
+</Steps>
+
+## Comparações-chave
+
+| Contra | Escolha Debênture quando | Escolha o outro quando |
 | --- | --- | --- |
-| Nota comercial | Prazo médio/longo, covenants robustos | Curto prazo, mais simples e rápido |
-| CR | É dívida direta da companhia | O lastro são recebíveis a securitizar |
+| **Nota Comercial** | Prazo médio/longo, covenants robustos | Prazo curto, estrutura simples |
+| **CR** | Sem lastro específico a securitizar | Existe lastro identificável |
+| **CRI/CRA** | Sem lastro imobiliário/agro elegível | Lastro imobiliário/agro — vale a isenção |
+| **FIP** | Tese é dívida | Tese é participação |
 
-## Regras da casa aqui
+## Critérios de decisão
+
+- **Avança** quando: emissor S.A. sólido, covenants coerentes, prazo faz sentido.
+- **Ajusta** quando: covenants ambiciosos demais — calibrar; garantias precisam ser reforçadas.
+- **Escala** quando: multi-série, incentivadas (infraestrutura), verde/social/sustentável.
+- **Recusa** quando: emissor não elegível, covenants incompatíveis, tentativa de forçar em curto prazo.
+
+## Papéis e responsabilidades
+
+| Etapa | Faz | Decide | Aprova |
+| --- | --- | --- | --- |
+| Elegibilidade | Jurídico \+ Estruturação | Jurídico | Compliance |
+| Estruturação | Bloxs Capital Markets | Comitê de Estruturação | Compliance |
+| Coordenação | Bloxs Capital Markets | Coordenação | Compliance |
+| Vida do título | Emissor \+ Agente Fiduciário | Agente Fiduciário | — |
+
+## Riscos e red flags
 
 <Warning>
-  A colocação é atividade regulada, conduzida pela entidade coordenadora. Nunca prometer retorno. Ver [O Perímetro](/produtos/perimetro/originacao-vs-atividade-regulada).
+  - Prometer retorno ou colocação — atividade proibida.
+  - Covenants sem monitoramento efetivo.
+  - Cross-default mal calibrado.
+  - Garantias sem laudo ou de execução duvidosa.
+  - Emissor sem histórico de compliance para operar dívida pública.
 </Warning>
 
-## Para onde ir agora
+## Linguagem segura
+
+✅ "É dívida direta da companhia, com prazo médio/longo e covenants estruturados." ✅ "A coordenação é da Bloxs Capital Markets sob RCVM 160." ✅ "A remuneração-alvo é indicativa, sujeita a condições finais." ❌ "Rende X% ao ano, garantido pela companhia." ❌ "Colocamos essa debênture no mercado."
+
+## Registro obrigatório
+
+- Escritura, prospecto, KYB do emissor no Data Room.
+- Aprovações internas.
+- Monitoramento periódico dos covenants.
+- Reporting da vida do título.
+
+## Continue por aqui
 
 <CardGroup cols={2}>
-  <Card title="Nota Comercial" icon="receipt" href="/produtos/nota-comercial">
+  <Card title="Nota Comercial" href="/produtos/nota-comercial">
+    A alternativa para prazo curto e estrutura simples.
   </Card>
 
-  <Card title="Selection Matrix" icon="table" href="/produtos/selection-matrix">
+  <Card title="CR" href="/produtos/cr">
+    A alternativa quando existe recebível a securitizar.
   </Card>
 
-  <Card title="Como Fazemos um Deal" icon="diagram-project" href="/deal/intake">
+  <Card title="Selection Matrix" href="/produtos/selection-matrix">
+    A decisão de estrutura que sustenta a debênture.
+  </Card>
+
+  <Card title="Entidades Executoras" href="/produtos/perimetro/entidades-executoras">
+    Bloxs Capital Markets como coordenadora.
   </Card>
 </CardGroup>
