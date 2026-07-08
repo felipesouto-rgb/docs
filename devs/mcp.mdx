@@ -1,0 +1,109 @@
+---
+title: "MCP — Model Context Protocol"
+sidebarTitle: "MCP"
+description: "O protocolo pelo qual os copilotos da Bloxs consomem objetos da Plataforma — com escopo, sem replicar credencial de usuário, sem sair do perímetro."
+zone: "Interna"
+domain: "devs"
+copilot: ["product"]
+status: "draft"
+enables: "Entender como copilotos leem e agem sobre objetos da Plataforma via MCP, com escopo próprio, auditabilidade e sem elevar privilégio do usuário."
+agent_retrievable: true
+---
+
+<Info>
+  **Ao terminar esta página, você consegue:** entender como os copilotos consomem objetos via MCP, quais escopos eles têm, como auditar suas ações e por que o MCP não é uma alternativa à API tradicional.
+</Info>
+
+<Warning>
+  Página em consolidação. Escopos por copiloto e catálogo de ferramentas publicados progressivamente.
+</Warning>
+
+## O papel na arquitetura
+
+O **MCP (Model Context Protocol)** é o protocolo pelo qual os **copilotos** da Bloxs leem e agem sobre objetos da Plataforma. É uma camada de acesso separada da API tradicional, com escopo próprio por copiloto, sem replicar credencial de usuário.
+
+<Info>
+  MCP não substitui a API. A API é para integrações programáticas de sistemas; o MCP é para ferramentas de IA operando sob supervisão. Compartilham o mesmo modelo de objetos, com controles de acesso distintos.
+</Info>
+
+## Quem usa
+
+- **Copilotos Bloxs** — capital-markets-advisor, partner-success, compliance, product, deal-structuring.
+- **Assistentes internos** autorizados a operar dentro do Workspace.
+- **Não é exposto** para integrações externas genéricas (para isso, usar a API).
+
+## Como funciona
+
+<Steps>
+  <Step title="Copiloto solicita acesso">
+    Copiloto declara ferramentas (tools) que precisa — cada uma mapeada a um objeto/operação.
+  </Step>
+  <Step title="Plataforma resolve escopo">
+    Escopo do copiloto é intersectado com escopo do usuário em sessão. Copiloto nunca eleva privilégio.
+  </Step>
+  <Step title="Execução com auditoria">
+    Cada chamada gera evento no barramento com `copilot`, `user`, `tool`, `objetos afetados`, `requestId`.
+  </Step>
+  <Step title="Retorno estruturado">
+    Resposta segue o mesmo modelo de dados da API; copiloto interpreta e apresenta ao usuário.
+  </Step>
+</Steps>
+
+## Escopo por copiloto (típico)
+
+| Copiloto | Lê | Escreve | Não acessa |
+| --- | --- | --- | --- |
+| **capital-markets-advisor** | Deal, Account, Investor (agregado) | Rascunhos de estrutura, materiais | Documentos regulatórios finais, dados PII de investidor não autorizado |
+| **partner-success** | Account, Deal (status), Event | Notas, follow-ups | Investidores, docs de compliance |
+| **compliance** | Deal (docs), Event, Log | Alertas | Criação de deal, alteração de docs regulatórios |
+| **product** | Metadados, Event, docs internos | Sugestões de melhoria | Dados de investidor, docs regulatórios |
+| **deal-structuring** | Deal, Account, Investor (agregado) | Rascunhos de estrutura | Documentos assinados, dados PII não autorizados |
+
+## Objetos acessíveis
+
+Os mesmos da API — `Account`, `Partner`, `Deal`, `Investor`, `Document`, `Event`, `User`, `Permission` — sujeitos ao escopo do copiloto e ao contexto do usuário.
+
+## Guardrails
+
+- **Escopo mínimo por ferramenta.** Cada tool declara o objeto e operação que executa.
+- **Sem elevação de privilégio.** Copiloto nunca acessa o que o usuário não poderia.
+- **Auditoria completa.** Toda ação é evento com atribuição clara: quem foi o copiloto, quem foi o usuário, o que foi feito.
+- **Sem persistência de segredo no modelo.** Tokens e escopos são resolvidos pela Plataforma, não pelo copiloto.
+- **Guardrails de conteúdo.** Copilotos não retornam campos sensíveis fora de escopo mesmo que solicitados.
+
+## Segurança
+
+- Comunicação cifrada TLS.
+- Escopos assinados pela Plataforma; copiloto não forja.
+- Logs completos para revisão de Compliance.
+- Feature flags por copiloto e por tenant.
+
+## Riscos e red flags
+
+<Warning>
+  - Copiloto tentar acessar objeto fora do escopo declarado.
+  - Usuário esperando que copiloto "veja" o que ele não vê — não vê.
+  - Copiloto persistindo segredo no contexto do modelo.
+  - Falta de auditoria em ação de copiloto — operação rejeitada.
+  - Ferramenta declarando escopo mais amplo que necessário.
+</Warning>
+
+## Continue por aqui
+
+<CardGroup cols={2}>
+  <Card title="Os Copilotos" href="/copilotos/os-copilotos">
+    Cada copiloto, seu escopo e sua finalidade.
+  </Card>
+
+  <Card title="API Reference" href="/devs/api-reference">
+    A camada programática que serve integrações de sistemas.
+  </Card>
+
+  <Card title="Webhooks" href="/devs/webhooks">
+    Como receber eventos gerados por copilotos e operações.
+  </Card>
+
+  <Card title="Autenticação" href="/devs/auth">
+    OAuth, escopos, rotação.
+  </Card>
+</CardGroup>

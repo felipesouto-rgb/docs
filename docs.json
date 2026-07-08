@@ -133,8 +133,6 @@
                 "group": "O Perímetro",
                 "icon": "shield-check",
                 "pages": [
-                  "produtos/perimetro/originacao-vs-atividade-regulada",
-                  "produtos/perimetro/conduta-por-perfil",
                   "produtos/perimetro/entidades-executoras"
                 ]
               }
@@ -266,10 +264,19 @@
             "anchor": "Devs",
             "groups": [
               {
+                "group": "Plataforma para Devs",
+                "icon": "code",
+                "pages": [
+                  "devs/overview",
+                  "devs/mcp",
+                  "devs/webhooks",
+                  "devs/auth"
+                ]
+              },
+              {
                 "group": "Infraestrutura",
                 "icon": "server",
                 "pages": [
-                  "devs/overview",
                   "ferramentas/infra/index",
                   "ferramentas/infra/hubspot",
                   "ferramentas/infra/whatsapp",
@@ -422,5 +429,17 @@
   },
   "styling": {
     "eyebrows": "breadcrumbs"
-  }
+  },
+  "redirects": [
+    {
+      "source": "/produtos/perimetro/originacao-vs-atividade-regulada",
+      "destination": "/regras/originacao-vs-regulada",
+      "permanent": true
+    },
+    {
+      "source": "/produtos/perimetro/conduta-por-perfil",
+      "destination": "/regras/checklist-conduta",
+      "permanent": true
+    }
+  ]
 }

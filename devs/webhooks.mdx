@@ -1,0 +1,139 @@
+---
+title: "Webhooks"
+sidebarTitle: "Webhooks"
+description: "O catálogo de eventos que a Plataforma Bloxs emite para o parceiro — assinaturas, entrega confiável, ordem, idempotência, segurança."
+zone: "Interna"
+domain: "devs"
+copilot: ["product"]
+status: "draft"
+enables: "Assinar eventos da Plataforma corretamente — configurar endpoints, tratar retentativa, validar assinatura, garantir idempotência e integrar sistemas do parceiro sem perder eventos."
+agent_retrievable: true
+---
+
+<Info>
+  **Ao terminar esta página, você consegue:** entender o modelo de eventos da Bloxs, configurar assinatura de webhook, validar assinatura, tratar retentativa e ordem, e garantir idempotência no consumo.
+</Info>
+
+<Warning>
+  Página em consolidação. Catálogo completo de eventos por domínio publicado progressivamente.
+</Warning>
+
+## O papel na arquitetura
+
+O **barramento de eventos** da Bloxs é a fonte de verdade sobre o que aconteceu na Plataforma. Toda mudança relevante em Conta, Deal, Investidor, Documento gera evento; **webhooks** são o mecanismo pelo qual esses eventos chegam ao parceiro em tempo quase real.
+
+<Info>
+  Eventos são **fato consumado**, não convite. Se o parceiro não consumir, o fato não desaparece — a Plataforma retenta conforme política, e o histórico permanece consultável via API.
+</Info>
+
+## Quem usa
+
+- **Enterprise** — sincroniza o próprio backend com a Plataforma.
+- **Sell Side** — dispara automações internas (CRM, ERP, notificações).
+- **Integradores** — conectam sistemas externos (BI, custódia, contabilidade).
+
+## Modelo de evento
+
+```json
+{
+  "id": "evt_01H...",
+  "type": "deal.status_changed",
+  "createdAt": "2026-07-08T12:34:56Z",
+  "version": "1",
+  "account": "acc_...",
+  "actor": { "type": "user", "id": "usr_..." },
+  "data": { "..." },
+  "signature": "..."
+}
+```
+
+## Catálogo por domínio (típico)
+
+| Domínio | Eventos principais |
+| --- | --- |
+| **Account** | `account.created`, `account.updated`, `account.status_changed` |
+| **Partner** | `partner.onboarded`, `partner.status_changed` |
+| **Deal** | `deal.created`, `deal.status_changed`, `deal.stage_advanced`, `deal.closed` |
+| **Investor** | `investor.registered`, `investor.status_changed` |
+| **Document** | `document.uploaded`, `document.signed`, `document.rejected` |
+| **Compliance** | `compliance.alert_raised`, `compliance.review_completed` |
+
+## Entrega
+
+- **At least once.** Consumo idempotente é obrigatório.
+- Retentativa exponencial (segundos → minutos → horas) até janela máxima.
+- Reordenação possível; consumidor deve usar `createdAt` \+ `id` para ordem lógica.
+- Falha persistente → evento vai para DLQ e endpoint é desativado com alerta.
+
+## Assinatura
+
+- Header `X-Bloxs-Signature` com HMAC do payload.
+- Segredo compartilhado por endpoint, rotacionável.
+- Payload deve ser verificado antes de qualquer efeito colateral.
+
+## Idempotência
+
+- Cada evento tem `id` único.
+- Consumidor deve deduplicar por `id`.
+- Reentrega após sucesso pode ocorrer — tratar como esperado.
+
+## Ordem
+
+- Não garantida entre eventos de tipos diferentes.
+- Dentro do mesmo objeto (`deal.*` para o mesmo `deal.id`), ordem preservada com melhor esforço.
+- Consumidor deve reconciliar via API se ordem for crítica.
+
+## Segurança
+
+- TLS obrigatório no endpoint receptor.
+- Assinatura HMAC validada antes de processar.
+- Rejeitar timestamps antigos (janela configurável).
+- Endpoint com auth básica adicional recomendado.
+
+## Configuração
+
+<Steps>
+  <Step title="Registrar endpoint">
+    URL, eventos assinados, segredo gerado pela Plataforma.
+  </Step>
+  <Step title="Implementar receptor">
+    Validar assinatura, deduplicar por `id`, responder 2xx rápido.
+  </Step>
+  <Step title="Processar assincronamente">
+    Fila interna; resposta 2xx sinaliza recebimento, não processamento.
+  </Step>
+  <Step title="Monitorar">
+    Taxa de falha, latency, DLQ, reentregas.
+  </Step>
+</Steps>
+
+## Riscos e red flags
+
+<Warning>
+  - Processar evento sem validar assinatura.
+  - Consumo não idempotente — duplicação em produção.
+  - Responder lento (\>5s) — timeouts, retentativa desnecessária.
+  - Endpoint sem TLS.
+  - Depender de ordem estrita sem reconciliação via API.
+  - Segredo em código-fonte público.
+</Warning>
+
+## Continue por aqui
+
+<CardGroup cols={2}>
+  <Card title="API Reference" href="/devs/api-reference">
+    Reconciliação e leitura de estado atual.
+  </Card>
+
+  <Card title="Autenticação" href="/devs/auth">
+    Rotação de segredos, escopos.
+  </Card>
+
+  <Card title="MCP" href="/devs/mcp">
+    Como copilotos leem eventos com escopo.
+  </Card>
+
+  <Card title="Overview" href="/devs/overview">
+    A visão geral da Plataforma para Devs.
+  </Card>
+</CardGroup>

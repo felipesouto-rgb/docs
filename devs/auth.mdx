@@ -1,0 +1,128 @@
+---
+title: "Autenticação"
+sidebarTitle: "Autenticação"
+description: "O modelo de autenticação e autorização da Plataforma Bloxs — OAuth 2.0, escopos, papel do usuário, rotação de segredos."
+zone: "Interna"
+domain: "devs"
+copilot: ["product"]
+status: "draft"
+enables: "Autenticar aplicações e usuários corretamente, escolher fluxo OAuth adequado, entender escopos e menor privilégio, e rotacionar segredos sem downtime."
+agent_retrievable: true
+---
+
+<Info>
+  **Ao terminar esta página, você consegue:** escolher o fluxo OAuth correto para cada caso, entender o modelo de escopos e menor privilégio, rotacionar segredos sem quebrar integração e reconhecer padrões que violam a política de segurança.
+</Info>
+
+<Warning>
+  Página em consolidação. Endpoints específicos de authorize/token/introspect publicados junto com a liberação de cada área da API.
+</Warning>
+
+## O papel na arquitetura
+
+**Autenticação** identifica quem faz a chamada. **Autorização** decide o que essa identidade pode fazer. Na Bloxs, ambos passam por **OAuth 2.0** com escopos granulares, e a autorização final é sempre resolvida pela Plataforma — nunca conferida ao cliente.
+
+<Info>
+  O token é credencial, não autoridade. Ele carrega escopos declarados; a autoridade real vem da resolução server-side. Cliente não "amplia" escopo alterando token.
+</Info>
+
+## Quem usa
+
+- **Aplicações do parceiro** — client credentials para integrações servidor-servidor.
+- **Usuários do Workspace** — authorization code \+ PKCE para logins em SPA/mobile.
+- **Copilotos** — escopo próprio, resolvido via MCP.
+- **Sistemas internos** — tokens de serviço restritos, com vida curta.
+
+## Fluxos suportados
+
+| Fluxo | Uso | Observação |
+| --- | --- | --- |
+| **Authorization Code \+ PKCE** | SPA / mobile / usuário final | Padrão para logins de humano |
+| **Client Credentials** | Servidor-servidor | Sem usuário final; escopos por aplicação |
+| **Refresh Token** | Renovação de sessão | Curto tempo de vida do access token |
+
+## Escopos
+
+Escopos são **declarados**, **intersectados** com o papel do usuário (quando há) e **resolvidos** server-side por objeto.
+
+| Padrão | Exemplo | Efeito |
+| --- | --- | --- |
+| `deal:read` | Ler deals autorizados | Somente leitura |
+| `deal:write` | Criar/atualizar deals | Escrita com auditoria |
+| `investor:read` | Ler dados agregados de investidor | PII resolvido separadamente |
+| `document:read` | Ler documentos autorizados | Sujeito à política de docs |
+| `event:subscribe` | Assinar webhooks | Não expõe outros escopos |
+
+## Menor privilégio
+
+- Declare o mínimo necessário.
+- Escopo em excesso é rejeitado no consent (para usuário) ou negado no provisionamento (para app).
+- Auditoria registra escopo efetivo por chamada.
+
+## Rotação de segredos
+
+<Steps>
+  <Step title="Gerar novo segredo">
+    Plataforma emite segredo `v2`, mantendo `v1` válido até a data limite.
+  </Step>
+  <Step title="Deploy do cliente com v2">
+    Aplicação passa a assinar/autenticar com o segredo novo.
+  </Step>
+  <Step title="Confirmar tráfego">
+    Monitorar por 24-72h que 100% do tráfego migrou.
+  </Step>
+  <Step title="Revogar v1">
+    Antigo é revogado na Plataforma.
+  </Step>
+</Steps>
+
+## Segurança
+
+- **TLS obrigatório.**
+- **Tokens curtos** (minutos), refresh mais longo.
+- **PKCE** obrigatório para clients públicos.
+- **Sem tokens em URL** — headers apenas.
+- **Segredo nunca em client-side** exposto (SPA, mobile).
+- **Revogação imediata** disponível via console.
+- **Audit log** de emissão, uso e revogação.
+
+## Erros comuns
+
+| Código | Causa | Ação |
+| --- | --- | --- |
+| `invalid_client` | Client ID/secret incorretos | Verificar credenciais |
+| `invalid_scope` | Escopo não provisionado | Solicitar upgrade de escopo |
+| `access_denied` | Usuário negou consentimento | Fluxo interrompido |
+| `token_expired` | Access token vencido | Usar refresh token |
+| `insufficient_scope` | Escopo não cobre ação | Reautorizar com escopo maior (se cabível) |
+
+## Riscos e red flags
+
+<Warning>
+  - Segredo em repositório público ou client-side.
+  - Token de longa vida sem rotação.
+  - Escopo `*` ou `admin` por comodidade.
+  - PKCE ausente em SPA/mobile.
+  - Client credentials usados quando havia usuário final — perda de atribuição.
+  - Depender de campos do token que não são estáveis (usar introspect).
+</Warning>
+
+## Continue por aqui
+
+<CardGroup cols={2}>
+  <Card title="API Reference" href="/devs/api-reference">
+    Onde os tokens são consumidos.
+  </Card>
+
+  <Card title="Webhooks" href="/devs/webhooks">
+    Segredos de assinatura de eventos.
+  </Card>
+
+  <Card title="MCP" href="/devs/mcp">
+    Como copilotos operam com escopo próprio.
+  </Card>
+
+  <Card title="Overview" href="/devs/overview">
+    A visão geral da Plataforma para Devs.
+  </Card>
+</CardGroup>
