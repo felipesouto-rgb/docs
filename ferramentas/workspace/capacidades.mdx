@@ -39,84 +39,192 @@ Uma capacidade institucional se define por sete dimensões:
 
 Descrever menos que isso reduz a capacidade a uma feature. Descrever mais que isso vira manual de tela — não é o propósito.
 
-## As capacidades, na ordem da jornada
+## Como funciona na prática
 
-<AccordionGroup>
-  <Accordion title="CRM & Contas — passo 9 e 12: originar e atender">
-    - **Que problema resolve?** Dar ao parceiro um lugar único onde a relação (tomadores e investidores) vira registro operável, não memória.
-    - **Quem usa?** Comercial e contas do parceiro.
-    - **Quando aparece?** Ao originar o primeiro deal (passo 9) e ao atender investidores (passo 12).
-    - **Camada?** Core.
-    - **Habilita / depende?** Habilita Deals e Pipeline; depende do Workspace criado e configurado. Suporta [Como Cuidamos das Contas](/contas/index).
-  </Accordion>
+Cada capacidade abaixo é descrita nas sete dimensões institucionais. A ordem segue a jornada do parceiro no Workspace — não é catálogo de módulos.
 
-  <Accordion title="Deals — passo 9: transformar oportunidade em operação">
-    - **Que problema resolve?** Levar uma oportunidade pelos estágios de uma operação de mercado de capitais sem perder controle nem etapa.
-    - **Quem usa?** Parceiro (origina) e Bloxs (estrutura/coordena).
-    - **Quando aparece?** Ao originar o primeiro deal (passo 9).
-    - **Camada?** Core.
-    - **Habilita / depende?** Depende de CRM/Contas; habilita Pipeline e Distribuição. Espelha [Como Fazemos um Deal](/deal/index).
-  </Accordion>
+### Cadastro de Parceiro
 
-  <Accordion title="Pipeline — passo 10: enxergar o que está acontecendo">
-    - **Que problema resolve?** Dar visão do estado real de cada deal — onde está, o que falta, o que trava.
-    - **Quem usa?** Parceiro e Bloxs.
-    - **Quando aparece?** Ao acompanhar os deals (passo 10).
-    - **Camada?** Core.
-    - **Habilita / depende?** Depende de Deals; alimenta decisão e priorização. Reflete os estágios de [Como Fazemos um Deal](/deal/index).
-  </Accordion>
+- **Problema operacional** — dar personalidade jurídica, contratual e operacional a um parceiro Sell Side ou Enterprise antes que ele opere no trilho.
+- **Quem usa** — Onboarding Bloxs, Comercial, Compliance.
+- **Quando aparece** — antes da primeira operação. É porta de entrada para tudo o mais.
+- **Dado / fonte de verdade** — identidade institucional (CNPJ, contrato, escopo, licenças, KYB, signatários).
+- **Decisão que habilita** — se o parceiro pode operar, sob qual escopo e sob qual entidade Bloxs.
+- **Risco que reduz** — operar com parceiro sem KYB completo, sem contrato adequado ou fora do perímetro contratado.
+- **Governança** — conecta com [Perímetro Regulatório](/regras/perimetro-regulatorio) e KYB/AML.
 
-  <Accordion title="Documentos & Data Room — passo 11: sustentar a operação com evidência">
-    - **Que problema resolve?** Organizar e compartilhar a documentação da operação com segurança e controle de acesso.
-    - **Quem usa?** Parceiro, Bloxs, investidores (no Data Room).
-    - **Quando aparece?** Ao distribuir uma operação (passo 11).
-    - **Camada?** Core.
-    - **Habilita / depende?** Depende do Deal estruturado; habilita a Distribuição. Suporta a [Documentação do Deal](/deal/documentacao). Não confundir com [Google Workspace](/ferramentas/infra/google-workspace).
-  </Accordion>
+### Contas
 
-  <Accordion title="Deal Match — passo 11: conectar oferta e apetite">
-    - **Que problema resolve?** Fazer a oportunidade do Sell Side encontrar o apetite do Buy Side.
-    - **Quem usa?** Parceiro (oferta) e Bloxs (coordenação).
-    - **Quando aparece?** Ao distribuir (passo 11).
-    - **Camada?** Core.
-    - **Habilita / depende?** Depende de Documentos/Data Room; conecta [Distribuição](/deal/coordenacao-colocacao) à demanda das [Contas Buy Side](/contas/contas-buy-side).
-  </Accordion>
+- **Problema operacional** — tratar cada parceiro como **unidade econômica** viva, com saúde, ciclo e sinais próprios — não como registro estático.
+- **Quem usa** — Account, Comercial, liderança, IA.
+- **Quando aparece** — do dia 1 do parceiro até o encerramento da relação.
+- **Dado / fonte de verdade** — saúde da conta, adoção, receita recorrente, deals em curso, sinais de expansão/atrito.
+- **Decisão que habilita** — investir mais na conta, cuidar, expandir, reter, retomar ou encerrar.
+- **Risco que reduz** — perder receita recorrente por falta de leitura de sinais; tratar deal como se fosse conta.
+- **Governança** — espinha da [Gestão de Contas](/contas/index) e do princípio "deals passam, contas ficam".
 
-  <Accordion title="IA (base) — transversal: assistir a operação">
-    - **Que problema resolve?** Responder dúvidas e assistir decisões dentro do fluxo, lendo o Playbook como base.
-    - **Quem usa?** Todos, dentro do Workspace.
-    - **Quando aparece?** Em toda a jornada, sob demanda.
-    - **Camada?** Core (base); AI Premium é [Add-on](/ferramentas/workspace/add-ons).
-    - **Habilita / depende?** Depende de conteúdo `agent_retrievable`; habilita respostas confiáveis. Ver [Copilotos](/copilotos/os-copilotos).
-  </Accordion>
+### Pipeline
 
-  <Accordion title="Academy — passo 8: aprender a operar">
-    - **Que problema resolve?** Reduzir o tempo até o parceiro operar com autonomia.
-    - **Quem usa?** Parceiro em onboarding e equipe nova.
-    - **Quando aparece?** No onboarding (passo 8) e continuamente.
-    - **Camada?** Core.
-    - **Habilita / depende?** Habilita a ativação da conta. Conecta a [Como Aprender Aqui](/aprender/onboarding).
-  </Accordion>
-</AccordionGroup>
+- **Problema operacional** — dar visão do que está entrando, avançando e travando sem depender de memória.
+- **Quem usa** — Comercial do parceiro, Bloxs, liderança.
+- **Quando aparece** — todo dia. É a superfície operacional do trabalho comercial.
+- **Dado / fonte de verdade** — estágio de cada oportunidade, próximo passo, gargalos.
+- **Decisão que habilita** — onde alocar tempo, o que escalar, o que abandonar.
+- **Risco que reduz** — trabalhar por sensação; deals perdidos por falta de próximo passo registrado.
+- **Governança** — alimenta [Registro na Plataforma](/como-vendemos/registro-plataforma).
 
-## Regras da casa aqui
+### Deals
+
+- **Problema operacional** — levar uma oportunidade pelos estágios de uma operação de mercado de capitais sem perder controle regulatório, documental ou econômico.
+- **Quem usa** — Parceiro (origina), Estruturação, Coordenação, Compliance.
+- **Quando aparece** — do intake ao fechamento.
+- **Dado / fonte de verdade** — jornada auditável do deal: estágios, comitês, aprovações, documentos, contrapartes.
+- **Decisão que habilita** — avançar, ajustar, escalar, recusar em cada estágio.
+- **Risco que reduz** — deal fora do processo padrão; ausência de trilha; passos regulatórios pulados.
+- **Governança** — espelha [A Jornada Completa do Deal](/deal/index) e o [Perímetro Regulatório](/regras/perimetro-regulatorio).
+
+### Documentos / Data Room
+
+- **Problema operacional** — organizar, versionar e compartilhar a evidência documental da operação com controle de acesso.
+- **Quem usa** — Parceiro, Bloxs, contrapartes autorizadas.
+- **Quando aparece** — de intake a distribuição, e depois em memória permanente da operação.
+- **Dado / fonte de verdade** — lastro, contratos, atas, materiais aprovados, versões.
+- **Decisão que habilita** — aprovar ou não uma etapa; abrir Data Room para uma contraparte específica.
+- **Risco que reduz** — circular documento errado; perder rastreabilidade; expor material sem aprovação.
+- **Governança** — conecta com [Registro & Auditoria](/regras/recordkeeping) e [Dados, Sigilo & LGPD](/regras/dados-e-lgpd).
+
+### Investidores (Buy Side)
+
+- **Problema operacional** — registrar apetite, alocações e histórico de contrapartes compradoras sem tratá-las como clientes comerciais.
+- **Quem usa** — Coordenação (Bloxs Capital Markets), Compliance.
+- **Quando aparece** — em torno da coordenação e distribuição de cada oferta.
+- **Dado / fonte de verdade** — apetite institucional, tickets, alocações, feedback de preço.
+- **Decisão que habilita** — a quem apresentar (dentro do regime da oferta); como precificar; quando ancorar.
+- **Risco que reduz** — esforço de venda fora do regime; comunicação comercial indevida com Buy Side.
+- **Governança** — sujeito a [Distribuição e Oferta](/regras/distribuicao-e-oferta) e ao princípio "Buy Side não é cliente do IBaaS".
+
+### Reporting
+
+- **Problema operacional** — transformar operação em informação — para a Bloxs, para o parceiro, para a contraparte.
+- **Quem usa** — Liderança, RevOps, Account, Compliance, contrapartes autorizadas.
+- **Quando aparece** — recorrente (diário, mensal, sob demanda).
+- **Dado / fonte de verdade** — indicadores de conta, deal, distribuição, saúde e conformidade.
+- **Decisão que habilita** — priorizar, corrigir, comunicar, prestar contas.
+- **Risco que reduz** — decisões por sensação; falta de prestação de contas ao parceiro Enterprise.
+- **Governança** — alimenta [Métricas](/dados/metricas) e [Ritual & Cadência](/dados/ritual-e-cadencia).
+
+### Permissões
+
+- **Problema operacional** — garantir que cada usuário veja e faça exatamente o que seu papel permite — nada além.
+- **Quem usa** — Administradores do Workspace, Compliance.
+- **Quando aparece** — no setup do parceiro e em qualquer mudança de time.
+- **Dado / fonte de verdade** — matriz de acesso `User × Objeto × Ação`.
+- **Decisão que habilita** — o que expor, a quem, sob qual escopo.
+- **Risco que reduz** — vazamento de informação sensível; usuário externo com acesso a Deal alheio; violação de sigilo.
+- **Governança** — reflete o [Perímetro Regulatório](/regras/perimetro-regulatorio) na camada de acesso.
+
+### Notificações
+
+- **Problema operacional** — puxar atenção humana no momento certo, sem ruído.
+- **Quem usa** — todos.
+- **Quando aparece** — em eventos operacionais materiais (aprovação pendente, prazo, sinal de conta).
+- **Dado / fonte de verdade** — eventos emitidos pelo núcleo.
+- **Decisão que habilita** — agir agora; adiar; escalar.
+- **Risco que reduz** — perder janela crítica de um deal, uma conta ou uma comunicação regulatória.
+- **Governança** — deve respeitar canais autorizados e [Uso de IA](/regras/uso-de-ia) quando gerada por copiloto.
+
+### Logs & Audit Trail
+
+- **Problema operacional** — deixar trilha auditável de tudo que importa.
+- **Quem usa** — Compliance, Auditoria, Tecnologia.
+- **Quando aparece** — em background, o tempo todo.
+- **Dado / fonte de verdade** — o "quem, quando, o quê" de cada operação sensível.
+- **Decisão que habilita** — responder a auditoria, investigar incidente, provar conformidade.
+- **Risco que reduz** — impossibilidade de reconstruir uma decisão passada.
+- **Governança** — pilar do [Registro & Auditoria](/regras/recordkeeping).
+
+### Integrações
+
+- **Problema operacional** — conectar o Workspace ao restante da stack do parceiro (CRM próprio, ERP, BI) sem quebrar o perímetro.
+- **Quem usa** — Tecnologia Bloxs, Tecnologia do parceiro/Enterprise.
+- **Quando aparece** — no onboarding de Enterprise; em automações internas.
+- **Dado / fonte de verdade** — contrato de integração (escopo, credenciais, logs).
+- **Decisão que habilita** — automatizar; espelhar dados; alimentar BI.
+- **Risco que reduz** — dado duplicado como fonte de verdade paralela; credencial com escopo excessivo.
+- **Governança** — segue [Developers — Visão Geral](/devs/overview) e o princípio "API não altera perímetro".
+
+### Copilotos (IA Base)
+
+- **Problema operacional** — responder dúvidas e assistir decisões dentro do fluxo, lendo o Playbook e o contexto do parceiro como base.
+- **Quem usa** — todos, dentro do Workspace.
+- **Quando aparece** — sob demanda, em qualquer estágio da jornada.
+- **Dado / fonte de verdade** — conteúdo `agent_retrievable` \+ contexto operacional do Workspace via MCP.
+- **Decisão que habilita** — encontrar a regra, o próximo passo, a estrutura provável.
+- **Risco que reduz** — decisão sem base; interpretação livre da regra; retrabalho.
+- **Governança** — sujeito a [Uso de IA](/regras/uso-de-ia) e aos [Guardrails de Recuperação](/copilotos/guardrails-de-recuperacao).
+
+## Critérios de decisão — qual capacidade acionar
+
+- **Está registrando quem é o parceiro?** → Cadastro de Parceiro.
+- **Está entendendo a saúde da relação?** → Contas.
+- **Está movendo trabalho comercial?** → Pipeline.
+- **Está estruturando/executando operação?** → Deals \+ Documentos.
+- **Está falando com Buy Side?** → Investidores \+ Compliance.
+- **Precisa de visão consolidada?** → Reporting.
+- **Está definindo quem vê o quê?** → Permissões.
+- **Precisa de resposta rápida sobre o Playbook?** → Copilotos.
+
+## Papéis e responsabilidades
+
+| Capacidade | Dono na Bloxs | Aprova mudança | Registra |
+| --- | --- | --- | --- |
+| Cadastro de Parceiro | Onboarding | Compliance | Workspace |
+| Contas / Pipeline / Deals | Produto \+ Account | Produto | Workspace |
+| Documentos / Data Room | Produto \+ Compliance | Compliance | Workspace |
+| Investidores | Coordenação (Capital Markets) | Compliance | Workspace |
+| Reporting | RevOps & Dados | Liderança | BI / Workspace |
+| Permissões | Produto \+ Compliance | Compliance | Workspace |
+| Integrações | Tecnologia | Tecnologia \+ Compliance | Contrato \+ logs |
+| Copilotos | IA no Playbook | Compliance | Logs de conversa |
+
+## Riscos e red flags
 
 <Warning>
-  Uma capacidade estar disponível não autoriza atividade regulada por conta própria. Emissão, coordenação e gestão seguem nas entidades Bloxs. Ver [O Perímetro](/produtos/perimetro/originacao-vs-atividade-regulada).
+  **Sinais de má utilização das capacidades:**
+
+  - Parceiro operando deal sem KYB completo no Cadastro de Parceiro.
+  - Trabalho comercial fora do Pipeline ("planilha do lado").
+  - Documento circulando fora do Data Room.
+  - Buy Side sendo tratado como conta comercial ("investidor-cliente").
+  - Reporting fabricado à mão em vez de gerado da fonte de verdade.
+  - Permissões amplas por padrão em vez de escopo mínimo.
+  - Copiloto respondendo sem citar fonte do Playbook.
 </Warning>
 
-## Para onde ir agora
+## Linguagem segura
+
+✅ "A conta é a unidade econômica; o deal é evento." ✅ "O que não está no Workspace não aconteceu." ✅ "Uma capacidade não altera o perímetro — o perímetro está na regra." ❌ "Rodei fora do Workspace só desta vez." ❌ "O investidor virou nosso cliente." ❌ "Peguei o dado de uma planilha que alguém me mandou."
+
+## Registro obrigatório
+
+Toda capacidade acima **é o registro** — não gera um registro paralelo. A regra é única: o que aconteceu vive na capacidade que o gerou. Reporting é derivação; nunca fonte primária.
+
+## Continue por aqui
 
 <CardGroup cols={2}>
-  <Card title="Configuração & Administração" icon="users-gear" href="/ferramentas/workspace/administracao">
+  <Card title="Configuração & Administração" href="/ferramentas/workspace/administracao">
+    Como configurar Workspace, times, permissões e integrações.
   </Card>
 
-  <Card title="Enterprise Capabilities" icon="building" href="/ferramentas/workspace/enterprise-capabilities">
+  <Card title="Enterprise Capabilities" href="/ferramentas/workspace/enterprise-capabilities">
+    O que muda quando o Workspace vira white-label sob marca própria.
   </Card>
 
-  <Card title="Como Fazemos um Deal" icon="diagram-project" href="/deal/index">
+  <Card title="A Jornada Completa do Deal" href="/deal/index">
+    Como as capacidades se combinam do intake ao fechamento.
   </Card>
 
-  <Card title="Como Cuidamos das Contas" icon="user-check" href="/contas/index">
+  <Card title="Gestão de Contas" href="/contas/index">
+    Como as capacidades sustentam o princípio "deals passam, contas ficam".
   </Card>
 </CardGroup>
